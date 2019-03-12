@@ -1,0 +1,1451 @@
+<?xml version="1.0"?>
+<AudioDoc name="Session-2_23_2014-01" path="Session-2_23_2014-01.mp3">
+<ProcList>
+<Proc name="vrbs_part" version="2.5"/>
+<Proc name="vrbs_trans.ara" version="6.0" editor="Vocapia Research"/>
+</ProcList>
+<ChannelList>
+<Channel num="1" sigdur="915.23" spdur="589.79" nw="1276" tconf="0.88"/>
+</ChannelList>
+<SpeakerList>
+<Speaker ch="1" dur="265.40" gender="1" spkid="MS5" lang="ara" lconf="1.00" nw="576" tconf="0.89"/>
+<Speaker ch="1" dur="186.92" gender="1" spkid="MS2" lang="ara" lconf="1.00" nw="400" tconf="0.87"/>
+<Speaker ch="1" dur="0.87" gender="2" spkid="FS1" lang="ara" lconf="1.00" nw="1" tconf="0.40"/>
+<Speaker ch="1" dur="76.70" gender="1" spkid="MS6" lang="ara" lconf="1.00" nw="184" tconf="0.88"/>
+<Speaker ch="1" dur="41.48" gender="1" spkid="MS4" lang="ara" lconf="1.00" nw="86" tconf="0.81"/>
+<Speaker ch="1" dur="9.05" gender="1" spkid="MS3" lang="ara" lconf="1.00" nw="10" tconf="0.80"/>
+<Speaker ch="1" dur="8.29" gender="1" spkid="MT2" lang="ara" lconf="1.00" nw="16" tconf="0.86"/>
+<Speaker ch="1" dur="0.00" gender="1" spkid="MS1"/>
+<Speaker ch="1" dur="1.08" gender="2" spkid="FS5" lang="ara" lconf="1.00" nw="3" tconf="0.56"/>
+</SpeakerList>
+<SegmentList>
+<SpeechSegment ch="1" sconf="1.00" stime="89.99" etime="91.09" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="90.29" dur="0.27" conf="0.811"> تفضل </Word>
+<Word stime="90.62" dur="0.06" conf="0.966"> يا </Word>
+<Word stime="90.77" dur="0.32" conf="0.875"> إخوان </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="108.04" etime="118.35" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="108.11" dur="0.24" conf="0.975"> وعلى </Word>
+<Word stime="108.35" dur="0.37" conf="0.975"> بركة </Word>
+<Word stime="108.72" dur="0.32" conf="0.975"> الله </Word>
+<Word stime="109.04" dur="0.06" conf="0.495"> . </Word>
+<Word stime="109.10" dur="0.27" conf="0.975"> نبدأ </Word>
+<Word stime="109.51" dur="0.40" conf="0.691"> جلسة </Word>
+<Word stime="110.06" dur="0.22" conf="0.823"> هذا </Word>
+<Word stime="110.33" dur="0.39" conf="0.975"> اليوم </Word>
+<Word stime="110.72" dur="0.81" conf="0.594"> . </Word>
+<Word stime="111.53" dur="0.43" conf="0.975"> سائلين </Word>
+<Word stime="112.04" dur="0.39" conf="0.975"> الله </Word>
+<Word stime="112.94" dur="0.36" conf="0.975"> عز </Word>
+<Word stime="113.30" dur="0.27" conf="0.975"> وجل </Word>
+<Word stime="113.66" dur="0.39" conf="0.973"> التوفيق </Word>
+<Word stime="114.05" dur="0.66" conf="0.975"> والسداد </Word>
+<Word stime="115.37" dur="0.24" conf="0.975"> لما </Word>
+<Word stime="115.67" dur="0.14" conf="0.973"> فيه </Word>
+<Word stime="115.85" dur="0.48" conf="0.975"> خير </Word>
+<Word stime="117.07" dur="0.43" conf="0.891"> البحرين </Word>
+<Word stime="117.50" dur="0.42" conf="0.797"> وشعبها </Word>
+<Word stime="118.00" dur="0.31" conf="0.975"> الوفي </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="122.45" etime="123.69" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="122.45" dur="0.34" conf="0.928"> سعادة </Word>
+<Word stime="123.19" dur="0.20" conf="0.975"> الأمين </Word>
+<Word stime="123.39" dur="0.22" conf="0.975"> العام </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="129.96" etime="130.96" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="129.96" dur="0.35" conf="0.795"> التصديق </Word>
+<Word stime="130.45" dur="0.30" conf="0.970"> علي </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="132.22" etime="136.53" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="132.22" dur="0.46" conf="0.969"> مضبطة </Word>
+<Word stime="132.68" dur="0.28" conf="0.822"> الجلسة </Word>
+<Word stime="133.10" dur="0.43" conf="0.968"> السابقة </Word>
+<Word stime="134.40" dur="0.08" conf="0.555"> في </Word>
+<Word stime="134.51" dur="0.09" conf="0.965"> أي </Word>
+<Word stime="134.65" dur="0.19" conf="0.955"> واحد </Word>
+<Word stime="134.84" dur="0.12" conf="0.956"> من </Word>
+<Word stime="134.96" dur="0.33" conf="0.968"> الإخوان </Word>
+<Word stime="135.36" dur="0.23" conf="0.824"> عند </Word>
+<Word stime="135.59" dur="0.42" conf="0.955"> ملاحظة </Word>
+<Word stime="136.10" dur="0.13" conf="0.818"> علي </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="138.29" etime="138.99" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="138.29" dur="0.62" conf="0.494"> مضبطة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="142.84" etime="146.97" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="142.84" dur="0.15" conf="0.899"> لا </Word>
+<Word stime="143.03" dur="0.45" conf="0.914"> يوجد </Word>
+<Word stime="144.36" dur="0.47" conf="0.777"> تفضل </Word>
+<Word stime="145.10" dur="0.22" conf="0.966"> سعادة </Word>
+<Word stime="145.37" dur="0.30" conf="0.966"> النائب </Word>
+<Word stime="145.72" dur="0.15" conf="0.785"> عليه </Word>
+<Word stime="145.91" dur="0.42" conf="0.471"> وفرس </Word>
+<Word stime="146.60" dur="0.32" conf="0.885"> تفضل </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="148.47" etime="149.71" spkid="MS4" lang="ara" lconf="1.00" trs="1">
+<Word stime="148.47" dur="0.22" conf="0.742"> أنت </Word>
+<Word stime="148.81" dur="0.34" conf="0.604"> توقف </Word>
+<Word stime="149.20" dur="0.21" conf="0.769"> بس </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="151.80" etime="157.88" spkid="MS4" lang="ara" lconf="1.00" trs="1">
+<Word stime="152.10" dur="0.19" conf="0.969"> بسم </Word>
+<Word stime="152.29" dur="0.14" conf="0.969"> الله </Word>
+<Word stime="152.43" dur="0.18" conf="0.956"> الرحمن </Word>
+<Word stime="152.61" dur="0.28" conf="0.969"> الرحيم </Word>
+<Word stime="152.89" dur="0.23" conf="0.721"> . </Word>
+<Word stime="153.12" dur="0.27" conf="0.964"> السلام </Word>
+<Word stime="153.39" dur="0.19" conf="0.969"> عليكم </Word>
+<Word stime="154.26" dur="0.09" conf="0.536"> من </Word>
+<Word stime="154.35" dur="0.25" conf="0.724"> السلام </Word>
+<Word stime="154.92" dur="0.27" conf="0.950"> سعادة </Word>
+<Word stime="155.19" dur="0.17" conf="0.546"> الرئيس </Word>
+<Word stime="155.70" dur="0.25" conf="0.969"> في </Word>
+<Word stime="156.90" dur="0.31" conf="0.968"> الصفحة </Word>
+<Word stime="157.29" dur="0.29" conf="0.934"> الأولى </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="160.14" etime="174.70" spkid="MS4" lang="ara" lconf="1.00" trs="1">
+<Word stime="160.14" dur="0.31" conf="0.598"> النقطة </Word>
+<Word stime="160.45" dur="0.17" conf="0.936"> رقم </Word>
+<Word stime="160.66" dur="0.19" conf="0.964"> اثنين </Word>
+<Word stime="161.59" dur="0.14" conf="0.706"> أين </Word>
+<Word stime="162.09" dur="0.21" conf="0.458"> أنا </Word>
+<Word stime="162.43" dur="0.34" conf="0.964"> أكبر </Word>
+<Word stime="162.77" dur="0.50" conf="0.967"> النواب </Word>
+<Word stime="163.93" dur="0.46" conf="0.967"> سنا </Word>
+<Word stime="164.83" dur="0.19" conf="0.939"> نرجو </Word>
+<Word stime="165.07" dur="0.42" conf="0.918"> إضافة </Word>
+<Word stime="165.49" dur="0.30" conf="0.966"> رئيس </Word>
+<Word stime="165.88" dur="0.38" conf="0.942"> الجلسة </Word>
+<Word stime="167.44" dur="0.26" conf="0.945"> ثم </Word>
+<Word stime="168.05" dur="0.68" conf="0.896"> معاونيه </Word>
+<Word stime="168.73" dur="1.85" conf="0.760"> . </Word>
+<Word stime="170.58" dur="0.10" conf="0.477"> لا </Word>
+<Word stime="170.68" dur="0.16" conf="0.634"> . </Word>
+<Word stime="170.84" dur="0.16" conf="0.572"> هذا </Word>
+<Word stime="171.06" dur="0.40" conf="0.965"> الكلام </Word>
+<Word stime="171.61" dur="0.34" conf="0.967"> يعني </Word>
+<Word stime="172.03" dur="0.08" conf="0.490"> انت </Word>
+<Word stime="172.36" dur="0.20" conf="0.885"> قلت </Word>
+<Word stime="173.30" dur="0.16" conf="0.965"> لا </Word>
+<Word stime="173.50" dur="0.12" conf="0.966"> لا </Word>
+<Word stime="174.38" dur="0.17" conf="0.622"> لا </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="177.11" etime="182.14" spkid="MS4" lang="ara" lconf="1.00" trs="1">
+<Word stime="177.41" dur="0.08" conf="0.908"> لا </Word>
+<Word stime="177.49" dur="0.06" conf="0.627"> . </Word>
+<Word stime="177.55" dur="0.14" conf="0.938"> بس </Word>
+<Word stime="177.87" dur="0.27" conf="0.511"> ملاحظة </Word>
+<Word stime="178.71" dur="0.43" conf="0.962"> علشان </Word>
+<Word stime="179.40" dur="0.27" conf="0.940"> الذي </Word>
+<Word stime="179.76" dur="0.32" conf="0.849"> يجعلني </Word>
+<Word stime="180.54" dur="0.16" conf="0.577"> ليرد </Word>
+<Word stime="180.93" dur="0.15" conf="0.966"> على </Word>
+<Word stime="181.08" dur="0.36" conf="0.876"> لسانك </Word>
+<Word stime="181.53" dur="0.31" conf="0.967"> فقط </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="183.65" etime="197.42" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="183.87" dur="0.09" conf="0.553"> هذا </Word>
+<Word stime="184.02" dur="0.30" conf="0.615"> الكلام </Word>
+<Word stime="184.32" dur="0.14" conf="0.956"> انت </Word>
+<Word stime="184.49" dur="0.13" conf="0.942"> ما </Word>
+<Word stime="184.65" dur="0.26" conf="0.936"> قلت </Word>
+<Word stime="185.05" dur="0.14" conf="0.916"> لا </Word>
+<Word stime="185.19" dur="0.15" conf="0.950"> ما </Word>
+<Word stime="185.34" dur="0.21" conf="0.685"> قلنا </Word>
+<Word stime="185.74" dur="0.14" conf="0.876"> لا </Word>
+<Word stime="185.88" dur="0.07" conf="0.919"> ، </Word>
+<Word stime="185.95" dur="0.11" conf="0.734"> لا </Word>
+<Word stime="186.06" dur="0.06" conf="0.711"> . </Word>
+<Word stime="186.12" dur="0.21" conf="0.965"> بس </Word>
+<Word stime="186.40" dur="0.31" conf="0.966"> أحنا </Word>
+<Word stime="186.99" dur="0.32" conf="0.767"> نعدل </Word>
+<Word stime="187.65" dur="0.50" conf="0.846"> المضبطة </Word>
+<Word stime="188.22" dur="0.50" conf="0.960"> الكلام </Word>
+<Word stime="188.72" dur="0.15" conf="0.967"> اللي </Word>
+<Word stime="189.76" dur="0.16" conf="0.894"> اللي </Word>
+<Word stime="190.50" dur="0.12" conf="0.594"> هي </Word>
+<Word stime="190.89" dur="0.45" conf="0.961"> لسان </Word>
+<Word stime="191.67" dur="0.40" conf="0.933"> النار </Word>
+<Word stime="193.01" dur="0.19" conf="0.935"> على </Word>
+<Word stime="193.26" dur="0.17" conf="0.498"> خير </Word>
+<Word stime="193.43" dur="1.27" conf="0.855"> . </Word>
+<Word stime="194.70" dur="0.42" conf="0.890"> شكرا </Word>
+<Word stime="195.12" dur="0.71" conf="0.589"> . </Word>
+<Word stime="195.83" dur="0.10" conf="0.565"> في </Word>
+<Word stime="195.96" dur="0.18" conf="0.915"> أحد </Word>
+<Word stime="196.19" dur="0.07" conf="0.695"> من </Word>
+<Word stime="196.26" dur="0.33" conf="0.946"> الإخوان </Word>
+<Word stime="196.59" dur="0.18" conf="0.844"> . </Word>
+<Word stime="196.77" dur="0.11" conf="0.395"> أم </Word>
+<Word stime="196.88" dur="0.00" conf="0.880"> . </Word>
+<Word stime="196.88" dur="0.47" conf="0.519"> ملاحظة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="199.84" etime="200.91" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="199.84" dur="0.31" conf="0.969"> سعادة </Word>
+<Word stime="200.33" dur="0.24" conf="0.967"> الأمين </Word>
+<Word stime="200.57" dur="0.29" conf="0.968"> العام </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="202.57" etime="205.28" spkid="MS3" lang="ara" lconf="1.00" trs="1">
+<Word stime="202.87" dur="0.42" conf="0.847"> الآن </Word>
+<Word stime="204.19" dur="0.28" conf="0.943"> البند </Word>
+<Word stime="204.55" dur="0.17" conf="0.975"> الذي </Word>
+<Word stime="204.76" dur="0.22" conf="0.573"> يليه </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="206.44" etime="207.52" spkid="FS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="206.44" dur="0.26" conf="0.400"> عارف </Word>
+<Word stime="206.81" dur="0.10" conf="0.483"> ان </Word>
+<Word stime="207.21" dur="0.31" conf="0.787"> محاسن </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="208.01" etime="212.73" spkid="MS3" lang="ara" lconf="1.00" trs="1">
+<Word stime="208.31" dur="0.23" conf="0.966"> الأخ </Word>
+<Word stime="210.35" dur="0.34" conf="0.927"> تفضل </Word>
+<Word stime="212.14" dur="0.13" conf="0.834"> أي </Word>
+<Word stime="212.34" dur="0.09" conf="0.865"> نعم </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="213.34" etime="225.90" spkid="MS4" lang="ara" lconf="1.00" trs="1">
+<Word stime="213.44" dur="0.29" conf="0.918"> شكرا </Word>
+<Word stime="213.73" dur="0.20" conf="0.964"> معالي </Word>
+<Word stime="213.98" dur="0.31" conf="0.509"> رئيس </Word>
+<Word stime="214.40" dur="0.14" conf="0.791"> في </Word>
+<Word stime="214.58" dur="0.36" conf="0.688"> شيء </Word>
+<Word stime="215.17" dur="0.13" conf="0.496"> مع </Word>
+<Word stime="215.43" dur="0.20" conf="0.573"> الرئيس </Word>
+<Word stime="215.63" dur="0.18" conf="0.925"> بس </Word>
+<Word stime="216.08" dur="0.30" conf="0.925"> كلمة </Word>
+<Word stime="216.45" dur="0.25" conf="0.886"> شكر </Word>
+<Word stime="216.70" dur="0.10" conf="0.722"> . </Word>
+<Word stime="216.80" dur="0.08" conf="0.954"> لا </Word>
+<Word stime="217.03" dur="0.10" conf="0.952"> لا </Word>
+<Word stime="217.13" dur="0.14" conf="0.897"> لا </Word>
+<Word stime="217.27" dur="0.61" conf="0.851"> . </Word>
+<Word stime="217.88" dur="0.46" conf="0.949"> البحرين </Word>
+<Word stime="218.45" dur="0.25" conf="0.629"> رجلا </Word>
+<Word stime="220.24" dur="0.17" conf="0.962"> لا </Word>
+<Word stime="220.47" dur="0.21" conf="0.963"> إذا </Word>
+<Word stime="220.68" dur="0.32" conf="0.507"> تفتح </Word>
+<Word stime="221.06" dur="0.14" conf="0.946"> لك </Word>
+<Word stime="221.28" dur="0.27" conf="0.962"> المجال </Word>
+<Word stime="221.62" dur="0.34" conf="0.911"> بافتح </Word>
+<Word stime="221.99" dur="0.17" conf="0.479"> جميع </Word>
+<Word stime="222.66" dur="0.29" conf="0.964"> يعني </Word>
+<Word stime="224.12" dur="0.24" conf="0.506"> والجالس </Word>
+<Word stime="224.42" dur="0.14" conf="0.884"> مع </Word>
+<Word stime="225.34" dur="0.32" conf="0.487"> معالي </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="225.90" etime="229.15" spkid="MT2" lang="ara" lconf="1.00" trs="1">
+<Word stime="225.90" dur="0.18" conf="0.684"> فيه </Word>
+<Word stime="226.12" dur="0.27" conf="0.969"> عندنا </Word>
+<Word stime="226.54" dur="0.32" conf="0.568"> لأننا </Word>
+<Word stime="227.37" dur="0.22" conf="0.938"> بسرعة </Word>
+<Word stime="227.65" dur="0.27" conf="0.969"> عندنا </Word>
+<Word stime="228.07" dur="0.57" conf="0.853"> انتخابات </Word>
+<Word stime="228.64" dur="0.45" conf="0.969"> اللجان </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="229.15" etime="231.16" spkid="MS4" lang="ara" lconf="1.00" trs="1">
+<Word stime="229.15" dur="0.20" conf="0.970"> يعني </Word>
+<Word stime="229.66" dur="0.22" conf="0.967"> هي </Word>
+<Word stime="229.95" dur="0.41" conf="0.968"> أول </Word>
+<Word stime="230.36" dur="0.22" conf="0.407"> جلس </Word>
+<Word stime="230.63" dur="0.23" conf="0.530"> رجل </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="232.86" etime="243.63" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="232.86" dur="0.25" conf="0.968"> إذا </Word>
+<Word stime="233.11" dur="0.36" conf="0.943"> باعطيك </Word>
+<Word stime="233.47" dur="0.30" conf="0.892"> الكلمة </Word>
+<Word stime="233.95" dur="0.24" conf="0.568"> باعطي </Word>
+<Word stime="234.25" dur="0.32" conf="0.945"> الكل </Word>
+<Word stime="236.11" dur="0.51" conf="0.925"> باللائحة </Word>
+<Word stime="236.93" dur="0.29" conf="0.946"> يكون </Word>
+<Word stime="237.22" dur="0.37" conf="0.784"> مونتيري </Word>
+<Word stime="238.22" dur="0.21" conf="0.650"> مثلما </Word>
+<Word stime="238.51" dur="0.14" conf="0.922"> صار </Word>
+<Word stime="238.69" dur="0.17" conf="0.548"> بالفصل </Word>
+<Word stime="239.11" dur="0.48" conf="0.967"> السابع </Word>
+<Word stime="239.59" dur="0.18" conf="0.756"> رايحين </Word>
+<Word stime="239.77" dur="0.39" conf="0.507"> . </Word>
+<Word stime="240.16" dur="0.41" conf="0.968"> شكرا </Word>
+<Word stime="240.57" dur="0.06" conf="0.800"> ، </Word>
+<Word stime="240.63" dur="0.32" conf="0.967"> شكرا </Word>
+<Word stime="240.95" dur="0.11" conf="0.800"> ، </Word>
+<Word stime="241.06" dur="0.31" conf="0.967"> شكرا </Word>
+<Word stime="242.18" dur="0.37" conf="0.968"> سعادة </Word>
+<Word stime="242.69" dur="0.20" conf="0.965"> الأمين </Word>
+<Word stime="242.89" dur="0.15" conf="0.943"> العام </Word>
+<Word stime="243.04" dur="0.05" conf="0.614"> . </Word>
+<Word stime="243.09" dur="0.24" conf="0.384"> اتفضل </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="245.29" etime="258.51" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="245.29" dur="0.27" conf="0.564"> عرض </Word>
+<Word stime="245.85" dur="0.41" conf="0.969"> المراسيم </Word>
+<Word stime="246.35" dur="0.50" conf="0.971"> بقوانين </Word>
+<Word stime="247.06" dur="0.41" conf="0.350"> الصادرة </Word>
+<Word stime="247.55" dur="0.25" conf="0.970"> بعد </Word>
+<Word stime="247.80" dur="0.32" conf="0.970"> انتهاء </Word>
+<Word stime="248.16" dur="0.20" conf="0.971"> دور </Word>
+<Word stime="248.36" dur="0.42" conf="0.938"> الانعقاد </Word>
+<Word stime="248.90" dur="0.31" conf="0.971"> السنوي </Word>
+<Word stime="249.40" dur="0.43" conf="0.969"> العادي </Word>
+<Word stime="249.86" dur="0.26" conf="0.826"> الرابع </Word>
+<Word stime="250.42" dur="0.13" conf="0.968"> من </Word>
+<Word stime="250.60" dur="0.36" conf="0.970"> الفصل </Word>
+<Word stime="251.04" dur="0.34" conf="0.970"> التشريعي </Word>
+<Word stime="251.45" dur="0.51" conf="0.971"> الثالث </Word>
+<Word stime="252.40" dur="0.64" conf="0.775"> لاحالتها </Word>
+<Word stime="253.19" dur="0.16" conf="0.971"> إلى </Word>
+<Word stime="253.40" dur="0.29" conf="0.971"> اللجان </Word>
+<Word stime="253.76" dur="0.46" conf="0.937"> المختصة </Word>
+<Word stime="254.42" dur="0.22" conf="0.956"> بناء </Word>
+<Word stime="254.69" dur="0.17" conf="0.971"> على </Word>
+<Word stime="254.90" dur="0.26" conf="0.970"> نص </Word>
+<Word stime="255.24" dur="0.30" conf="0.971"> المادة </Word>
+<Word stime="255.62" dur="0.21" conf="0.971"> مئة </Word>
+<Word stime="255.83" dur="0.41" conf="0.495"> وثمانية </Word>
+<Word stime="256.24" dur="0.46" conf="0.971"> وعشرين </Word>
+<Word stime="257.21" dur="0.19" conf="0.970"> من </Word>
+<Word stime="257.48" dur="0.39" conf="0.970"> اللائحة </Word>
+<Word stime="257.87" dur="0.34" conf="0.922"> الداخلية </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="266.82" etime="292.78" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="266.82" dur="0.59" conf="0.978"> أولا </Word>
+<Word stime="267.93" dur="0.27" conf="0.617"> الرسالة </Word>
+<Word stime="268.39" dur="0.46" conf="0.977"> الواردة </Word>
+<Word stime="268.96" dur="0.12" conf="0.977"> من </Word>
+<Word stime="269.11" dur="0.36" conf="0.977"> صاحب </Word>
+<Word stime="269.47" dur="0.18" conf="0.977"> السمو </Word>
+<Word stime="269.65" dur="0.22" conf="0.858"> الملكي </Word>
+<Word stime="270.05" dur="0.29" conf="0.946"> رئيس </Word>
+<Word stime="270.34" dur="0.30" conf="0.977"> مجلس </Word>
+<Word stime="270.64" dur="0.37" conf="0.977"> الوزراء </Word>
+<Word stime="271.09" dur="0.37" conf="0.977"> الموقر </Word>
+<Word stime="271.64" dur="0.38" conf="0.962"> بخصوص </Word>
+<Word stime="272.09" dur="0.28" conf="0.838"> مرسوم </Word>
+<Word stime="272.44" dur="0.60" conf="0.978"> بقانون </Word>
+<Word stime="273.64" dur="0.39" conf="0.976"> رقم </Word>
+<Word stime="274.48" dur="0.22" conf="0.931"> ستة </Word>
+<Word stime="274.75" dur="0.41" conf="0.976"> وخمسين </Word>
+<Word stime="275.26" dur="0.29" conf="0.977"> لسنة </Word>
+<Word stime="275.62" dur="0.33" conf="0.977"> ألفين </Word>
+<Word stime="275.95" dur="0.42" conf="0.977"> وأربعة </Word>
+<Word stime="276.42" dur="0.19" conf="0.971"> عشر </Word>
+<Word stime="276.75" dur="0.28" conf="0.625"> تعديل </Word>
+<Word stime="277.09" dur="0.34" conf="0.977"> المادة </Word>
+<Word stime="277.51" dur="0.42" conf="0.977"> واحد </Word>
+<Word stime="278.37" dur="0.15" conf="0.976"> من </Word>
+<Word stime="278.56" dur="0.31" conf="0.866"> المرسوم </Word>
+<Word stime="279.01" dur="0.48" conf="0.957"> بقانون </Word>
+<Word stime="279.49" dur="0.22" conf="0.978"> رقم </Word>
+<Word stime="279.76" dur="0.35" conf="0.709"> سبعة </Word>
+<Word stime="280.11" dur="0.24" conf="0.709"> عشر </Word>
+<Word stime="280.35" dur="0.30" conf="0.977"> لسنة </Word>
+<Word stime="280.72" dur="0.36" conf="0.977"> ألفين </Word>
+<Word stime="281.08" dur="0.36" conf="0.927"> واثنان </Word>
+<Word stime="281.98" dur="0.42" conf="0.975"> بشأن </Word>
+<Word stime="282.40" dur="0.25" conf="0.972"> نظام </Word>
+<Word stime="282.71" dur="0.80" conf="0.978"> المحافظات </Word>
+<Word stime="283.99" dur="0.43" conf="0.788"> أحيلت </Word>
+<Word stime="284.53" dur="0.12" conf="0.898"> مع </Word>
+<Word stime="284.68" dur="0.48" conf="0.965"> المرسوم </Word>
+<Word stime="285.16" dur="0.17" conf="0.978"> إلى </Word>
+<Word stime="285.37" dur="0.33" conf="0.976"> لجنة </Word>
+<Word stime="285.77" dur="0.29" conf="0.977"> الشؤون </Word>
+<Word stime="286.06" dur="0.51" conf="0.978"> الخارجية </Word>
+<Word stime="286.68" dur="0.37" conf="0.977"> والدفاع </Word>
+<Word stime="287.14" dur="0.31" conf="0.978"> والأمن </Word>
+<Word stime="287.53" dur="0.48" conf="0.978"> الوطني </Word>
+<Word stime="288.49" dur="0.43" conf="0.854"> بصفة </Word>
+<Word stime="289.03" dur="0.36" conf="0.675"> أصلية </Word>
+<Word stime="289.39" dur="0.14" conf="0.422"> ، </Word>
+<Word stime="289.53" dur="0.20" conf="0.956"> والى </Word>
+<Word stime="289.78" dur="0.31" conf="0.976"> لجنة </Word>
+<Word stime="290.17" dur="0.27" conf="0.977"> الشؤون </Word>
+<Word stime="290.50" dur="0.46" conf="0.977"> التشريعية </Word>
+<Word stime="291.07" dur="0.53" conf="0.978"> والقانونية </Word>
+<Word stime="291.73" dur="0.32" conf="0.978"> لإبداء </Word>
+<Word stime="292.12" dur="0.63" conf="0.978"> الملاحظات </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="293.71" etime="315.80" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="293.71" dur="0.43" conf="0.972"> ثانيا </Word>
+<Word stime="294.23" dur="0.41" conf="0.630"> الرسالة </Word>
+<Word stime="294.77" dur="0.33" conf="0.975"> الواردة </Word>
+<Word stime="295.17" dur="0.09" conf="0.960"> من </Word>
+<Word stime="295.26" dur="0.38" conf="0.968"> صاحب </Word>
+<Word stime="295.64" dur="0.24" conf="0.976"> السمو </Word>
+<Word stime="295.96" dur="0.30" conf="0.975"> الملكي </Word>
+<Word stime="296.39" dur="0.27" conf="0.975"> رئيس </Word>
+<Word stime="296.66" dur="0.26" conf="0.975"> مجلس </Word>
+<Word stime="296.98" dur="0.35" conf="0.938"> الوزراء </Word>
+<Word stime="297.44" dur="0.57" conf="0.976"> الموقر </Word>
+<Word stime="298.46" dur="0.48" conf="0.975"> بخصوص </Word>
+<Word stime="299.03" dur="0.34" conf="0.738"> مرسوم </Word>
+<Word stime="299.45" dur="0.51" conf="0.976"> بقانون </Word>
+<Word stime="299.96" dur="0.33" conf="0.976"> رقم </Word>
+<Word stime="300.34" dur="0.25" conf="0.911"> سبعة </Word>
+<Word stime="300.71" dur="0.54" conf="0.974"> وخمسين </Word>
+<Word stime="301.88" dur="0.48" conf="0.975"> لسنة </Word>
+<Word stime="302.43" dur="0.32" conf="0.975"> ألفين </Word>
+<Word stime="302.75" dur="0.34" conf="0.974"> وأربعة </Word>
+<Word stime="303.86" dur="0.54" conf="0.974"> بتعديل </Word>
+<Word stime="304.40" dur="0.29" conf="0.974"> بعض </Word>
+<Word stime="304.69" dur="0.35" conf="0.976"> أحكام </Word>
+<Word stime="305.04" dur="0.35" conf="0.952"> المرسوم </Word>
+<Word stime="305.48" dur="0.45" conf="0.976"> بقانون </Word>
+<Word stime="305.93" dur="0.27" conf="0.975"> رقم </Word>
+<Word stime="306.25" dur="0.28" conf="0.976"> أربعة </Word>
+<Word stime="306.60" dur="0.20" conf="0.975"> عشر </Word>
+<Word stime="306.80" dur="0.26" conf="0.946"> لسنة </Word>
+<Word stime="307.31" dur="0.31" conf="0.975"> ألفين </Word>
+<Word stime="307.70" dur="0.51" conf="0.975"> واثنين </Word>
+<Word stime="308.62" dur="0.43" conf="0.917"> بشأن </Word>
+<Word stime="309.05" dur="0.54" conf="0.961"> مباشرة </Word>
+<Word stime="309.68" dur="0.45" conf="0.976"> الحقوق </Word>
+<Word stime="310.27" dur="0.58" conf="0.970"> السياسية </Word>
+<Word stime="310.85" dur="0.85" conf="0.443"> . </Word>
+<Word stime="311.70" dur="0.11" conf="0.499"> أحيلت </Word>
+<Word stime="311.84" dur="0.21" conf="0.817"> مع </Word>
+<Word stime="312.14" dur="0.42" conf="0.967"> المرسوم </Word>
+<Word stime="312.56" dur="0.17" conf="0.976"> إلى </Word>
+<Word stime="312.77" dur="0.33" conf="0.975"> لجنة </Word>
+<Word stime="313.17" dur="0.27" conf="0.975"> الشؤون </Word>
+<Word stime="313.50" dur="0.49" conf="0.975"> التشريعية </Word>
+<Word stime="314.06" dur="0.69" conf="0.976"> والقانونية </Word>
+<Word stime="314.75" dur="0.48" conf="0.788"> بصفة </Word>
+<Word stime="315.23" dur="0.54" conf="0.976"> أصلية </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="316.70" etime="343.14" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="316.70" dur="0.45" conf="0.941"> ثالثا </Word>
+<Word stime="317.36" dur="0.35" conf="0.971"> الرسالة </Word>
+<Word stime="317.79" dur="0.36" conf="0.977"> الواردة </Word>
+<Word stime="318.22" dur="0.12" conf="0.889"> من </Word>
+<Word stime="318.34" dur="0.41" conf="0.972"> صاحب </Word>
+<Word stime="318.75" dur="0.30" conf="0.978"> السمو </Word>
+<Word stime="319.05" dur="0.33" conf="0.979"> الملكي </Word>
+<Word stime="319.46" dur="0.30" conf="0.975"> رئيس </Word>
+<Word stime="319.83" dur="0.29" conf="0.951"> مجلس </Word>
+<Word stime="320.20" dur="0.38" conf="0.978"> الوزراء </Word>
+<Word stime="320.67" dur="0.60" conf="0.978"> الموقر </Word>
+<Word stime="321.69" dur="0.46" conf="0.960"> بخصوص </Word>
+<Word stime="322.35" dur="0.36" conf="0.770"> مرسوم </Word>
+<Word stime="322.81" dur="0.41" conf="0.978"> بقانون </Word>
+<Word stime="323.22" dur="0.29" conf="0.979"> رقم </Word>
+<Word stime="323.58" dur="0.29" conf="0.979"> ثمانية </Word>
+<Word stime="323.94" dur="0.41" conf="0.978"> وخمسين </Word>
+<Word stime="324.45" dur="0.29" conf="0.978"> لسنة </Word>
+<Word stime="324.89" dur="0.31" conf="0.978"> ألفين </Word>
+<Word stime="325.20" dur="0.36" conf="0.978"> وأربعة </Word>
+<Word stime="325.63" dur="0.23" conf="0.971"> عشر </Word>
+<Word stime="326.55" dur="0.51" conf="0.978"> بتعديل </Word>
+<Word stime="327.18" dur="0.27" conf="0.979"> بعض </Word>
+<Word stime="327.45" dur="0.29" conf="0.845"> أحكام </Word>
+<Word stime="327.96" dur="0.31" conf="0.972"> المرسوم </Word>
+<Word stime="328.35" dur="0.48" conf="0.979"> بقانون </Word>
+<Word stime="328.83" dur="0.22" conf="0.979"> رقم </Word>
+<Word stime="329.10" dur="0.46" conf="0.817"> ثلاثة </Word>
+<Word stime="330.06" dur="0.38" conf="0.978"> لسنة </Word>
+<Word stime="330.54" dur="0.30" conf="0.944"> ألفين </Word>
+<Word stime="330.93" dur="0.32" conf="0.962"> واثنان </Word>
+<Word stime="331.32" dur="0.41" conf="0.978"> بشأن </Word>
+<Word stime="331.73" dur="0.30" conf="0.975"> نظام </Word>
+<Word stime="332.11" dur="0.62" conf="0.978"> انتخاب </Word>
+<Word stime="333.11" dur="0.36" conf="0.949"> أعضاء </Word>
+<Word stime="333.57" dur="0.42" conf="0.978"> المجالس </Word>
+<Word stime="334.09" dur="0.52" conf="0.978"> البلدية </Word>
+<Word stime="335.02" dur="0.46" conf="0.681"> أحيلت </Word>
+<Word stime="335.58" dur="0.18" conf="0.800"> مع </Word>
+<Word stime="335.86" dur="0.41" conf="0.921"> المرسوم </Word>
+<Word stime="336.27" dur="0.14" conf="0.979"> إلى </Word>
+<Word stime="336.45" dur="0.37" conf="0.978"> لجنة </Word>
+<Word stime="336.82" dur="0.45" conf="0.974"> المرافق </Word>
+<Word stime="337.45" dur="0.23" conf="0.979"> العامة </Word>
+<Word stime="337.74" dur="0.56" conf="0.979"> والبيئة </Word>
+<Word stime="338.70" dur="0.54" conf="0.979"> بصفة </Word>
+<Word stime="339.24" dur="0.37" conf="0.977"> أصلية </Word>
+<Word stime="339.61" dur="0.08" conf="0.422"> ، </Word>
+<Word stime="339.69" dur="0.21" conf="0.947"> والى </Word>
+<Word stime="340.10" dur="0.30" conf="0.977"> لجنة </Word>
+<Word stime="340.47" dur="0.29" conf="0.978"> الشؤون </Word>
+<Word stime="340.83" dur="0.39" conf="0.978"> التشريعية </Word>
+<Word stime="341.45" dur="0.53" conf="0.979"> والقانونية </Word>
+<Word stime="341.98" dur="0.41" conf="0.971"> لإبداء </Word>
+<Word stime="342.39" dur="0.72" conf="0.979"> الملاحظات </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="346.34" etime="353.16" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="346.42" dur="0.24" conf="0.973"> البند </Word>
+<Word stime="346.71" dur="0.19" conf="0.972"> الذي </Word>
+<Word stime="346.95" dur="0.24" conf="0.529"> يليه </Word>
+<Word stime="347.19" dur="1.24" conf="0.673"> . </Word>
+<Word stime="348.43" dur="0.14" conf="0.878"> هل </Word>
+<Word stime="348.62" dur="0.55" conf="0.876"> موافقون </Word>
+<Word stime="349.21" dur="0.17" conf="0.950"> على </Word>
+<Word stime="349.50" dur="0.48" conf="0.875"> إحالة </Word>
+<Word stime="350.73" dur="0.17" conf="0.803"> هذه </Word>
+<Word stime="351.06" dur="0.52" conf="0.962"> الرسائل </Word>
+<Word stime="351.79" dur="0.19" conf="0.972"> إلى </Word>
+<Word stime="352.03" dur="0.28" conf="0.965"> اللجان </Word>
+<Word stime="352.38" dur="0.64" conf="0.973"> المختصة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="360.56" etime="362.05" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="360.74" dur="0.16" conf="0.551"> إذا </Word>
+<Word stime="360.90" dur="0.21" conf="0.878"> ممكن </Word>
+<Word stime="361.25" dur="0.30" conf="0.971"> الصوت </Word>
+<Word stime="361.62" dur="0.06" conf="0.971"> يا </Word>
+<Word stime="361.75" dur="0.30" conf="0.523"> إخوان </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="366.12" etime="367.13" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="366.12" dur="0.49" conf="0.631"> أغلبية </Word>
+<Word stime="366.61" dur="0.45" conf="0.710"> موافقة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="367.93" etime="369.50" spkid="MT2" lang="ara" lconf="1.00" trs="1">
+<Word stime="367.93" dur="0.24" conf="0.521"> احنا </Word>
+<Word stime="368.35" dur="0.31" conf="0.941"> البند </Word>
+<Word stime="368.66" dur="0.17" conf="0.972"> الذي </Word>
+<Word stime="368.87" dur="0.33" conf="0.864"> يليه </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="374.40" etime="378.83" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="374.40" dur="0.47" conf="0.821"> اختار </Word>
+<Word stime="375.01" dur="0.46" conf="0.873"> المجلس </Word>
+<Word stime="375.61" dur="0.46" conf="0.669"> للعلم </Word>
+<Word stime="376.21" dur="0.55" conf="0.857"> بالقوانين </Word>
+<Word stime="377.08" dur="0.51" conf="0.975"> والمراسيم </Word>
+<Word stime="377.59" dur="0.43" conf="0.975"> بقوانين </Word>
+<Word stime="378.22" dur="0.53" conf="0.829"> الصادرة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="381.25" etime="384.63" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="381.32" dur="0.24" conf="0.842"> تسعة </Word>
+<Word stime="381.56" dur="0.42" conf="0.975"> وخمسين </Word>
+<Word stime="382.07" dur="0.35" conf="0.975"> فعنونو </Word>
+<Word stime="382.49" dur="0.54" conf="0.826"> مرسوم </Word>
+<Word stime="383.58" dur="0.37" conf="0.512"> مدرج </Word>
+<Word stime="384.02" dur="0.12" conf="0.974"> على </Word>
+<Word stime="384.17" dur="0.33" conf="0.953"> جدول </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="386.16" etime="394.53" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="386.46" dur="0.26" conf="0.644"> أعتقد </Word>
+<Word stime="386.81" dur="0.10" conf="0.838"> فيه </Word>
+<Word stime="386.91" dur="0.21" conf="0.969"> داعي </Word>
+<Word stime="387.23" dur="0.08" conf="0.874"> أن </Word>
+<Word stime="387.33" dur="0.37" conf="0.905"> أذكرها </Word>
+<Word stime="387.91" dur="0.20" conf="0.857"> لأنها </Word>
+<Word stime="388.11" dur="0.37" conf="0.930"> موجودة </Word>
+<Word stime="388.56" dur="0.57" conf="0.970"> أمامكم </Word>
+<Word stime="389.40" dur="0.36" conf="0.970"> أصحاب </Word>
+<Word stime="389.76" dur="0.29" conf="0.970"> السعادة </Word>
+<Word stime="390.12" dur="0.39" conf="0.970"> النواب </Word>
+<Word stime="391.74" dur="0.33" conf="0.970"> وهو </Word>
+<Word stime="392.07" dur="0.42" conf="0.970"> مجرد </Word>
+<Word stime="392.58" dur="0.32" conf="0.660"> أخطار </Word>
+<Word stime="393.12" dur="0.58" conf="0.963"> لمجلسكم </Word>
+<Word stime="393.70" dur="0.53" conf="0.970"> الموقر </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="401.11" etime="406.09" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="401.11" dur="0.40" conf="0.694"> عرض </Word>
+<Word stime="401.61" dur="0.35" conf="0.978"> قوائم </Word>
+<Word stime="402.05" dur="0.39" conf="0.752"> الترشيح </Word>
+<Word stime="402.53" dur="0.31" conf="0.978"> أصحاب </Word>
+<Word stime="402.92" dur="0.39" conf="0.978"> السعادة </Word>
+<Word stime="403.31" dur="0.31" conf="0.977"> النواب </Word>
+<Word stime="403.70" dur="0.30" conf="0.746"> لعضوية </Word>
+<Word stime="404.25" dur="0.29" conf="0.977"> لجان </Word>
+<Word stime="404.54" dur="0.37" conf="0.977"> المجلس </Word>
+<Word stime="404.99" dur="0.42" conf="0.978"> النوعية </Word>
+<Word stime="405.59" dur="0.43" conf="0.978"> الدائمة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="411.68" etime="418.20" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="411.68" dur="0.38" conf="0.972"> أصحاب </Word>
+<Word stime="412.14" dur="0.36" conf="0.972"> السعادة </Word>
+<Word stime="412.50" dur="0.40" conf="0.959"> النواب </Word>
+<Word stime="413.01" dur="0.80" conf="0.952"> حقيقة </Word>
+<Word stime="414.51" dur="0.24" conf="0.836"> قبل </Word>
+<Word stime="414.75" dur="0.09" conf="0.966"> أن </Word>
+<Word stime="414.84" dur="0.17" conf="0.893"> أعطى </Word>
+<Word stime="415.12" dur="0.36" conf="0.972"> الكلمة </Word>
+<Word stime="415.56" dur="0.47" conf="0.972"> لسعادة </Word>
+<Word stime="416.03" dur="0.34" conf="0.969"> النائب </Word>
+<Word stime="416.37" dur="0.44" conf="0.918"> الأول </Word>
+<Word stime="417.22" dur="0.20" conf="0.964"> الأخ </Word>
+<Word stime="417.46" dur="0.17" conf="0.968"> على </Word>
+<Word stime="417.63" dur="0.54" conf="0.972"> الأراضي </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="419.26" etime="431.18" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="419.26" dur="0.44" conf="0.942"> للتحدث </Word>
+<Word stime="419.81" dur="0.07" conf="0.627"> في </Word>
+<Word stime="419.93" dur="0.20" conf="0.922"> هذا </Word>
+<Word stime="420.17" dur="0.36" conf="0.741"> البند </Word>
+<Word stime="420.63" dur="0.29" conf="0.971"> أود </Word>
+<Word stime="421.22" dur="0.23" conf="0.866"> نفيدكم </Word>
+<Word stime="421.45" dur="0.23" conf="0.388"> بيننا </Word>
+<Word stime="421.73" dur="0.11" conf="0.894"> في </Word>
+<Word stime="421.87" dur="0.30" conf="0.970"> هيئة </Word>
+<Word stime="422.26" dur="0.43" conf="0.972"> المكتب </Word>
+<Word stime="422.69" dur="0.99" conf="0.494"> . </Word>
+<Word stime="423.68" dur="0.25" conf="0.972"> قمنا </Word>
+<Word stime="423.99" dur="0.50" conf="0.972"> بتكليف </Word>
+<Word stime="424.56" dur="0.29" conf="0.969"> النائب </Word>
+<Word stime="424.85" dur="0.34" conf="0.914"> الأول </Word>
+<Word stime="425.50" dur="0.37" conf="0.971"> والنائب </Word>
+<Word stime="425.96" dur="0.60" conf="0.971"> الثاني </Word>
+<Word stime="427.34" dur="0.51" conf="0.936"> الاجتماع </Word>
+<Word stime="427.85" dur="0.41" conf="0.972"> بأصحاب </Word>
+<Word stime="428.26" dur="0.34" conf="0.972"> السعادة </Word>
+<Word stime="428.66" dur="0.48" conf="0.972"> النواب </Word>
+<Word stime="430.01" dur="0.34" conf="0.970"> للنظر </Word>
+<Word stime="430.43" dur="0.09" conf="0.659"> في </Word>
+<Word stime="430.55" dur="0.53" conf="0.495"> رقابة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="432.07" etime="448.53" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="432.07" dur="0.35" conf="0.977"> أصحاب </Word>
+<Word stime="432.50" dur="0.29" conf="0.977"> السعادة </Word>
+<Word stime="432.86" dur="0.54" conf="0.974"> النواب </Word>
+<Word stime="433.88" dur="0.07" conf="0.942"> في </Word>
+<Word stime="433.97" dur="0.40" conf="0.974"> اللجان </Word>
+<Word stime="434.45" dur="0.51" conf="0.975"> الدائمة </Word>
+<Word stime="436.04" dur="0.15" conf="0.963"> هذه </Word>
+<Word stime="436.19" dur="0.38" conf="0.977"> المناسبة </Word>
+<Word stime="436.67" dur="0.20" conf="0.977"> أود </Word>
+<Word stime="436.96" dur="0.28" conf="0.976"> أشكر </Word>
+<Word stime="437.30" dur="0.24" conf="0.959"> أيضا </Word>
+<Word stime="437.54" dur="0.24" conf="0.976"> جميع </Word>
+<Word stime="437.78" dur="0.27" conf="0.977"> أصحاب </Word>
+<Word stime="438.11" dur="0.29" conf="0.977"> السعادة </Word>
+<Word stime="438.47" dur="0.45" conf="0.977"> النواب </Word>
+<Word stime="439.34" dur="0.28" conf="0.976"> على </Word>
+<Word stime="439.67" dur="0.87" conf="0.976"> تعاونهم </Word>
+<Word stime="441.59" dur="0.13" conf="0.976"> مع </Word>
+<Word stime="441.77" dur="0.69" conf="0.976"> النائبين </Word>
+<Word stime="442.91" dur="0.42" conf="0.976"> الأول </Word>
+<Word stime="443.33" dur="0.75" conf="0.976"> والثاني </Word>
+<Word stime="444.50" dur="0.51" conf="0.958"> لتحقيق </Word>
+<Word stime="445.01" dur="0.87" conf="0.977"> رغباتهم </Word>
+<Word stime="446.69" dur="0.63" conf="0.875"> لتوزيع </Word>
+<Word stime="447.58" dur="0.43" conf="0.976"> اللجان </Word>
+<Word stime="448.01" dur="0.48" conf="0.977"> الدائمة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="451.13" etime="454.85" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="451.43" dur="0.58" conf="0.971"> إخواني </Word>
+<Word stime="453.03" dur="0.23" conf="0.971"> اللي </Word>
+<Word stime="453.32" dur="0.22" conf="0.969"> أنا </Word>
+<Word stime="453.59" dur="0.27" conf="0.647"> شفته </Word>
+<Word stime="454.00" dur="0.13" conf="0.968"> من </Word>
+<Word stime="454.16" dur="0.69" conf="0.932"> تعاون </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="456.38" etime="460.02" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="456.38" dur="0.29" conf="0.957"> في </Word>
+<Word stime="456.74" dur="0.20" conf="0.970"> هذا </Word>
+<Word stime="456.99" dur="0.57" conf="0.970"> المجال </Word>
+<Word stime="458.25" dur="0.23" conf="0.965"> يدل </Word>
+<Word stime="458.53" dur="0.20" conf="0.970"> على </Word>
+<Word stime="458.73" dur="0.43" conf="0.970"> رغبتكم </Word>
+<Word stime="459.27" dur="0.48" conf="0.967"> الأكيدة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="461.01" etime="461.54" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="461.01" dur="0.49" conf="0.999"> في </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="462.95" etime="463.86" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="463.25" dur="0.60" conf="0.769"> التحقيق </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="467.64" etime="476.67" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="467.64" dur="0.18" conf="0.863"> ما </Word>
+<Word stime="467.86" dur="0.34" conf="0.963"> يمكن </Word>
+<Word stime="468.28" dur="0.59" conf="0.966"> تحقيقه </Word>
+<Word stime="469.30" dur="0.21" conf="0.757"> في </Word>
+<Word stime="469.85" dur="0.32" conf="0.973"> في </Word>
+<Word stime="470.89" dur="0.36" conf="0.868"> للعمل </Word>
+<Word stime="471.25" dur="0.09" conf="0.974"> في </Word>
+<Word stime="471.39" dur="0.20" conf="0.974"> هذه </Word>
+<Word stime="471.64" dur="0.29" conf="0.974"> اللجان </Word>
+<Word stime="472.00" dur="0.42" conf="0.974"> الدائمة </Word>
+<Word stime="473.29" dur="0.27" conf="0.377"> كمواد </Word>
+<Word stime="473.69" dur="0.11" conf="0.604"> أن </Word>
+<Word stime="473.88" dur="0.32" conf="0.974"> أشكر </Word>
+<Word stime="474.85" dur="0.42" conf="0.971"> النائب </Word>
+<Word stime="475.27" dur="0.45" conf="0.974"> الأول </Word>
+<Word stime="475.72" dur="0.29" conf="0.972"> والنائب </Word>
+<Word stime="476.08" dur="0.59" conf="0.975"> الثاني </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="477.70" etime="481.75" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="477.70" dur="0.25" conf="0.979"> على </Word>
+<Word stime="477.95" dur="0.25" conf="0.979"> الجهد </Word>
+<Word stime="478.26" dur="0.21" conf="0.979"> الذي </Word>
+<Word stime="478.52" dur="0.66" conf="0.768"> بذله </Word>
+<Word stime="479.75" dur="0.12" conf="0.923"> في </Word>
+<Word stime="479.90" dur="0.39" conf="0.977"> توزيع </Word>
+<Word stime="480.29" dur="0.32" conf="0.977"> أصحاب </Word>
+<Word stime="480.68" dur="0.33" conf="0.978"> السعادة </Word>
+<Word stime="481.01" dur="0.18" conf="0.978"> على </Word>
+<Word stime="481.19" dur="0.20" conf="0.979"> هذه </Word>
+<Word stime="481.43" dur="0.26" conf="0.971"> اللجان </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="483.34" etime="484.78" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="483.34" dur="0.28" conf="0.913"> تفضل </Word>
+<Word stime="483.68" dur="0.27" conf="0.966"> سعادة </Word>
+<Word stime="484.00" dur="0.19" conf="0.939"> النائب </Word>
+<Word stime="484.26" dur="0.12" conf="0.750"> علي </Word>
+<Word stime="484.38" dur="0.39" conf="0.544"> الأراضي </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="487.08" etime="487.95" spkid="FS1" lang="ara" lconf="1.00" trs="1">
+<Word stime="487.38" dur="0.27" conf="0.399"> الرئيس </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="489.45" etime="566.15" spkid="MS6" lang="ara" lconf="1.00" trs="1">
+<Word stime="489.62" dur="0.27" conf="0.938"> شكرا </Word>
+<Word stime="490.00" dur="0.21" conf="0.958"> معالي </Word>
+<Word stime="490.27" dur="0.45" conf="0.694"> الرئيس </Word>
+<Word stime="491.53" dur="0.46" conf="0.971"> وبداية </Word>
+<Word stime="492.17" dur="0.26" conf="0.959"> وحيث </Word>
+<Word stime="492.49" dur="0.21" conf="0.970"> انها </Word>
+<Word stime="492.70" dur="0.21" conf="0.957"> المرة </Word>
+<Word stime="492.97" dur="0.26" conf="0.971"> الأولى </Word>
+<Word stime="493.28" dur="0.16" conf="0.971"> التي </Word>
+<Word stime="493.48" dur="0.48" conf="0.971"> يتناول </Word>
+<Word stime="493.96" dur="0.17" conf="0.970"> فيها </Word>
+<Word stime="494.17" dur="0.41" conf="0.971"> الكلمة </Word>
+<Word stime="494.89" dur="0.27" conf="0.971"> أود </Word>
+<Word stime="495.19" dur="0.10" conf="0.962"> أن </Word>
+<Word stime="495.29" dur="0.46" conf="0.902"> أبارك </Word>
+<Word stime="496.24" dur="0.40" conf="0.793"> معاليكم </Word>
+<Word stime="497.05" dur="0.47" conf="0.933"> تبوأ </Word>
+<Word stime="497.81" dur="0.26" conf="0.970"> سدة </Word>
+<Word stime="498.14" dur="0.41" conf="0.969"> رئاسة </Word>
+<Word stime="498.58" dur="0.14" conf="0.971"> هذا </Word>
+<Word stime="498.76" dur="0.45" conf="0.971"> المجلس </Word>
+<Word stime="499.21" dur="0.03" conf="0.549"> . </Word>
+<Word stime="499.24" dur="0.34" conf="0.971"> ونحن </Word>
+<Word stime="499.66" dur="0.10" conf="0.439"> إنشاء </Word>
+<Word stime="499.79" dur="0.11" conf="0.803"> الله </Word>
+<Word stime="499.90" dur="0.15" conf="0.971"> على </Word>
+<Word stime="500.05" dur="0.25" conf="0.967"> ثقة </Word>
+<Word stime="500.35" dur="0.25" conf="0.971"> بأن </Word>
+<Word stime="500.66" dur="0.50" conf="0.971"> خبرتكم </Word>
+<Word stime="501.26" dur="0.41" conf="0.956"> الكبيرة </Word>
+<Word stime="502.17" dur="0.42" conf="0.899"> وعملكم </Word>
+<Word stime="502.69" dur="0.06" conf="0.971"> في </Word>
+<Word stime="502.75" dur="0.31" conf="0.971"> المجال </Word>
+<Word stime="503.13" dur="0.39" conf="0.971"> التشريعي </Word>
+<Word stime="503.73" dur="0.46" conf="0.971"> والقانوني </Word>
+<Word stime="504.19" dur="0.48" conf="0.971"> ستكون </Word>
+<Word stime="504.69" dur="0.07" conf="0.661"> إن </Word>
+<Word stime="504.76" dur="0.16" conf="0.669"> شاء </Word>
+<Word stime="504.97" dur="0.17" conf="0.971"> الله </Word>
+<Word stime="505.18" dur="0.33" conf="0.971"> خير </Word>
+<Word stime="505.54" dur="0.17" conf="0.900"> عون </Word>
+<Word stime="505.81" dur="0.42" conf="0.956"> لكم </Word>
+<Word stime="506.56" dur="0.24" conf="0.967"> في </Word>
+<Word stime="506.86" dur="0.29" conf="0.970"> إدارة </Word>
+<Word stime="507.25" dur="0.14" conf="0.970"> هذا </Word>
+<Word stime="507.43" dur="0.41" conf="0.971"> المجلس </Word>
+<Word stime="507.91" dur="0.20" conf="0.809"> ليلبي </Word>
+<Word stime="508.57" dur="0.60" conf="0.954"> تطلعات </Word>
+<Word stime="509.21" dur="0.17" conf="0.971"> شعب </Word>
+<Word stime="509.38" dur="0.30" conf="0.824"> البحرين </Word>
+<Word stime="510.62" dur="0.23" conf="0.969"> معالي </Word>
+<Word stime="510.91" dur="0.36" conf="0.816"> الرئيس </Word>
+<Word stime="511.66" dur="0.53" conf="0.967"> كلفت </Word>
+<Word stime="512.47" dur="0.48" conf="0.780"> وأتشرف </Word>
+<Word stime="513.00" dur="0.18" conf="0.937"> بهذا </Word>
+<Word stime="513.22" dur="0.45" conf="0.970"> التكليف </Word>
+<Word stime="513.67" dur="0.09" conf="0.500"> . </Word>
+<Word stime="513.76" dur="0.15" conf="0.890"> أنا </Word>
+<Word stime="513.94" dur="0.37" conf="0.872"> وسعادة </Word>
+<Word stime="514.52" dur="0.23" conf="0.969"> النائب </Word>
+<Word stime="514.81" dur="0.42" conf="0.971"> الثاني </Word>
+<Word stime="515.67" dur="0.13" conf="0.579"> يعني </Word>
+<Word stime="515.85" dur="0.37" conf="0.646"> ندير </Word>
+<Word stime="516.34" dur="0.42" conf="0.971"> عملية </Word>
+<Word stime="516.86" dur="0.35" conf="0.737"> توزيع </Word>
+<Word stime="517.26" dur="0.30" conf="0.947"> اللجان </Word>
+<Word stime="517.63" dur="0.44" conf="0.711"> بالاتصال </Word>
+<Word stime="518.23" dur="0.31" conf="0.883"> أصحاب </Word>
+<Word stime="518.62" dur="0.43" conf="0.971"> السعادة </Word>
+<Word stime="519.22" dur="0.23" conf="0.707"> النواب </Word>
+<Word stime="520.27" dur="0.60" conf="0.908"> والتوصل </Word>
+<Word stime="520.87" dur="0.36" conf="0.971"> معهم </Word>
+<Word stime="521.23" dur="0.22" conf="0.960"> إلى </Word>
+<Word stime="521.50" dur="0.32" conf="0.970"> تحقيق </Word>
+<Word stime="521.90" dur="0.40" conf="0.969"> رغباتهم </Word>
+<Word stime="522.40" dur="0.05" conf="0.891"> في </Word>
+<Word stime="522.51" dur="0.28" conf="0.765"> اللجان </Word>
+<Word stime="522.79" dur="0.06" conf="0.389"> . </Word>
+<Word stime="522.85" dur="0.21" conf="0.971"> وأنا </Word>
+<Word stime="523.06" dur="0.39" conf="0.971"> فخور </Word>
+<Word stime="523.45" dur="0.18" conf="0.968"> بأن </Word>
+<Word stime="523.63" dur="0.24" conf="0.965"> أقول </Word>
+<Word stime="523.93" dur="0.20" conf="0.971"> بأن </Word>
+<Word stime="524.17" dur="0.30" conf="0.932"> ثمانية </Word>
+<Word stime="524.47" dur="0.24" conf="0.971"> وتسعين </Word>
+<Word stime="524.77" dur="0.09" conf="0.971"> في </Word>
+<Word stime="524.86" dur="0.32" conf="0.971"> المئة </Word>
+<Word stime="525.63" dur="0.18" conf="0.969"> من </Word>
+<Word stime="525.85" dur="0.40" conf="0.893"> الرغبات </Word>
+<Word stime="526.42" dur="0.39" conf="0.857"> حققت </Word>
+<Word stime="526.90" dur="0.32" conf="0.893"> وفق </Word>
+<Word stime="527.29" dur="0.24" conf="0.963"> الرغبة </Word>
+<Word stime="527.53" dur="0.30" conf="0.971"> الأولى </Word>
+<Word stime="528.09" dur="0.19" conf="0.436"> لأصحاب </Word>
+<Word stime="528.28" dur="0.21" conf="0.534"> أصحاب </Word>
+<Word stime="528.49" dur="0.32" conf="0.970"> السعادة </Word>
+<Word stime="528.97" dur="0.36" conf="0.909"> النواب </Word>
+<Word stime="529.83" dur="0.62" conf="0.968"> وحتى </Word>
+<Word stime="530.90" dur="0.21" conf="0.525"> اثنين </Word>
+<Word stime="531.17" dur="0.06" conf="0.967"> في </Word>
+<Word stime="531.25" dur="0.19" conf="0.943"> المئة </Word>
+<Word stime="531.49" dur="0.27" conf="0.856"> الأخرى </Word>
+<Word stime="532.33" dur="0.48" conf="0.896"> تواصلنا </Word>
+<Word stime="532.81" dur="0.12" conf="0.971"> مع </Word>
+<Word stime="532.96" dur="0.39" conf="0.903"> النواب </Word>
+<Word stime="533.35" dur="0.00" conf="0.346"> ، </Word>
+<Word stime="533.35" dur="0.50" conf="0.953"> وأبدوا </Word>
+<Word stime="534.39" dur="0.53" conf="0.971"> استعدادهم </Word>
+<Word stime="535.08" dur="0.19" conf="0.533"> لي </Word>
+<Word stime="535.27" dur="0.15" conf="0.673"> أن </Word>
+<Word stime="535.48" dur="0.22" conf="0.495"> يعمل </Word>
+<Word stime="535.75" dur="0.09" conf="0.971"> في </Word>
+<Word stime="535.86" dur="0.28" conf="0.971"> اللجان </Word>
+<Word stime="536.21" dur="0.46" conf="0.971"> الأخرى </Word>
+<Word stime="536.67" dur="0.31" conf="0.633"> . </Word>
+<Word stime="536.98" dur="0.30" conf="0.607"> وكانوا </Word>
+<Word stime="537.36" dur="0.38" conf="0.959"> موافقين </Word>
+<Word stime="537.83" dur="0.14" conf="0.971"> على </Word>
+<Word stime="538.00" dur="0.31" conf="0.971"> ذلك </Word>
+<Word stime="538.63" dur="0.20" conf="0.938"> معالي </Word>
+<Word stime="538.93" dur="0.39" conf="0.811"> الرئيس </Word>
+<Word stime="540.31" dur="0.48" conf="0.971"> بطبيعة </Word>
+<Word stime="540.86" dur="0.32" conf="0.968"> الحال </Word>
+<Word stime="541.42" dur="0.33" conf="0.952"> كانت </Word>
+<Word stime="541.75" dur="0.34" conf="0.945"> مهمة </Word>
+<Word stime="542.14" dur="0.38" conf="0.769"> تشرفت </Word>
+<Word stime="542.62" dur="0.16" conf="0.700"> بالعمل </Word>
+<Word stime="542.95" dur="0.24" conf="0.966"> بها </Word>
+<Word stime="543.29" dur="0.16" conf="0.793"> مع </Word>
+<Word stime="543.49" dur="0.36" conf="0.971"> سعادة </Word>
+<Word stime="543.90" dur="0.20" conf="0.970"> النائب </Word>
+<Word stime="544.15" dur="0.31" conf="0.970"> الثاني </Word>
+<Word stime="544.46" dur="0.24" conf="0.707"> . </Word>
+<Word stime="544.70" dur="0.53" conf="0.925"> وتشير </Word>
+<Word stime="545.30" dur="0.14" conf="0.971"> أن </Word>
+<Word stime="545.44" dur="0.27" conf="0.961"> أشير </Word>
+<Word stime="545.74" dur="0.14" conf="0.971"> هنا </Word>
+<Word stime="545.92" dur="0.30" conf="0.878"> بأننا </Word>
+<Word stime="546.69" dur="0.46" conf="0.970"> وجدنا </Word>
+<Word stime="547.17" dur="0.10" conf="0.969"> من </Word>
+<Word stime="547.30" dur="0.35" conf="0.969"> كافة </Word>
+<Word stime="547.72" dur="0.39" conf="0.968"> النواب </Word>
+<Word stime="548.30" dur="0.32" conf="0.955"> أصحاب </Word>
+<Word stime="548.62" dur="0.31" conf="0.971"> السعادة </Word>
+<Word stime="549.01" dur="0.19" conf="0.970"> كل </Word>
+<Word stime="549.25" dur="0.42" conf="0.907"> تعاون </Word>
+<Word stime="549.70" dur="0.54" conf="0.916"> وتقدير </Word>
+<Word stime="550.24" dur="1.27" conf="0.532"> . </Word>
+<Word stime="551.51" dur="0.35" conf="0.966"> وهذا </Word>
+<Word stime="552.05" dur="0.33" conf="0.968"> التعاون </Word>
+<Word stime="552.46" dur="0.39" conf="0.872"> شكل </Word>
+<Word stime="552.85" dur="0.45" conf="0.951"> وبحق </Word>
+<Word stime="553.72" dur="0.42" conf="0.969"> ترجمة </Word>
+<Word stime="554.14" dur="0.44" conf="0.969"> حقيقية </Word>
+<Word stime="554.67" dur="0.22" conf="0.412"> لرغبتهم </Word>
+<Word stime="555.28" dur="0.07" conf="0.971"> في </Word>
+<Word stime="555.37" dur="0.57" conf="0.971"> المشاركة </Word>
+<Word stime="555.94" dur="0.60" conf="0.971"> الإيجابية </Word>
+<Word stime="556.90" dur="0.29" conf="0.971"> في </Word>
+<Word stime="557.29" dur="0.48" conf="0.971"> العمل </Word>
+<Word stime="557.77" dur="0.06" conf="0.909"> في </Word>
+<Word stime="557.88" dur="0.23" conf="0.971"> خلال </Word>
+<Word stime="558.16" dur="0.17" conf="0.971"> هذا </Word>
+<Word stime="558.37" dur="0.54" conf="0.971"> المجلس </Word>
+<Word stime="558.91" dur="0.31" conf="0.666"> . </Word>
+<Word stime="559.22" dur="0.45" conf="0.971"> وفقنا </Word>
+<Word stime="559.67" dur="0.21" conf="0.971"> الله </Word>
+<Word stime="559.93" dur="0.48" conf="0.971"> وإياهم </Word>
+<Word stime="560.41" dur="0.18" conf="0.744"> إنشاء </Word>
+<Word stime="560.74" dur="0.29" conf="0.965"> الله </Word>
+<Word stime="561.21" dur="0.28" conf="0.954"> على </Word>
+<Word stime="561.49" dur="0.30" conf="0.947"> حمل </Word>
+<Word stime="561.89" dur="0.26" conf="0.965"> هذه </Word>
+<Word stime="562.15" dur="0.30" conf="0.706"> الأمانة </Word>
+<Word stime="562.45" dur="0.43" conf="0.971"> الكبيرة </Word>
+<Word stime="563.11" dur="0.29" conf="0.956"> شكرا </Word>
+<Word stime="563.47" dur="0.17" conf="0.935"> معالي </Word>
+<Word stime="563.68" dur="0.33" conf="0.626"> الرئيس </Word>
+<Word stime="564.58" dur="0.29" conf="0.971"> سعادة </Word>
+<Word stime="564.95" dur="0.20" conf="0.971"> الأمين </Word>
+<Word stime="565.15" dur="0.24" conf="0.971"> العام </Word>
+<Word stime="565.39" dur="0.12" conf="0.605"> . </Word>
+<Word stime="565.51" dur="0.44" conf="0.971"> شكرا </Word>
+<Word stime="566.02" dur="0.12" conf="0.515"> الأخ </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="569.17" etime="576.54" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="569.25" dur="0.27" conf="0.451"> يعطي </Word>
+<Word stime="569.52" dur="0.41" conf="0.546"> غرونهولم </Word>
+<Word stime="569.93" dur="0.10" conf="0.972"> أو </Word>
+<Word stime="570.05" dur="0.51" conf="0.683"> تعرضون </Word>
+<Word stime="570.62" dur="0.21" conf="0.657"> هم </Word>
+<Word stime="571.76" dur="0.24" conf="0.967"> إذا </Word>
+<Word stime="572.06" dur="0.27" conf="0.972"> ممكن </Word>
+<Word stime="572.39" dur="0.36" conf="0.950"> عرضهم </Word>
+<Word stime="572.87" dur="0.15" conf="0.972"> على </Word>
+<Word stime="573.02" dur="0.34" conf="0.961"> الشاشة </Word>
+<Word stime="573.45" dur="0.23" conf="0.962"> بعد </Word>
+<Word stime="573.68" dur="0.24" conf="0.861"> يكون </Word>
+<Word stime="573.99" dur="0.31" conf="0.971"> أفضل </Word>
+<Word stime="575.41" dur="0.29" conf="0.944"> اللجنة </Word>
+<Word stime="575.89" dur="0.60" conf="0.972"> التشريعية </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="576.54" etime="577.18" spkid="MS3" lang="ara" lconf="1.00" trs="1">
+<Word stime="576.71" dur="0.17" conf="0.578"> وبعدين </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="578.23" etime="593.00" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="578.23" dur="0.43" conf="0.968"> لجنة </Word>
+<Word stime="578.74" dur="0.25" conf="0.968"> الشؤون </Word>
+<Word stime="579.05" dur="0.49" conf="0.968"> التشريعية </Word>
+<Word stime="579.54" dur="0.70" conf="0.968"> والقانونية </Word>
+<Word stime="580.28" dur="0.43" conf="0.967"> سعادة </Word>
+<Word stime="580.71" dur="0.31" conf="0.936"> النائب </Word>
+<Word stime="581.02" dur="0.15" conf="0.695"> . </Word>
+<Word stime="581.17" dur="0.24" conf="0.674"> أنا </Word>
+<Word stime="581.79" dur="0.44" conf="0.650"> على </Word>
+<Word stime="582.33" dur="0.28" conf="0.801"> عليه </Word>
+<Word stime="582.61" dur="0.25" conf="0.718"> سيف </Word>
+<Word stime="582.92" dur="0.30" conf="0.547"> بوهندي </Word>
+<Word stime="583.82" dur="0.42" conf="0.967"> سعادة </Word>
+<Word stime="584.31" dur="0.22" conf="0.757"> النائب </Word>
+<Word stime="584.63" dur="0.17" conf="0.603"> حمد </Word>
+<Word stime="585.42" dur="0.27" conf="0.380"> المعالي </Word>
+<Word stime="585.80" dur="0.26" conf="0.967"> عيد </Word>
+<Word stime="586.12" dur="0.61" conf="0.968"> الدوسري </Word>
+<Word stime="587.39" dur="0.36" conf="0.968"> سعادة </Word>
+<Word stime="587.91" dur="0.23" conf="0.526"> النائب </Word>
+<Word stime="588.20" dur="0.31" conf="0.907"> خليفة </Word>
+<Word stime="588.59" dur="0.18" conf="0.968"> عبد </Word>
+<Word stime="588.87" dur="0.11" conf="0.955"> الله </Word>
+<Word stime="589.01" dur="0.39" conf="0.968"> محمد </Word>
+<Word stime="589.50" dur="0.41" conf="0.958"> الغانم </Word>
+<Word stime="590.36" dur="0.48" conf="0.968"> سعادة </Word>
+<Word stime="590.84" dur="0.33" conf="0.746"> النائب </Word>
+<Word stime="592.13" dur="0.28" conf="0.582"> علي </Word>
+<Word stime="592.51" dur="0.19" conf="0.539"> حسن </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="599.41" etime="615.07" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="599.41" dur="0.52" conf="0.971"> سعادة </Word>
+<Word stime="600.09" dur="0.35" conf="0.969"> النائب </Word>
+<Word stime="600.49" dur="0.19" conf="0.969"> علي </Word>
+<Word stime="600.72" dur="0.34" conf="0.969"> حسن </Word>
+<Word stime="601.13" dur="0.30" conf="0.959"> أحمد </Word>
+<Word stime="601.46" dur="0.15" conf="0.706"> علي </Word>
+<Word stime="601.66" dur="0.46" conf="0.795"> العطش </Word>
+<Word stime="602.62" dur="0.49" conf="0.971"> سعادة </Word>
+<Word stime="603.14" dur="0.33" conf="0.965"> النائب </Word>
+<Word stime="603.53" dur="0.33" conf="0.969"> الدكتور </Word>
+<Word stime="603.91" dur="0.20" conf="0.968"> عيسى </Word>
+<Word stime="604.16" dur="0.27" conf="0.971"> أحمد </Word>
+<Word stime="604.49" dur="0.45" conf="0.966"> مصطفى </Word>
+<Word stime="605.03" dur="0.51" conf="0.703"> التركي </Word>
+<Word stime="606.23" dur="0.42" conf="0.888"> سعادة </Word>
+<Word stime="606.72" dur="0.31" conf="0.868"> النائب </Word>
+<Word stime="607.10" dur="0.39" conf="0.971"> فاطمة </Word>
+<Word stime="607.52" dur="0.12" conf="0.870"> عبد </Word>
+<Word stime="607.64" dur="0.26" conf="0.830"> المهدي </Word>
+<Word stime="608.06" dur="0.27" conf="0.944"> يوسف </Word>
+<Word stime="608.39" dur="0.48" conf="0.823"> العصور </Word>
+<Word stime="608.90" dur="0.34" conf="0.971"> سعادة </Word>
+<Word stime="609.39" dur="0.32" conf="0.953"> النائب </Word>
+<Word stime="609.80" dur="0.41" conf="0.967"> ماجد </Word>
+<Word stime="610.38" dur="0.56" conf="0.900"> إبراهيم </Word>
+<Word stime="611.45" dur="0.33" conf="0.967"> حسن </Word>
+<Word stime="611.85" dur="0.32" conf="0.918"> إبراهيم </Word>
+<Word stime="612.26" dur="0.38" conf="0.879"> الماجد </Word>
+<Word stime="612.68" dur="0.36" conf="0.968"> سعادة </Word>
+<Word stime="613.09" dur="0.21" conf="0.643"> النائب </Word>
+<Word stime="613.43" dur="0.36" conf="0.896"> محمد </Word>
+<Word stime="613.79" dur="0.42" conf="0.971"> جعفر </Word>
+<Word stime="614.27" dur="0.27" conf="0.967"> ميلاد </Word>
+<Word stime="614.54" dur="0.49" conf="0.971"> عباس </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="616.51" etime="622.40" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="616.51" dur="0.32" conf="0.973"> أصحاب </Word>
+<Word stime="616.91" dur="0.33" conf="0.973"> السعادة </Word>
+<Word stime="617.24" dur="0.21" conf="0.965"> النواب </Word>
+<Word stime="617.55" dur="0.14" conf="0.973"> هل </Word>
+<Word stime="617.69" dur="0.47" conf="0.941"> توافقون </Word>
+<Word stime="618.29" dur="0.14" conf="0.973"> على </Word>
+<Word stime="618.47" dur="0.39" conf="0.973"> تشكيل </Word>
+<Word stime="618.86" dur="0.28" conf="0.960"> اللجنة </Word>
+<Word stime="619.19" dur="0.51" conf="0.973"> التشريعية </Word>
+<Word stime="619.70" dur="0.66" conf="0.973"> والقانونية </Word>
+<Word stime="621.61" dur="0.16" conf="0.971"> هل </Word>
+<Word stime="621.77" dur="0.58" conf="0.973"> موافقون </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="624.22" etime="626.65" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="624.22" dur="0.30" conf="0.946"> ممكن </Word>
+<Word stime="624.59" dur="0.32" conf="0.550"> تحطوا </Word>
+<Word stime="624.97" dur="0.22" conf="0.612"> لل </Word>
+<Word stime="626.06" dur="0.51" conf="0.969"> التصويت </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="627.86" etime="628.46" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="627.86" dur="0.34" conf="0.717"> الإخوان </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="638.70" etime="640.86" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="639.00" dur="0.42" conf="0.887"> بموافقة </Word>
+<Word stime="639.84" dur="0.33" conf="0.969"> اللجنة </Word>
+<Word stime="640.17" dur="0.17" conf="0.955"> التي </Word>
+<Word stime="640.47" dur="0.36" conf="0.970"> تليها </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="642.67" etime="669.75" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="642.67" dur="0.31" conf="0.945"> لجنة </Word>
+<Word stime="643.16" dur="0.27" conf="0.971"> الشؤون </Word>
+<Word stime="643.52" dur="0.33" conf="0.963"> المالية </Word>
+<Word stime="643.85" dur="0.79" conf="0.971"> والاقتصادية </Word>
+<Word stime="644.92" dur="0.43" conf="0.971"> سعادة </Word>
+<Word stime="645.35" dur="0.37" conf="0.864"> النائب </Word>
+<Word stime="645.86" dur="0.34" conf="0.971"> جلال </Word>
+<Word stime="646.28" dur="0.36" conf="0.915"> كاظم </Word>
+<Word stime="646.64" dur="0.28" conf="0.931"> حسن </Word>
+<Word stime="647.00" dur="0.36" conf="0.758"> كاظم </Word>
+<Word stime="647.84" dur="0.36" conf="0.965"> سعادة </Word>
+<Word stime="648.35" dur="0.27" conf="0.971"> النائب </Word>
+<Word stime="648.69" dur="0.38" conf="0.968"> خالد </Word>
+<Word stime="649.10" dur="0.12" conf="0.971"> عبد </Word>
+<Word stime="649.22" dur="0.34" conf="0.933"> العزيز </Word>
+<Word stime="649.72" dur="0.33" conf="0.912"> يوسف </Word>
+<Word stime="650.05" dur="0.58" conf="0.568"> الشاعر </Word>
+<Word stime="650.93" dur="0.47" conf="0.971"> سعادة </Word>
+<Word stime="651.40" dur="0.28" conf="0.958"> النائب </Word>
+<Word stime="651.76" dur="0.34" conf="0.972"> عادل </Word>
+<Word stime="652.17" dur="0.29" conf="0.967"> حميد </Word>
+<Word stime="652.50" dur="0.21" conf="0.492"> أبل </Word>
+<Word stime="652.71" dur="0.26" conf="0.894"> حسين </Word>
+<Word stime="653.03" dur="0.48" conf="0.971"> جعفر </Word>
+<Word stime="653.92" dur="0.44" conf="0.971"> سعادة </Word>
+<Word stime="654.43" dur="0.28" conf="0.971"> النائب </Word>
+<Word stime="654.75" dur="0.14" conf="0.971"> عبد </Word>
+<Word stime="654.97" dur="0.30" conf="0.960"> الرحمن </Word>
+<Word stime="655.34" dur="0.21" conf="0.971"> علي </Word>
+<Word stime="655.55" dur="0.15" conf="0.972"> عبد </Word>
+<Word stime="655.70" dur="0.36" conf="0.952"> الرحمن </Word>
+<Word stime="656.15" dur="0.09" conf="0.744"> بو </Word>
+<Word stime="656.24" dur="0.31" conf="0.497"> عليه </Word>
+<Word stime="657.04" dur="0.37" conf="0.971"> سعادة </Word>
+<Word stime="657.57" dur="0.29" conf="0.719"> النائب </Word>
+<Word stime="657.92" dur="0.24" conf="0.970"> عيسى </Word>
+<Word stime="658.22" dur="0.15" conf="0.967"> عبد </Word>
+<Word stime="658.44" dur="0.33" conf="0.968"> الجبار </Word>
+<Word stime="658.85" dur="0.36" conf="0.968"> محمود </Word>
+<Word stime="660.26" dur="0.36" conf="0.971"> سعادة </Word>
+<Word stime="660.79" dur="0.36" conf="0.972"> النائب </Word>
+<Word stime="661.25" dur="0.32" conf="0.971"> محمد </Word>
+<Word stime="661.64" dur="0.39" conf="0.971"> إسماعيل </Word>
+<Word stime="662.03" dur="0.00" conf="0.507"> ، </Word>
+<Word stime="662.03" dur="0.30" conf="0.873"> عباس </Word>
+<Word stime="662.49" dur="0.21" conf="0.971"> أحمد </Word>
+<Word stime="662.75" dur="0.57" conf="0.971"> العمادي </Word>
+<Word stime="663.77" dur="0.42" conf="0.971"> سعادة </Word>
+<Word stime="664.25" dur="0.23" conf="0.879"> النائب </Word>
+<Word stime="664.53" dur="0.33" conf="0.971"> محمد </Word>
+<Word stime="664.94" dur="0.36" conf="0.963"> سلمان </Word>
+<Word stime="665.39" dur="0.18" conf="0.796"> محمد </Word>
+<Word stime="665.80" dur="0.33" conf="0.767"> صالح </Word>
+<Word stime="666.20" dur="0.18" conf="0.539"> الأحمد </Word>
+<Word stime="667.07" dur="0.40" conf="0.971"> سعادة </Word>
+<Word stime="667.54" dur="0.24" conf="0.931"> النائب </Word>
+<Word stime="667.83" dur="0.36" conf="0.971"> ناصر </Word>
+<Word stime="668.19" dur="0.14" conf="0.971"> عبد </Word>
+<Word stime="668.36" dur="0.20" conf="0.933"> الرضا </Word>
+<Word stime="668.67" dur="0.38" conf="0.929"> محمد </Word>
+<Word stime="669.10" dur="0.19" conf="0.958"> على </Word>
+<Word stime="669.29" dur="0.40" conf="0.971"> الخصر </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="672.16" etime="677.41" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="672.16" dur="0.22" conf="0.838"> هذا </Word>
+<Word stime="672.38" dur="0.06" conf="0.838"> يا </Word>
+<Word stime="672.44" dur="0.34" conf="0.893"> إخوان </Word>
+<Word stime="672.78" dur="0.08" conf="0.354"> . </Word>
+<Word stime="672.86" dur="0.42" conf="0.970"> تشكيل </Word>
+<Word stime="673.37" dur="0.26" conf="0.970"> لجنة </Word>
+<Word stime="673.70" dur="0.33" conf="0.969"> الشؤون </Word>
+<Word stime="674.03" dur="0.39" conf="0.970"> المالية </Word>
+<Word stime="674.42" dur="0.67" conf="0.970"> والاقتصادية </Word>
+<Word stime="675.09" dur="0.38" conf="0.581"> . </Word>
+<Word stime="675.47" dur="0.24" conf="0.968"> هل </Word>
+<Word stime="675.71" dur="0.48" conf="0.970"> موافقون </Word>
+<Word stime="676.28" dur="0.15" conf="0.970"> على </Word>
+<Word stime="676.43" dur="0.19" conf="0.970"> هذا </Word>
+<Word stime="676.67" dur="0.53" conf="0.970"> التشكيل </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="678.50" etime="679.84" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="678.50" dur="0.25" conf="0.932"> ممكن </Word>
+<Word stime="678.89" dur="0.41" conf="0.506"> تصويت </Word>
+<Word stime="679.30" dur="0.08" conf="0.943"> يا </Word>
+<Word stime="679.38" dur="0.42" conf="0.976"> إخوان </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="688.13" etime="691.26" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="688.43" dur="0.36" conf="0.924"> أغلبية </Word>
+<Word stime="688.79" dur="0.51" conf="0.953"> موافقة </Word>
+<Word stime="690.36" dur="0.23" conf="0.777"> لجنة </Word>
+<Word stime="690.87" dur="0.26" conf="0.585"> عليها </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="692.39" etime="717.27" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="692.39" dur="0.39" conf="0.800"> لجنة </Word>
+<Word stime="693.09" dur="0.27" conf="0.962"> الشؤون </Word>
+<Word stime="693.46" dur="0.36" conf="0.971"> الخارجية </Word>
+<Word stime="693.91" dur="0.36" conf="0.971"> والدفاع </Word>
+<Word stime="694.35" dur="0.33" conf="0.971"> والأمن </Word>
+<Word stime="694.68" dur="0.50" conf="0.965"> الوطني </Word>
+<Word stime="695.22" dur="0.50" conf="0.962"> سعادة </Word>
+<Word stime="695.72" dur="0.33" conf="0.727"> النائب </Word>
+<Word stime="696.12" dur="0.32" conf="0.948"> جمال </Word>
+<Word stime="696.51" dur="0.27" conf="0.747"> علي </Word>
+<Word stime="696.78" dur="0.39" conf="0.970"> جاسم </Word>
+<Word stime="697.27" dur="0.42" conf="0.678"> محاسن </Word>
+<Word stime="698.07" dur="0.45" conf="0.966"> سعادة </Word>
+<Word stime="698.60" dur="0.34" conf="0.845"> النادي </Word>
+<Word stime="698.94" dur="0.31" conf="0.799"> الرياضي </Word>
+<Word stime="699.33" dur="0.44" conf="0.817"> محمد </Word>
+<Word stime="699.87" dur="0.37" conf="0.704"> محمد </Word>
+<Word stime="700.32" dur="0.33" conf="0.959"> ذياب </Word>
+<Word stime="700.65" dur="0.63" conf="0.971"> النعيمي </Word>
+<Word stime="701.61" dur="0.45" conf="0.971"> سعادة </Word>
+<Word stime="702.06" dur="0.26" conf="0.789"> النائب </Word>
+<Word stime="702.46" dur="0.11" conf="0.902"> عبد </Word>
+<Word stime="702.57" dur="0.41" conf="0.958"> الرحمن </Word>
+<Word stime="702.98" dur="0.37" conf="0.737"> راشد </Word>
+<Word stime="703.38" dur="0.12" conf="0.971"> عبد </Word>
+<Word stime="703.50" dur="0.51" conf="0.830"> الرحمن </Word>
+<Word stime="704.34" dur="0.42" conf="0.670"> خلفهم </Word>
+<Word stime="704.88" dur="0.26" conf="0.737"> جيد </Word>
+<Word stime="705.37" dur="0.39" conf="0.971"> سعادة </Word>
+<Word stime="705.76" dur="0.21" conf="0.687"> النائب </Word>
+<Word stime="706.12" dur="0.25" conf="0.970"> عبد </Word>
+<Word stime="706.41" dur="0.15" conf="0.971"> الله </Word>
+<Word stime="706.56" dur="0.21" conf="0.850"> على </Word>
+<Word stime="707.11" dur="0.24" conf="0.510"> أحوال </Word>
+<Word stime="707.91" dur="0.42" conf="0.971"> سعادة </Word>
+<Word stime="708.33" dur="0.24" conf="0.842"> النائب </Word>
+<Word stime="708.75" dur="0.34" conf="0.971"> الدكتور </Word>
+<Word stime="709.17" dur="0.34" conf="0.971"> مجيد </Word>
+<Word stime="709.59" dur="0.39" conf="0.971"> محسن </Word>
+<Word stime="710.05" dur="0.28" conf="0.969"> محمد </Word>
+<Word stime="710.40" dur="0.60" conf="0.971"> العصفور </Word>
+<Word stime="711.39" dur="0.44" conf="0.969"> سعادة </Word>
+<Word stime="711.90" dur="0.28" conf="0.570"> النائب </Word>
+<Word stime="712.18" dur="0.43" conf="0.939"> محمد </Word>
+<Word stime="712.71" dur="0.33" conf="0.971"> حسن </Word>
+<Word stime="713.11" dur="0.29" conf="0.950"> راشد </Word>
+<Word stime="713.40" dur="0.15" conf="0.453"> الجولة </Word>
+<Word stime="714.35" dur="0.46" conf="0.971"> سعادة </Word>
+<Word stime="714.89" dur="0.34" conf="0.971"> النائب </Word>
+<Word stime="715.30" dur="0.32" conf="0.971"> نبيل </Word>
+<Word stime="715.66" dur="0.21" conf="0.971"> عبد </Word>
+<Word stime="715.92" dur="0.18" conf="0.970"> الله </Word>
+<Word stime="716.10" dur="0.18" conf="0.971"> علي </Word>
+<Word stime="716.28" dur="0.34" conf="0.971"> محمد </Word>
+<Word stime="716.70" dur="0.49" conf="0.930"> البلوشي </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="718.90" etime="723.90" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="718.97" dur="0.24" conf="0.458"> هذه </Word>
+<Word stime="719.21" dur="0.06" conf="0.948"> يا </Word>
+<Word stime="719.27" dur="0.45" conf="0.958"> إخوان </Word>
+<Word stime="719.72" dur="0.42" conf="0.744"> . </Word>
+<Word stime="720.14" dur="0.30" conf="0.962"> لجنة </Word>
+<Word stime="720.51" dur="0.23" conf="0.921"> الشؤون </Word>
+<Word stime="720.74" dur="0.49" conf="0.968"> الخارجية </Word>
+<Word stime="721.23" dur="0.41" conf="0.968"> والدفاع </Word>
+<Word stime="721.64" dur="0.24" conf="0.968"> والأمن </Word>
+<Word stime="721.88" dur="0.39" conf="0.968"> الوطني </Word>
+<Word stime="722.27" dur="0.03" conf="0.512"> . </Word>
+<Word stime="722.30" dur="0.10" conf="0.940"> هل </Word>
+<Word stime="722.42" dur="0.44" conf="0.945"> موافقون </Word>
+<Word stime="722.93" dur="0.15" conf="0.968"> على </Word>
+<Word stime="723.08" dur="0.15" conf="0.968"> هذا </Word>
+<Word stime="723.26" dur="0.60" conf="0.968"> التشكيل </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="725.49" etime="726.43" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="725.49" dur="0.33" conf="0.837"> ممكن </Word>
+<Word stime="725.92" dur="0.47" conf="0.974"> التصويت </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="736.15" etime="738.51" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="736.15" dur="0.39" conf="0.853"> شكرا </Word>
+<Word stime="736.80" dur="0.38" conf="0.727"> أغلبية </Word>
+<Word stime="737.18" dur="0.46" conf="0.968"> موافقة </Word>
+<Word stime="737.97" dur="0.24" conf="0.818"> اللجنة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="740.24" etime="764.59" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="740.24" dur="0.35" conf="0.939"> لجنة </Word>
+<Word stime="740.79" dur="0.51" conf="0.969"> الخدمات </Word>
+<Word stime="741.33" dur="0.45" conf="0.969"> سعادة </Word>
+<Word stime="741.84" dur="0.28" conf="0.732"> النائب </Word>
+<Word stime="742.20" dur="0.34" conf="0.969"> أسامة </Word>
+<Word stime="742.62" dur="0.12" conf="0.968"> عبد </Word>
+<Word stime="742.86" dur="0.36" conf="0.968"> الحميد </Word>
+<Word stime="743.22" dur="0.14" conf="0.713"> عبد </Word>
+<Word stime="743.52" dur="0.16" conf="0.967"> الله </Word>
+<Word stime="743.68" dur="0.40" conf="0.617"> الحاج </Word>
+<Word stime="744.69" dur="0.48" conf="0.969"> سعادة </Word>
+<Word stime="745.17" dur="0.22" conf="0.681"> النائب </Word>
+<Word stime="745.56" dur="0.42" conf="0.935"> الدكتور </Word>
+<Word stime="746.07" dur="0.32" conf="0.943"> جميل </Word>
+<Word stime="746.46" dur="0.41" conf="0.966"> منصور </Word>
+<Word stime="746.97" dur="0.34" conf="0.968"> جاسم </Word>
+<Word stime="747.39" dur="0.43" conf="0.963"> السماك </Word>
+<Word stime="748.35" dur="0.45" conf="0.969"> سعادة </Word>
+<Word stime="748.88" dur="0.27" conf="0.909"> الناب </Word>
+<Word stime="749.22" dur="0.24" conf="0.902"> رؤى </Word>
+<Word stime="749.52" dur="0.31" conf="0.837"> بأجر </Word>
+<Word stime="749.88" dur="0.44" conf="0.874"> مبارك </Word>
+<Word stime="750.77" dur="0.16" conf="0.508"> عليه </Word>
+<Word stime="750.93" dur="0.60" conf="0.575"> الحايكي </Word>
+<Word stime="751.92" dur="0.46" conf="0.969"> سعادة </Word>
+<Word stime="752.45" dur="0.25" conf="0.645"> الناب </Word>
+<Word stime="752.70" dur="0.40" conf="0.484"> أنفاس </Word>
+<Word stime="753.29" dur="0.16" conf="0.933"> عيسى </Word>
+<Word stime="753.60" dur="0.20" conf="0.502"> عليه </Word>
+<Word stime="753.86" dur="0.26" conf="0.871"> حسن </Word>
+<Word stime="754.31" dur="0.46" conf="0.787"> الماضي </Word>
+<Word stime="755.16" dur="0.46" conf="0.969"> سعادة </Word>
+<Word stime="755.71" dur="0.37" conf="0.969"> النائب </Word>
+<Word stime="756.21" dur="0.30" conf="0.653"> عليه </Word>
+<Word stime="756.51" dur="0.27" conf="0.938"> عيسى </Word>
+<Word stime="756.84" dur="0.23" conf="0.969"> عبد </Word>
+<Word stime="757.11" dur="0.12" conf="0.969"> الله </Word>
+<Word stime="757.23" dur="0.32" conf="0.969"> أحمد </Word>
+<Word stime="757.62" dur="0.49" conf="0.453"> وفارس </Word>
+<Word stime="758.58" dur="0.45" conf="0.969"> سعادة </Word>
+<Word stime="759.09" dur="0.27" conf="0.910"> النائب </Word>
+<Word stime="759.42" dur="0.22" conf="0.661"> علي </Word>
+<Word stime="759.64" dur="0.47" conf="0.969"> يعقوب </Word>
+<Word stime="760.26" dur="0.43" conf="0.966"> يوسف </Word>
+<Word stime="760.86" dur="0.31" conf="0.962"> محمد </Word>
+<Word stime="762.12" dur="0.34" conf="0.969"> سعادة </Word>
+<Word stime="762.61" dur="0.21" conf="0.931"> النائب </Word>
+<Word stime="762.87" dur="0.36" conf="0.939"> محمد </Word>
+<Word stime="763.32" dur="0.29" conf="0.968"> يوسف </Word>
+<Word stime="763.68" dur="0.19" conf="0.719"> محمد </Word>
+<Word stime="764.14" dur="0.35" conf="0.759"> المعرفي </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="765.93" etime="769.40" spkid="MT2" lang="ara" lconf="1.00" trs="1">
+<Word stime="766.00" dur="0.23" conf="0.645"> هذه </Word>
+<Word stime="766.23" dur="0.07" conf="0.917"> يا </Word>
+<Word stime="766.30" dur="0.54" conf="0.960"> إخوان </Word>
+<Word stime="767.76" dur="0.43" conf="0.963"> لجنة </Word>
+<Word stime="768.78" dur="0.58" conf="0.968"> الخدمات </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="773.14" etime="774.16" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="773.14" dur="0.17" conf="0.536"> وأن </Word>
+<Word stime="773.36" dur="0.50" conf="0.635"> التشكيلة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="779.24" etime="780.24" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="779.24" dur="0.37" conf="0.954"> تشكيل </Word>
+<Word stime="779.70" dur="0.27" conf="0.932"> اللجنة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="781.79" etime="786.77" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="781.79" dur="0.34" conf="0.899"> التصويت </Word>
+<Word stime="782.18" dur="0.22" conf="0.775"> عليها </Word>
+<Word stime="782.40" dur="0.06" conf="0.623"> . </Word>
+<Word stime="782.46" dur="0.17" conf="0.652"> بس </Word>
+<Word stime="782.63" dur="0.16" conf="0.495"> ، </Word>
+<Word stime="782.79" dur="0.18" conf="0.689"> وما </Word>
+<Word stime="783.03" dur="0.21" conf="0.689"> شكل </Word>
+<Word stime="783.24" dur="0.51" conf="0.599"> تصويتهم </Word>
+<Word stime="783.96" dur="0.42" conf="0.576"> الأسامي </Word>
+<Word stime="784.38" dur="0.20" conf="0.560"> بعد </Word>
+<Word stime="784.58" dur="0.16" conf="0.966"> غير </Word>
+<Word stime="784.83" dur="0.39" conf="0.615"> موجود </Word>
+<Word stime="785.85" dur="0.27" conf="0.963"> لكن </Word>
+<Word stime="786.18" dur="0.09" conf="0.903"> ما </Word>
+<Word stime="786.27" dur="0.30" conf="0.869"> عليها </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="791.10" etime="792.08" spkid="MS3" lang="ara" lconf="1.00" trs="1">
+<Word stime="791.40" dur="0.38" conf="0.526"> موجود </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="797.03" etime="798.08" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="797.03" dur="0.37" conf="0.445"> أغلبية </Word>
+<Word stime="797.50" dur="0.56" conf="0.976"> موافقة </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="802.18" etime="827.46" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="802.18" dur="0.16" conf="0.391"> أم </Word>
+<Word stime="802.34" dur="0.07" conf="0.574"> في </Word>
+<Word stime="802.44" dur="0.25" conf="0.970"> لجنة </Word>
+<Word stime="802.91" dur="0.27" conf="0.968"> لجنة </Word>
+<Word stime="803.33" dur="0.45" conf="0.969"> المرافق </Word>
+<Word stime="803.85" dur="0.32" conf="0.971"> العامة </Word>
+<Word stime="804.17" dur="0.37" conf="0.971"> والبيئة </Word>
+<Word stime="804.63" dur="0.44" conf="0.971"> سعادة </Word>
+<Word stime="805.14" dur="0.31" conf="0.948"> النائب </Word>
+<Word stime="805.53" dur="0.35" conf="0.897"> إبراهيم </Word>
+<Word stime="805.97" dur="0.26" conf="0.969"> جمعة </Word>
+<Word stime="806.30" dur="0.27" conf="0.960"> على </Word>
+<Word stime="806.57" dur="0.30" conf="0.945"> محمد </Word>
+<Word stime="807.08" dur="0.54" conf="0.833"> الحمادي </Word>
+<Word stime="807.98" dur="0.46" conf="0.971"> سعادة </Word>
+<Word stime="808.52" dur="0.22" conf="0.937"> النائب </Word>
+<Word stime="808.86" dur="0.32" conf="0.971"> أحمد </Word>
+<Word stime="809.18" dur="0.11" conf="0.938"> عبد </Word>
+<Word stime="809.43" dur="0.28" conf="0.970"> الواحد </Word>
+<Word stime="809.78" dur="0.34" conf="0.969"> جاسم </Word>
+<Word stime="810.20" dur="0.27" conf="0.945"> حسن </Word>
+<Word stime="810.54" dur="0.32" conf="0.539"> دراسة </Word>
+<Word stime="811.46" dur="0.47" conf="0.971"> سعادة </Word>
+<Word stime="811.93" dur="0.31" conf="0.884"> النائب </Word>
+<Word stime="812.35" dur="0.25" conf="0.971"> جمال </Word>
+<Word stime="812.66" dur="0.29" conf="0.970"> داود </Word>
+<Word stime="813.02" dur="0.42" conf="0.969"> سلمان </Word>
+<Word stime="813.60" dur="0.41" conf="0.962"> أحمد </Word>
+<Word stime="814.43" dur="0.45" conf="0.971"> سعادة </Word>
+<Word stime="814.95" dur="0.29" conf="0.950"> النائب </Word>
+<Word stime="815.24" dur="0.39" conf="0.971"> عادل </Word>
+<Word stime="815.63" dur="0.12" conf="0.971"> عبد </Word>
+<Word stime="815.75" dur="0.36" conf="0.968"> الرحمن </Word>
+<Word stime="816.20" dur="0.35" conf="0.941"> محمد </Word>
+<Word stime="816.65" dur="0.27" conf="0.961"> أحمد </Word>
+<Word stime="816.98" dur="0.25" conf="0.586"> الأسهم </Word>
+<Word stime="818.00" dur="0.45" conf="0.971"> سعادة </Word>
+<Word stime="818.51" dur="0.27" conf="0.931"> النائب </Word>
+<Word stime="818.82" dur="0.14" conf="0.963"> عبد </Word>
+<Word stime="819.05" dur="0.36" conf="0.971"> الحميد </Word>
+<Word stime="819.46" dur="0.18" conf="0.635"> أبو </Word>
+<Word stime="819.64" dur="0.29" conf="0.475"> الحسين </Word>
+<Word stime="820.07" dur="0.24" conf="0.933"> أحمد </Word>
+<Word stime="820.38" dur="0.43" conf="0.970"> محمد </Word>
+<Word stime="821.27" dur="0.42" conf="0.971"> سعادة </Word>
+<Word stime="821.76" dur="0.32" conf="0.970"> النائب </Word>
+<Word stime="822.08" dur="0.40" conf="0.936"> غازي </Word>
+<Word stime="822.67" dur="0.34" conf="0.956"> فيصل </Word>
+<Word stime="823.01" dur="0.36" conf="0.964"> حسن </Word>
+<Word stime="823.46" dur="0.29" conf="0.969"> حسين </Word>
+<Word stime="824.02" dur="0.33" conf="0.493"> رحمة </Word>
+<Word stime="824.87" dur="0.42" conf="0.971"> سعادة </Word>
+<Word stime="825.35" dur="0.19" conf="0.965"> النائب </Word>
+<Word stime="825.73" dur="0.24" conf="0.759"> محسن </Word>
+<Word stime="826.06" dur="0.19" conf="0.646"> علي </Word>
+<Word stime="826.25" dur="0.42" conf="0.971"> محمد </Word>
+<Word stime="826.67" dur="0.22" conf="0.953"> عبد </Word>
+<Word stime="826.89" dur="0.13" conf="0.857"> الله </Word>
+<Word stime="827.06" dur="0.31" conf="0.769"> البكري </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="828.45" etime="832.55" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="828.61" dur="0.54" conf="0.761"> الموظفون </Word>
+<Word stime="829.15" dur="0.32" conf="0.956"> أصحاب </Word>
+<Word stime="829.47" dur="0.26" conf="0.965"> السعادة </Word>
+<Word stime="829.78" dur="0.33" conf="0.970"> النواب </Word>
+<Word stime="830.14" dur="0.15" conf="0.970"> على </Word>
+<Word stime="830.29" dur="0.12" conf="0.966"> هذا </Word>
+<Word stime="830.44" dur="0.51" conf="0.896"> التشكيل </Word>
+<Word stime="831.63" dur="0.24" conf="0.878"> ممكن </Word>
+<Word stime="832.00" dur="0.43" conf="0.970"> التصويت </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="839.33" etime="841.56" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="839.33" dur="0.49" conf="0.756"> أغلبية </Word>
+<Word stime="839.94" dur="0.46" conf="0.823"> موافقة </Word>
+<Word stime="840.84" dur="0.65" conf="0.973"> أشكركم </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="842.60" etime="843.75" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="842.79" dur="0.33" conf="0.985"> شكرا </Word>
+<Word stime="843.12" dur="0.57" conf="0.989"> جزيلا </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="845.98" etime="854.92" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="846.28" dur="0.27" conf="0.969"> على </Word>
+<Word stime="846.61" dur="0.32" conf="0.970"> هذا </Word>
+<Word stime="847.03" dur="0.52" conf="0.969"> التعاون </Word>
+<Word stime="847.55" dur="0.66" conf="0.946"> . </Word>
+<Word stime="848.21" dur="0.55" conf="0.969"> وأذكركم </Word>
+<Word stime="848.82" dur="0.25" conf="0.430"> إخواني </Word>
+<Word stime="849.13" dur="0.63" conf="0.947"> بانتخابات </Word>
+<Word stime="849.84" dur="0.27" conf="0.969"> اللجان </Word>
+<Word stime="850.18" dur="0.22" conf="0.970"> سوف </Word>
+<Word stime="850.45" dur="0.22" conf="0.950"> تجرى </Word>
+<Word stime="850.72" dur="0.20" conf="0.969"> بعد </Word>
+<Word stime="850.97" dur="0.26" conf="0.968"> انتهاء </Word>
+<Word stime="851.23" dur="0.30" conf="0.970"> هذه </Word>
+<Word stime="851.63" dur="0.40" conf="0.970"> الجلسة </Word>
+<Word stime="852.64" dur="0.35" conf="0.663"> في </Word>
+<Word stime="853.54" dur="0.18" conf="0.594"> ال </Word>
+<Word stime="853.72" dur="0.30" conf="0.657"> . </Word>
+<Word stime="854.02" dur="0.15" conf="0.476"> ما </Word>
+<Word stime="854.17" dur="0.17" conf="0.897"> من </Word>
+<Word stime="854.45" dur="0.44" conf="0.970"> اللجان </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="863.33" etime="867.85" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="863.33" dur="0.37" conf="0.639"> عرض </Word>
+<Word stime="863.76" dur="0.46" conf="0.567"> المقترح </Word>
+<Word stime="864.34" dur="0.37" conf="0.805"> بأعضاء </Word>
+<Word stime="864.83" dur="0.37" conf="0.969"> لجنة </Word>
+<Word stime="865.26" dur="0.27" conf="0.948"> إعداد </Word>
+<Word stime="865.59" dur="0.33" conf="0.969"> مشروع </Word>
+<Word stime="865.98" dur="0.23" conf="0.965"> الرد </Word>
+<Word stime="866.26" dur="0.14" conf="0.956"> على </Word>
+<Word stime="866.40" dur="0.36" conf="0.968"> الخطاب </Word>
+<Word stime="866.95" dur="0.41" conf="0.969"> الملكي </Word>
+<Word stime="867.45" dur="0.36" conf="0.970"> السامي </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="881.67" etime="910.03" spkid="MS5" lang="ara" lconf="1.00" trs="1">
+<Word stime="881.67" dur="0.41" conf="0.894"> سعادة </Word>
+<Word stime="882.24" dur="0.40" conf="0.969"> النائب </Word>
+<Word stime="882.64" dur="0.42" conf="0.668"> . </Word>
+<Word stime="883.06" dur="0.23" conf="0.956"> أنا </Word>
+<Word stime="883.29" dur="0.24" conf="0.915"> سعيد </Word>
+<Word stime="883.57" dur="0.12" conf="0.643"> بو </Word>
+<Word stime="883.69" dur="0.36" conf="0.864"> هندي </Word>
+<Word stime="884.08" dur="0.42" conf="0.969"> سعادة </Word>
+<Word stime="884.57" dur="0.24" conf="0.923"> النائب </Word>
+<Word stime="884.86" dur="0.36" conf="0.965"> جمال </Word>
+<Word stime="885.22" dur="0.33" conf="0.969"> داود </Word>
+<Word stime="885.64" dur="0.39" conf="0.941"> سلمان </Word>
+<Word stime="886.06" dur="0.42" conf="0.962"> سعادة </Word>
+<Word stime="886.48" dur="0.18" conf="0.572"> النائب </Word>
+<Word stime="886.85" dur="0.33" conf="0.766"> الدكتور </Word>
+<Word stime="887.26" dur="0.32" conf="0.932"> جميل </Word>
+<Word stime="887.66" dur="0.40" conf="0.952"> منصور </Word>
+<Word stime="888.17" dur="0.35" conf="0.885"> السماك </Word>
+<Word stime="889.12" dur="0.42" conf="0.957"> سعادة </Word>
+<Word stime="889.60" dur="0.24" conf="0.729"> النائب </Word>
+<Word stime="889.90" dur="0.36" conf="0.833"> حمد </Word>
+<Word stime="890.26" dur="0.39" conf="0.968"> سالم </Word>
+<Word stime="890.65" dur="0.60" conf="0.969"> الدوسري </Word>
+<Word stime="891.71" dur="0.44" conf="0.969"> سعادة </Word>
+<Word stime="892.24" dur="0.26" conf="0.631"> النائب </Word>
+<Word stime="892.55" dur="0.30" conf="0.832"> زيارة </Word>
+<Word stime="892.92" dur="0.34" conf="0.953"> محمد </Word>
+<Word stime="893.35" dur="0.60" conf="0.925"> النعيمي </Word>
+<Word stime="894.34" dur="0.42" conf="0.969"> سعادة </Word>
+<Word stime="894.82" dur="0.25" conf="0.969"> النائب </Word>
+<Word stime="895.07" dur="0.14" conf="0.969"> عبد </Word>
+<Word stime="895.21" dur="0.39" conf="0.961"> الرحمن </Word>
+<Word stime="895.60" dur="0.29" conf="0.856"> راشد </Word>
+<Word stime="895.96" dur="0.13" conf="0.631"> بن </Word>
+<Word stime="896.12" dur="0.32" conf="0.677"> جيد </Word>
+<Word stime="896.89" dur="0.42" conf="0.969"> سعادة </Word>
+<Word stime="897.37" dur="0.24" conf="0.878"> النائب </Word>
+<Word stime="897.61" dur="0.15" conf="0.969"> عبد </Word>
+<Word stime="897.76" dur="0.34" conf="0.661"> الرحمن </Word>
+<Word stime="898.22" dur="0.17" conf="0.698"> عليه </Word>
+<Word stime="898.48" dur="0.34" conf="0.487"> وعلى </Word>
+<Word stime="899.34" dur="0.42" conf="0.968"> سعادة </Word>
+<Word stime="899.76" dur="0.28" conf="0.827"> النائب </Word>
+<Word stime="900.12" dur="0.34" conf="0.968"> الدكتور </Word>
+<Word stime="900.53" dur="0.26" conf="0.950"> عيسى </Word>
+<Word stime="900.85" dur="0.25" conf="0.910"> أحمد </Word>
+<Word stime="901.18" dur="0.51" conf="0.741"> تركي </Word>
+<Word stime="901.99" dur="0.45" conf="0.969"> سعادة </Word>
+<Word stime="902.50" dur="0.24" conf="0.960"> النائب </Word>
+<Word stime="902.88" dur="0.31" conf="0.949"> ماجد </Word>
+<Word stime="903.19" dur="0.34" conf="0.968"> إبراهيم </Word>
+<Word stime="903.61" dur="0.48" conf="0.950"> الماجد </Word>
+<Word stime="904.60" dur="0.42" conf="0.969"> سعادة </Word>
+<Word stime="905.09" dur="0.28" conf="0.848"> النائب </Word>
+<Word stime="905.44" dur="0.37" conf="0.957"> محمد </Word>
+<Word stime="905.89" dur="0.28" conf="0.968"> إسماعيل </Word>
+<Word stime="906.30" dur="0.28" conf="0.558"> عباس </Word>
+<Word stime="906.70" dur="0.51" conf="0.794"> العمادي </Word>
+<Word stime="907.70" dur="0.47" conf="0.965"> وسعادة </Word>
+<Word stime="908.25" dur="0.27" conf="0.964"> النائب </Word>
+<Word stime="908.57" dur="0.31" conf="0.969"> ناصر </Word>
+<Word stime="908.95" dur="0.18" conf="0.653"> عمر </Word>
+<Word stime="909.18" dur="0.19" conf="0.499"> رضي </Word>
+<Word stime="909.55" dur="0.44" conf="0.969"> القصير </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="912.62" etime="913.97" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="912.62" dur="0.28" conf="0.984"> هل </Word>
+<Word stime="912.90" dur="0.42" conf="0.985"> موافقون </Word>
+<Word stime="913.41" dur="0.06" conf="0.983"> يا </Word>
+<Word stime="913.47" dur="0.48" conf="0.985"> إخوان </Word>
+</SpeechSegment>
+<SpeechSegment ch="1" sconf="1.00" stime="914.89" etime="915.21" spkid="MS2" lang="ara" lconf="1.00" trs="1">
+<Word stime="914.96" dur="0.25" conf="0.838"> فرض </Word>
+</SpeechSegment>
+</SegmentList>
+</AudioDoc>
