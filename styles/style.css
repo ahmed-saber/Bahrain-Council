@@ -328,12 +328,13 @@ header#header a.currentuser {
 }
 #mainnavigationlist {
     background-image: url(../images/header-bg.jpg);
-	background-position: 360px -10px;
+	background-position: 188px -10px;
     background-repeat: no-repeat;
     background-color: #fff;
     background-attachment:fixed;
     position: relative;
     height: 130px;
+    background-size: 11%;
 }
 #mainnavigationlist li {
     padding: 46px 250px 0px 0;
