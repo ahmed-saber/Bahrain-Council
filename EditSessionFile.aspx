@@ -57,9 +57,9 @@
             runat="server" class="unAssignedSpeakerId" />
         <input type="hidden" name="unAssignedAgendaId" id="unAssignedAgendaId" value="0"
             runat="server" class="unAssignedAgendaId" />
-        <div id="editSessionFile" class="container_24">
+        <div id="editSessionFile">
             <div class="row">
-                <div class="grid_3">
+                <div class="grid_4">
                     <div class="nav">
                         <input name="" runat="server" disabled="disabled" id="btnNext" type="button" class="btn inputBlock mb-5 next btn_editsession"
                             value="التالى" />

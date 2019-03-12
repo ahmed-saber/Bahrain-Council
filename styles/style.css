@@ -33,6 +33,11 @@
 .container_24{
 	min-width:1520px;
 }
+.row{
+    max-width: 1250px;
+    margin: auto auto 10px;
+    overflow:hidden;
+}
 /*!global classes*/
 .radio_list td {
     padding: 2px;
@@ -86,15 +91,22 @@ textarea.fitAll {
 .btn,
 .smallbtn 
 {
-    background-image:url('../images/btn-bg.png');
-    padding: 6px;
-    border:1px solid #fff;
-    cursor: pointer;
+    -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background-color:#be1a29;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #942911;
+	display:inline-block;
+	color:#fff;
     font-size: 11px;
     font-weight: bold;
-    color:#fff;
+    cursor:pointer;
 }
 .btn:disabled {
+    cursor:default;
     /* IE 8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
     /* IE 5-7 */
@@ -106,45 +118,43 @@ textarea.fitAll {
     /* Good browsers */
     opacity: 0.5;
 }
-.btn:disabled:hover {
-	color:#fff;
+.btn:active,
+.smallbtn:active {
+	position:relative;
+	top:1px;
 }
 .btn:hover,
 .smallbtn:hover
 {
-    border:1px solid #000;
-	color: #000;
+    background-color:#75121b;
 }
 .smallbtn {
-    padding: 4px;
     font-size: 10px;
     line-height: 9pt;
 }
-.addnew,
-.prev,
-.next {
-    background-image: url(../images/buttons.jpg);
-    background-repeat: no-repeat;
-}
 .addnew {
-    background-position: right 0px;
+    background-image: url(../images/plus-square-solid.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 7px) center;
     padding-right: 25px;
+    background-size: 5%;
 }
 .prev {
-    background-position: left -91px;
+    background-image: url(../images/chevron-left-solid.svg);
+    background-repeat: no-repeat;
+    background-position: 7px center;
     padding-left: 25px;
+    background-size: 5%;
 }
 .next {
-    background-position: right -39px;
+    background-image: url(../images/chevron-right-solid.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 7px) center;
     padding-right: 25px;
+    background-size: 5%;
 }
 .error {
     color: #C00;
-}
-.row 
-{
-    overflow:hidden;
-    margin-bottom: 10px;
 }
 .rowDouble {
     margin: 10px 0px;
