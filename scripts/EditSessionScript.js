@@ -30,6 +30,12 @@ $(document).ready(function () {
         return $('<div/>').text(value).html();
     }
 
+    function htmlClean(html) {
+        var parent = $('<div/>').html(html);
+        parent.find('span').removeClass('highlight editable hover');
+        return parent.html();
+    }
+
     function getParameterByName(name) {
         var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
         return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
@@ -461,6 +467,34 @@ $(document).ready(function () {
         return objects;
     }
 
+    function insertIntoSafeArea(ed, cloneHTML) {
+        // get caret position
+        getCursorPosition(ed, function (OB) {
+            if (OB.collapsed) {
+                // get current target
+                var nodeName = OB.target.nodeName;
+                // check node name
+                if (nodeName == 'BODY') {
+                    ed.execCommand('mceInsertRawHTML', false, cloneHTML);
+                } else {
+                    if (
+                        (OB.markAcPreviousSibling && OB.markAcPreviousSibling.data != undefined) &&
+                        (OB.markAcNextSibling && OB.markAcNextSibling.data != undefined) &&
+                        (OB.markAcPreviousSibling.data.length >= OB.markAcNextSibling.data.length)
+                    ) {
+                        OB.$target.after(cloneHTML);
+                    } else {
+                        OB.$target.before(cloneHTML);
+                    }
+                }
+                // add to the undo manager
+                ed.undoManager.add();
+            } else {
+                alert('Without any selection please !!')
+            }
+        }, true);
+    }
+
     function cleanHTML(value) {
         var emptyTagsBr = /<[\w]*(?=\s|>)(?!(?:[^>=]|=(['"])(?:(?!\1).)*\1)*?\sdata-mce-type=['"])[^>]*>\s*<\/[\w]*>/g;
         //var emptyTagsBr = /<[\w]*(?=\s|>)(?!(?:[^>=]|=(['"])(?:(?!\1).)*\1)*?\sdata-mce-type=['"])[^>]*>\s*(<br\s*[\/]?>)?\s*<\/[\w]*>/g;
@@ -633,8 +667,7 @@ $(document).ready(function () {
         });
     }
 
-    function GetAttendantsFullName() {
-        // $('.ddl_votes').empty();//clear text
+    function GetAttendantsFullName(callback) {
         //Load Available Votes
         jQuery.ajax({
             cache: false,
@@ -645,13 +678,11 @@ $(document).ready(function () {
                 sid: $(".sessionID").val()
             },
             dataType: 'json',
-            success: function (response) {
-                alert(response[0].Name)
-            }
+            success: callback
         });
     }
 
-    function GetPresidentIntro() {
+    function GetPresidentIntro(callback) {
         // Load Available Votes
         jQuery.ajax({
             cache: false,
@@ -662,9 +693,7 @@ $(document).ready(function () {
                 sid: $(".sessionID").val()
             },
             dataType: 'json',
-            success: function (response) {
-                ed.execCommand('mceInsertRawHTML', false, response);
-            }
+            success: callback
         });
     }
 
@@ -2037,7 +2066,7 @@ $(document).ready(function () {
                 // Content string containing the HTML from the clipboard
                 var stripedContent = o.content.replace(/&nbsp;/g, ' ').replace(/(<([^>]+)>)/ig, '');
                 var cleanedHTML = cleanHTML(stripedContent);
-                o.content = '<span>' + cleanedHTML + '</span>'
+                o.content = '<span>' + cleanedHTML + '</span>';
             });
         },
         language: "ar",
@@ -2212,30 +2241,7 @@ $(document).ready(function () {
                     // add to the undo manager
                     ed.undoManager.add();
                     // get caret position
-                    getCursorPosition(ed, function (OB) {
-                        if (OB.collapsed) {
-                            // get current target
-                            var nodeName = OB.target.nodeName;
-                            // check node name
-                            if (nodeName == 'BODY') {
-                                ed.execCommand('mceInsertRawHTML', false, cloneHTML);
-                            } else {
-                                if (
-                                    (OB.markAcPreviousSibling && OB.markAcPreviousSibling.data != undefined) &&
-                                    (OB.markAcNextSibling && OB.markAcNextSibling.data != undefined) &&
-                                    (OB.markAcPreviousSibling.data.length >= OB.markAcNextSibling.data.length)
-                                ) {
-                                    OB.$target.after(cloneHTML);
-                                } else {
-                                    OB.$target.before(cloneHTML);
-                                }
-                            }
-                            // add to the undo manager
-                            ed.undoManager.add();
-                        } else {
-                            alert('Without any selection please !!')
-                        }
-                    }, true);
+                    insertIntoSafeArea(ed, cloneHTML);
                 });
             }
         },
@@ -2357,21 +2363,72 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    //add madbatah start
+    // add madbatah start
     $(".btnPresidentIntro").click(function (e) {
-        GetPresidentIntro();
-        // $(".popupoverlay").show();
-        // $(".reviewpopup_cont5").show();
+        GetPresidentIntro(function (response) {
+            getMainEditor().execCommand('mceInsertRawHTML', false, response);
+        });
         e.preventDefault();
     });
 
-    //end madbatah start
-
-    //btnAddAttFullName
+    // btnAddAttFullName
     $(".btnAddAttFullName").click(function (e) {
-        GetAttendantsFullName();
-        // $(".popupoverlay").show();
-        // $(".reviewpopup_cont5").show();
+        $.fancybox(`
+            <div id="fullnameOverlay" class="lightbox-content-holder container_24">
+                <div class="lightbox-head">
+                    <h2>الاعضاء:</h2>
+                </div>
+                <div class="row">
+                    <div class="grid_6">
+                        <ul class="listData-st1">
+                        </ul>
+                    </div>
+                    <div class="grid_19">
+                        <textarea runat="server" name="elm1" rows="3" class="lightbox-editor-st1"></textarea>
+                    </div>
+                </div>
+                <div class="lightbox-actions-holder fl">
+                    <input type="button" value="موافق" class="approve-action" />
+                </div>
+                <div class="clear"></div>
+            </div>`,
+            {
+                width: 700,
+                'onComplete': function (e) {
+                    // CLONE THE HTML FROM THE MAIN EDITOR
+                    var mainEditor = getMainEditor();
+                    var $editor = $('#fullnameOverlay .lightbox-editor-st1');
+                    var cleanHTML = htmlClean(mainEditor.getContent());
+                    $editor.val(cleanHTML).tinymce(defaultOptions);
+                    // GET MEMBRS NAMES
+                    GetAttendantsFullName(function (response) {
+                        // VARS
+                        var listData = $('#fullnameOverlay .listData-st1');
+                        // loop to create the options
+                        for (var i = 0; i < response.length; i++) {
+                            var option = response[i];
+                            var $item = $('<li />').data('value', option.LongName).text(option.LongName).click(function () {
+                                var value = $(this).data('value');
+                                var name = `<span>${value}</span>`;
+                                insertIntoSafeArea($editor.tinymce(), name);
+                            });
+                            // create the option in the dropdown list
+                            listData.append($item);
+                        }
+                    });
+                    // add procuder yes button
+                    $("#fullnameOverlay .approve-action").click(function (e) {
+                        // bind the new value
+                        mainEditor.execCommand('mceSetContent', false, $editor.val());
+                        // add to the undo manager
+                        mainEditor.undoManager.add();
+                        // close the popup
+                        $.fancybox.close();
+                        e.preventDefault();
+                    });
+                }
+            }
+        );
         e.preventDefault();
     });
 
