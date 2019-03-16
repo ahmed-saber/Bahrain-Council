@@ -17,9 +17,15 @@ var prevFragOrder;
 var prevSpeakerJob;
 var prevSpeakerImgUrl;
 
-
-
 $(document).ready(function () {
+    function getMainEditor() {
+        return $('#MainContent_elm1').tinymce();
+    }
+
+    function getTheSecondEditor() {
+        return $('#MainContent_Textarea2').tinymce();
+    }
+
     function htmlEncode(value) {
         return $('<div/>').text(value).html();
     }
@@ -646,8 +652,7 @@ $(document).ready(function () {
     }
 
     function GetPresidentIntro() {
-        // $('.ddl_votes').empty();//clear text
-        //Load Available Votes
+        // Load Available Votes
         jQuery.ajax({
             cache: false,
             type: 'post',
@@ -658,7 +663,7 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (response) {
-                alert(response)
+                ed.execCommand('mceInsertRawHTML', false, response);
             }
         });
     }
@@ -762,7 +767,7 @@ $(document).ready(function () {
 
     // popup buttons actions
     $('#yes').click(function () {
-        var ed = $('#MainContent_elm1').tinymce();
+        var ed = getMainEditor();
         var sessionContentItemID = currentSessionContID.val(); //getParameterByName("scid");
         var sessionFileID = getParameterByName("sfid");
         // Do you ajax call here, window.setTimeout fakes ajax call
@@ -836,7 +841,6 @@ $(document).ready(function () {
 
     //onchange ignored
     $('.chkIgnoredSegment').change(function () {
-
         if ($(this).attr('checked')) {
             var selectedSpeakerID = $("#MainContent_ddlSpeakers").val();
             if (selectedSpeakerID == 0) {
@@ -1023,7 +1027,7 @@ $(document).ready(function () {
             var Comments = $("#MainContent_txtComments").val();
             var Footer = $("#MainContent_txtFooter").val();
             // Show progress
-            var ed = $('#MainContent_elm1').tinymce()
+            var ed = getMainEditor();
             ed.setProgressState(1);
             $(".addingNewAgendaItem").show();
             // pause the player
@@ -1088,7 +1092,7 @@ $(document).ready(function () {
     // SPLIT ACTION
     $(".split").click(function () {
         // VARS
-        var ed = $('#MainContent_elm1').tinymce();
+        var ed = getMainEditor();
         // get Cursor Position
         getCursorPosition(ed, function (OB) {
             if (!ed.getContent().length) {
@@ -1245,7 +1249,7 @@ $(document).ready(function () {
         $(".addingNewAgendaItem").show();
 
         // Show progress
-        var ed = $('#MainContent_elm1').tinymce()
+        var ed = getMainEditor();
         ed.setProgressState(1);
         // pause the player
         $("#jquery_jplayer_1").jPlayer("pause");
@@ -1523,7 +1527,6 @@ $(document).ready(function () {
         }
         //}
     });
-
 
     // save only button onclick
     $(".btnPreview").click(function () {
@@ -2205,7 +2208,7 @@ $(document).ready(function () {
                     var addingParText = $this.html();
                     var clone = $('<p/>').append(addingParText).attr('procedure-id', $this.data('value')).css({ "text-align": "right" });
                     var cloneHTML = clone[0].outerHTML;
-                    var ed = $('#MainContent_Textarea2').tinymce();
+                    var ed = getTheSecondEditor();
                     // add to the undo manager
                     ed.undoManager.add();
                     // get caret position
@@ -2265,19 +2268,11 @@ $(document).ready(function () {
             $("#MainContent_ddlSpeakers option[value='" + $(".ddlSpeakersClone").val() + "']").attr("selected", "selected");
             $("#select2-MainContent_ddlSpeakers-container").html($('#MainContent_ddlSpeakers :selected').text());
 
-            // set the editor
-            /* var ed1 = $('#MainContent_elm1').tinymce();
-             var htmlContent = ed1.getContent();
-             var clone = $('<div>').append(htmlContent)
-             clone.find('span').removeClass('highlight editable hover');
-
-
-             */
             var clone = $('#MainContent_elm1').html();
             // bind the new value
             $('#MainContent_elm1').val("<span data-stime='" + startTime.val() + "'>الأخ الرئيس</span>");
             // add to the undo manager
-            $('#MainContent_elm1').tinymce().undoManager.add();
+            getMainEditor().undoManager.add();
 
             //alert(clone);
             splitActionForManagePoint(clone);
@@ -2290,8 +2285,8 @@ $(document).ready(function () {
 
     $(".btnAddProcuder").click(function (e) {
         // get the editors
-        var ed1 = $('#MainContent_elm1').tinymce();
-        var ed2 = $('#MainContent_Textarea2').tinymce();
+        var ed1 = getMainEditor();
+        var ed2 = getTheSecondEditor();
         // clear the html
         var htmlContent = ed1.getContent();
         var clone = $('<div>').append(htmlContent)
@@ -2310,7 +2305,7 @@ $(document).ready(function () {
         // bind the new value
         $('#MainContent_elm1').val($("textarea.splittinymce", '.reviewpopup_cont2').val());
         // add to the undo manager
-        $('#MainContent_elm1').tinymce().undoManager.add();
+        getMainEditor().undoManager.add();
         // close the popup
         $(".popupoverlay").hide();
         $(".reviewpopup_cont2").hide();
@@ -2362,7 +2357,6 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    //saber will start here
     //add madbatah start
     $(".btnPresidentIntro").click(function (e) {
         GetPresidentIntro();
