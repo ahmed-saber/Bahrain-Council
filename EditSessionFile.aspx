@@ -512,14 +512,12 @@
             </div>
             <div class="row">
                 <div class="grid_4 h4"><span>اضافة تصويت جديد :</span></div>
-
                 <div class="grid_8 ">
-                    <input type="text" name="txtNewVote" id="txtNewVote" runat="server"
-                        class="textfield inputBlock txtNewVote" style="font-weight: bold; font-size: 16px;"
-                        size="26" />
+                    <input type="text" name="txtNewVote" id="txtNewVote" runat="server" class="textfield inputBlock txtNewVote" style="font-weight: bold; font-size: 16px;" size="26" />
                 </div>
                 <div class="grid_2 h2">
-                    <input type="button" id="btnSaveVote" class="btnSaveVote btn" value="اضافة" /></div>
+                    <input type="button" id="btnSaveVote" class="btnSaveVote btn" value="اضافة" />
+                </div>
             </div>
             <div class="row">
                 <div class="grid_4 h4"><span>او اختر من التصويتات :</span></div>
@@ -528,13 +526,35 @@
                     </asp:DropDownList>
                 </div>
             </div>
+            <div class="row">
+                <div class="grid_24">
+                    <div id="jquery_jplayer_2" class="jp-jplayer"></div>
+                    <div id="jp_container_2" class="jp-audio">
+                        <div class="jp-type-single">
+                            <div id="jp_interface_1" class="jp-interface">
+                                <ul class="jp-controls">
+                                    <li><a href="#" class="jp-play" tabindex="1" title="play"></a></li>
+                                    <li><a href="#" class="jp-pause" tabindex="1" title="pause"></a></li>
+                                </ul>
+                                <div class="jp-progress">
+                                    <div class="jp-seek-bar">
+                                        <div class="jp-play-bar">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="jp-current-time">
+                                </div>
+                                <div class="jp-duration">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row datacontainer3 " style="line-height:normal">
-
                 <div class="grid_12 h4">
-                    <input name="" id="chbVote" runat="server" class="chbVote" type="checkbox"
-                        value="" />
-                    <label class="ml-20">
-                        بداية التصويت</label>
+                    <input name="" id="chbVote" runat="server" class="chbVote" type="checkbox" value="" />
+                    <label class="ml-20">بداية التصويت</label>
                 </div>
             </div>
             <div class="row datacontainer inputcont datacontainer3 attendantCont">

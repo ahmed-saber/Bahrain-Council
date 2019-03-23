@@ -111,6 +111,22 @@ $(document).ready(function () {
         });
     }
 
+    function runPlayer(o) {
+        o.player.jPlayer({
+            swfPath: "/scripts/jPlayer/",
+            wmode: "window",
+            solution: 'html, flash',
+            supplied: "mp3",
+            preload: 'metadata',
+            volume: 1,
+            cssSelectorAncestor: o.cssSelectorAncestor,
+            errorAlerts: false,
+            warningAlerts: false,
+            ready: o.ready,
+            timeupdate: o.timeupdate
+        });
+    }
+
     function nextAndprev(o) {
         // remove the loading
         o.ed.setProgressState(0)
@@ -1214,6 +1230,9 @@ $(document).ready(function () {
         $(".popupoverlay").hide();
         $(".reviewpopup_cont").hide();
         $(".reviewpopup_cont-st1").hide();
+        try {
+            $(".jp-jplayer").jPlayer("pause");
+        } catch (e) { }
     });
 
     $(".approve1").click(function () {
@@ -1915,6 +1934,7 @@ $(document).ready(function () {
                 /*AudioPlayer.bind($.jPlayer.event.seeking, function(event) {
                     // Add a listener to report the time play began
                 });*/
+
                 AudioPlayer.jPlayer({
                     swfPath: "/scripts/jPlayer/",
                     wmode: "window",
@@ -1927,7 +1947,8 @@ $(document).ready(function () {
                     warningAlerts: false,
                     ready: function () {
                         // get start and end time in hidden fields
-                        var firstTime = Math.floor(startTime.val()); //parseFloat($('span.segment:first', ed.contentDocument).attr('data-stime'));
+                        var firstTime = Math.floor(startTime.val());
+                        //parseFloat($('span.segment:first', ed.contentDocument).attr('data-stime'));
                         // alert(Math.floor(startTime.val()));
                         // alert(Math.floor($('span.segment:first', ed.contentDocument).attr('data-stime')));
                         // play the jplayer
@@ -1936,7 +1957,8 @@ $(document).ready(function () {
                         }).jPlayer("play", firstTime);
                         // next x seconds button
                         $('.jp-audio .next-jp-xseconds').click(function (e) {
-                            var lastTime = Math.ceil(endTime.val()); //parseFloat($('span.segment:last', ed.contentDocument).attr('data-stime'));
+                            //parseFloat($('span.segment:last', ed.contentDocument).attr('data-stime'));
+                            var lastTime = Math.ceil(endTime.val());
                             if (!((playertime + 5) >= lastTime)) {
                                 AudioPlayer.jPlayer("play", playertime + 5);
                             }
@@ -2618,4 +2640,17 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
+
+    var AudioPlayer1 = $("#jquery_jplayer_2");
+    runPlayer({
+        player: AudioPlayer1,
+        cssSelectorAncestor: '#jp_container_2',
+        ready: function () {
+            // play the jplayer
+            $(this).jPlayer("setMedia", {
+                mp3: $(".MP3FilePath").val()
+            });
+        },
+        timeupdate: function (event) { }
+    })
 });
