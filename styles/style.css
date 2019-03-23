@@ -1,8 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&subset=arabic,latin-ext');
-@font-face {
-    font-family: "Custom MyriadPro";
-    src: url(MyriadPro-Regular.otf) format("opentype");
-}
 
 /* overwrite the grid */
 
@@ -378,17 +374,6 @@ header#header a.currentuser {
     width: 200px;
     height: 89px;
     background-image: url(../images/logo.png);
-    background-repeat: no-repeat;
-    z-index: 12;
-}
-
-#mainnavigation .appLogo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 110px;
-    height: 110px;
-    background-image: url(../images/app-logo.png);
     background-repeat: no-repeat;
     z-index: 12;
 }
