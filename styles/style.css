@@ -1577,7 +1577,10 @@ span.revFilelock {
     height: 360px;
     margin-top: -300px;
 }
-
+.reviewpopup_cont8 {
+    height: 270px;
+    margin-top: -300px;
+}
 /*note page rules*/
 
 .notes-top-header {
@@ -2186,8 +2189,14 @@ span.revFilelock {
     text-align: center;
 }
 
-/* new style for light boxes */
+.divDecisionTitle{
+    font-size: 13px;
+    line-height: 1.5em;
+    height: 3em;
+    overflow:hidden;
+}
 
+/* new style for light boxes */
 .lightbox-content-holder {
     min-width: 1250px;
     max-width: 1250px;
@@ -2198,10 +2207,16 @@ span.revFilelock {
     margin-bottom: 15px;
 }
 
+.lightbox-content-holder .lightbox-row {
+    padding: 0 10px 10px;
+}
+
 .lightbox-content-holder .lightbox-editor-st1 {
     height: 405px;
     width: 100%;
     border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
 .lightbox-content-holder .lightbox-actions-holder {
