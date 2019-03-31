@@ -106,7 +106,7 @@
                         <%-- <input id="Button1" class="btn inputBlock mb-5" type="button" value="خطأ" onclick="return Button1_onclick()" />--%>
                     </div>
                 </div>
-                <div class="grid_21">
+                <div class="grid_20">
                     <div class="borderBD row h2">
                         <div class="fr">
                             الملف: <strong>
@@ -295,7 +295,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="grid_5">
+                        <div class="grid_4">
                             <div class="user-image">
                                 <img style="width: 200px" src="/images/unknown.jpg" id="imgSpeakerAvatar"
                                     name="imgSpeakerAvatar" runat="server" alt="" />

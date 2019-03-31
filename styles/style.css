@@ -33,7 +33,7 @@
 }
 
 .row {
-    max-width: 1250px;
+    max-width: 1200px;
     margin: auto auto 10px;
 }
 
@@ -851,11 +851,15 @@ header#header a.currentuser {
     word-wrap: break-word;
 }
 
-.table tbody tr.color1 {
-    /*background-color:#f0f0f0;*/
+.table .action-row-st1 {
+    line-height: 1;
+    margin-bottom: 8px;
 }
 
-.color1 .padd {}
+.table .action-row-st2 {
+    line-height: 1;
+    margin-bottom: 5px;
+}
 
 .table_att_voting {
     border: 1px solid #999;
@@ -1098,7 +1102,7 @@ header#header a.currentuser {
 #maintable1 .table tbody tr td {
     text-align: center;
     vertical-align: top;
-    padding: 0px;
+    padding: 5px 0;
 }
 
 #maintable1 .table tbody tr td.lock {
@@ -1131,7 +1135,6 @@ span.revFilelock {
 
 #maintable1 .number {
     color: red;
-    padding: 5px 10px;
     font-weight: bold;
 }
 
@@ -1351,12 +1354,6 @@ span.revFilelock {
     padding: 0 0 10px;
 }
 
-.reviewcontainer {
-    margin: 0 auto;
-    /*position: relative;*/
-    width: 1200px;
-}
-
 .reviewcontainer .graybg {
     box-shadow: 0 1px 0 #d0d0d0 inset;
     -moz-box-shadow: 0 1px 0 #d0d0d0 inset;
@@ -1390,6 +1387,7 @@ span.revFilelock {
     width: calc(100% - 35px);
     font-size: 18pt;
     font-family: Sakkal Majalla;
+    line-height: 1.1em;
 }
 
 .item_lock {

@@ -440,7 +440,7 @@
                                     %>
                                     <td class="column column6">
                                         <div class="margR5">
-                                            <div>
+                                            <div class="action-row-st1">
                                                 <div class="grayed fr">
                                                     مرفوض</div>
                                                 <div class="number fl">
@@ -448,7 +448,7 @@
                                                 <div class="clear">
                                                 </div>
                                             </div>
-                                            <div>
+                                            <div class="action-row-st1">
                                                 <div class="grayed fr">
                                                     يحتاج مراجعه</div>
                                                 <div class="number fl">
@@ -456,7 +456,7 @@
                                                 <div class="clear">
                                                 </div>
                                             </div>
-                                            <div>
+                                            <div class="action-row-st1">
                                                 <div class="grayed fr">
                                                     تعديل بعد الموافقة</div>
                                                 <div class="number fl">
@@ -464,51 +464,49 @@
                                                 <div class="clear">
                                                 </div>
                                             </div>
-                                            <div class="tex_align_ar">
+                                            <div class="action-row-st1 tex_align_ar">
                                                 <%
                                                     if (session.ReviewerID != null)
                                                     {
                                                 %>
-                                                <div>
+                                                <div class="action-row-st2">
                                                     المراجع:
                                                     <%=session.ReviewerName %></div>
-                                                <%  
-                                                                        }%>
-                                                                       <% if (CurrentUser.Role != UserRole.DataEntry &&
-                                                                            (CurrentUser.Role == UserRole.Admin || session.ReviewerID == CurrentUser.ID || session.ReviewerID == null || CurrentUser.Role == UserRole.FileReviewer || CurrentUser.Role == UserRole.ReviewrDataEntry || CurrentUser.Role == UserRole.Reviewer)
-                                                                            && !(session.Status == SessionStatus.FinalApproved))
-                                                                        {
-                                                %>
-                                                  <div style="padding-top: 5px;">
-                                                    <a href="CreateNewSession.aspx?sid=<%=session.SessionID%>">[تعديل]</a></div>
-                                                <div style="padding-top: 5px;">
-                                                    <a href="Review.aspx?sid=<%=session.SessionID%>">[صفحة المراجعة]</a></div>
-                                        
-                                                  <%   
-                                                                        }
-                                                                        if (nRejected > 0)
-                                                                        {
-                                                                       if(CurrentUser.Role == UserRole.DataEntry ||
-                                                                           //now the dataentry-reviewr role is using filereviewer privilages instead od session reviewer
-                                                                          // CurrentUser.Role == UserRole.ReviewrDataEntry ||                                                                          
-                                                                           CurrentUser.Role == UserRole.Admin)
-                                                                       {
+                                                    <%  
+                                                    }%>
+                                                    <% if (CurrentUser.Role != UserRole.DataEntry &&
+                                                    (CurrentUser.Role == UserRole.Admin || session.ReviewerID == CurrentUser.ID || session.ReviewerID == null || CurrentUser.Role == UserRole.FileReviewer || CurrentUser.Role == UserRole.ReviewrDataEntry || CurrentUser.Role == UserRole.Reviewer)
+                                                    && !(session.Status == SessionStatus.FinalApproved))
+                                                    {
+                                                    %>
+                                                    <div class="action-row-st2">
+                                                        <a href="CreateNewSession.aspx?sid=<%=session.SessionID%>">[تعديل]</a></div>
+                                                    <div class="action-row-st2">
+                                                        <a href="Review.aspx?sid=<%=session.SessionID%>">[صفحة المراجعة]</a></div>
+                                                    <%   
+                                                    }
+                                                    if (nRejected > 0)
+                                                    {
+                                                    if(CurrentUser.Role == UserRole.DataEntry ||
+                                                    //now the dataentry-reviewr role is using filereviewer privilages instead od session reviewer
+                                                    // CurrentUser.Role == UserRole.ReviewrDataEntry ||                                                                          
+                                                    CurrentUser.Role == UserRole.Admin)
+                                                    {
                                                 %>
                                                 
-                                                <div style="padding-top: 5px;">
+                                                <div class="action-row-st2">
                                                     <a href="ReviewNotes.aspx?sid=<%=session.SessionID%>">[جميع الملاحظات]</a></div>
                                                 <%} %>
                                                 <%
                                                     }
 
-                                                                        if (CurrentUser.Role != UserRole.DataEntry)
-                                                                        {
+                                                    if (CurrentUser.Role != UserRole.DataEntry)
+                                                    {
                                                 %>
-                                                <div style="padding-top: 5px; padding-bottom: 5px;">
-                                                    <a href="statistics.aspx?sid=<%=session.SessionID%>">[إحصائيات]</a></div>
-                                                <%
-                                                                        } 
-                                                %>
+                                                <div class="action-row-st2">
+                                                    <a href="statistics.aspx?sid=<%=session.SessionID%>">[إحصائيات]</a>
+                                                </div>
+                                                <% } %>
                                             </div>
                                         </div>
                                     </td>
