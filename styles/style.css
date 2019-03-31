@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&subset=arabic,latin-ext');
-
 /* overwrite the grid */
 
 .grid_1,
@@ -36,7 +35,12 @@
 .row {
     max-width: 1250px;
     margin: auto auto 10px;
-    overflow: hidden;
+}
+
+.row:after {
+    content: '';
+    display: block;
+    clear: both;
 }
 
 /*!global classes*/
@@ -824,6 +828,10 @@ header#header a.currentuser {
 }
 
 /* popup rules(fancybox) */
+#fancybox-overlay {
+    position: fixed;
+    height: 100vh !important;
+}
 
 .actions_btns .smallbtn {
     padding: 5px 15px;
@@ -1521,20 +1529,8 @@ span.revFilelock {
 }
 
 .datacontainer1,
-.datacontainer2,
-.datacontainer3 {
+.datacontainer2 {
     padding-top: 20px;
-}
-
-.datacontainer3 .rd {
-    padding: 10px;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.datacontainer3 input {
-    vertical-align: middle;
-    margin-left: 10px;
 }
 
 .poppbtnscont a {
@@ -1577,10 +1573,12 @@ span.revFilelock {
     height: 360px;
     margin-top: -300px;
 }
+
 .reviewpopup_cont8 {
     height: 270px;
     margin-top: -300px;
 }
+
 /*note page rules*/
 
 .notes-top-header {
@@ -2189,22 +2187,23 @@ span.revFilelock {
     text-align: center;
 }
 
-.divDecisionTitle{
+.divDecisionTitle {
     font-size: 13px;
     line-height: 1.5em;
     height: 3em;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 /* new style for light boxes */
+
 .lightbox-content-holder {
-    min-width: 1250px;
-    max-width: 1250px;
+    width: auto;
+    min-width: 1200px;
 }
 
 .lightbox-content-holder .lightbox-head {
     padding: 20px 10px 0;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .lightbox-content-holder .lightbox-row {

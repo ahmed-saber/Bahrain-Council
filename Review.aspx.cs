@@ -207,7 +207,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                                 topic_id = 0;
                             }*/
 
-                            if ((item.TopicID != null && item.TopicID != 0 && item.MergedTopicWithPrevious != null && !(bool)item.MergedTopicWithPrevious))
+                         /*   if ((item.TopicID != null && item.TopicID != 0 && item.MergedTopicWithPrevious != null && !(bool)item.MergedTopicWithPrevious))
                             {
                                 if (topic_id != 0)
                                 {
@@ -225,7 +225,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                                 if (reviewItemTopic != "")
                                     sb.Append(reviewItemTopic);
                                 topic_id = 0;
-                            }
+                            }*/
 
                             if (currentSpeaker != prevSpeaker)//if (!item.MergedWithPrevious.Value)
                             {

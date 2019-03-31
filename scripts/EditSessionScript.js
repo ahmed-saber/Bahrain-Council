@@ -18,12 +18,25 @@ var prevSpeakerJob;
 var prevSpeakerImgUrl;
 
 $(document).ready(function () {
+    // GLOBAL
+    var $request;
+
     function getMainEditor() {
         return $('#MainContent_elm1').tinymce();
     }
 
-    function getTheSecondEditor() {
-        return $('#MainContent_Textarea2').tinymce();
+    function getProcuderDropdownList(callback) {
+        // ajax load the dropdown list
+        jQuery.ajax({
+            cache: false,
+            type: 'get',
+            url: 'ProcedureHandler.ashx',
+            data: {
+                funcname: 'GetProcedureTypes'
+            },
+            dataType: 'json',
+            success: callback
+        });
     }
 
     function htmlEncode(value) {
@@ -111,22 +124,6 @@ $(document).ready(function () {
         });
     }
 
-    function runPlayer(o) {
-        o.player.jPlayer({
-            swfPath: "/scripts/jPlayer/",
-            wmode: "window",
-            solution: 'html, flash',
-            supplied: "mp3",
-            preload: 'metadata',
-            volume: 1,
-            cssSelectorAncestor: o.cssSelectorAncestor,
-            errorAlerts: false,
-            warningAlerts: false,
-            ready: o.ready,
-            timeupdate: o.timeupdate
-        });
-    }
-
     function nextAndprev(o) {
         // remove the loading
         o.ed.setProgressState(0)
@@ -204,12 +201,7 @@ $(document).ready(function () {
             $('.agendaItemId').val(response.AgendaItemID);
             $('.attachId').val(response.AttachID);
             $('.voteId').val(response.VoteID);
-            $('.topicId').val(response.TopicID);
-            $('.prevTopicId').val(response.PrevTopicID);
-            if (response.TopicID != "0" && response.TopicID != null) {
-                $(".aPopupGetAttTopic").show();
-            }
-            else $(".aPopupGetAttTopic").hide();
+            $('.decisionId').val(response.DecisionID);
 
             $('.agendaItemTxt').html(response.AgendaItemText);
             $('.agendaItemIsIndexed').val(response.AgendaItemIsIndexed);
@@ -233,43 +225,14 @@ $(document).ready(function () {
                 $('.divVote').show();
                 $('.spanVoteSubject').html(response.VoteSubject);
             }
-            //  $('.divTopic').hide();
-            if (response.TopicID == "0" && response.PrevTopicID == "0") {
-                $('.divTopic').hide();
-                $(".chkTopic").removeAttr('checked');
-                $(".chkTopic").attr('disabled', 'disabled');
-                $(".aPopupGetAttTopic").hide();
-                $(".btnAddNewTopic").removeAttr("disabled");
-            } else if (response.TopicID != "0" && response.PrevTopicID == "0") {
-                $('.divTopic').show();
-                $(".chkTopic").removeAttr('checked');
-                $(".chkTopic").attr('disabled', 'disabled');
-                $(".aPopupGetAttTopic").show();
-                $(".btnAddNewTopic").attr("disabled", "disabled");
+            if (response.DecisionID == "0") {
+                $('.divDecision').hide();
+                $('.divDecisionTitle').html('');
+            } else {
+                $('.divDecision').show();
+                $('.divDecisionTitle').html(response.DecisionTitle);
             }
-            else if (response.TopicID == "0" && response.PrevTopicID != "0") {
-                $('.divTopic').hide();
-                $(".chkTopic").removeAttr('checked');
-                $(".chkTopic").removeAttr('disabled');
-                $(".aPopupGetAttTopic").hide();
-                $(".btnAddNewTopic").removeAttr("disabled");
-            }
-            else if (response.TopicID != "0" && response.PrevTopicID != "0") {
-                $('.divTopic').hide();
-                if (!response.MergeWithPrevTopic) {
-                    $(".chkTopic").removeAttr('checked');
-                    $(".btnAddNewTopic").attr("disabled", "disabled");
-                }
-                else {
-                    $(".chkTopic").attr('checked', 'checked');
-                    $(".btnAddNewTopic").removeAttr("disabled");
-                }
-                if (response.TopicID != response.PrevTopicID) {
-                    $('.divTopic').show();
-                }
-                $(".aPopupGetAttTopic").show();
-                $(".chkTopic").removeAttr('disabled');
-            }
+
             // set start and end time in hidden fields
             startTime.val(response.PargraphStartTime);
             endTime.val(response.PargraphEndTime);
@@ -483,7 +446,7 @@ $(document).ready(function () {
         return objects;
     }
 
-    function insertIntoSafeArea(ed, cloneHTML) {
+    function insertIntoSafeArea(ed, cloneHTML, convert) {
         // get caret position
         getCursorPosition(ed, function (OB) {
             if (OB.collapsed) {
@@ -491,6 +454,7 @@ $(document).ready(function () {
                 var nodeName = OB.target.nodeName;
                 // check node name
                 if (nodeName == 'BODY') {
+                    cloneHTML = convert ? convert('BODY') : cloneHTML;
                     ed.execCommand('mceInsertRawHTML', false, cloneHTML);
                 } else {
                     if (
@@ -498,8 +462,10 @@ $(document).ready(function () {
                         (OB.markAcNextSibling && OB.markAcNextSibling.data != undefined) &&
                         (OB.markAcPreviousSibling.data.length >= OB.markAcNextSibling.data.length)
                     ) {
+                        cloneHTML = convert ? convert('AFTER') : cloneHTML;
                         OB.$target.after(cloneHTML);
                     } else {
+                        cloneHTML = convert ? convert('BEFORE') : cloneHTML;
                         OB.$target.before(cloneHTML);
                     }
                 }
@@ -713,44 +679,6 @@ $(document).ready(function () {
         });
     }
 
-    function loadSessionTopics() {
-
-        var topicId = $(".topicId").val();
-        $('.rdltopics').empty();
-        //Load Available Votes
-        jQuery.ajax({
-            cache: false,
-            type: 'post',
-            url: 'TopicHandler.ashx',
-            data: {
-                funcname: 'GetSessionTopics',
-                sid: $(".sessionID").val()
-            },
-            dataType: 'json',
-            success: function (response) {
-                var radio;
-                var label;
-                var div;
-                for (i = 0; i < response.length; i++) {
-                    radio = $('<input>').attr({
-                        type: 'radio',
-                        name: 'colorinput',
-                        value: response[i].ID,
-                        id: 'test' + response[i].ID
-                    });
-                    if (response[i].ID.toString() == topicId.toString()) {
-                        radio.attr("checked", "checked");
-                    }
-                    div = $('<div class="rd">');
-                    div.append(radio);
-                    div.append('<label>' + response[i].Title + '</label>');
-                    $('.rdltopics').append(div);
-                }
-
-            }
-        });
-    }
-
     // select tag
     $('#MainContent_ddlSpeakers').select2().trigger("change");
     // vars
@@ -845,43 +773,11 @@ $(document).ready(function () {
             }
         });
         // close popup
-        $.fancybox.close()
+        $.fancybox.close();
     });
 
     $('#no').click(function () {
-        $.fancybox.close()
-    });
-
-    $(".btnAddNewTopic").click(function (e) {
-        tpcid = 0;
-        if ($request != null) {
-            $request.abort();
-            $request = null;
-        }
-
-        $request = jQuery.ajax({
-            cache: false,
-            type: 'post',
-            url: 'TopicHandler.ashx',
-            data: {
-                funcname: "AddTopic",
-                sid: $(".sessionID").val()
-            },
-            dataType: 'json',
-            success: function (response) {
-                if (response != "0") {
-                    $(".topicId").val(response);
-                    $(".chkTopic").attr("disabled", "disabled");
-                    $(".divTopic").show();
-                    e.preventDefault();
-                    $(".btnAddNewTopic").attr("disabled", "disabled");
-                    $(".aPopupGetAttTopic").show();
-                }
-            },
-            error: function (response) {
-                alert("Error");
-            }
-        });
+        $.fancybox.close();
     });
 
     //onchange ignored
@@ -1053,12 +949,12 @@ $(document).ready(function () {
             var AgendaItemID = $('.agendaItemId').val();
             var AttachID = $('.attachId').val();
             var VoteID = $('.voteId').val();
-            var TopicID = $('.topicId').val();
+            var DecisionID = $('.decisionId').val();
+            var MergeWithPrevTopic = false;
             var SpeakerID = $("#MainContent_ddlSpeakers").val();
             SpeakerID = SpeakerID == 1.5 ? -1 : SpeakerID;
             var SpeakerName = $(".txtNewSpeaker").val();
             var SameAsPrevSpeaker = $(".sameAsPrevSpeaker").is(':checked');
-            var MergeWithPrevTopic = $(".chkTopic").is(':checked');
             var IsSessionPresident = $(".isSessionPresident").is(':checked') ? "1" : "0";
             var IsGroupSubAgendaItems = $(".chkGroupSubAgendaItems").is(':checked');
             var Ignored = $(".chkIgnoredSegment").is(':checked');
@@ -1095,7 +991,7 @@ $(document).ready(function () {
                         AgendaItemID: AgendaItemID,
                         AttachID: AttachID,
                         VoteID: VoteID,
-                        tpcid: TopicID,
+                        decid: DecisionID,
                         SpeakerID: SpeakerID,
                         SpeakerName: SpeakerName,
                         SameAsPrevSpeaker: SameAsPrevSpeaker,
@@ -1275,7 +1171,7 @@ $(document).ready(function () {
         //var AgendaSubItemID = $("#MainContent_ddlAgendaSubItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaSubItems > option:selected").attr("value") : "";
         var AgendaItemID = $('.agendaItemId').val();
         var AttachID = $('.attachId').val();
-        var TopicID = $('.topicId').val();
+        var DecisionID = $('.decisionId').val();
         var VoteID = $('.voteId').val();
         var SpeakerID = $("#MainContent_ddlSpeakers").val();
         SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
@@ -1312,7 +1208,7 @@ $(document).ready(function () {
                 AgendaItemID: AgendaItemID,
                 AttachID: AttachID,
                 VoteID: VoteID,
-                tpcid: TopicID,
+                decid: DecisionID,
                 // AgendaSubItemID: AgendaSubItemID,
                 SpeakerID: SpeakerID,
                 SpeakerName: SpeakerName,
@@ -1372,7 +1268,7 @@ $(document).ready(function () {
             var AgendaItemID = $('.agendaItemId').val();
             var AttachID = $('.attachId').val();
             var VoteID = $('.voteId').val();
-            var TopicID = $('.topicId').val();
+            var DecisionID = $('.decisionId').val();
             var SpeakerID = $("#MainContent_ddlSpeakers > option:selected").val();
             SpeakerID = SpeakerID == 1.5 ? -1 : SpeakerID;
             var SpeakerName = $("#MainContent_txtNewSpeaker").val();
@@ -1402,7 +1298,7 @@ $(document).ready(function () {
                         AgendaItemID: AgendaItemID,
                         AttachID: AttachID,
                         VoteID: VoteID,
-                        tpcid: TopicID,
+                        decid: DecisionID,
                         SpeakerID: SpeakerID,
                         SpeakerName: SpeakerName,
                         SameAsPrevSpeaker: SameAsPrevSpeaker,
@@ -1463,7 +1359,7 @@ $(document).ready(function () {
         var AgendaItemID = $('.agendaItemId').val();
         var AttachID = $('.attachId').val();
         var VoteID = $('.voteId').val();
-        var TopicID = $('.topicId').val();
+        var DecisionID = $('.decisionId').val();
 
         var SpeakerID = $("#MainContent_ddlSpeakers").val();
         SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
@@ -1501,7 +1397,7 @@ $(document).ready(function () {
                     AgendaItemID: AgendaItemID,
                     AttachID: AttachID,
                     VoteID: VoteID,
-                    tpcid: TopicID,
+                    decid: DecisionID,
                     SpeakerID: SpeakerID,
                     SpeakerName: SpeakerName,
                     SameAsPrevSpeaker: SameAsPrevSpeaker,
@@ -1590,7 +1486,7 @@ $(document).ready(function () {
         var AgendaItemID = $('.agendaItemId').val();
         var AttachID = $('.attachId').val();
         var VoteID = $('.voteId').val();
-        var TopicID = $('.topicId').val();
+        var DecisionID = $('.decisionId').val();
 
         var SpeakerID = $("#MainContent_ddlSpeakers").val();
         SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
@@ -1626,7 +1522,7 @@ $(document).ready(function () {
                     AgendaItemID: AgendaItemID,
                     AttachID: AttachID,
                     VoteID: VoteID,
-                    tpcid: TopicID,
+                    decid: DecisionID,
                     SpeakerID: SpeakerID,
                     SpeakerName: SpeakerName,
                     SameAsPrevSpeaker: SameAsPrevSpeaker,
@@ -1679,7 +1575,7 @@ $(document).ready(function () {
             var AgendaItemID = $('.agendaItemId').val();
             var AttachID = $('.attachId').val();
             var VoteID = $('.voteId').val();
-            var TopicID = $('.topicId').val();
+            var DecisionID = $('.decisionId').val();
             var SpeakerID = $("#MainContent_ddlSpeakers > option:selected").val();
             SpeakerID = SpeakerID == 1.5 ? -1 : SpeakerID;
             var SpeakerName = $("#MainContent_txtNewSpeaker").val();
@@ -1710,7 +1606,7 @@ $(document).ready(function () {
                         AgendaItemID: AgendaItemID,
                         AttachID: AttachID,
                         VoteID: VoteID,
-                        tpcid: TopicID,
+                        decid: DecisionID,
                         SpeakerID: SpeakerID,
                         SpeakerName: SpeakerName,
                         SameAsPrevSpeaker: SameAsPrevSpeaker,
@@ -2212,66 +2108,6 @@ $(document).ready(function () {
     }
     $('#MainContent_Textarea3').tinymce(newOptions);
 
-    // ajax load the dropdown list
-    jQuery.ajax({
-        cache: false,
-        type: 'get',
-        url: 'ProcedureHandler.ashx',
-        data: {
-            funcname: 'GetProcedureTypes'
-        },
-        dataType: 'json',
-        success: function (response) {
-            if (response != '') {
-                // vars
-                var MainContent_DropDownList1 = $('#MainContent_DropDownList1');
-                var listData = $('#listData');
-                // loop to create the options
-                for (var i = 0; i < response.length; i++) {
-                    var option = response[i];
-                    // create the option in the dropdown list
-                    MainContent_DropDownList1.append($('<option></option>').attr('value', option.ID).text(option.ProcedureType));
-                }
-                // first list
-                MainContent_DropDownList1.change(function () {
-                    if (MainContent_DropDownList1.val() != 0) {
-                        // reset
-                        listData.html('');
-                        // vars
-                        var selectOptionIndex = $('option:selected', MainContent_DropDownList1).index() - 1;
-                        var newDropDownListValues = response[selectOptionIndex];
-                        var newDropDownListValuesLength = newDropDownListValues.SessionProcedureObj.length;
-                        // loop to create the options
-                        for (var i = 0; i < newDropDownListValuesLength; i++) {
-                            var option = newDropDownListValues.SessionProcedureObj[i];
-                            // create the option in the dropdown list
-                            listData.append($('<li/>').data('value', option.ID).html(option.ProcedureTitle));
-                        }
-                    } else {
-                        // reset
-                        listData.html('');
-                    }
-                });
-                // second list
-                $(listData).delegate('li', 'click', function () {
-                    // vars
-                    var $this = $(this);
-                    var addingParText = $this.html();
-                    var clone = $('<p/>').append(addingParText).attr('procedure-id', $this.data('value')).css({ "text-align": "right" });
-                    var cloneHTML = clone[0].outerHTML;
-                    var ed = getTheSecondEditor();
-                    // add to the undo manager
-                    ed.undoManager.add();
-                    // get caret position
-                    insertIntoSafeArea(ed, cloneHTML);
-                });
-            }
-        },
-        error: function () {
-
-        }
-    });
-
     // add procuder button
     $(".btnAddManagePoint").click(function (e) {
         $(".sameAsPrevSpeaker").removeAttr('checked');
@@ -2312,31 +2148,228 @@ $(document).ready(function () {
     });
 
     $(".btnAddProcuder").click(function (e) {
-        // get the editors
-        var ed1 = getMainEditor();
-        var ed2 = getTheSecondEditor();
-        // clear the html
-        var htmlContent = ed1.getContent();
-        var clone = $('<div>').append(htmlContent)
-        clone.find('span').removeClass('highlight editable hover');
-        ed2.setContent(clone.html());
-        // clear the undo manager
-        ed2.undoManager.clear();
-        // show the popup
-        $(".popupoverlay").show();
-        $(".reviewpopup_cont2").show();
+        $.fancybox(`
+            <div id="procuderOverlay" class ="lightbox-content-holder container_24">
+                <div class ="lightbox-head">
+                    <div class ="row">
+                        <div class ="grid_3">
+                            <h2>الاجراءات: </h2>
+                        </div>
+                        <div class ="grid_21">
+                            <select id="DropDownList1">
+                                <option value="0">-------- اختر الاجراء --------</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class ="row">
+                    <div class ="grid_6">
+                        <ul id="listData" class ="listData-st1">
+                        </ul>
+                    </div>
+                    <div class ="grid_19">
+                        <textarea id="Textarea2" runat="server" rows="3" class="lightbox-editor-st1"></textarea>
+                    </div>
+                </div>
+                <div class ="lightbox-actions-holder fl">
+                    <input type="button" value="موافق" class ="approve-action" />
+                </div>
+            </div>`,
+            {
+                'onComplete': function (e) {
+                    // VARS
+                    var $overLay = $('#procuderOverlay');
+                    var $listData = $('#listData', $overLay);
+                    var $DropDownList = $('#DropDownList1', $overLay);
+                    // CLONE THE HTML FROM THE MAIN EDITOR
+                    var mainEditor = getMainEditor();
+                    var $editor = $('.lightbox-editor-st1', $overLay);
+                    var cleanHTML = htmlClean(mainEditor.getContent());
+                    $editor.val(cleanHTML).tinymce(defaultOptions);
+
+                    // add procuder yes button
+                    $(".approve-action", $overLay).click(function (e) {
+                        // bind the new value
+                        mainEditor.execCommand('mceSetContent', false, $editor.val());
+                        // add to the undo manager
+                        mainEditor.undoManager.add();
+                        // close popup
+                        $.fancybox.close();
+                        e.preventDefault();
+                    });
+
+                    // CALL DROP DOWN LIST API
+                    getProcuderDropdownList(function (response) {
+                        if (response != '') {
+                            // loop to create the options
+                            for (var i = 0; i < response.length; i++) {
+                                var option = response[i];
+                                // create the option in the dropdown list
+                                $DropDownList.append($('<option />').attr('value', option.ID).text(option.ProcedureType));
+                            }
+                            // first list
+                            $DropDownList.change(function () {
+                                if ($DropDownList.val() != 0) {
+                                    // reset
+                                    $listData.html('');
+                                    // vars
+                                    var selectOptionIndex = $('option:selected', $DropDownList).index() - 1;
+                                    var newDropDownListValues = response[selectOptionIndex];
+                                    var newDropDownListValuesLength = newDropDownListValues.SessionProcedureObj.length;
+                                    // loop to create the options
+                                    for (var i = 0; i < newDropDownListValuesLength; i++) {
+                                        var option = newDropDownListValues.SessionProcedureObj[i];
+                                        // create the option in the dropdown list
+                                        $listData.append($('<li/>').data('value', option.ID).html(option.ProcedureTitle));
+                                    }
+                                } else {
+                                    // reset
+                                    $listData.html('');
+                                }
+                            });
+                            // second list
+                            $($listData).delegate('li', 'click', function () {
+                                // vars
+                                var $this = $(this);
+                                var addingParText = $this.text();
+                                var clone = $('<p/>').append(addingParText).attr('procedure-id', $this.data('value')).css({ "text-align": "right" });
+                                var cloneHTML = clone[0].outerHTML;
+                                // get caret position
+                                insertIntoSafeArea($editor.tinymce(), cloneHTML);
+                            });
+                        }
+                    });
+                }
+            }
+        );
         e.preventDefault();
     });
 
-    // add procuder yes button
-    $(".approve2").click(function (e) {
-        // bind the new value
-        $('#MainContent_elm1').val($("textarea.splittinymce", '.reviewpopup_cont2').val());
-        // add to the undo manager
-        getMainEditor().undoManager.add();
-        // close the popup
-        $(".popupoverlay").hide();
-        $(".reviewpopup_cont2").hide();
+    $(".btnAddNewDecision").click(function (e) {
+        $.fancybox(
+            `<div id="approvalOverlay" class="lightbox-content-holder container_24">
+                <div class="lightbox-head">
+                    <h2><span class="red">*</span> الاقرار :</h2>
+                </div>
+                <div class ="lightbox-row">
+                    <textarea rows="3" class ="lightbox-editor-st1 txtDecision"></textarea>
+                </div>
+                <div class ="lightbox-actions-holder fl">
+                    <input type="button" class="approve-action" value="حفظ" />
+                </div>
+            </div>`,
+            {
+                'onComplete': function (e) {
+                    // VARS
+                    var $overlay = $('#approvalOverlay');
+                    var text = $.trim($('.divDecisionTitle').text());
+                    var $textinput = $('.txtDecision', $overlay);
+                    // EMPTY THE TEXT
+                    $textinput.val(text);
+                    // APPROVE BUTTON
+                    $('.approve-action', $overlay).click(function (e) {
+                        if ($request != null) {
+                            $request.abort();
+                            $request = null;
+                        }
+                        $request = jQuery.ajax({
+                            cache: false,
+                            type: 'post',
+                            url: 'DecisionHandler.ashx',
+                            data: {
+                                funcname: "AddDecision",
+                                sid: $(".sessionID").val(),
+                                dectitle: $(".txtDecision").val(),
+                                decid: $(".decisionId").val()
+                            },
+                            dataType: 'json',
+                            success: function (response) {
+                                if (response != "0") {
+                                    $(".decisionId").val(response);
+                                    $(".divDecision").show();
+                                    $(".divDecisionTitle").html($textinput.val());
+                                }
+                            },
+                            error: function (response) {
+                                alert("Error");
+                            }
+                        });
+                        // close popup
+                        $.fancybox.close();
+                    });
+                }
+            }
+        );
+        e.preventDefault();
+    });
+
+    // btnAddAttFullName
+    $(".btnAddAttFullName").click(function (e) {
+        $.fancybox(`
+            <div id="fullnameOverlay" class="lightbox-content-holder container_24">
+                <div class="lightbox-head">
+                    <h2>الاعضاء:</h2>
+                </div>
+                <div class="row">
+                    <div class="grid_6">
+                        <ul class="listData-st1">
+                        </ul>
+                    </div>
+                    <div class="grid_19">
+                        <textarea runat="server" name="elm1" rows="3" class="lightbox-editor-st1"></textarea>
+                    </div>
+                </div>
+                <div class="lightbox-actions-holder fl">
+                    <input type="button" value="موافق" class="approve-action" />
+                </div>
+                <div class="clear"></div>
+            </div>`,
+            {
+                'onComplete': function (e) {
+                    // VARS
+                    var $overLay = $('#fullnameOverlay');
+                    // CLONE THE HTML FROM THE MAIN EDITOR
+                    var mainEditor = getMainEditor();
+                    var $editor = $('.lightbox-editor-st1', $overLay);
+                    var cleanHTML = htmlClean(mainEditor.getContent());
+                    $editor.val(cleanHTML).tinymce(defaultOptions);
+                    // GET MEMBRS NAMES
+                    GetAttendantsFullName(function (response) {
+                        // VARS
+                        var listData = $('.listData-st1', $overLay);
+                        // loop to create the options
+                        for (var i = 0; i < response.length; i++) {
+                            var option = response[i];
+                            var fullName = option.AttendantTitle + " " + option.AttendantDegree + " " + option.LongName;
+                            var $item = $('<li />').data('value', fullName).text(fullName).click(function () {
+                                var value = $(this).data('value');
+                                var name = `<span>${value}</span>`;
+                                insertIntoSafeArea($editor.tinymce(), name, function (pos) {
+                                    switch (pos) {
+                                        case 'AFTER':
+                                            return ` ${name}`
+                                        default:
+                                            return `${name} `
+                                    }
+                                });
+                            });
+                            // create the option in the dropdown list
+                            listData.append($item);
+                        }
+                    });
+                    // add procuder yes button
+                    $(".approve-action", $overLay).click(function (e) {
+                        // bind the new value
+                        mainEditor.execCommand('mceSetContent', false, $editor.val());
+                        // add to the undo manager
+                        mainEditor.undoManager.add();
+                        // close the popup
+                        $.fancybox.close();
+                        e.preventDefault();
+                    });
+                }
+            }
+        );
         e.preventDefault();
     });
 
@@ -2390,193 +2423,6 @@ $(document).ready(function () {
         GetPresidentIntro(function (response) {
             getMainEditor().execCommand('mceInsertRawHTML', false, response);
         });
-        e.preventDefault();
-    });
-
-    // btnAddAttFullName
-    $(".btnAddAttFullName").click(function (e) {
-        $.fancybox(`
-            <div id="fullnameOverlay" class="lightbox-content-holder container_24">
-                <div class="lightbox-head">
-                    <h2>الاعضاء:</h2>
-                </div>
-                <div class="row">
-                    <div class="grid_6">
-                        <ul class="listData-st1">
-                        </ul>
-                    </div>
-                    <div class="grid_19">
-                        <textarea runat="server" name="elm1" rows="3" class="lightbox-editor-st1"></textarea>
-                    </div>
-                </div>
-                <div class="lightbox-actions-holder fl">
-                    <input type="button" value="موافق" class="approve-action" />
-                </div>
-                <div class="clear"></div>
-            </div>`,
-            {
-                width: 700,
-                'onComplete': function (e) {
-                    // CLONE THE HTML FROM THE MAIN EDITOR
-                    var mainEditor = getMainEditor();
-                    var $editor = $('#fullnameOverlay .lightbox-editor-st1');
-                    var cleanHTML = htmlClean(mainEditor.getContent());
-                    $editor.val(cleanHTML).tinymce(defaultOptions);
-                    // GET MEMBRS NAMES
-                    GetAttendantsFullName(function (response) {
-                        // VARS
-                        var listData = $('#fullnameOverlay .listData-st1');
-                        // loop to create the options
-                        for (var i = 0; i < response.length; i++) {
-                            var option = response[i];
-                            var $item = $('<li />').data('value', option.LongName).text(option.LongName).click(function () {
-                                var value = $(this).data('value');
-                                var name = `<span>${value}</span>`;
-                                insertIntoSafeArea($editor.tinymce(), name);
-                            });
-                            // create the option in the dropdown list
-                            listData.append($item);
-                        }
-                    });
-                    // add procuder yes button
-                    $("#fullnameOverlay .approve-action").click(function (e) {
-                        // bind the new value
-                        mainEditor.execCommand('mceSetContent', false, $editor.val());
-                        // add to the undo manager
-                        mainEditor.undoManager.add();
-                        // close the popup
-                        $.fancybox.close();
-                        e.preventDefault();
-                    });
-                }
-            }
-        );
-        e.preventDefault();
-    });
-
-    $('.chkTopic').change(function () {
-        // this will contain a reference to the checkbox   
-        if (this.checked) {
-            //Load Available Votes
-            /*  jQuery.ajax({
-                  cache: false,
-                  type: 'post',
-                  url: 'EditSessionHandler.ashx',
-                  data: {
-                      funcname: 'GetTopicID',
-                      sid: $(".sessionID").val(),
-                      scid:  $(".hdSessionContentItemID").val()
-                  },
-                  dataType: 'json',
-                  success: function(response) {
-                    $(".topicId").val(response); 
-                    $(".aPopupGetAttTopic").show();
-                  }
-              });*/
-            $(".topicId").val($(".prevTopicId").val());
-            $(".aPopupGetAttTopic").show();
-        } else {
-            $(".topicId").val("0");
-            $(".aPopupGetAttTopic").hide();
-        }
-    });
-
-    var $request;
-    $('.aPopupGetAttTopic').click(function (e) {
-        var sid = $(".sessionID").val();
-        var tpcid = $(".topicId").val();
-        if ($request != null) {
-            $request.abort();
-            $request = null;
-        }
-
-        $request = jQuery.ajax({
-            cache: false,
-            type: 'post',
-            url: 'TopicHandler.ashx',
-            data: {
-                funcname: 'GetAllAtt',
-                sid: sid,
-                tpcid: tpcid
-            },
-            dataType: 'json',
-            success: function (response) {
-                AttCont = $("#AttCont");
-                AttCont.empty();
-                chb = "<div style='padding-bottom:10px' class=\"grid_6 h2 grid_att\"> <input type=\"checkbox\" name=\"chbAttID\" value=\"AttID\"><span>AttName</span></div>";
-                var tmpTr = "";
-                for (i = 0; i < response.length; i++) {
-                    tmpchb = chb.replace(/AttID/g, response[i].ID).replace("AttName", response[i].AttendantTitle + " " + response[i].AttendantDegree + " " + response[i].LongName);
-                    AttCont.append(tmpchb);
-                    if (response[i].FirstName == "1")
-                        $("input:checkbox[name='chb" + response[i].ID + "']", AttCont).prop('checked', true);
-                }
-                $(".popupoverlay").show();
-                $(".popupAttendant").show();
-                e.preventDefault();
-            },
-            error: function (response) { }
-        });
-        e.preventDefault();
-    });
-
-    $('.btnAddAttToTopic').click(function (e) {
-        var names = [];
-        $('.grid_att input:checked').each(function () {
-            names.push(this.value);
-        });
-        if ($request != null) {
-            $request.abort();
-            $request = null;
-        }
-
-        $request = jQuery.ajax({
-            cache: false,
-            type: 'post',
-            url: 'TopicHandler.ashx',
-            data: {
-                funcname: 'AddTopicAtt',
-                json_str: JSON.stringify(names),
-                tpcid: $(".topicId").val()
-            },
-            dataType: 'json',
-            success: function (response) {
-                $(".popupoverlay").hide();
-                $(".popupAttendant").hide();
-                e.preventDefault();
-            },
-            error: function (response) { }
-        });
-        e.preventDefault();
-    });
-
-    // add Attach button
-    $(".btnAddTopic").click(function (e) {
-        loadSessionTopics();
-        $(".popupoverlay").show();
-        $(".reviewpopup_cont7").show();
-        e.preventDefault();
-    });
-
-    $(".btnSaveTopic", '.reviewpopup_cont7').click(function (e) {
-        var checkedRadio = $(".rdltopics input:radio:checked");
-        if (checkedRadio.length > 0) {
-            $(".topicId").val(checkedRadio.val());
-            $('.spanTopicTitle').html(checkedRadio.next().text());
-            //$('.divTopic').show();
-            $('.divTopic').hide();
-        }
-        // close the popup
-        $(".popupoverlay").hide();
-        $(".reviewpopup_cont7").hide();
-        e.preventDefault();
-    });
-
-    $(".removeTopic").click(function (e) {
-        $(".topicId").val('0');
-        $('.spanTopicTitle').html('');
-        $('.divTopic').hide();
-        $(".aPopupGetAttTopic").hide();
         e.preventDefault();
     });
 
@@ -2640,17 +2486,4 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
-
-    var AudioPlayer1 = $("#jquery_jplayer_2");
-    runPlayer({
-        player: AudioPlayer1,
-        cssSelectorAncestor: '#jp_container_2',
-        ready: function () {
-            // play the jplayer
-            $(this).jPlayer("setMedia", {
-                mp3: $(".MP3FilePath").val()
-            });
-        },
-        timeupdate: function (event) { }
-    })
 });
