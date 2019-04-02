@@ -43,6 +43,20 @@
     clear: both;
 }
 
+/* overwrite select 2*/
+.select2-container {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.select2-container--default .select2-selection--single {
+    border-radius: 0;
+    border: 1px solid #504d25;
+    height: auto;
+    padding: 1px 0;
+    box-shadow: 0 1px 2px #8f8f8f inset;
+}
+
 /*!global classes*/
 
 .radio_list td {
@@ -248,11 +262,11 @@ textarea.fitAll {
 
 .textfield {
     border: 1px solid #bcbcbc;
-    -webkit-box-shadow: inset 0px 1px 1px 0px #c8c8c8;
-    -moz-box-shadow: inset 0px 1px 1px 0px #c8c8c8;
-    box-shadow: inset 0px 1px 1px 0px #c8c8c8;
-    padding: 3px 5px 5px;
-    font-size: 10px;
+    -webkit-box-shadow: 0 1px 2px #8f8f8f inset;
+    -moz-box-shadow: 0 1px 2px #8f8f8f inset;
+    box-shadow: 0 1px 2px #8f8f8f inset;
+    padding: 0 5px;
+    font-size: 16px;
     direction: rtl;
     text-align: right;
 }
@@ -335,10 +349,9 @@ input {
 }
 
 select {
-    border: 1px solid #1484e6;
+    border: 1px solid #504d25;
     box-shadow: 0 1px 2px #8f8f8f inset;
     font-size: 15px;
-    padding: 4px;
 }
 
 /* wrapper */
@@ -2196,7 +2209,13 @@ span.revFilelock {
 
 .lightbox-content-holder {
     width: auto;
-    min-width: 1200px;
+    min-width: initial;
+}
+
+.lightbox-content-holder .row {
+    width: auto;
+    min-width: initial;
+    max-width: initial;
 }
 
 .lightbox-content-holder .lightbox-head {

@@ -22,7 +22,7 @@ $(document).ready(function () {
             <div class="row">
                 <div class="grid_4"><h4>او اختر من التصويتات :</h4></div>
                 <div class="grid_8">
-                    <select id="ddl_votes">
+                    <select id="ddl_votes" class="inputBlock">
                         <option value="0">-------- اختر الاجراء --------</option>
                     </select>
                 </div>
@@ -57,7 +57,7 @@ $(document).ready(function () {
                     <label class="h4 ml-20"><input id="chbVote" type="checkbox" /> بداية التصويت</label>
                 </div>
             </div>
-            <div id="AttendantCont" class="row">
+            <div id="AttendantCont" class="row tex_align_center">
             </div>
             <div class="row">
                 <div class="grid_24 h2">
@@ -302,6 +302,8 @@ $(document).ready(function () {
                     } else {
                         $(".chbVote", $overlay).removeAttr("checked");
                     }
+
+                    $.fancybox.resize();
                 }
             });
         } else {
@@ -311,6 +313,7 @@ $(document).ready(function () {
             $('#AttendantCont', $overlay).html("");
             $(".chbVote", $overlay).removeAttr("checked");
         }
+        $.fancybox.resize();
     }
 
     function draw_radio_options_table(attendantID, checkedOptionVal) {

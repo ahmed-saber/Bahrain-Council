@@ -237,8 +237,7 @@
                                 <div class="grid_11" style="margin-right: 110px">
                                     <div>
                                         <input type="text" name="txtNewSpeaker" id="txtNewSpeaker" runat="server"
-                                            class="textfield inputBlock txtNewSpeaker"
-                                            style="font-weight: bold; font-size: 16px;" size="26" />
+                                            class="textfield inputBlock txtNewSpeaker" size="26" />
                                     </div>
                                 </div>
                             </div>
@@ -273,8 +272,7 @@
                                 </div>
                                 <div class="grid_11">
                                     <input type="text" name="txtSpeakerOtherJob" id="txtSpeakerOtherJob" runat="server"
-                                        class="textfield inputBlock txtSpeakerOtherJob"
-                                        style="font-weight: bold; font-size: 16px;" size="26" />
+                                        class="textfield inputBlock txtSpeakerOtherJob" size="26" />
                                 </div>
                             </div>
                             <div class="row">
