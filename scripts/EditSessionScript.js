@@ -1,4 +1,303 @@
-﻿// validation
+﻿// global
+// clean html
+function cleanHTML(value) {
+    var emptyTagsBr = /<[\w]*(?=\s|>)(?!(?:[^>=]|=(['"])(?:(?!\1).)*\1)*?\sdata-mce-type=['"])[^>]*>\s*<\/[\w]*>/g;
+    //var emptyTagsBr = /<[\w]*(?=\s|>)(?!(?:[^>=]|=(['"])(?:(?!\1).)*\1)*?\sdata-mce-type=['"])[^>]*>\s*(<br\s*[\/]?>)?\s*<\/[\w]*>/g;
+    var cleaned = value.replace(emptyTagsBr, '');
+    return value;
+}
+// get where the cursor position
+function getCursorPosition(ed, callBack, mv) {
+    ed.undoManager.add();
+    // vars
+    var target;
+    var objects = {};
+    // Stores a bookmark of the current selection
+    var bm = ed.selection.getBookmark();
+    // get the mark
+    objects.bm = bm;
+    objects.$mark = $(ed.getBody()).find('#' + bm.id + '_start');
+    objects.mark = objects.$mark[0];
+    if (mv) {
+        objects.markNextSibling = (objects.mark.nextElementSibling) ? $.clone(objects.mark.nextElementSibling) : objects.mark.nextElementSibling;
+        objects.markPreviousSibling = (objects.mark.previousElementSibling) ? $.clone(objects.mark.previousElementSibling) : objects.mark.previousElementSibling;
+        objects.markAcNextSibling = (objects.mark.nextSibling) ? $.clone(objects.mark.nextSibling) : objects.mark.nextSibling;
+        objects.markAcPreviousSibling = (objects.mark.previousSibling) ? $.clone(objects.mark.previousSibling) : objects.mark.previousSibling;
+    } else {
+        objects.markNextSibling = (objects.mark.nextElementSibling);
+        objects.markPreviousSibling = (objects.mark.previousElementSibling);
+        objects.markAcNextSibling = (objects.mark.nextSibling);
+        objects.markAcPreviousSibling = (objects.mark.previousSibling);
+    }
+    // define the real parent target
+    objects.$target = objects.$mark.parentsUntil('body').last();
+    // if there is parent
+    if (objects.$target[0]) {
+        objects.target = objects.$target[0];
+        // get next and prev sibling
+        objects.nextSibling = (objects.target.nextElementSibling) ? objects.target.nextElementSibling : false;
+        objects.previousSibling = (objects.target.previousElementSibling) ? objects.target.previousElementSibling : false;
+    } else {
+        objects.$target = $(ed.getBody());
+        objects.target = ed.getBody();
+        // get next and prev sibling
+        objects.nextSibling = (objects.markNextSibling) ? objects.markNextSibling : false;
+        objects.previousSibling = (objects.markPreviousSibling) ? objects.markPreviousSibling : false;
+    }
+    // get accurate next and prev sibling
+    objects.acNextSibling = (objects.target.nextSibling) ? $.clone(objects.target.nextSibling) : objects.nextSibling;
+    objects.acPreviousSibling = (objects.target.previousSibling) ? $.clone(objects.target.previousSibling) : objects.previousSibling;
+    // add more info
+    objects.collapsed = ed.selection.getRng().collapsed;
+    objects.startOffset = ed.selection.getRng().startOffset;
+    objects.endOffset = ed.selection.getRng().endOffset;
+    // move bookmark
+    if (mv) {
+        // Restore the selection bookmark
+        ed.selection.moveToBookmark(bm);
+    }
+    // check callback
+    if (callBack) {
+        // call the function
+        var callBackData = callBack(objects);
+        // move bookmark
+        if (!mv) {
+            // Restore the selection bookmark
+            ed.selection.moveToBookmark(bm);
+        }
+        // return
+        return callBackData;
+    }
+    // return
+    return objects;
+}
+// function for key press
+function editorEvents(ed) {
+    // on keydown
+    ed.onKeyDown.add(function (ed, e) {
+        // undo
+        ed.undoManager.add();
+        // to disable the merge of p tag with span tags
+        var backSpaceKey = (e.keyCode == 8);
+        var deleteKey = (e.keyCode == 46);
+        // backspace
+        if (backSpaceKey || deleteKey) {
+            ed.undoManager.add();
+            // get where the cursor position
+            if (getCursorPosition(ed, function (OB) {
+                if (backSpaceKey) {
+                    if (OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName == 'BR') {
+                        OB.markAcPreviousSibling.remove();
+                        return true;
+                    } else if (OB.target && OB.previousSibling) {
+                        if (
+                            (OB.target.nodeName == 'P' && OB.previousSibling.nodeName == 'SPAN') ||
+                            (OB.target.nodeName == 'SPAN' && OB.previousSibling.nodeName == 'P')
+                        ) {
+                            if (!(OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName) || OB.markAcPreviousSibling.data == '') {
+                                return true;
+                            }
+                        } else if (OB.target.nodeName == 'BODY') {
+                            if (
+                                (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
+                                OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
+                            ) {
+                                if (OB.markAcNextSibling.nodeName == '#text' && (OB.markAcPreviousSibling.nodeName == 'P' || OB.markAcPreviousSibling.data == '')) {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    if (OB.target && OB.nextSibling) {
+
+                        if (OB.markNextSibling && OB.markNextSibling.nodeName == 'BR') {
+                            OB.markNextSibling.remove();
+                            return true;
+                        } else if (
+                            (OB.target.nodeName == 'P' && OB.nextSibling.nodeName == 'SPAN') ||
+                            (OB.target.nodeName == 'SPAN' && OB.nextSibling.nodeName == 'P')
+                        ) {
+                            if (!(OB.markAcNextSibling && OB.markAcNextSibling.nodeName) || OB.markAcNextSibling.data == '') {
+                                return true;
+                            }
+                        } else if (OB.target.nodeName == 'BODY') {
+                            if (
+                                (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
+                                OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
+                            ) {
+                                if (OB.markAcPreviousSibling.nodeName == '#text' && (OB.markAcNextSibling.nodeName == 'P' || OB.markAcNextSibling.data == '')) {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            })) {
+                ed.undoManager.add();
+                e.preventDefault();
+            }
+        }
+        // clean up
+        ed.execCommand('mceCleanup');
+    });
+
+    // check if the user writes on no where
+    ed.onKeyPress.add(function (ed, e) {
+        ed.undoManager.add();
+        getCursorPosition(ed, function (OB) {
+            var currentNode = OB.target;
+            if (currentNode.nodeName == 'BODY' && e.charCode != 13) {
+                // select the nearest tag
+                var nextElement = OB.nextSibling;
+                if (nextElement) {
+                    ed.undoManager.add();
+                    var char = (e.keyCode == 32) ? '&nbsp;' : String.fromCharCode(e.keyCode);
+                    var mark = $('<i>' + char + '</i>');
+                    $(nextElement).prepend(mark);
+                    ed.selection.select(mark[0]);
+                    $(currentNode).find('[data-mce-type]').remove();
+                    ed.execCommand('mceCleanup');
+                    ed.selection.collapse(false);
+                    ed.undoManager.add();
+                    e.preventDefault();
+                }
+            }
+        });
+    });
+
+    // click on text tinyMCE editor
+    ed.onKeyUp.add(function (ed, e) {
+        ed.undoManager.add();
+        // check if the backspace
+        if (e.keyCode == 8 || e.keyCode == 46) {
+            // to merge the spans together
+            var selectedTag = ed.selection.getEnd();
+            if (selectedTag.nodeName == 'SPAN' && selectedTag.nextSibling && selectedTag.nextSibling.nodeName == 'SPAN') {
+                // VARS
+                var $selectedTag = $(selectedTag);
+                var nextSibling = selectedTag.nextSibling;
+                var $nextSibling = $(nextSibling);
+                // add the text to the selected tag
+                $selectedTag.append($nextSibling.text());
+                // remove the old on
+                $nextSibling.remove();
+                // clean up
+                ed.execCommand('mceCleanup');
+            };
+            // convert all the spans in the p tags
+            var $allChildSpans = $(ed.getBody()).find('p span');
+            if ($allChildSpans.length) {
+                $allChildSpans.each(function () {
+                    // VARS
+                    var $this = $(this);
+                    // REPLACE the spans with text only
+                    $this.replaceWith($this.text());
+                });
+            }
+        };
+        ed.undoManager.add();
+    });
+}
+
+function insertIntoSafeArea(ed, cloneHTML, convert) {
+    // get caret position
+    getCursorPosition(ed, function (OB) {
+        if (OB.collapsed) {
+            // get current target
+            var nodeName = OB.target.nodeName;
+            // check node name
+            if (nodeName == 'BODY') {
+                cloneHTML = convert ? convert('BODY') : cloneHTML;
+                ed.execCommand('mceInsertRawHTML', false, cloneHTML);
+            } else {
+                if (
+                    (OB.markAcPreviousSibling && OB.markAcPreviousSibling.data != undefined) &&
+                    (OB.markAcNextSibling && OB.markAcNextSibling.data != undefined) &&
+                    (OB.markAcPreviousSibling.data.length >= OB.markAcNextSibling.data.length)
+                ) {
+                    cloneHTML = convert ? convert('AFTER') : cloneHTML;
+                    OB.$target.after(cloneHTML);
+                } else {
+                    cloneHTML = convert ? convert('BEFORE') : cloneHTML;
+                    OB.$target.before(cloneHTML);
+                }
+            }
+            // add to the undo manager
+            ed.undoManager.add();
+        } else {
+            alert('دون أي تحديد من فضلك!');
+        }
+    }, true);
+}
+// tinymce for the popup window
+var defaultOptions = {
+    custom_undo_redo: true,
+    // General options
+    theme: "advanced",
+    plugins: "pagebreak,directionality,noneditable,paste",
+    paste_preprocess: function (pl, o) {
+        getCursorPosition(this, function (OB) {
+            // Content string containing the HTML from the clipboard
+            var stripedContent = o.content.replace(/&nbsp;/g, ' ').replace(/(<([^>]+)>)/ig, '');
+            var cleanedHTML = cleanHTML(stripedContent);
+            o.content = '<span>' + cleanedHTML + '</span>';
+        });
+    },
+    language: "ar",
+    // direction
+    directionality: "rtl",
+    // clean up
+    cleanup: true,
+    cleanup_on_startup: true,
+    width: '100%',
+    height: 400,
+    theme_advanced_source_editor_wrap: true,
+    // Theme options
+    theme_advanced_buttons1: "justifycenter,justifyright,|,undo,redo",
+    theme_advanced_buttons2: "",
+    theme_advanced_buttons3: "",
+    theme_advanced_buttons4: "",
+    theme_advanced_path: false,
+    theme_advanced_toolbar_location: "top",
+    theme_advanced_toolbar_align: "right",
+    theme_advanced_resizing: false,
+    // Example content CSS (should be your site CSS)
+    content_css: "styles/tinymce_content.css",
+    // invalid elements
+    invalid_elements: "applet,body,button,caption,fieldset ,font,form,frame,frameset,head,,html,iframe,img,input,link,meta,object,option,param,script,select,style,table,tbody,tr,td,th,tbody,textarea,xmp",
+    // valid elements
+    valid_elements: "@[class],span[*],p[*],strong,em,blockquote,br,i[!id]",
+    force_br_newlines: true,
+    force_p_newlines: false,
+    forced_root_block: false,
+    cleanup_callback: function (type, value) {
+        switch (type) {
+            case "get_from_editor":
+                break;
+            case "insert_to_editor":
+                // Clear empty tags
+                value = cleanHTML(value);
+                break;
+            case "submit_content":
+                break;
+            case "get_from_editor_dom":
+                break;
+            case "insert_to_editor_dom":
+                break;
+            case "setup_content_dom":
+                break;
+            case "submit_content_dom":
+                break;
+        }
+        return value;
+    },
+    setup: function (ed) {
+        // on keypress
+        editorEvents(ed);
+    }
+};
+// validation
 function check() {
     var x = document.forms.editSessionFileForm
     x[0].checked = true
@@ -378,239 +677,6 @@ $(document).ready(function () {
 
             $(".prev,.next").removeAttr("disabled");
         }
-    }
-
-    // get where the cursor position
-    function getCursorPosition(ed, callBack, mv) {
-        ed.undoManager.add();
-        // vars
-        var target;
-        var objects = {};
-        // Stores a bookmark of the current selection
-        var bm = ed.selection.getBookmark();
-        // get the mark
-        objects.bm = bm;
-        objects.$mark = $(ed.getBody()).find('#' + bm.id + '_start');
-        objects.mark = objects.$mark[0];
-        if (mv) {
-            objects.markNextSibling = (objects.mark.nextElementSibling) ? $.clone(objects.mark.nextElementSibling) : objects.mark.nextElementSibling;
-            objects.markPreviousSibling = (objects.mark.previousElementSibling) ? $.clone(objects.mark.previousElementSibling) : objects.mark.previousElementSibling;
-            objects.markAcNextSibling = (objects.mark.nextSibling) ? $.clone(objects.mark.nextSibling) : objects.mark.nextSibling;
-            objects.markAcPreviousSibling = (objects.mark.previousSibling) ? $.clone(objects.mark.previousSibling) : objects.mark.previousSibling;
-        } else {
-            objects.markNextSibling = (objects.mark.nextElementSibling);
-            objects.markPreviousSibling = (objects.mark.previousElementSibling);
-            objects.markAcNextSibling = (objects.mark.nextSibling);
-            objects.markAcPreviousSibling = (objects.mark.previousSibling);
-        }
-        // define the real parent target
-        objects.$target = objects.$mark.parentsUntil('body').last();
-        // if there is parent
-        if (objects.$target[0]) {
-            objects.target = objects.$target[0];
-            // get next and prev sibling
-            objects.nextSibling = (objects.target.nextElementSibling) ? objects.target.nextElementSibling : false;
-            objects.previousSibling = (objects.target.previousElementSibling) ? objects.target.previousElementSibling : false;
-        } else {
-            objects.$target = $(ed.getBody());
-            objects.target = ed.getBody();
-            // get next and prev sibling
-            objects.nextSibling = (objects.markNextSibling) ? objects.markNextSibling : false;
-            objects.previousSibling = (objects.markPreviousSibling) ? objects.markPreviousSibling : false;
-        }
-        // get accurate next and prev sibling
-        objects.acNextSibling = (objects.target.nextSibling) ? $.clone(objects.target.nextSibling) : objects.nextSibling;
-        objects.acPreviousSibling = (objects.target.previousSibling) ? $.clone(objects.target.previousSibling) : objects.previousSibling;
-        // add more info
-        objects.collapsed = ed.selection.getRng().collapsed;
-        objects.startOffset = ed.selection.getRng().startOffset;
-        objects.endOffset = ed.selection.getRng().endOffset;
-        // move bookmark
-        if (mv) {
-            // Restore the selection bookmark
-            ed.selection.moveToBookmark(bm);
-        }
-        // check callback
-        if (callBack) {
-            // call the function
-            var callBackData = callBack(objects);
-            // move bookmark
-            if (!mv) {
-                // Restore the selection bookmark
-                ed.selection.moveToBookmark(bm);
-            }
-            // return
-            return callBackData;
-        }
-        // return
-        return objects;
-    }
-
-    function insertIntoSafeArea(ed, cloneHTML, convert) {
-        // get caret position
-        getCursorPosition(ed, function (OB) {
-            if (OB.collapsed) {
-                // get current target
-                var nodeName = OB.target.nodeName;
-                // check node name
-                if (nodeName == 'BODY') {
-                    cloneHTML = convert ? convert('BODY') : cloneHTML;
-                    ed.execCommand('mceInsertRawHTML', false, cloneHTML);
-                } else {
-                    if (
-                        (OB.markAcPreviousSibling && OB.markAcPreviousSibling.data != undefined) &&
-                        (OB.markAcNextSibling && OB.markAcNextSibling.data != undefined) &&
-                        (OB.markAcPreviousSibling.data.length >= OB.markAcNextSibling.data.length)
-                    ) {
-                        cloneHTML = convert ? convert('AFTER') : cloneHTML;
-                        OB.$target.after(cloneHTML);
-                    } else {
-                        cloneHTML = convert ? convert('BEFORE') : cloneHTML;
-                        OB.$target.before(cloneHTML);
-                    }
-                }
-                // add to the undo manager
-                ed.undoManager.add();
-            } else {
-                alert('دون أي تحديد من فضلك!');
-            }
-        }, true);
-    }
-
-    function cleanHTML(value) {
-        var emptyTagsBr = /<[\w]*(?=\s|>)(?!(?:[^>=]|=(['"])(?:(?!\1).)*\1)*?\sdata-mce-type=['"])[^>]*>\s*<\/[\w]*>/g;
-        //var emptyTagsBr = /<[\w]*(?=\s|>)(?!(?:[^>=]|=(['"])(?:(?!\1).)*\1)*?\sdata-mce-type=['"])[^>]*>\s*(<br\s*[\/]?>)?\s*<\/[\w]*>/g;
-        var cleaned = value.replace(emptyTagsBr, '');
-        return value;
-    }
-
-    // function for on key press
-    function editorEvents(ed) {
-        // on keydown
-        ed.onKeyDown.add(function (ed, e) {
-            // undo
-            ed.undoManager.add();
-            // to disable the merge of p tag with span tags
-            var backSpaceKey = (e.keyCode == 8);
-            var deleteKey = (e.keyCode == 46);
-            // backspace
-            if (backSpaceKey || deleteKey) {
-                ed.undoManager.add();
-                // get where the cursor position
-                if (getCursorPosition(ed, function (OB) {
-                    if (backSpaceKey) {
-                        if (OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName == 'BR') {
-                            OB.markAcPreviousSibling.remove();
-                            return true;
-                        } else if (OB.target && OB.previousSibling) {
-                            if (
-                                (OB.target.nodeName == 'P' && OB.previousSibling.nodeName == 'SPAN') ||
-                                (OB.target.nodeName == 'SPAN' && OB.previousSibling.nodeName == 'P')
-                            ) {
-                                if (!(OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName) || OB.markAcPreviousSibling.data == '') {
-                                    return true;
-                                }
-                            } else if (OB.target.nodeName == 'BODY') {
-                                if (
-                                    (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
-                                    OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
-                                ) {
-                                    if (OB.markAcNextSibling.nodeName == '#text' && (OB.markAcPreviousSibling.nodeName == 'P' || OB.markAcPreviousSibling.data == '')) {
-                                        return true;
-                                    }
-                                }
-                            }
-                        }
-                    } else {
-                        if (OB.target && OB.nextSibling) {
-
-                            if (OB.markNextSibling && OB.markNextSibling.nodeName == 'BR') {
-                                OB.markNextSibling.remove();
-                                return true;
-                            } else if (
-                                (OB.target.nodeName == 'P' && OB.nextSibling.nodeName == 'SPAN') ||
-                                (OB.target.nodeName == 'SPAN' && OB.nextSibling.nodeName == 'P')
-                            ) {
-                                if (!(OB.markAcNextSibling && OB.markAcNextSibling.nodeName) || OB.markAcNextSibling.data == '') {
-                                    return true;
-                                }
-                            } else if (OB.target.nodeName == 'BODY') {
-                                if (
-                                    (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
-                                    OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
-                                ) {
-                                    if (OB.markAcPreviousSibling.nodeName == '#text' && (OB.markAcNextSibling.nodeName == 'P' || OB.markAcNextSibling.data == '')) {
-                                        return true;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                })) {
-                    ed.undoManager.add();
-                    e.preventDefault();
-                }
-            }
-            // clean up
-            ed.execCommand('mceCleanup');
-        });
-
-        // check if the user writes on no where
-        ed.onKeyPress.add(function (ed, e) {
-            ed.undoManager.add();
-            getCursorPosition(ed, function (OB) {
-                var currentNode = OB.target;
-                if (currentNode.nodeName == 'BODY' && e.charCode != 13) {
-                    // select the nearest tag
-                    var nextElement = OB.nextSibling;
-                    if (nextElement) {
-                        ed.undoManager.add();
-                        var char = (e.keyCode == 32) ? '&nbsp;' : String.fromCharCode(e.keyCode);
-                        var mark = $('<i>' + char + '</i>');
-                        $(nextElement).prepend(mark);
-                        ed.selection.select(mark[0]);
-                        $(currentNode).find('[data-mce-type]').remove();
-                        ed.execCommand('mceCleanup');
-                        ed.selection.collapse(false);
-                        ed.undoManager.add();
-                        e.preventDefault();
-                    }
-                }
-            });
-        });
-
-        // click on text tinyMCE editor
-        ed.onKeyUp.add(function (ed, e) {
-            ed.undoManager.add();
-            // check if the backspace
-            if (e.keyCode == 8 || e.keyCode == 46) {
-                // to merge the spans together
-                var selectedTag = ed.selection.getEnd();
-                if (selectedTag.nodeName == 'SPAN' && selectedTag.nextSibling && selectedTag.nextSibling.nodeName == 'SPAN') {
-                    // VARS
-                    var $selectedTag = $(selectedTag);
-                    var nextSibling = selectedTag.nextSibling;
-                    var $nextSibling = $(nextSibling);
-                    // add the text to the selected tag
-                    $selectedTag.append($nextSibling.text());
-                    // remove the old on
-                    $nextSibling.remove();
-                    // clean up
-                    ed.execCommand('mceCleanup');
-                };
-                // convert all the spans in the p tags
-                var $allChildSpans = $(ed.getBody()).find('p span');
-                if ($allChildSpans.length) {
-                    $allChildSpans.each(function () {
-                        // VARS
-                        var $this = $(this);
-                        // REPLACE the spans with text only
-                        $this.replaceWith($this.text());
-                    });
-                }
-            };
-            ed.undoManager.add();
-        });
     }
 
     function loadSessionAttaches() {
@@ -1972,74 +2038,6 @@ $(document).ready(function () {
         }
     });
 
-    // tinymce for the popup window
-    var defaultOptions = {
-        custom_undo_redo: true,
-        // General options
-        theme: "advanced",
-        plugins: "pagebreak,directionality,noneditable,paste",
-        paste_preprocess: function (pl, o) {
-            getCursorPosition(this, function (OB) {
-                // Content string containing the HTML from the clipboard
-                var stripedContent = o.content.replace(/&nbsp;/g, ' ').replace(/(<([^>]+)>)/ig, '');
-                var cleanedHTML = cleanHTML(stripedContent);
-                o.content = '<span>' + cleanedHTML + '</span>';
-            });
-        },
-        language: "ar",
-        // direction
-        directionality: "rtl",
-        // clean up
-        cleanup: true,
-        cleanup_on_startup: true,
-        width: '100%',
-        height: 400,
-        theme_advanced_source_editor_wrap: true,
-        // Theme options
-        theme_advanced_buttons1: "justifycenter,justifyright,|,undo,redo",
-        theme_advanced_buttons2: "",
-        theme_advanced_buttons3: "",
-        theme_advanced_buttons4: "",
-        theme_advanced_path: false,
-        theme_advanced_toolbar_location: "top",
-        theme_advanced_toolbar_align: "right",
-        theme_advanced_resizing: false,
-        // Example content CSS (should be your site CSS)
-        content_css: "styles/tinymce_content.css",
-        // invalid elements
-        invalid_elements: "applet,body,button,caption,fieldset ,font,form,frame,frameset,head,,html,iframe,img,input,link,meta,object,option,param,script,select,style,table,tbody,tr,td,th,tbody,textarea,xmp",
-        // valid elements
-        valid_elements: "@[class],span[*],p[*],strong,em,blockquote,br,i[!id]",
-        force_br_newlines: true,
-        force_p_newlines: false,
-        forced_root_block: false,
-        cleanup_callback: function (type, value) {
-            switch (type) {
-                case "get_from_editor":
-                    break;
-                case "insert_to_editor":
-                    // Clear empty tags
-                    value = cleanHTML(value);
-                    break;
-                case "submit_content":
-                    break;
-                case "get_from_editor_dom":
-                    break;
-                case "insert_to_editor_dom":
-                    break;
-                case "setup_content_dom":
-                    break;
-                case "submit_content_dom":
-                    break;
-            }
-            return value;
-        },
-        setup: function (ed) {
-            // on keypress
-            editorEvents(ed);
-        }
-    };
-
     //
     $('#MainContent_Textarea1, #MainContent_Textarea2').tinymce(defaultOptions);
     // change the default options
@@ -2177,17 +2175,17 @@ $(document).ready(function () {
             {
                 'onComplete': function (e) {
                     // VARS
-                    var $overLay = $('#procuderOverlay');
-                    var $listData = $('#listData', $overLay);
-                    var $DropDownList = $('#DropDownList1', $overLay);
+                    var $overlay = $('#procuderOverlay');
+                    var $listData = $('#listData', $overlay);
+                    var $DropDownList = $('#DropDownList1', $overlay);
                     // CLONE THE HTML FROM THE MAIN EDITOR
                     var mainEditor = getMainEditor();
-                    var $editor = $('.lightbox-editor-st1', $overLay);
+                    var $editor = $('.lightbox-editor-st1', $overlay);
                     var cleanHTML = htmlClean(mainEditor.getContent());
                     $editor.val(cleanHTML).tinymce(defaultOptions);
 
                     // add procuder yes button
-                    $(".approve-action", $overLay).click(function (e) {
+                    $(".approve-action", $overlay).click(function (e) {
                         // bind the new value
                         mainEditor.execCommand('mceSetContent', false, $editor.val());
                         // add to the undo manager
@@ -2332,10 +2330,10 @@ $(document).ready(function () {
             {
                 'onComplete': function (e) {
                     // VARS
-                    var $overLay = $('#fullnameOverlay');
+                    var $overlay = $('#fullnameOverlay');
                     // CLONE THE HTML FROM THE MAIN EDITOR
                     var mainEditor = getMainEditor();
-                    var $editor = $('.lightbox-editor-st1', $overLay);
+                    var $editor = $('.lightbox-editor-st1', $overlay);
                     var cleanHTML = htmlClean(mainEditor.getContent());
                     $editor.val(cleanHTML).tinymce(defaultOptions);
                     // SHOW LOADING
@@ -2343,7 +2341,7 @@ $(document).ready(function () {
                     // GET MEMBRS NAMES
                     GetAttendantsFullName(function (response) {
                         // VARS
-                        var listData = $('.listData-st1', $overLay);
+                        var listData = $('.listData-st1', $overlay);
                         // loop to create the options
                         for (var i = 0; i < response.length; i++) {
                             var option = response[i];
@@ -2367,7 +2365,7 @@ $(document).ready(function () {
                         }
                     });
                     // add procuder yes button
-                    $(".approve-action", $overLay).click(function (e) {
+                    $(".approve-action", $overlay).click(function (e) {
                         // bind the new value
                         mainEditor.execCommand('mceSetContent', false, $editor.val());
                         // add to the undo manager

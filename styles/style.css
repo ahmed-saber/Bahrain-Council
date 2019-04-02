@@ -2153,8 +2153,8 @@ span.revFilelock {
 }
 
 .listData-st2 {
-    height: 200px;
-    margin-bottom: 20px;
+    height: 305px;
+    margin-bottom: 15px;
 }
 
 .listData-st2:last-child {
@@ -2166,6 +2166,27 @@ span.revFilelock {
     padding: 10px;
     border-bottom: 1px dotted #ccc;
     cursor: pointer;
+    line-height: 1.5;
+}
+
+.listData-st2 li.selected {
+    position: relative;
+    padding-left: 40px;
+    min-height: 200px;
+}
+
+.listData-st2 li.selected .arrow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 30px;
+    background-color: #000;
+    background-image: url('../images/plus-solid.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    background-size: 70%;
 }
 
 .listData-st1 li:last-child,
@@ -2175,8 +2196,13 @@ span.revFilelock {
 
 .listData-st1 li:hover,
 .listData-st2 li:hover {
-    background-color: #666;
+    background-color: #555;
     color: #fff;
+}
+
+.listData-st2 li.selected {
+    color: #fff;
+    background-color: rgba(190, 26, 40, 0.9);
 }
 
 /* margins */
@@ -2191,6 +2217,10 @@ span.revFilelock {
 
 .mb-5 {
     margin-bottom: 5px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
 }
 
 .btn_editsession {
