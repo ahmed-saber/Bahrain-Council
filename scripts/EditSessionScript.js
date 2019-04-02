@@ -472,7 +472,7 @@ $(document).ready(function () {
                 // add to the undo manager
                 ed.undoManager.add();
             } else {
-                alert('Without any selection please !!')
+                alert('دون أي تحديد من فضلك!');
             }
         }, true);
     }
@@ -502,50 +502,50 @@ $(document).ready(function () {
                         if (OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName == 'BR') {
                             OB.markAcPreviousSibling.remove();
                             return true;
-                } else if (OB.target && OB.previousSibling) {
+                        } else if (OB.target && OB.previousSibling) {
                             if (
                                 (OB.target.nodeName == 'P' && OB.previousSibling.nodeName == 'SPAN') ||
                                 (OB.target.nodeName == 'SPAN' && OB.previousSibling.nodeName == 'P')
                             ) {
                                 if (!(OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName) || OB.markAcPreviousSibling.data == '') {
                                     return true;
-                }
-                } else if (OB.target.nodeName == 'BODY') {
+                                }
+                            } else if (OB.target.nodeName == 'BODY') {
                                 if (
                                     (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
                                     OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
                                 ) {
                                     if (OB.markAcNextSibling.nodeName == '#text' && (OB.markAcPreviousSibling.nodeName == 'P' || OB.markAcPreviousSibling.data == '')) {
                                         return true;
-                }
-                }
-                }
-                }
-                } else {
+                                    }
+                                }
+                            }
+                        }
+                    } else {
                         if (OB.target && OB.nextSibling) {
 
                             if (OB.markNextSibling && OB.markNextSibling.nodeName == 'BR') {
                                 OB.markNextSibling.remove();
                                 return true;
-                } else if (
+                            } else if (
                                 (OB.target.nodeName == 'P' && OB.nextSibling.nodeName == 'SPAN') ||
                                 (OB.target.nodeName == 'SPAN' && OB.nextSibling.nodeName == 'P')
                             ) {
                                 if (!(OB.markAcNextSibling && OB.markAcNextSibling.nodeName) || OB.markAcNextSibling.data == '') {
                                     return true;
-                }
-                } else if (OB.target.nodeName == 'BODY') {
+                                }
+                            } else if (OB.target.nodeName == 'BODY') {
                                 if (
                                     (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
                                     OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
                                 ) {
                                     if (OB.markAcPreviousSibling.nodeName == '#text' && (OB.markAcNextSibling.nodeName == 'P' || OB.markAcNextSibling.data == '')) {
                                         return true;
-                }
-                }
-                }
-                }
-                }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 })) {
                     ed.undoManager.add();
                     e.preventDefault();
@@ -764,7 +764,6 @@ $(document).ready(function () {
                         $("#MainContent_CurrentItemID").val(response.FragOrderInXml);
                     } else {
                         alert("عفواً . غير مسموح لك بالتعديل في هذه الصفحة");
-
                     }
                 }
             },
@@ -1037,7 +1036,7 @@ $(document).ready(function () {
         // get Cursor Position
         getCursorPosition(ed, function (OB) {
             if (!ed.getContent().length) {
-                alert('There is no text cut from');
+                alert('لا يوجد نص لنقطع منه');
             } else if (OB.collapsed) {
                 // Restore the selection bookmark
                 ed.selection.moveToBookmark(OB.bm);
@@ -1052,7 +1051,7 @@ $(document).ready(function () {
                         $rangeStart = $(OB.nextSibling);
                         rangeStart = $rangeStart[0];
                     } else {
-                        alert('There is no text cut from');
+                        alert('لا يوجد نص لنقطع منه');
                         return;
                     }
                 } else if (rangeStart.nodeName == 'SPAN') { // IF tagename is SPAN
@@ -1102,7 +1101,7 @@ $(document).ready(function () {
                 // check if the user selected the whole text or not
                 if (($(selectedContent).length >= $(ed.getContent()).length) || ($(selectedContent).text().length >= $(ed.getContent()).text().length)) {
                     // alert the user
-                    alert('You selected the whole text');
+                    alert('يرجى تحديد النص الذي تريد تقسيمه !!');
                     // deselect
                     ed.selection.collapse(true);
                     return;
@@ -1117,7 +1116,7 @@ $(document).ready(function () {
                     return;
                 }
             } else {
-                alert('Without any selection please !!')
+                alert('دون أي تحديد من فضلك!')
             }
         });
     });
@@ -2291,7 +2290,7 @@ $(document).ready(function () {
                                 }
                             },
                             error: function (response) {
-                                alert("Error");
+                                alert("لقد حدث خطأ");
                             }
                         });
                         // close popup
