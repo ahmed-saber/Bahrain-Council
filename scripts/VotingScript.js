@@ -13,7 +13,7 @@ $(document).ready(function () {
             <div class="row">
                 <div class="grid_4"><h4>اضافة تصويت جديد :</h4></div>
                 <div class="grid_8 ">
-                    <input type="text" id="txtNewVote" class="textfield inputBlock" />
+                    <input type="text" id="txtNewVote" class ="txtNewVote textfield inputBlock" />
                 </div>
                 <div class="grid_2 h2">
                     <input type="button" id="btnSaveVote" class="btn" value="اضافة" />

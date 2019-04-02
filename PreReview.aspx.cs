@@ -147,7 +147,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                         string reviewItem = Application[Constants.HTMLTemplateFileNames.ReviewItem].ToString()
                                                 .Replace("<%SessionContentItemID%>", item.ID.ToString())
                                                 .Replace("<%itemText%>", item.Text);
-
+                        
                         reviewItem = reviewItem.Replace("<%isLocked%>", "openeditem")
                                 .Replace("<%title%>", "");
 
@@ -166,8 +166,16 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                         reviewItem = reviewItem.Replace("<%MP3FileEndTime%>", item.EndTime.ToString());
                         reviewItem = reviewItem.Replace("<%IsSessionStart%>", "0");
 
-
                         sb.Append(reviewItem);
+
+                        if (item.DecisionID != null && item.DecisionID != 0)
+                        {
+                            Decision decisionObj = DecisionHelper.GetDecisionById((long)item.DecisionID);
+                            string dItem = Application[Constants.HTMLTemplateFileNames.ReviewItemAgendaItem].ToString()
+                                                    .Replace("<%itemText%>", "* " + decisionObj.Title + ":");
+                            sb.Append(dItem);
+                        }
+
 
                         //for footnote
                         if (!string.IsNullOrEmpty(item.PageFooter))

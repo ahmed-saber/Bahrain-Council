@@ -301,7 +301,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                             string reviewItem = Application[Constants.HTMLTemplateFileNames.ReviewItem].ToString()
                                                     .Replace("<%SessionContentItemID%>", item.ID.ToString())
                                                     .Replace("<%itemText%>", item.Text);
-
+                           
                             if (disableEditforNotReviewrAdmin)
                                 reviewItem = reviewItem.Replace("<%isLocked%>", "lockeditem").Replace("<%title%>", "لا يحق لك التعديل .. يمكنك الاطلاع فقط");
                             else if (((Model.SessionFileStatus)item.SessionFile.Status) == Model.SessionFileStatus.InProgress)
@@ -355,18 +355,12 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                             }
                             sb.Append(reviewItem);
 
-                           /* if (item.TopicID != null && item.TopicID != 0)
+                            if (item.DecisionID != null && item.DecisionID != 0)
                             {
-                                topic_id = (long)item.TopicID;
-                            }*/
-
-                            if (item.ID == groupedItems[groupedItems.Count-1].ID && topic_id != 0)
-                            {
-                                //for Topics
-                                string reviewItemTopic = write_topic_att(topic_id, item);
-                                if (reviewItemTopic != "")
-                                    sb.Append(reviewItemTopic);
-                                topic_id = 0;
+                                Decision decisionObj = DecisionHelper.GetDecisionById((long)item.DecisionID);
+                                string dItem = Application[Constants.HTMLTemplateFileNames.ReviewItemAgendaItem].ToString()
+                                                        .Replace("<%itemText%>", "* " + decisionObj.Title + ":");
+                                sb.Append(dItem);
                             }
 
                             //for comments

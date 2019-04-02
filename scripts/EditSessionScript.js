@@ -502,50 +502,50 @@ $(document).ready(function () {
                         if (OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName == 'BR') {
                             OB.markAcPreviousSibling.remove();
                             return true;
-                        } else if (OB.target && OB.previousSibling) {
+                } else if (OB.target && OB.previousSibling) {
                             if (
                                 (OB.target.nodeName == 'P' && OB.previousSibling.nodeName == 'SPAN') ||
                                 (OB.target.nodeName == 'SPAN' && OB.previousSibling.nodeName == 'P')
                             ) {
                                 if (!(OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName) || OB.markAcPreviousSibling.data == '') {
                                     return true;
-                                }
-                            } else if (OB.target.nodeName == 'BODY') {
+                }
+                } else if (OB.target.nodeName == 'BODY') {
                                 if (
                                     (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
                                     OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
                                 ) {
                                     if (OB.markAcNextSibling.nodeName == '#text' && (OB.markAcPreviousSibling.nodeName == 'P' || OB.markAcPreviousSibling.data == '')) {
                                         return true;
-                                    }
-                                }
-                            }
-                        }
-                    } else {
+                }
+                }
+                }
+                }
+                } else {
                         if (OB.target && OB.nextSibling) {
 
                             if (OB.markNextSibling && OB.markNextSibling.nodeName == 'BR') {
                                 OB.markNextSibling.remove();
                                 return true;
-                            } else if (
+                } else if (
                                 (OB.target.nodeName == 'P' && OB.nextSibling.nodeName == 'SPAN') ||
                                 (OB.target.nodeName == 'SPAN' && OB.nextSibling.nodeName == 'P')
                             ) {
                                 if (!(OB.markAcNextSibling && OB.markAcNextSibling.nodeName) || OB.markAcNextSibling.data == '') {
                                     return true;
-                                }
-                            } else if (OB.target.nodeName == 'BODY') {
+                }
+                } else if (OB.target.nodeName == 'BODY') {
                                 if (
                                     (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
                                     OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
                                 ) {
                                     if (OB.markAcPreviousSibling.nodeName == '#text' && (OB.markAcNextSibling.nodeName == 'P' || OB.markAcNextSibling.data == '')) {
                                         return true;
-                                    }
-                                }
-                            }
-                        }
-                    }
+                }
+                }
+                }
+                }
+                }
                 })) {
                     ed.undoManager.add();
                     e.preventDefault();

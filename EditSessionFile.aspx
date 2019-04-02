@@ -10,6 +10,7 @@
     <script type="text/javascript" src="scripts/select2.full.min.js"></script>
     <script type="text/javascript" src="scripts/EditSessionScript.js"></script>
     <script type="text/javascript" src="scripts/VotingScript.js"></script>
+    <script type="text/javascript" src="scripts/SessionItemScript.js"></script>
     <link href="styles/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
     <link href="styles/select2.min.css" rel="stylesheet" type="text/css" />
     <script language="javascript" type="text/javascript">
@@ -46,7 +47,14 @@
         <input type="hidden" id="originalStartTime" runat="server" value="" class="hdoriginalStartTime" />
         <input type="hidden" id="endTime" runat="server" value="" class="hdendTime" />
         <input type="hidden" id="currentOrder" runat="server" value="" class="hdcurrentOrder" />
-        <input type="hidden" name="agendaItemId" id="agendaItemId" value="" runat="server" class="agendaItemId" />
+         <input type="hidden" name="agendaItemId" id="agendaItemId" value="" runat="server"
+            class="agendaItemId" />
+        <input type="hidden" name="agendaSubItemId" id="agendaSubItemId" value="" runat="server"
+            class="agendaSubItemId" />
+        <input type="hidden" name="sItemId" id="sItemId" value="" runat="server"
+            class="sItemId" />
+        <input type="hidden" name="sSubItemId" id="sSubItemId" value="" runat="server"
+            class="sSubItemId" />
         <input type="hidden" name="attachId" id="attachId" value="0" runat="server" class="attachId" />
         <input type="hidden" name="voteId" id="voteId" value="0" runat="server" class="voteId" />
         <input type="hidden" name="decisionId" id="decisionId" value="0" runat="server" class="decisionId" />
@@ -64,6 +72,8 @@
                             class="btn inputBlock mb-5 prev btn_editsession" value="السابق" />
                         <input name="" runat="server" disabled="disabled" id="btnFinish" type="button"
                             class="btn inputBlock mb-5 finish btn_editsession" value="انهاء" />
+                         <input name="" runat="server" id="addingNewPlannedSessionItem" type="button" class="btn inputBlock mb-5 addingNewPlannedSessionItem btn_editsession"
+                            value="اضافة فهرس من جدول الاعمال" />
                         <input name="" runat="server" id="btn_addNewAgendaItem" type="button"
                             class="btn inputBlock mb-5 addingNewAgendaItem btn_editsession"
                             value="اضافة /  تعديل فهرس" />

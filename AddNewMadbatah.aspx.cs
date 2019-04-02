@@ -18,13 +18,13 @@ namespace TayaIT.Enterprise.EMadbatah.Web
 
             // Util.NumberingFormatter f = new Util.NumberingFormatter(true);
             //f.getResultEnhanced(13);
-            string s = BLL.SessionStartFacade.GetPresidentIntro(60285);
+           // string s = BLL.SessionStartFacade.GetPresidentIntro(60285);
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            TayaIT.Enterprise.EMadbatah.BLL.MabatahCreatorFacade.CreateMadbatah(60279, "/test/60279/", "");
+            TayaIT.Enterprise.EMadbatah.BLL.MabatahCreatorFacade.CreateMadbatah(60286, "/test/60286/", "");
           //   string mad = TayaIT.Enterprise.EMadbatah.BLL.SessionStartFacade.GetAutomaticSessionStartText(155);
             //select * from SessionFile where Name like '%1369b_07%'
 

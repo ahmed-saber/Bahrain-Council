@@ -18,7 +18,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
 {
     public partial class EditSessionFile : BasePage
     {
-        
+
 
         long sessionId;
         long session_file_id;
@@ -28,14 +28,14 @@ namespace TayaIT.Enterprise.EMadbatah.Web
         protected void Page_Load(object sender, EventArgs e)
         {
             int tmpPageMode = 1;
-            if(EditPageMode != null && 
+            if (EditPageMode != null &&
                 int.TryParse(EditPageMode, out tmpPageMode))
             {
                 currentPageMode = (EditorPageMode)tmpPageMode;
             }
 
             hdPageMode.Value = ((int)currentPageMode).ToString();
-                
+
 
             if (SessionFileID != null && long.TryParse(SessionFileID, out session_file_id))
             {
@@ -83,7 +83,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
             {
                 foreach (TayaIT.Enterprise.EMadbatah.Model.VecSys.Word word in segment.words)
                 {
-                   // output += "<span class='segment' data-stime='" + word.stime.ToString() + "'>" + word.value.Replace(".", "،") +"</span> ";
+                    // output += "<span class='segment' data-stime='" + word.stime.ToString() + "'>" + word.value.Replace(".", "،") +"</span> ";
                     if (word.stime.ToString() == "0")
                     {
                         if (word.procedureid == "-1")
@@ -207,7 +207,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
             long unAssignedId = 0;
             foreach (Attendant item in current_session.Attendants.OrderBy(s => s.LongName).ThenBy(s => s.CreatedAt))
             {
-                ListItem liAttendant = new ListItem((item.AttendantDegree + " " +  item.LongName).Trim(), item.ID.ToString());
+                ListItem liAttendant = new ListItem((item.AttendantDegree + " " + item.LongName).Trim(), item.ID.ToString());
                 ddlSpeakers.Items.Add(liAttendant);
                 if (item.LongName == "غير محدد")
                     unAssignedId = item.ID;
@@ -220,10 +220,10 @@ namespace TayaIT.Enterprise.EMadbatah.Web
             li = new ListItem("أخرى", "1.5");
             ddlSpeakers.Items.Add(li);
 
-           //Bind Available Attachments
+            //Bind Available Attachments
             string attachName = "";
             string topictitle = "";
-           
+
             AgendaItem sessionUnknownItem = AgendaHelper.GetAgendaItemByNameAndSessionID("غير معرف", current_session.ID);
             unAssignedAgendaId.Value = sessionUnknownItem.ID.ToString();
 
@@ -282,7 +282,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                 decisionId.Value = "0";
                 divDecision.Style.Add("display", "none");
                 divDecisionTitle.InnerHtml = "";
-                if (lastContentItem.DecisionID != null && lastContentItem.DecisionID != 0) 
+                if (lastContentItem.DecisionID != null && lastContentItem.DecisionID != 0)
                 {
                     decisionId.Value = lastContentItem.DecisionID.ToString();
                     divDecision.Style.Add("display", "block");
@@ -292,33 +292,33 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                     divDecision.Style.Add("display", "");
                     divDecisionTitle.InnerHtml = decTitle;
                 }
-             
+
                 else
                 {
                     decisionId.Value = "0";
                     divDecisionTitle.InnerHtml = "";
-                    
+
                 }
-                
+
 
                 string voteSubject = "";
                 voteId.Value = "0";
                 divVote.Style.Add("display", "none");
                 spanVoteSubject.InnerHtml = "";
-                 if (lastContentItem.VotingID != null && lastContentItem.VotingID != 0)
-                 {
-                     Vote voteObj = VoteHelper.GetSessionVote((long)lastContentItem.VotingID);
-                     voteSubject = voteObj.VoteSubject;
-                     voteId.Value = lastContentItem.VotingID.ToString();
-                     divVote.Style.Add("display", "");
-                     spanVoteSubject.InnerHtml = voteSubject;
-                 }
-                 else
-                 {
-                     voteId.Value = "0";
-                     divVote.Style.Add("display", "none");
-                     spanVoteSubject.InnerHtml = "";
-                 }
+                if (lastContentItem.VotingID != null && lastContentItem.VotingID != 0)
+                {
+                    Vote voteObj = VoteHelper.GetSessionVote((long)lastContentItem.VotingID);
+                    voteSubject = voteObj.VoteSubject;
+                    voteId.Value = lastContentItem.VotingID.ToString();
+                    divVote.Style.Add("display", "");
+                    spanVoteSubject.InnerHtml = voteSubject;
+                }
+                else
+                {
+                    voteId.Value = "0";
+                    divVote.Style.Add("display", "none");
+                    spanVoteSubject.InnerHtml = "";
+                }
 
                 ddlSpeakers.SelectedValue = lastContentItem.AttendantID.ToString();
                 //ddlSpeakers.t
@@ -366,7 +366,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
             }
             else
             {
-               
+
                 agendaItemTxt = sessionUnknownItem.Name;
                 agendaItemIsIndexed = sessionUnknownItem.IsIndexed.ToString();
                 agendaItemId.Value = sessionUnknownItem.ID.ToString();
@@ -417,17 +417,17 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                 }
                 else
                     if (FragOrder > 0 && FragOrder <= p.Count - 1)
-                    {
-                        btnNext.Attributes.Remove("disabled");
-                        btnPrev.Attributes.Remove("disabled");
-                    }
-                    else
+                {
+                    btnNext.Attributes.Remove("disabled");
+                    btnPrev.Attributes.Remove("disabled");
+                }
+                else
                         if (FragOrder >= p.Count - 1)
-                        {
-                            btnNext.Attributes.Add("disabled", "disabled");
-                            btnPrev.Attributes.Remove("disabled");
+                {
+                    btnNext.Attributes.Add("disabled", "disabled");
+                    btnPrev.Attributes.Remove("disabled");
 
-                        }
+                }
 
 
                 if (FragOrder >= p.Count - 1)
@@ -457,7 +457,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                 btnFinish.Attributes.CssStyle.Add("display", "inline");
                 btnPreview.Attributes.Remove("disabled");
                 btnPreview.Attributes.CssStyle.Add("display", "inline");
-               
+
                 if (FragOrder == 0)//FragOrder == 0 || 
                 {
                     btnNext.Attributes.Remove("disabled");
@@ -467,17 +467,17 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                 }
                 else
                     if (FragOrder > 0 && FragOrder <= p.Count - 1)
-                    {
-                        btnNext.Attributes.Remove("disabled");
-                        btnPrev.Attributes.Remove("disabled");
-                    }
-                    else
+                {
+                    btnNext.Attributes.Remove("disabled");
+                    btnPrev.Attributes.Remove("disabled");
+                }
+                else
                         if (FragOrder >= p.Count - 1)
-                        {
-                            btnNext.Attributes.Add("disabled", "disabled");
-                            btnPrev.Attributes.Remove("disabled");
+                {
+                    btnNext.Attributes.Add("disabled", "disabled");
+                    btnPrev.Attributes.Remove("disabled");
 
-                        }
+                }
 
 
                 if (FragOrder >= p.Count - 1)
@@ -498,10 +498,10 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                 btnPreview.Attributes.Remove("disabled");
                 btnPreview.Attributes.CssStyle.Add("display", "inline");
             }
-            bool isReEdit=false;
+            bool isReEdit = false;
             if (ReEdit != null && bool.TryParse(ReEdit, out isReEdit))
             {
-                if (isReEdit )
+                if (isReEdit)
                 {
                     btnFinish.Attributes.Remove("disabled");
                     btnFinish.Attributes.CssStyle.Add("display", "inline");
@@ -551,5 +551,5 @@ namespace TayaIT.Enterprise.EMadbatah.Web
         {
 
         }
-}
+    }
 }
