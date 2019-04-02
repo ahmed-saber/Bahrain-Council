@@ -2167,7 +2167,7 @@ $(document).ready(function () {
                         </ul>
                     </div>
                     <div class ="grid_19">
-                        <textarea id="Textarea2" runat="server" rows="3" class="lightbox-editor-st1"></textarea>
+                        <textarea id="Textarea2" class="lightbox-editor-st1"></textarea>
                     </div>
                 </div>
                 <div class ="lightbox-actions-holder fl">
@@ -2197,6 +2197,8 @@ $(document).ready(function () {
                         e.preventDefault();
                     });
 
+                    // SHOW LOADING
+                    $.fancybox.showActivity();
                     // CALL DROP DOWN LIST API
                     getProcuderDropdownList(function (response) {
                         if (response != '') {
@@ -2237,6 +2239,8 @@ $(document).ready(function () {
                                 insertIntoSafeArea($editor.tinymce(), cloneHTML);
                             });
                         }
+                        // HIDE LOADING
+                        $.fancybox.hideActivity();
                     });
                 }
             }
@@ -2250,8 +2254,10 @@ $(document).ready(function () {
                 <div class="lightbox-head">
                     <h2><span class="red">*</span> الاقرار :</h2>
                 </div>
-                <div class ="lightbox-row">
-                    <textarea rows="3" class ="lightbox-editor-st1 txtDecision"></textarea>
+                <div class ="row">
+                    <div class="grid_24">
+                        <textarea class ="lightbox-editor-st1 txtDecision"></textarea>
+                    </div>
                 </div>
                 <div class ="lightbox-actions-holder fl">
                     <input type="button" class="approve-action" value="حفظ" />
@@ -2315,7 +2321,7 @@ $(document).ready(function () {
                         </ul>
                     </div>
                     <div class="grid_19">
-                        <textarea runat="server" name="elm1" rows="3" class="lightbox-editor-st1"></textarea>
+                        <textarea name="elm1" class="lightbox-editor-st1"></textarea>
                     </div>
                 </div>
                 <div class="lightbox-actions-holder fl">
@@ -2332,6 +2338,8 @@ $(document).ready(function () {
                     var $editor = $('.lightbox-editor-st1', $overLay);
                     var cleanHTML = htmlClean(mainEditor.getContent());
                     $editor.val(cleanHTML).tinymce(defaultOptions);
+                    // SHOW LOADING
+                    $.fancybox.showActivity();
                     // GET MEMBRS NAMES
                     GetAttendantsFullName(function (response) {
                         // VARS
@@ -2354,6 +2362,8 @@ $(document).ready(function () {
                             });
                             // create the option in the dropdown list
                             listData.append($item);
+                            // HIDE LOADING
+                            $.fancybox.hideActivity();
                         }
                     });
                     // add procuder yes button

@@ -2141,7 +2141,8 @@ span.revFilelock {
 
 /* list data in the overlay*/
 
-.listData-st1 {
+.listData-st1,
+.listData-st2 {
     height: 405px;
     border: 1px solid #ccc;
     background-color: #fff;
@@ -2151,17 +2152,29 @@ span.revFilelock {
     font-weight: bold;
 }
 
-.listData-st1 li {
+.listData-st2 {
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.listData-st2:last-child {
+    margin-bottom: 0;
+}
+
+.listData-st1 li,
+.listData-st2 li {
     padding: 10px;
     border-bottom: 1px dotted #ccc;
     cursor: pointer;
 }
 
-.listData-st1 li:last-child {
+.listData-st1 li:last-child,
+.listData-st2 li:last-child {
     border-bottom: 0;
 }
 
-.listData-st1 li:hover {
+.listData-st1 li:hover,
+.listData-st2 li:hover {
     background-color: #666;
     color: #fff;
 }
@@ -2223,16 +2236,22 @@ span.revFilelock {
     margin-bottom: 25px;
 }
 
-.lightbox-content-holder .lightbox-row {
-    padding: 0 10px 10px;
-}
-
-.lightbox-content-holder .lightbox-editor-st1 {
-    height: 405px;
+.lightbox-content-holder .lightbox-editor-st1,
+.lightbox-content-holder .lightbox-editor-st2 {
+    height: 415px;
     width: 100%;
     border: 1px solid #ccc;
     box-sizing: border-box;
     padding: 10px;
+}
+
+.lightbox-content-holder .lightbox-editor-st2 {
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.lightbox-content-holder .lightbox-editor-st1:last-child {
+    margin-bottom: 0;
 }
 
 .lightbox-content-holder .lightbox-actions-holder {

@@ -184,6 +184,8 @@ $(document).ready(function () {
                         });
 
                         if ($ddl_votes.val() != '') {
+                            // HIDE LOADING
+                            $.fancybox.showActivity();
                             // ajax load
                             jQuery.ajax({
                                 cache: false,
@@ -198,7 +200,11 @@ $(document).ready(function () {
                                     novote_mem: JSON.stringify(NoVote_lst),
                                     nonexist_mem: JSON.stringify(NonExist_lst)
                                 },
-                                dataType: 'json'
+                                dataType: 'json',
+                                complete: function () {
+                                    // HIDE LOADING
+                                    $.fancybox.hideActivity();
+                                }
                             });
                         }
                         // close popup
