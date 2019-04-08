@@ -36,8 +36,13 @@
                     var $list1 = $('#list1', $overlay);
                     var $list2 = $('#list2', $overlay);
                     var paramters = {
+                        AgendaItemID: $(".agendaItemId").val(),
+                        AgendaSubItemID: $(".agendaSubItemId").val(),
+                        agendaitemtext: '',
+                        agendasubitemtext: '',
                         SessionItemID: false,
                         SessionSubItemID: false
+
                     };
                     // clone defaultOptions
                     var defaultOptionsClone = Object.assign(defaultOptions, {
@@ -65,7 +70,7 @@
                                     // CHILDS
                                     $list2.html('');
                                     if ($this.hasClass('selected')) {
-                                        paramters.SessionItemID = list.ID;
+                                        paramters.SessionItemID = list.SessionID;
                                         list.SPlannedSubItems.forEach(function (child) {
                                             var addHTML = $('<div class="arrow" />').click(function (e) {
                                                 // get caret position
@@ -77,7 +82,7 @@
                                                 $('li', $list2).not($this).removeClass('selected');
                                                 $this.toggleClass('selected');
                                                 if ($this.hasClass('selected')) {
-                                                    paramters.SessionSubItemID = child.ID;
+                                                    paramters.SessionSubItemID = child.SessionItemID;
                                                 }
                                             }));
                                         });
@@ -91,7 +96,10 @@
                     });
                     // add procuder yes button
                     $(".approve-action", $overlay).click(function (e) {
-                        if (paramters.SessionSubItemID && paramters.SessionItemID) {
+                        if (paramters.SessionItemID && paramters.SessionSubItemID) {
+                            // SAVE THE TEXT
+                            paramters.agendaitemtext = $editor1.val();
+                            paramters.agendasubitemtext = $editor2.val();
                             // SHOW LOADING
                             $.fancybox.showActivity();
                             // SAVE
@@ -99,8 +107,10 @@
                                 // VARS
                                 var values = response.split(',');
                                 // SET VALUES
-                                $('#sItemId').val(values[0]);
-                                $('#sSubItemId').val(values[1]);
+                                $('#sItemId').val(paramters.SessionItemID);
+                                $('#sSubItemId').val(paramters.SessionSubItemID);
+                                $(".agendaItemId").val(values[0]);
+                                $(".agendaSubItemId").val(values[1]);
                                 // close the popup
                                 $.fancybox.close();
                                 // HIDE LOADING
@@ -138,10 +148,10 @@
             data: {
                 funcname: 'AddEditAgenda',
                 sid: $(".sessionID").val(),
-                AgendaItemID: 0,//$(".agendaItemId").val(),
-                agendaitemtext: "data from textbox --",// $(".sessionID").val(),
-                AgendaSubItemID: 0,// $(".agendaSubItemId").val(),
-                agendasubitemtext: "teest sun from text box subitem --",// $(".sessionID").val(),
+                AgendaItemID: o.AgendaItemID,
+                agendaitemtext: o.agendaitemtext,
+                AgendaSubItemID: o.AgendaSubItemID,
+                agendasubitemtext: o.agendasubitemtext,
                 SessionItemID: o.SessionItemID,
                 SessionSubItemID: o.SessionSubItemID
             },
