@@ -29,7 +29,7 @@ $(document).ready(function () {
             </div>
             <div class="row">
                 <div class="grid_24">
-                    <div id="jquery_jplayer" class="jp-jplayer"></div>
+                    <div id="jquery_jplayer_2" class="jp-jplayer"></div>
                     <div id="jp_container_2" class="jp-audio">
                         <div class="jp-type-single">
                             <div id="jp_interface_1" class="jp-interface">
@@ -46,6 +46,10 @@ $(document).ready(function () {
                                 <div class="jp-current-time">
                                 </div>
                                 <div class="jp-duration">
+                                </div>
+                                <div class="next-jp-xseconds" title="تقديم 5 ثوانى">
+                                </div>
+                                <div class="prev-jp-xseconds" title="تاخير 5 ثوانى">
                                 </div>
                             </div>
                         </div>
@@ -91,6 +95,8 @@ $(document).ready(function () {
                     var $overlay = $('#newVoteOverlay');
                     var $ddl_votes = $('#ddl_votes', $overlay);
                     var $chbVote = $('#chbVote', $overlay);
+                    // PAUSE ANY PLAYER
+                    $(".jp-jplayer").jPlayer("pause");
                     // LOAD SESSION VOTES
                     loadSessionVotes(function (response) {
                         var voteId = $(".voteId").val();
@@ -117,8 +123,9 @@ $(document).ready(function () {
                         });
                     });
 
-                    var AudioPlayer1 = $("#jquery_jplayer", $overlay);
-                    AudioPlayer1.jPlayer({
+                    var AudioPlayer = $("#jquery_jplayer_2", $overlay);
+                    var playertime;
+                    AudioPlayer.jPlayer({
                         swfPath: "/scripts/jPlayer/",
                         wmode: "window",
                         solution: 'html, flash',
@@ -130,10 +137,25 @@ $(document).ready(function () {
                         warningAlerts: false,
                         ready: function () {
                             // play the jplayer
+                            var startTime = $('.hdstartTime');
+                            var firstTime = Math.floor(startTime.val());
                             $(this).jPlayer("setMedia", {
                                 mp3: $(".MP3FilePath").val()
-                            });
+                            }).jPlayer("pause", firstTime);
+
+                            // next x seconds button
+                            $('.next-jp-xseconds', AudioPlayer.next()).click(function (e) {
+                                AudioPlayer.jPlayer("play", playertime + 5);
+                            })
+                            // prev x seconds button
+                            $('.prev-jp-xseconds', AudioPlayer.next()).click(function (e) {
+                                AudioPlayer.jPlayer("play", playertime - 5);
+                            })
                         },
+                        timeupdate: function (event) {
+                            // time
+                            playertime = event.jPlayer.status.currentTime;
+                        }
                     });
 
                     // TABLE RADIO BUTTONS
