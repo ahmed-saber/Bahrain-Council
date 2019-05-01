@@ -57,6 +57,9 @@
                     loadSessionItems(function (response) {
                         // LOOP
                         if (response && response.length) {
+                            // SET VALUES
+                            var SessionItemID = $('.sItemId').val();
+                            var SessionSubItemID = $('.sSubItemId').val();
                             response.forEach(function (list) {
                                 var addHTML = $('<div class="arrow" />').click(function (e) {
                                     // get caret position
@@ -72,22 +75,35 @@
                                     if ($this.hasClass('selected')) {
                                         paramters.SessionItemID = list.ID;
                                         list.SPlannedSubItems.forEach(function (child) {
-                                            var addHTML = $('<div class="arrow" />').click(function (e) {
+                                            var arrow = $('<div class="arrow" />').click(function (e) {
                                                 // get caret position
                                                 insertIntoSafeArea($editor2.tinymce(), child.Text);
                                                 e.stopPropagation();
                                             });
-                                            $list2.append($('<li />').text(child.Text).append(addHTML).click(function () {
+                                            var $subitem = $('<li />').text(child.Text).append(arrow).click(function () {
                                                 var $this = $(this);
                                                 $('li', $list2).not($this).removeClass('selected');
                                                 $this.toggleClass('selected');
                                                 if ($this.hasClass('selected')) {
                                                     paramters.SessionSubItemID = child.ID;
                                                 }
-                                            }));
+                                            });
+                                            $list2.append($subitem);
+                                            // SELECTION
+                                            if (child.ID == SessionSubItemID) {
+                                                $subitem.trigger('click');
+                                                $editor2.tinymce().execCommand('mceInsertRawHTML', false, $('.agendaSubItemTxt').html());
+                                            }
                                         });
                                     }
                                 });
+                                // SELECTION
+                                if (SessionItemID || SessionSubItemID) {
+                                    if (list.ID == SessionItemID) {
+                                        $item.trigger('click');
+                                        $editor1.tinymce().execCommand('mceInsertRawHTML', false, $('.agendaItemTxt').html());
+                                    }
+                                }
                                 $list1.append($item);
                             });
                         }
@@ -96,37 +112,36 @@
                     });
                     // add procuder yes button
                     $(".approve-action", $overlay).click(function (e) {
-                      
-                            // SAVE THE TEXT
-                            paramters.agendaitemtext = $editor1.val();
-                            paramters.agendasubitemtext = $editor2.val();
-                            // SHOW LOADING
-                            $.fancybox.showActivity();
-                            // SAVE
-                            save_temp_item(paramters, function (response) {
-                                // VARS
-                                var values = response.split(',');
-                                // SET VALUES
-                                $('#sItemId').val(paramters.SessionItemID);
-                                $('#sSubItemId').val(paramters.SessionSubItemID);
-                                $(".agendaItemId").val($(".unAssignedAgendaId").val());
-                                $(".agendaSubItemId").val(values[1]);
-                                $('.agendaItemTxt').html(paramters.agendaitemtext);
-                                if (values[0] != 0) {
-                                    $(".agendaItemId").val(values[0]);
-                                    $(".divAgenda").show();
-                                }
-                                $('.agendaSubItemTxt').html(paramters.agendasubitemtext);
-                                if (values[1] != 0) {
-                                    $(".divSubAgenda").show();
-                                }
-                                // close the popup
-                                $.fancybox.close();
-                                // HIDE LOADING
-                                $.fancybox.hideActivity();
-                            });
+                        // SAVE THE TEXT
+                        paramters.agendaitemtext = $editor1.val();
+                        paramters.agendasubitemtext = $editor2.val();
+                        // SHOW LOADING
+                        $.fancybox.showActivity();
+                        // SAVE
+                        save_temp_item(paramters, function (response) {
+                            // VARS
+                            var values = response.split(',');
+                            // SET VALUES
+                            $('.sItemId').val(paramters.SessionItemID);
+                            $('.sSubItemId').val(paramters.SessionSubItemID);
+                            $(".agendaItemId").val($(".unAssignedAgendaId").val());
+                            $(".agendaSubItemId").val(values[1]);
+                            $('.agendaItemTxt').html(paramters.agendaitemtext);
+                            if (values[0] != 0) {
+                                $(".agendaItemId").val(values[0]);
+                                $(".divAgenda").show();
+                            }
+                            $('.agendaSubItemTxt').html(paramters.agendasubitemtext);
+                            if (values[1] != 0) {
+                                $(".divSubAgenda").show();
+                            }
+                            // close the popup
+                            $.fancybox.close();
+                            // HIDE LOADING
+                            $.fancybox.hideActivity();
+                        });
 
-                       
+
                         e.preventDefault();
                     });
                 }
