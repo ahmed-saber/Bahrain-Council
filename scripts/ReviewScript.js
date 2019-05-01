@@ -1,7 +1,4 @@
 ﻿function changeButtonsForSessionStatus() {
-
-
-
     var hdisCurrentUserFileRev = $('.isCurrentUserFileRev');
     if (hdisCurrentUserFileRev && hdisCurrentUserFileRev.val() != null) {
         if (hdisCurrentUserFileRev.val() == "true") {
@@ -323,8 +320,8 @@ $(document).ready(function () {
                         }
 
                         if ((parseInt($('#spnRejectCount').text()) == 0) &&
-                        (parseInt($('#spnFixCount').text()) == 0) &&
-                        (parseInt($('#spnModAfterApprove').text()) == 0)) {
+                            (parseInt($('#spnFixCount').text()) == 0) &&
+                            (parseInt($('#spnModAfterApprove').text()) == 0)) {
 
                             changeButtonsForSessionStatus();
 
@@ -677,8 +674,6 @@ $(document).ready(function () {
     })
 
     // onchange event for SameSpeaker checkbox
-
-
     $('.gotofile').click(function (e) {
         var tlink = $(this)
         if (tlink.attr('href')) {

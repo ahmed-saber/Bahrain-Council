@@ -15,39 +15,38 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
     <input id="SessionContentItemIDHidden" type="hidden" value="" />
-    <input id="SessionIDHidden" type="hidden" runat="server" class="SessionIDHidden"/>
+    <input id="SessionIDHidden" type="hidden" runat="server" class="SessionIDHidden" />
     <input id="IsSessionStartHidden" type="hidden" value="" />
     <input id="isSessionCompleted" class="isSessionCompleted" type="hidden" runat="server" />
     <input id="isCurrentUserFileRev" class="isCurrentUserFileRev" type="hidden" runat="server" />
     <input id="currentUserID" class="currentUserID" type="hidden" runat="server" />
     <script>
-    function Button1_onclick() {
-                                    
-                                    $.ajax({ url: "Check.aspx?sid=" + <%=SessionID %>});
-                                    if(document.getElementById("Button1").value == "نشر" ){
-                                        document.getElementById("Button1").value = "الغاء النشر";
-                                        console.log($("#chk_session_checker"));
-                                         $("#chk_session_checker").attr("checked",true);
-                                         }
-                                    else
-                                    {
-                                        document.getElementById("Button1").value = "نشر";
-                                         console.log($("#chk_session_checker"));
-                                          $("#chk_session_checker").attr("checked",false);
-                                        }
-                                    
-                                    // you can add some processing to the AJAX call
-                                    return false;
+        function Button1_onclick() {
+
+            $.ajax({ url: "Check.aspx?sid=" + <%=SessionID %>});
+        if (document.getElementById("Button1").value == "نشر") {
+            document.getElementById("Button1").value = "الغاء النشر";
+            console.log($("#chk_session_checker"));
+            $("#chk_session_checker").attr("checked", true);
+        }
+        else {
+            document.getElementById("Button1").value = "نشر";
+            console.log($("#chk_session_checker"));
+            $("#chk_session_checker").attr("checked", false);
+        }
+
+        // you can add some processing to the AJAX call
+        return false;
                                 }
-                                </script>
+    </script>
     <div class="reviewcontainer" id="maintable1">
-   
+
         <!--reviewmaincontent start-->
         <div class="reviewmaincontent">
             <asp:Panel ID="pnlContent" runat="server">
                 <div class="basic_info">
                     <span class="info_cont prefix_1"><span class="title">الملف:</span> <span class="Bold_title"
-                        id="sessionSerial" runat="server">[464/14ف]</span> </span>
+                            id="sessionSerial" runat="server">[464/14ف]</span> </span>
                 </div>
                 <div class="graybg relpos">
                     <!--popupdiv start-->
@@ -81,7 +80,8 @@
                         <div class="clear">
                         </div>
                         <div class="datacontainer inputcont">
-                            <textarea id="elm1" name="elm1" rows="15" style="width: 100%;height:300px !important" runat="server" class="tinymce"></textarea>
+                            <textarea id="elm1" name="elm1" rows="15" style="width: 100%;height:300px !important"
+                                runat="server" class="tinymce"></textarea>
                             <script type="text/javascript">
                                 try {
                                     // tinymce
@@ -146,12 +146,12 @@
                                                 var currentNode = ed.selection.getNode();
                                                 var keycode = l.keyCode;
                                                 var valid =
-                    (keycode > 47 && keycode < 58) || // number keys
-                    keycode == 32 || keycode == 13 || // spacebar & return key(s) (if you want to allow carriage returns)
-                    (keycode > 64 && keycode < 91) || // letter keys
-                    (keycode > 95 && keycode < 112) || // numpad keys
-                    (keycode > 185 && keycode < 193) || // ;=,-./` (in order)
-                    (keycode > 218 && keycode < 227);   // [\]' (in order)
+                                                    (keycode > 47 && keycode < 58) || // number keys
+                                                    keycode == 32 || keycode == 13 || // spacebar & return key(s) (if you want to allow carriage returns)
+                                                    (keycode > 64 && keycode < 91) || // letter keys
+                                                    (keycode > 95 && keycode < 112) || // numpad keys
+                                                    (keycode > 185 && keycode < 193) || // ;=,-./` (in order)
+                                                    (keycode > 218 && keycode < 227);   // [\]' (in order)
                                                 if (currentNode.nodeName == 'BODY' && valid) {
                                                     // select the nearest tag
                                                     var nextElement = ed.selection.getRng().startContainer.nextSibling;
@@ -209,40 +209,18 @@
                                 } catch (e) {
                                     alert(e)
                                 }
-                                
+
 
                             </script>
                         </div>
                         <div class="inputcont">
                             <textarea id="note" placeholder="إضافة ملحوظة"></textarea>
                         </div>
-                        <div class="poppbtnscont fl">
-                            <div class="fl">
-                                <%--<ul>
-                                    <li><a id="approve" href="#">
-                                        <img border="0" src="images/arrow_orange.gif">موافق عليه</a></li>
-                                    <li>
-                                        <img src="images/angle_line.gif"></li>
-                                    <li><a id="reject" href="#">
-                                        <img border="0" src="images/arrow_orange.gif">مرفوض</a></li>
-                                    <li>
-                                        <img src="images/angle_line.gif"></li>
-                                    <li><a id="save" href="#">
-                                        <img border="0" src="images/arrow_orange.gif">حفظ</a></li>
-                                </ul>--%>
-                                <div class="fl">
-                                    <input type="button" id="saveForDataEntry" class="def_btn" value="حفظ" />          
-                                </div>
-                                <div class="clear">
-                                </div>
+                        <div class="poppbtnscont tex_align_en">
+                            <input type="button" id="saveForDataEntry" class="def_btn" value="حفظ" />
+                            <div class="action-btn">
+                                <a id="lnkMoreEditOptions" href="#">[خيارات تعديل أكثر]</a>
                             </div>
-                            <div class="fl h2">
-                                <a id="lnkMoreEditOptions" href="#">[خيارات تعديل أكثر]</a> 
-                            </div>
-                            <div class="clear">
-                            </div>
-                        </div>
-                        <div class="clear">
                         </div>
                     </div>
                     <!--divcontent start-->
@@ -252,42 +230,42 @@
                     </div>
                     <!--divcontent end-->
 
-                     <div class="review_actionbtns prefix_15">
+                    <div class="review_actionbtns prefix_15">
                         <form id="Form1" runat="server">
-                        <div id="divSessionActionButtons">
-                            <div class="SessionActionButtonsCont">
-                                <div class="fl">
-                                    <input type="button" runat="server" id="btnfinishSF" class="btnfinishSF def_btn"
-                                        value="انهاء" />
-                                </div>
-                               
-                                <div class="clear">
+                            <div id="divSessionActionButtons">
+                                <div class="SessionActionButtonsCont">
+                                    <div class="fl">
+                                        <input type="button" runat="server" id="btnfinishSF" class="btnfinishSF def_btn"
+                                            value="انهاء" />
+                                    </div>
+
+                                    <div class="clear">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </form>
                     </div>
 
 
-                                 </div>
+                </div>
             </asp:Panel>
             <span id="spnMsg" runat="server"></span>
         </div>
         <!--reviewmaincontent end-->
         <div id="divToolTip1" class="divToolTip1" style="display:none">
-        الملف : 
+            الملف :
             <span id="spnToolTipFileName"></span>
             <br />
 
-            مدخل البيانات : 
+            مدخل البيانات :
             <span id="spnToolTipUserName"></span>
             <br />
 
-            مراجع الملف : 
+            مراجع الملف :
             <span id="spnToolTipFileRevName"></span>
-           <br />
-            
-            مراجع الجلسة : 
+            <br />
+
+            مراجع الجلسة :
             <span id="spnToolTipRevName"></span>
 
         </div>
