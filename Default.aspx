@@ -60,12 +60,15 @@
                         List<SessionDetails> sessionsDetails = EMadbatahFacade.GetSessions(currentPageNo, itemsPerPage);
                         //build html of sessions
                         int currentSessionNum = 0;
+                     //   string madbatahHeader1 = "مضبطة الجلسة %type% %subject%";
+                     //   string madbatahHeader2 = "دور الانعقاد %stage% %stageType%";
+                     //   string madbatahHeader3 = "الفصل التشريعي %season%";
                         foreach (SessionDetails session in sessionsDetails)
                         {
                             currentSessionNum++;
                             string sessionDate = session.StartTime.ToShortDateString();
                             string sessionDateHijri = session.DateHijri.ToString();
-                            string sessionName = "( "+session.EparlimentID.ToString() + " ) ";
+                            string sessionName = SessionStartFacade.madbatahHeader1.Replace("%type%", session.Type).Replace("%subject%", session.Subject) + " " + SessionStartFacade.madbatahHeader2.Replace("%stageType%", session.StageType).Replace("%stage%", session.Stage) + " " + SessionStartFacade.madbatahHeader3.Replace("%season%", session.Season) ;
                             string sessionStatus = GetLocalizedString("strSessionStatus" + session.Status.ToString());
 
                             int nRejected = 0;
@@ -79,7 +82,7 @@
                                 nModefiedAfterApprove = int.Parse(tblStats[(int)SessionContentItemStatus.ModefiedAfterApprove].ToString());
                                 nFixed = int.Parse(tblStats[(int)SessionContentItemStatus.Fixed].ToString());
                             }
-                        
+
                     %>
                     <!-- new row -->
                     <tr class="tbrow tbrow<%=session.Status.ToString()%> tbrowID<%=currentSessionNum%>">

@@ -65,7 +65,7 @@
                             currentSessionNum++;
                             string sessionDate = session.Date.Date.ToShortDateString();
                             string sessionDateHijri = session.DateHijri.ToString();
-                            string sessionName = "( " + session.EparlimentID.ToString() + " ) ";
+                           string sessionName = SessionStartFacade.madbatahHeader1.Replace("%type%", session.Type).Replace("%subject%", session.Subject) + " " + SessionStartFacade.madbatahHeader2.Replace("%stageType%", session.StageType).Replace("%stage%", session.Stage) + " " + SessionStartFacade.madbatahHeader3.Replace("%season%", session.Season) ;
                             string sessionStatus = GetLocalizedString("strSessionStatus" + session.Status.ToString());
 
                             int nRejected = 0;

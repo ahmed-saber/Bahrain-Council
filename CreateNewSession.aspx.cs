@@ -10,9 +10,14 @@ using TayaIT.Enterprise.EMadbatah.Model.VecSys;
 using TayaIT.Enterprise.EMadbatah.Vecsys;
 using TayaIT.Enterprise.EMadbatah.BLL;
 using System.Collections;
+using System.IO;
 using TayaIT.Enterprise.EMadbatah.Util.Web;
 using TayaIT.Enterprise.EMadbatah.Config;
 using System.Text;
+using TayaIT.Enterprise.EMadbatah.Word;
+using SessionItem = TayaIT.Enterprise.EMadbatah.Model.SessionItem;
+using SessionSubItem = TayaIT.Enterprise.EMadbatah.Model.SessionSubItem;
+
 namespace TayaIT.Enterprise.EMadbatah.Web
 {
     public partial class CreateNewSession : BasePage
@@ -34,14 +39,16 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                 {
                     Session sessionObj = SessionHelper.GetSessionByID(long.Parse(SessionID));
 
-                    txtDate.Text = sessionObj.StartTime.Value.Date.ToShortDateString();
+                    txtDate.Text = sessionObj.StartTime.Value.Date.ToString("dd/MM/yyyy"); ;
                     txtTime.Text = sessionObj.StartTime.Value.ToString("HH:mm");
 
                     txtSubject.Text = sessionObj.Subject.ToString();
-                    txtEParliamentID.Text = sessionObj.EParliamentID.ToString();
-     
+                    //txtEParliamentID.Text = sessionObj.EParliamentID.ToString();
+
                     txtSeason.Text = sessionObj.Season.ToString();
                     txtStage.Text = sessionObj.Stage.ToString();
+                    txtStageType.Text = sessionObj.StageType.ToString();
+                    txtType.Text = sessionObj.Type.ToString();
                     ddlPresident.SelectedValue = sessionObj.PresidentID.ToString();
 
                     if (sessionObj.SessionStartFlag == (int)SessionOpenStatus.OnTime)
@@ -54,12 +61,35 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                         CBSessionStart.Enabled = true;
                     this.Title = "المضبطة الإلكترونية - تعديل بيانات المضبطة";
                     divPageTitle.InnerHtml = "تعديل بيانات المضبطة";
+
+
+                    //int i = 1;
+                    //foreach (TreeNode treeNode in TreeView1.Nodes)
+                    //{
+                    //    DAL.SessionItem mySessionItem = new DAL.SessionItem { Name = treeNode.Value, Order = i };
+                    //    sessionObj.SessionItems.Add(mySessionItem);
+                    //    i++;
+                    //    foreach (TreeNode childNode in treeNode.ChildNodes)
+                    //    {
+                    //        int j = 1;
+                    //        DAL.SessionSubItem mySessionSubItem = new DAL.SessionSubItem { Name = childNode.Value, Order = j };
+                    //        mySessionItem.SessionSubItems.Add(mySessionSubItem);
+                    //        j++;
+                    //    }
+                    //    sessionObj.SessionItems.Add(mySessionItem);
+                    //}
+
                 }
             }
         }
 
         protected void btnCreateNewSession_Click(object sender, EventArgs e)
         {
+            if (TreeView1.Nodes.Count == 0)
+            {
+                lblValidateImport.Visible = true;
+                return;
+            }
             if (!string.IsNullOrEmpty(SessionID))
             {
                 Session sessionObj = fillValues();
@@ -67,7 +97,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                 Session current_session = EditorFacade.GetSessionByID(long.Parse(SessionID));
                 if (SessionFileHelper.GetUnNewSessionFilesCount(long.Parse(SessionID)) == 0)
                     AttendantHelper.GenerateSessionAttendants(long.Parse(SessionID), current_session, true);
-                
+
             }
             else
             {
@@ -82,10 +112,11 @@ namespace TayaIT.Enterprise.EMadbatah.Web
 
         public Session fillValues()
         {
-            DateTime plannedStartDate = Convert.ToDateTime(txtDate.Text + " " + txtTime.Text);
+            DateTime plannedStartDate = DateTime.ParseExact(txtDate.Text + " " + txtTime.Text, "dd/MM/yyyy hh:mm", null);
+            //DateTime plannedStartDate = Convert.ToDateTime(txtDate.Text + " " + txtTime.Text);
             string president = ddlPresident.SelectedItem.Text;
             string place = "الكويت";
-            int EParliamentID = int.Parse(txtEParliamentID.Text);
+            int EParliamentID = 12345;//int.Parse(txtEParliamentID.Text);
             string Season = txtSeason.Text;
             string Stage = txtStage.Text;
             string StageType = txtStageType.Text;
@@ -112,6 +143,24 @@ namespace TayaIT.Enterprise.EMadbatah.Web
             sessionObj.ReviewerID = CurrentUser.ID;
             sessionObj.SessionStartFlag = SessionStartFlag;
             sessionObj.PresidentID = PresidentID;
+
+            int i = 1;
+            foreach (TreeNode treeNode in TreeView1.Nodes)
+            {
+                DAL.SessionItem mySessionItem = new DAL.SessionItem { Name = treeNode.Value, Order = i };
+                sessionObj.SessionItems.Add(mySessionItem);
+                i++;
+                foreach (TreeNode childNode in treeNode.ChildNodes)
+                {
+                    int j = 1;
+                    DAL.SessionSubItem mySessionSubItem = new DAL.SessionSubItem { Name = childNode.Value, Order = j };
+                    mySessionItem.SessionSubItems.Add(mySessionSubItem);
+                    j++;
+                }
+                sessionObj.SessionItems.Add(mySessionItem);
+            }
+
+
             return sessionObj;
         }
 
@@ -121,5 +170,62 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                 return "0" + num;
             else return num;
         }
+
+        protected void btnImportFromWord_OnClick(object sender, EventArgs e)
+        {
+            if (!FileUpload1.HasFile) return;
+            lblValidateImport.Visible = false;
+            HttpPostedFile myfile = FileUpload1.PostedFile;
+
+            myfile.SaveAs(Server.MapPath("~/ItemFiles/" + myfile.FileName));
+
+            IMadbataWordFileReadable wordSourceFile = new WordSourceFile();
+            SessionDetails mySession = wordSourceFile.ReadMadbatatWordFile(Server.MapPath("~/ItemFiles/" + myfile.FileName));
+
+            //lblSessionName1.Text = mySession.Name1;
+            //lblSessionName2.Text = mySession.Name2;
+            //lblSessionName3.Text = mySession.Name3;
+            //lblSessionDate.Text = mySession.SessionDate;
+
+            TreeView1.Nodes.Clear();
+            foreach (SessionItem sessionItem in mySession.SessionItems)
+            {
+                TreeNode itemNode = new TreeNode(sessionItem.Name) { Value = sessionItem.Name };
+                foreach (SessionSubItem sessionSubItem in sessionItem.SessionSubItems)
+                {
+                    string subItemName = sessionSubItem.Name.Length > 100
+                        ? sessionSubItem.Name.Substring(0, 100) + " ...."
+                        : sessionSubItem.Name;
+                    TreeNode subItemNode = new TreeNode(sessionSubItem.Rank + "- " + subItemName) { Value = sessionSubItem.Name };
+                    itemNode.ChildNodes.Add(subItemNode);
+                }
+                TreeView1.Nodes.Add(itemNode);
+            }
+            File.Delete(Server.MapPath("~/ItemFiles/" + myfile.FileName));
+        }
+
+        protected void TreeView1_OnSelectedNodeChanged(object sender, EventArgs e)
+        {
+            mp1.Show();
+            txtName.Text = TreeView1.SelectedNode.Value;
+        }
+
+        protected void UpdateText_OnClick(object sender, EventArgs e)
+        {
+            TreeView1.SelectedNode.Value = txtName.Text;
+
+            string subItemName = txtName.Text.Length > 100
+                ? txtName.Text.Substring(0, 100) + " ...."
+                : txtName.Text;
+            TreeView1.SelectedNode.Text = subItemName;
+        }
+
+        protected void btnUpdateText_OnClick(object sender, EventArgs e)
+        {
+            TreeView1.SelectedNode.Value = txtName.Text;
+            TreeView1.SelectedNode.Text = txtName.Text;
+            mp1.Hide();
+        }
+
     }
 }

@@ -158,7 +158,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
 
 
                     sessionDate.InnerText = s.Date.ToString();
-                    sessionSerial.InnerText = "( " + s.EParliamentID + " )";
+                    sessionSerial.InnerText = SessionStartFacade.madbatahHeader1.Replace("%type%", s.Type).Replace("%subject%", s.Subject) + " " + SessionStartFacade.madbatahHeader2.Replace("%stageType%", s.StageType).Replace("%stage%", s.Stage) + " " + SessionStartFacade.madbatahHeader3.Replace("%season%", s.Season); //"( " + s.EParliamentID + " )";
 
 
 
@@ -172,7 +172,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                     long topic_id = 0;
                     foreach (List<SessionContentItem> groupedItems in allItems)
                     {
-                       foreach (SessionContentItem item in groupedItems)
+                        foreach (SessionContentItem item in groupedItems)
                         {
                             AgendaItem curAgendaItem = item.AgendaItem;
                             string originalName = curAgendaItem.Name;
@@ -185,8 +185,15 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                                                         .Replace("<%itemText%>", "* " + updatedAgendaName + ":");
                                 sb.Append(agendaItem);
                             }
+                            if (item.AgendaSubItemID != null && item.AgendaSubItemID != 0)
+                            {
+                                AgendaSubItem aSubItem = AgendaHelper.GetAgendaSubItemById((long)item.AgendaSubItemID);
+                                string agendaItem = Application[Constants.HTMLTemplateFileNames.ReviewItemAgendaItem].ToString()
+                                                       .Replace("<%itemText%>", "* " + aSubItem.Name + ":");
+                                sb.Append(agendaItem);
+                            }
 
-                            if (lastSFID == 0)
+                                if (lastSFID == 0)
                                 lastSFID = item.SessionFileID.Value;
 
                             bool insertSeparator = false;
@@ -198,34 +205,34 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                             }
                             currentSpeaker = item.AttendantID;
 
-                          /*  if (currentSpeaker != prevSpeaker && topic_id != 0)
-                            {
-                                //for Topics
-                                string reviewItemTopic = write_topic_att(topic_id, item);
-                                if (reviewItemTopic != "")
-                                    sb.Append(reviewItemTopic);
-                                topic_id = 0;
-                            }*/
+                            /*  if (currentSpeaker != prevSpeaker && topic_id != 0)
+                              {
+                                  //for Topics
+                                  string reviewItemTopic = write_topic_att(topic_id, item);
+                                  if (reviewItemTopic != "")
+                                      sb.Append(reviewItemTopic);
+                                  topic_id = 0;
+                              }*/
 
-                         /*   if ((item.TopicID != null && item.TopicID != 0 && item.MergedTopicWithPrevious != null && !(bool)item.MergedTopicWithPrevious))
-                            {
-                                if (topic_id != 0)
-                                {
-                                    string reviewItemTopic = write_topic_att(topic_id, item);
-                                    if (reviewItemTopic != "")
-                                        sb.Append(reviewItemTopic);
-                                    topic_id = 0;
-                                }
-                                topic_id = (long)item.TopicID;
-                            }
+                            /*   if ((item.TopicID != null && item.TopicID != 0 && item.MergedTopicWithPrevious != null && !(bool)item.MergedTopicWithPrevious))
+                               {
+                                   if (topic_id != 0)
+                                   {
+                                       string reviewItemTopic = write_topic_att(topic_id, item);
+                                       if (reviewItemTopic != "")
+                                           sb.Append(reviewItemTopic);
+                                       topic_id = 0;
+                                   }
+                                   topic_id = (long)item.TopicID;
+                               }
 
-                            if (item.TopicID == null || item.TopicID == 0 && topic_id != 0)
-                            {
-                                string reviewItemTopic = write_topic_att(topic_id, item);
-                                if (reviewItemTopic != "")
-                                    sb.Append(reviewItemTopic);
-                                topic_id = 0;
-                            }*/
+                               if (item.TopicID == null || item.TopicID == 0 && topic_id != 0)
+                               {
+                                   string reviewItemTopic = write_topic_att(topic_id, item);
+                                   if (reviewItemTopic != "")
+                                       sb.Append(reviewItemTopic);
+                                   topic_id = 0;
+                               }*/
 
                             if (currentSpeaker != prevSpeaker)//if (!item.MergedWithPrevious.Value)
                             {
@@ -242,7 +249,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                                     if ((Model.AttendantType)att.Type == Model.AttendantType.President)
                                     {
                                         string speaker = Application[Constants.HTMLTemplateFileNames.ReviewItemSpeaker].ToString()
-                                                       .Replace("<%itemText%>", "السيد الرئيـــــــــــــــــــــــــــس :")
+                                                       .Replace("<%itemText%>", att.JobTitle + " :")
                                                        .Replace("<%speakerJob%>", "")
                                                        .Replace("<%speakerJob2%>", "");
                                         sb.Append(speaker);
@@ -301,7 +308,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                             string reviewItem = Application[Constants.HTMLTemplateFileNames.ReviewItem].ToString()
                                                     .Replace("<%SessionContentItemID%>", item.ID.ToString())
                                                     .Replace("<%itemText%>", item.Text);
-                           
+
                             if (disableEditforNotReviewrAdmin)
                                 reviewItem = reviewItem.Replace("<%isLocked%>", "lockeditem").Replace("<%title%>", "لا يحق لك التعديل .. يمكنك الاطلاع فقط");
                             else if (((Model.SessionFileStatus)item.SessionFile.Status) == Model.SessionFileStatus.InProgress)
@@ -339,7 +346,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                             {
                                 case Model.SessionContentItemStatus.DataEntryApproved:
                                     reviewItem = reviewItem.Replace("<%Color%>", "brownitem");
-                                     break;
+                                    break;
                                 case Model.SessionContentItemStatus.Approved: //approved
                                     reviewItem = reviewItem.Replace("<%Color%>", "");
                                     break;
@@ -460,7 +467,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
 
         public string write_topic_att(long topic_id, SessionContentItem item)
         {
-        
+
             return "";
         }
     }

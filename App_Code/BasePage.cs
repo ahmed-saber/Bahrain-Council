@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using TayaIT.Enterprise.EMadbatah.Config;
@@ -421,47 +422,59 @@ namespace TayaIT.Enterprise.EMadbatah.Web
 
 
             string testUser = "Develop\\dmohamed";//id.Name.ToLower();\\"Develop\\noha";
-            CurrentUser = EMadbatahFacade.GetUserByUserID(138); //EMadbatahFacade.GetUserByDomainUserName(testUser);138// EMadbatahFacade.GetUserByUserID(92);// 146//id.Name.ToLower());/174
-/*
-          //  CurrentUser = EMadbatahFacade.GetUserByUserID(17);
 
-            CurrentDomain = id.Name.Split('\\')[0].ToLower();
 
-            if (CurrentUser == null && AppConfig.GetInstance().MainAdmin != null)
-            {
-                EMadbatahUser mainAdmin = AppConfig.GetInstance().MainAdmin;
-                if (!string.IsNullOrEmpty(mainAdmin.DomainUserName)
-                    && !string.IsNullOrEmpty(mainAdmin.Email)
-                    && !string.IsNullOrEmpty(mainAdmin.Name))
-                {
-                    long newid = EMadbatahFacade.AddNewUser(new EMadbatahUser(UserRole.Admin, mainAdmin.Name, mainAdmin.DomainUserName, mainAdmin.Email, true));
-                    CurrentUser = EMadbatahFacade.GetUserByUserID(newid);
+            if (CurrentUser == null)
+                Response.Redirect("~/Login.aspx");
 
-                }
-            }
+            //StreamReader reader = new StreamReader(Server.MapPath("~/CurrentUser/CurrentUser.txt"));
+            //int userId;
+            //int.TryParse(reader.ReadLine(), out userId);
+            //reader.Close();
+            //reader.Dispose();
+            //if (userId == 0) userId = 138;
+            //CurrentUser = EMadbatahFacade.GetUserByUserID(userId);
+            //CurrentUser = EMadbatahFacade.GetUserByUserID(138); //EMadbatahFacade.GetUserByDomainUserName(testUser);138// EMadbatahFacade.GetUserByUserID(92);// 146//id.Name.ToLower());/174
+            /*
+                      //  CurrentUser = EMadbatahFacade.GetUserByUserID(17);
 
-            if (!Request.AppRelativeCurrentExecutionFilePath.EndsWith(Constants.PageNames.ERROR_PAGE)
-                && !Request.AppRelativeCurrentExecutionFilePath.EndsWith(Constants.PageNames.SIGN_OUT))
-            {
-                if (CurrentUser == null || CurrentDomain == null)
-                {
-                    int nullval = 0;
-                    if (CurrentUser == null)
-                    {
-                        nullval = 1;
-                    }
-                    else if (CurrentDomain == null)
-                    {
-                        nullval = 2;
-                    }
-                    Response.Redirect(Constants.PageNames.ERROR_PAGE + "?" + Constants.QSKeyNames.ERROR_TYPE + "=" + (int)ErrorType.Unauthorized + "&nullis=" + nullval);
-                }
-                else if (CurrentDomain.ToLower() != AppConfig.GetInstance().AllowedDomainName.ToLower())
-                    Response.Redirect(Constants.PageNames.ERROR_PAGE + "?" + Constants.QSKeyNames.ERROR_TYPE + "=" + (int)ErrorType.InvalidDomain);
-                else if (!CurrentUser.IsActive)
-                    Response.Redirect(Constants.PageNames.ERROR_PAGE + "?" + Constants.QSKeyNames.ERROR_TYPE + "=" + (int)ErrorType.UserinActive);
-            }
-            */
+                        CurrentDomain = id.Name.Split('\\')[0].ToLower();
+
+                        if (CurrentUser == null && AppConfig.GetInstance().MainAdmin != null)
+                        {
+                            EMadbatahUser mainAdmin = AppConfig.GetInstance().MainAdmin;
+                            if (!string.IsNullOrEmpty(mainAdmin.DomainUserName)
+                                && !string.IsNullOrEmpty(mainAdmin.Email)
+                                && !string.IsNullOrEmpty(mainAdmin.Name))
+                            {
+                                long newid = EMadbatahFacade.AddNewUser(new EMadbatahUser(UserRole.Admin, mainAdmin.Name, mainAdmin.DomainUserName, mainAdmin.Email, true));
+                                CurrentUser = EMadbatahFacade.GetUserByUserID(newid);
+
+                            }
+                        }
+
+                        if (!Request.AppRelativeCurrentExecutionFilePath.EndsWith(Constants.PageNames.ERROR_PAGE)
+                            && !Request.AppRelativeCurrentExecutionFilePath.EndsWith(Constants.PageNames.SIGN_OUT))
+                        {
+                            if (CurrentUser == null || CurrentDomain == null)
+                            {
+                                int nullval = 0;
+                                if (CurrentUser == null)
+                                {
+                                    nullval = 1;
+                                }
+                                else if (CurrentDomain == null)
+                                {
+                                    nullval = 2;
+                                }
+                                Response.Redirect(Constants.PageNames.ERROR_PAGE + "?" + Constants.QSKeyNames.ERROR_TYPE + "=" + (int)ErrorType.Unauthorized + "&nullis=" + nullval);
+                            }
+                            else if (CurrentDomain.ToLower() != AppConfig.GetInstance().AllowedDomainName.ToLower())
+                                Response.Redirect(Constants.PageNames.ERROR_PAGE + "?" + Constants.QSKeyNames.ERROR_TYPE + "=" + (int)ErrorType.InvalidDomain);
+                            else if (!CurrentUser.IsActive)
+                                Response.Redirect(Constants.PageNames.ERROR_PAGE + "?" + Constants.QSKeyNames.ERROR_TYPE + "=" + (int)ErrorType.UserinActive);
+                        }
+                        */
             DisablePageCaching();
 
 

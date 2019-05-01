@@ -53,14 +53,8 @@
                             <th class="column column5">
                                 حالة المراجعة
                             </th>
-                            <th class="column column4">
-                                اسم الملف
-                            </th>
-                            <th class="column column5">
-                                الحالة
-                            </th>
-                            <th class="column column5">
-                                حالة المراجعة
+                             <th class="column column5">
+                               مصحح/ مراجع
                             </th>
                             <th class="column column4">
                                 اسم الملف
@@ -70,19 +64,24 @@
                             </th>
                             <th class="column column5">
                                 حالة المراجعة
+                            </th>
+                            <th class="column column5">
+                               مصحح/ مراجع
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <% int loop = 0;
-                        int filesLen = sd.SessionFiles.Where(c => c.IsSessionStart != true && c.IsActive == 1).Count();
-                        int div = filesLen / 3;
-                        int assumedFilesLen = 3 * div;
-                        int rem = filesLen % 3;
-                        List<SessionAudioFile> firstArr = sd.SessionFiles.Where(c => c.IsSessionStart != true && c.IsActive == 1).ToList();
-                        for (int i = 0; i < filesLen - rem; i = i + 3)
-                        //     foreach (SessionAudioFile s in sd.SessionFiles)
-                        {%>
+                            int filesLen = sd.SessionFiles.Where(c => c.IsActive == 1).Count();
+                            int div = filesLen / 2;
+                            int assumedFilesLen = 2 * div;
+                            int rem = filesLen % 2;
+                            string revName = "";
+                            string ownerName = "";
+                            List<SessionAudioFile> firstArr = sd.SessionFiles.Where(c => c.IsActive == 1).ToList();
+                            for (int i = 0; i < filesLen - rem; i = i + 2)
+                            //     foreach (SessionAudioFile s in sd.SessionFiles)
+                            {%>
                         <tr class="tbrow tbrowNew tbrowID1">
                             <% SessionAudioFile s = firstArr[i];%>
                             <td class="column column5">
@@ -113,6 +112,13 @@
                             <td class="column column5">
                             </td>
                             <%} %>
+                            <%
+                                revName = s.FileReviewerUserName != null ? s.FileReviewerUserName : "لا يوجد"; 
+                                ownerName = s.OwnerUserName != null ? s.OwnerUserName : "لا يوجد";%>
+                            <td class="column column5">
+                                <div><%=ownerName%></div>
+                                <div><%=revName%></div>
+                                </td>
                             <% s = firstArr[i + 1];%>
                             <td class="column column5">
                                 <a class="gotofile" href="#file_<%=s.ID%>">
@@ -142,36 +148,14 @@
                             <td class="column column5">
                             </td>
                             <%} %>
-                            <% s = firstArr[i + 2];%>
+                              <%
+                                revName = s.FileReviewerUserName != null ? s.FileReviewerUserName : "لا يوجد"; 
+                                ownerName = s.OwnerUserName != null ? s.OwnerUserName : "لا يوجد";%>
                             <td class="column column5">
-                                <a class="gotofile" href="#file_<%=s.ID%>">
-                                    <%=System.IO.Path.GetFileName(s.Name)%></a>
-                            </td>
-                            <td class="column column5">
-                                <%= GetLocalizedString("strSessionFileStatus" + s.Status.ToString())%>
-                            </td>
-                            <% if (s.Status == TayaIT.Enterprise.EMadbatah.Model.SessionFileStatus.Completed)
-                            {
-                                if (SessionContentItemHelper.GetFileSessionContentItemsStatusNotByStatusID(s.ID, 1) > 0)
-                                {   %>
-                            <td class="column column5">
-                                <a class="approveSessionFile" data-fileid="<%=s.ID%>" href="#file_<%=s.ID%>">موافقة</a>
-                                <br />
-                            </td>
-                            <% }
-                            else
-                            {%>
-                            <td class="column column5">
-                                <span style="color: Green">موافق عليه</span><br />
-                            </td>
-                            <%}
-                        }
-                            else
-                            {%>
-                            <td class="column column5">
-                            </td>
-                            <%} %>
-                        </tr>
+                                <div><%=ownerName%></div>
+                                <div><%=revName%></div>
+                                </td>
+                         </tr>
                         <% }%>
                         <% if (rem > 0)
                         {%>
@@ -207,6 +191,13 @@
                             <td class="column column5">
                             </td>
                             <%} %>
+                            <%
+                                revName = s.FileReviewerUserName != null ? s.FileReviewerUserName : "لا يوجد"; 
+                                ownerName = s.OwnerUserName != null ? s.OwnerUserName : "لا يوجد";%>
+                            <td class="column column5">
+                                <div><%=ownerName%></div>
+                                <div><%=revName%></div>
+                                </td>
                         </tr>
                         <% }%>
                         <% }%>

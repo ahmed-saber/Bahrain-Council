@@ -145,6 +145,21 @@
         </div>
         <div class="largerow">
             <div class="grid_6 h2">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlAttType"
+                    InitialValue="0" ErrorMessage="*" ValidationGroup="VGSession" ForeColor="Red" />
+                <asp:Label ID="Label1" runat="server" Text="النوع"></asp:Label>
+            </div>
+            <div class="grid_10">
+                <asp:DropDownList ID="ddlGender" runat="server" Style="width: 100%;">
+                     <asp:ListItem Value="1" Text="ذكر"></asp:ListItem>
+                     <asp:ListItem Value="2" Text="أنثى"></asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="largerow">
+            <div class="grid_6 h2">
                 <asp:Label ID="lblttAvatar" runat="server" Text="صورة العضو"></asp:Label>
             </div>
             <div class="grid_10">

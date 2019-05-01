@@ -20,7 +20,7 @@
 
   <link crossorigin="anonymous" media="all" integrity="sha512-7uoDIEGQ8zTwUS9KjTP+/2I13FQPHvJ9EKoeUThfin5R1+27bcUC08VQzUo4CIjCdhvJM4zxuI+3HcSycAUTCg==" rel="stylesheet" href="https://github.githubassets.com/assets/frameworks-abba74d6e28a6842788159fec056bf26.css" />
   
-    <link crossorigin="anonymous" media="all" integrity="sha512-kPmrsvCSUgGF1tTu3JTPW4/QjPrj8OqLav22Sv6Zig4zwuVSFB4WL6WsctGlO5N/eL6xLM2v3bm+5PJ60ruBSw==" rel="stylesheet" href="https://github.githubassets.com/assets/github-52cbcc40dcd4c1570226a72b3df60ecf.css" />
+    <link crossorigin="anonymous" media="all" integrity="sha512-g+ZfvjjCIOoCpOthSK44Ek7SRyeu17l998KBO0i+H/5VtAZHjfboXtxeVVs07nmao9jod5LTfqCbMS0xgy5xeQ==" rel="stylesheet" href="https://github.githubassets.com/assets/github-da71b9633b0743368ac5d90730dbc826.css" />
     
     
     
@@ -38,10 +38,10 @@
     <meta property="og:image" content="https://avatars0.githubusercontent.com/u/139595?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="ahmed-saber/Bahrain-Council" /><meta property="og:url" content="https://github.com/ahmed-saber/Bahrain-Council" /><meta property="og:description" content="Contribute to ahmed-saber/Bahrain-Council development by creating an account on GitHub." />
 
   <link rel="assets" href="https://github.githubassets.com/">
-  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MzgyOTE0ODM4OmU0MGMyMDRiYzhhZGVmMzYwY2YwNDRkZDllNjQyNzg2Y2Y2YmRlZmIzM2M5ODgzODEwMTMyODJiZDBhOWQ5OTE=--948c874923efb9ac700c63c3f40ef472b80fd0c4">
+  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MzgyOTE0ODM4OjAwMTIxMTFiZDNjODkxYWYwYjZkM2MyYzA2NzZkY2E4YTUyNjZkNDEzNTJjZDdiZDQ4Y2ZlNzM3ZDVhZDZlZDA=--f00bb06340017f496c2994ddc70b5a36c38bdaf9">
   <meta name="pjax-timeout" content="1000">
   <link rel="sudo-modal" href="/sessions/sudo_modal">
-  <meta name="request-id" content="91A3:251FB:306F881:47C84ED:5C964601" data-pjax-transient>
+  <meta name="request-id" content="0535:4E12:125555F:1BF5EBE:5CA724D7" data-pjax-transient>
 
 
   
@@ -52,7 +52,7 @@
     <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
     <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
 
-  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="91A3:251FB:306F881:47C84ED:5C964601" /><meta name="octolytics-dimension-region_edge" content="ams" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="376670" /><meta name="octolytics-actor-login" content="dmohamedTayait" /><meta name="octolytics-actor-hash" content="b46c8c1086d212e61fc4c2a6a9725f5ddd209dfd8373ae7176104dc7a330cce8" />
+  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="0535:4E12:125555F:1BF5EBE:5CA724D7" /><meta name="octolytics-dimension-region_edge" content="ams" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="376670" /><meta name="octolytics-actor-login" content="dmohamedTayait" /><meta name="octolytics-actor-hash" content="b46c8c1086d212e61fc4c2a6a9725f5ddd209dfd8373ae7176104dc7a330cce8" />
 <meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" />
 
 
@@ -71,13 +71,13 @@
     <meta name="user-login" content="dmohamedTayait">
 
       <meta name="expected-hostname" content="github.com">
-    <meta name="js-proxy-site-detection-payload" content="MjExMjc4YmFiNjFlZjYxMTA0ZWY1ODgzNzk4MjdjMzRlNzBkMWZmNTRhM2I2MmU2YWU1NTE3MjRmNWM2ZGQ2M3x7InJlbW90ZV9hZGRyZXNzIjoiMTU2LjIwNS4yNDguMjEzIiwicmVxdWVzdF9pZCI6IjkxQTM6MjUxRkI6MzA2Rjg4MTo0N0M4NEVEOjVDOTY0NjAxIiwidGltZXN0YW1wIjoxNTUzMzUyMjE4LCJob3N0IjoiZ2l0aHViLmNvbSJ9">
+    <meta name="js-proxy-site-detection-payload" content="MWNkMTc5NWIyNWRlNGEzYzBkMzA5MTRiNGM2NTZkNWJhOGViMzcxOWIyMWQ0NTM3YmM5OTU3NDc5NzIxNjQ5Y3x7InJlbW90ZV9hZGRyZXNzIjoiMTU2LjIwNS4xNzUuMSIsInJlcXVlc3RfaWQiOiIwNTM1OjRFMTI6MTI1NTU1RjoxQkY1RUJFOjVDQTcyNEQ3IiwidGltZXN0YW1wIjoxNTU0NDU3ODIyLCJob3N0IjoiZ2l0aHViLmNvbSJ9">
 
-    <meta name="enabled-features" content="UNIVERSE_BANNER,MARKETPLACE_SOCIAL_PROOF,MARKETPLACE_SOCIAL_PROOF_CUSTOMERS,MARKETPLACE_TRENDING_SOCIAL_PROOF,MARKETPLACE_PLAN_RESTRICTION_EDITOR,NOTIFY_ON_BLOCK,RELATED_ISSUES">
+    <meta name="enabled-features" content="UNIVERSE_BANNER,MARKETPLACE_SOCIAL_PROOF_CUSTOMERS,MARKETPLACE_TRENDING_SOCIAL_PROOF,MARKETPLACE_UNVERIFIED_LISTINGS,MARKETPLACE_RECOMMENDATIONS,NOTIFY_ON_BLOCK,RELATED_ISSUES">
 
   <meta name="html-safe-nonce" content="8bedc0636efbc7d8656010812549660263b053fc">
 
-  <meta http-equiv="x-pjax-version" content="e92a0dfb67a9c2180116936b66b0db4f">
+  <meta http-equiv="x-pjax-version" content="e6daa074a803c4bbc321ed6691a873eb">
   
 
       <link href="https://github.com/ahmed-saber/Bahrain-Council/commits/master.atom" rel="alternate" title="Recent Commits to Bahrain-Council:master" type="application/atom+xml">
@@ -120,24 +120,18 @@
 
 
         
-<header class="Header-old  f5" role="banner">
-  <div class="d-flex flex-justify-between px-3 ">
-    <div class="d-flex flex-justify-between ">
-      <div class="">
-        <a class="header-logo-invertocat" href="https://github.com/" data-hotkey="g d"
-  aria-label=&quot;Home page&quot;
-  data-ga-click="Header, go to dashboard, icon:logo">
-  <svg height="32" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-</a>
+  <header class="Header" role="banner">
 
-      </div>
+    <div class="Header-item">
+      <a class="Header-link" href="https://github.com/" data-hotkey="g d" aria-label="Homepage" data-ga-click="Header, go to dashboard, icon:logo">
+  <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
 
     </div>
 
-    <div class="HeaderMenu d-flex flex-justify-between flex-auto">
-      <nav class="d-flex flex-items-center" aria-label="Global">
-            <div class="">
-              <div class="header-search mr-3 scoped-search site-scoped-search js-site-search position-relative js-jump-to"
+
+    <div class="Header-item Header-item--full">
+      <div class="header-search mr-3 scoped-search site-scoped-search js-site-search position-relative js-jump-to"
   role="combobox"
   aria-owns="jump-to-results"
   aria-label="Search or jump to"
@@ -159,7 +153,7 @@
           aria-autocomplete="list"
           aria-controls="jump-to-results"
           aria-label="Search or jump to…"
-          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=WtaAa24W/Evlh3H1TGpTWC8fKZgsZEvqOA/lFpRpWgV5KT0h0GYi39519VlCONjPdhD7oLOP8TKloycL+rVYzw=="
+          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=5putwo9pYlyaFp2vTaavR9LxTopaFdCrDDEMWxpRmCHFZBCIMRm8yKHkGQND9CTQi/6cssX+anORnc5GdI2a6w=="
           spellcheck="false"
           autocomplete="off"
           >
@@ -285,44 +279,38 @@
 </form>  </div>
 </div>
 
-            </div>
 
-          <ul class="d-flex pl-2 flex-items-center text-bold list-style-none">
-            <li>
-              <a class="js-selected-navigation-item HeaderNavlink px-2" data-hotkey="g p" data-ga-click="Header, click, Nav menu - item:pulls context:user" aria-label="Pull requests you created" data-selected-links="/pulls /pulls/assigned /pulls/mentioned /pulls" href="/pulls">
-                Pull requests
-</a>            </li>
-            <li>
-              <a class="js-selected-navigation-item HeaderNavlink px-2" data-hotkey="g i" data-ga-click="Header, click, Nav menu - item:issues context:user" aria-label="Issues you created" data-selected-links="/issues /issues/assigned /issues/mentioned /issues" href="/issues">
-                Issues
-</a>            </li>
-              <li class="position-relative">
-                <a class="js-selected-navigation-item HeaderNavlink px-2" data-ga-click="Header, click, Nav menu - item:marketplace context:user" data-octo-click="marketplace_click" data-octo-dimensions="location:nav_bar" data-selected-links=" /marketplace" href="/marketplace">
-                   Marketplace
-</a>                  
-              </li>
-            <li>
-              <a class="js-selected-navigation-item HeaderNavlink px-2" data-ga-click="Header, click, Nav menu - item:explore" data-selected-links="/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship showcases showcases_search showcases_landing /explore" href="/explore">
-                Explore
-</a>            </li>
-          </ul>
-      </nav>
+      <nav class="d-flex" aria-label="Global">
 
-      <div class="d-flex">
-        
-<ul class="user-nav d-flex flex-items-center list-style-none" id="user-links">
-  <li class="dropdown">
-    <span class="d-inline-block  px-2">
+  <a class="js-selected-navigation-item Header-link  mr-3" data-hotkey="g p" data-ga-click="Header, click, Nav menu - item:pulls context:user" aria-label="Pull requests you created" data-selected-links="/pulls /pulls/assigned /pulls/mentioned /pulls" href="/pulls">
+    Pull requests
+</a>
+  <a class="js-selected-navigation-item Header-link  mr-3" data-hotkey="g i" data-ga-click="Header, click, Nav menu - item:issues context:user" aria-label="Issues you created" data-selected-links="/issues /issues/assigned /issues/mentioned /issues" href="/issues">
+    Issues
+</a>
+    <a class="js-selected-navigation-item Header-link  mr-3" data-ga-click="Header, click, Nav menu - item:marketplace context:user" data-octo-click="marketplace_click" data-octo-dimensions="location:nav_bar" data-selected-links=" /marketplace" href="/marketplace">
+      Marketplace
+</a>      
+
+  <a class="js-selected-navigation-item Header-link  mr-3" data-ga-click="Header, click, Nav menu - item:explore" data-selected-links="/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship showcases showcases_search showcases_landing /explore" href="/explore">
+    Explore
+</a>
+</nav>
+
+    </div>
+
+
+    <div class="Header-item">
       
     <a aria-label="You have no unread notifications" class="Header-link notification-indicator tooltipped tooltipped-s  js-socket-channel js-notification-indicator" data-hotkey="g n" data-ga-click="Header, go to notifications, icon:read" data-channel="notification-changed:376670" href="/notifications">
         <span class="mail-status "></span>
         <svg class="octicon octicon-bell" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 12v1H0v-1l.73-.58c.77-.77.81-2.55 1.19-4.42C2.69 3.23 6 2 6 2c0-.55.45-1 1-1s1 .45 1 1c0 0 3.39 1.23 4.16 5 .38 1.88.42 3.66 1.19 4.42l.66.58H14zm-7 4c1.11 0 2-.89 2-2H5c0 1.11.89 2 2 2z"/></svg>
 </a>
-    </span>
-  </li>
+    </div>
 
-  <li class="dropdown px-2 ">
-    <details class="details-overlay details-reset">
+
+    <div class="Header-item position-relative">
+      <details class="details-overlay details-reset">
   <summary class="Header-link"
       aria-label="Create new…"
       data-ga-click="Header, create new, icon:add">
@@ -359,26 +347,26 @@
   </details-menu>
 </details>
 
-  </li>
+    </div>
 
-  <li class="dropdown">
+    <div class="Header-item position-relative mr-0">
+      
+<details class="details-overlay details-reset">
+  <summary class="Header-link"
+    aria-label="View profile and more"
+    data-ga-click="Header, show menu, icon:avatar">
+    <img alt="@dmohamedTayait" class="avatar" src="https://avatars0.githubusercontent.com/u/376670?s=40&amp;v=4" height="20" width="20">
+    <span class="dropdown-caret"></span>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw">
+    <div class="header-nav-current-user css-truncate"><a role="menuitem" class="no-underline user-profile-link px-3 pt-2 pb-2 mb-n2 mt-n1 d-block" href="/dmohamedTayait" data-ga-click="Header, go to profile, text:Signed in as">Signed in as <strong class="css-truncate-target">dmohamedTayait</strong></a></div>
+    <div role="none" class="dropdown-divider"></div>
 
-    <details class="details-overlay details-reset d-flex pl-2 flex-items-center">
-      <summary class="HeaderNavlink name"
-        aria-label="View profile and more"
-        data-ga-click="Header, show menu, icon:avatar">
-        <img alt="@dmohamedTayait" class="avatar float-left mr-1" src="https://avatars0.githubusercontent.com/u/376670?s=40&amp;v=4" height="20" width="20">
-        <span class="dropdown-caret"></span>
-      </summary>
-      <details-menu class="dropdown-menu dropdown-menu-sw">
-        <div class="header-nav-current-user css-truncate"><a role="menuitem" class="no-underline user-profile-link px-3 pt-2 pb-2 mb-n2 mt-n1 d-block" href="/dmohamedTayait" data-ga-click="Header, go to profile, text:Signed in as">Signed in as <strong class="css-truncate-target">dmohamedTayait</strong></a></div>
-        <div role="none" class="dropdown-divider"></div>
-
-        <div class="px-3 f6 user-status-container js-user-status-context pb-1" data-url="/users/status?compact=1&amp;link_mentions=0&amp;truncate=1">
-          
+    <div class="px-3 f6 user-status-container js-user-status-context pb-1" data-url="/users/status?compact=1&amp;link_mentions=0&amp;truncate=1">
+      
 <div class="js-user-status-container user-status-compact" data-team-hovercards-enabled>
   <details class="js-user-status-details details-reset details-overlay details-overlay-dark">
-    <summary class="btn-link no-underline js-toggle-user-status-edit toggle-user-status-edit width-full" aria-haspopup="dialog" role="menuitem" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:139595,&quot;target&quot;:&quot;EDIT_USER_STATUS&quot;,&quot;user_id&quot;:376670,&quot;client_id&quot;:&quot;1022042819.1513592619&quot;,&quot;originating_request_id&quot;:&quot;91A3:251FB:306F881:47C84ED:5C964601&quot;,&quot;originating_url&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg&quot;,&quot;referrer&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/tree/master/images&quot;}}" data-hydro-click-hmac="2ff54625be1107b66b8d6259681de7d584dcdb1e52ffd8edb2fafd89b585b5da">
+    <summary class="btn-link no-underline js-toggle-user-status-edit toggle-user-status-edit width-full" aria-haspopup="dialog" role="menuitem" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:139595,&quot;target&quot;:&quot;EDIT_USER_STATUS&quot;,&quot;user_id&quot;:376670,&quot;client_id&quot;:&quot;1022042819.1513592619&quot;,&quot;originating_request_id&quot;:&quot;0535:4E12:125555F:1BF5EBE:5CA724D7&quot;,&quot;originating_url&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg&quot;,&quot;referrer&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/tree/master/images&quot;}}" data-hydro-click-hmac="6c31f1c155432134588333ca76653f53123cfd4b7e732ba20883431fd3518d98">
       <div class="f6 d-inline-block v-align-middle  user-status-emoji-only-header pl-0 circle lh-condensed user-status-header " style="max-width: 29px">
         <div class="user-status-emoji-container flex-shrink-0 mr-1">
           <svg class="octicon octicon-smiley" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm4.81 12.81a6.72 6.72 0 0 1-2.17 1.45c-.83.36-1.72.53-2.64.53-.92 0-1.81-.17-2.64-.53-.81-.34-1.55-.83-2.17-1.45a6.773 6.773 0 0 1-1.45-2.17A6.59 6.59 0 0 1 1.21 8c0-.92.17-1.81.53-2.64.34-.81.83-1.55 1.45-2.17.62-.62 1.36-1.11 2.17-1.45A6.59 6.59 0 0 1 8 1.21c.92 0 1.81.17 2.64.53.81.34 1.55.83 2.17 1.45.62.62 1.11 1.36 1.45 2.17.36.83.53 1.72.53 2.64 0 .92-.17 1.81-.53 2.64-.34.81-.83 1.55-1.45 2.17zM4 6.8v-.59c0-.66.53-1.19 1.2-1.19h.59c.66 0 1.19.53 1.19 1.19v.59c0 .67-.53 1.2-1.19 1.2H5.2C4.53 8 4 7.47 4 6.8zm5 0v-.59c0-.66.53-1.19 1.2-1.19h.59c.66 0 1.19.53 1.19 1.19v.59c0 .67-.53 1.2-1.19 1.2h-.59C9.53 8 9 7.47 9 6.8zm4 3.2c-.72 1.88-2.91 3-5 3s-4.28-1.13-5-3c-.14-.39.23-1 .66-1h8.59c.41 0 .89.61.75 1z"/></svg>
@@ -388,7 +376,7 @@
           <span class="link-gray">Set your status</span>
       </div>
 </summary>    <details-dialog class="details-dialog rounded-1 anim-fade-in fast Box Box--overlay" role="dialog" tabindex="-1">
-      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="position-relative flex-auto js-user-status-form" action="/users/status?compact=1&amp;link_mentions=0&amp;truncate=1" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="mNNAx8lwiI6PKmQJHbNLhHeZD8lEfJ/eQmeQLm/aPe8CkesZIgVDQ90c5p17KbrwQXRgXd2rLKdjIU8+zgW4+A==" />
+      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="position-relative flex-auto js-user-status-form" action="/users/status?compact=1&amp;link_mentions=0&amp;truncate=1" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="5PIkqjGricswVqdgewdmRT/Hl1RAmn/HBdv4Z/3Ed3t+sI902t5CBmJgJfQdnZcxCSr4wNlNzL4knSd3XBvybA==" />
         <div class="Box-header bg-gray border-bottom p-3">
           <button class="Box-btn-octicon js-toggle-user-status-edit btn-octicon float-right" type="reset" aria-label="Close dialog" data-close-dialog>
             <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
@@ -476,6 +464,59 @@
               </div>
             </div>
           </div>
+            
+
+<div class="d-inline-block f5 mr-2 pt-3 pb-2" >
+  <div class="d-inline-block mr-1">
+    Clear status
+  </div>
+
+  <details class="js-user-status-expire-drop-down f6 dropdown details-reset details-overlay d-inline-block mr-2">
+    <summary class="f5 btn-link link-gray-dark border px-2 py-1 rounded-1" aria-haspopup="true">
+      <div class="js-user-status-expiration-interval-selected d-inline-block v-align-baseline">
+        Never
+      </div>
+      <div class="dropdown-caret"></div>
+    </summary>
+
+    <ul class="dropdown-menu dropdown-menu-se pl-0 overflow-auto" style="width: 220px; max-height: 15.5em">
+      <li>
+        <button type="button" class="btn-link dropdown-item js-user-status-expire-button ws-normal" title="Never">
+          <span class="d-inline-block text-bold mb-1">Never</span>
+          <div class="f6 lh-condensed">Keep this status until you clear your status or edit your status.</div>
+        </button>
+      </li>
+      <li class="dropdown-divider" role="separator"></li>
+        <li>
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 30 minutes" value="2019-04-05T12:20:22+02:00">
+            in 30 minutes
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 1 hour" value="2019-04-05T12:50:22+02:00">
+            in 1 hour
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 4 hours" value="2019-04-05T15:50:22+02:00">
+            in 4 hours
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="today" value="2019-04-05T23:59:59+02:00">
+            today
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="this week" value="2019-04-07T23:59:59+02:00">
+            this week
+          </button>
+        </li>
+    </ul>
+  </details>
+  <input class="js-user-status-expiration-date-input" type="hidden" name="expires_at" value="">
+</div>
+
           <include-fragment class="js-user-status-org-picker" data-url="/users/status/organizations"></include-fragment>
         </div>
         <div class="d-flex flex-items-center flex-justify-between p-3 border-top">
@@ -490,40 +531,31 @@
   </details>
 </div>
 
-        </div>
-        <div role="none" class="dropdown-divider"></div>
-
-        <a role="menuitem" class="dropdown-item" href="/dmohamedTayait" data-ga-click="Header, go to profile, text:your profile">Your profile</a>
-        <a role="menuitem" class="dropdown-item" href="/dmohamedTayait?tab=repositories" data-ga-click="Header, go to repositories, text:your repositories">Your repositories</a>
-
-        <a role="menuitem" class="dropdown-item" href="/dmohamedTayait?tab=projects" data-ga-click="Header, go to projects, text:your projects">Your projects</a>
-
-        <a role="menuitem" class="dropdown-item" href="/dmohamedTayait?tab=stars" data-ga-click="Header, go to starred repos, text:your stars">Your stars</a>
-          <a role="menuitem" class="dropdown-item" href="https://gist.github.com/" data-ga-click="Header, your gists, text:your gists">Your gists</a>
-
-        <div role="none" class="dropdown-divider"></div>
-        <a role="menuitem" class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">Help</a>
-        <a role="menuitem" class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings">Settings</a>
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="jyKsiymmxTVVj1upcBG0XG/NoCzbVkltH4rqea/exYEjDcwV+6ITdga0OLeWgw+iYrVhfVNYxIOBVfdfQSDWYQ==" />
-          
-          <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout" role="menuitem">
-            Sign out
-          </button>
-</form>      </details-menu>
-    </details>
-  </li>
-</ul>
-
-
-
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="sr-only right-0" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="w0bSlWxBexgUV4YBhEVOiiy1OcwNu5W+NOGDX/enn99vabILvkWtW0ds5R9i1/V0Ic34nYW1GFCqPp55GVmMPw==" />
-          <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
-            Sign out
-          </button>
-</form>      </div>
     </div>
-  </div>
-</header>
+    <div role="none" class="dropdown-divider"></div>
+
+    <a role="menuitem" class="dropdown-item" href="/dmohamedTayait" data-ga-click="Header, go to profile, text:your profile">Your profile</a>
+    <a role="menuitem" class="dropdown-item" href="/dmohamedTayait?tab=repositories" data-ga-click="Header, go to repositories, text:your repositories">Your repositories</a>
+
+    <a role="menuitem" class="dropdown-item" href="/dmohamedTayait?tab=projects" data-ga-click="Header, go to projects, text:your projects">Your projects</a>
+
+    <a role="menuitem" class="dropdown-item" href="/dmohamedTayait?tab=stars" data-ga-click="Header, go to starred repos, text:your stars">Your stars</a>
+      <a role="menuitem" class="dropdown-item" href="https://gist.github.com/" data-ga-click="Header, your gists, text:your gists">Your gists</a>
+
+    <div role="none" class="dropdown-divider"></div>
+    <a role="menuitem" class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">Help</a>
+    <a role="menuitem" class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings">Settings</a>
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="JLU2c4RpiOhEYWKwI2UVEJLGfqU1HDINr3Jaa+U14AuImlbtVm1eqxdaAa7F967un76/9L0Sv+MxrUdNC8vz6w==" />
+      
+      <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout" role="menuitem">
+        Sign out
+      </button>
+</form>  </details-menu>
+</details>
+
+    </div>
+
+  </header>
 
       
 
@@ -558,14 +590,17 @@
 
 
   <li>
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-remote="true" class="js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="ILkHGeKTSrSV80Wwmvu+iJ0IfcXzWn04NkXeYhqAxsIV+3SpGxAIjqXehpu1AdFMqZZG7YToc99rUmYYO0qH1A==" />      <input type="hidden" name="repository_id" id="repository_id" value="176034962" class="form-control" />
+    
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-remote="true" class="clearfix js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="3Mz/LjfwZm1qUcOZfaEOIl2/hwUwmHmhfvbLwLMP4JDpjoyeznMkV1p8ALJSW2HmaSG8LUcqd0Yj4XO6ksWhhg==" />      <input type="hidden" name="repository_id" value="176034962">
 
       <details class="details-reset details-overlay select-menu float-left">
-        <summary class="btn btn-sm btn-with-count select-menu-button" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;WATCH_BUTTON&quot;,&quot;repository_id&quot;:176034962,&quot;client_id&quot;:&quot;1022042819.1513592619&quot;,&quot;originating_request_id&quot;:&quot;91A3:251FB:306F881:47C84ED:5C964601&quot;,&quot;originating_url&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg&quot;,&quot;referrer&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/tree/master/images&quot;,&quot;user_id&quot;:376670}}" data-hydro-click-hmac="33b2cec636f3d678e3b1a14c0002c2ad65aee050eb5dbaf98ef9b2694aee62f0" data-ga-click="Repository, click Watch settings, action:blob#show">          <span data-menu-button>
-              <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
-              Watch
-          </span>
-</summary>        <details-menu class="select-menu-modal position-absolute mt-5" style="z-index: 99;">
+        <summary class="select-menu-button float-left btn btn-sm btn-with-count" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;WATCH_BUTTON&quot;,&quot;repository_id&quot;:176034962,&quot;client_id&quot;:&quot;1022042819.1513592619&quot;,&quot;originating_request_id&quot;:&quot;0535:4E12:125555F:1BF5EBE:5CA724D7&quot;,&quot;originating_url&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg&quot;,&quot;referrer&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/tree/master/images&quot;,&quot;user_id&quot;:376670}}" data-hydro-click-hmac="a351cde31ac736fbf8ab33a5e632eb88d5f3257e57a7dacccc7bc6b9e8a185a7" data-ga-click="Repository, click Watch settings, action:blob#show">            <span data-menu-button>
+                <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+                Watch
+            </span>
+</summary>        <details-menu
+          class="select-menu-modal position-absolute mt-5"
+          style="z-index: 99; ">
           <div class="select-menu-header">
             <span class="select-menu-title">Notifications</span>
           </div>
@@ -617,31 +652,32 @@
                 </span>
               </div>
             </button>
+
           </div>
         </details-menu>
       </details>
-      <a class="social-count js-social-count"
-        href="/ahmed-saber/Bahrain-Council/watchers"
-        aria-label="1 user is watching this repository">
-        1
-      </a>
+        <a class="social-count js-social-count"
+          href="/ahmed-saber/Bahrain-Council/watchers"
+          aria-label="1 user is watching this repository">
+          1
+        </a>
 </form>
   </li>
 
   <li>
       <div class="js-toggler-container js-social-container starring-container ">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/ahmed-saber/Bahrain-Council/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="BsCnOqZDasP5MJzmt14PRLE2WpoZJ9MEZsd2z+UsnEIXP1uGmb/te4B/HCOusOD6fb3gZURhWgz2kOEt9sUVng==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/ahmed-saber/Bahrain-Council/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="BCyrI0DWI+KuX9xEyfjwHXXhi8cITJXi3XxQEz91jLsV01effyqkWtcQXIHQFh+juWoxOFUKHOpNK8fxLJwFZw==" />
       <input type="hidden" name="context" value="repository"></input>
-      <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Unstar ahmed-saber/Bahrain-Council" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;UNSTAR_BUTTON&quot;,&quot;repository_id&quot;:176034962,&quot;client_id&quot;:&quot;1022042819.1513592619&quot;,&quot;originating_request_id&quot;:&quot;91A3:251FB:306F881:47C84ED:5C964601&quot;,&quot;originating_url&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg&quot;,&quot;referrer&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/tree/master/images&quot;,&quot;user_id&quot;:376670}}" data-hydro-click-hmac="5aee93e8a11d4ae388c08ce7a7d0457e32e59aaa9eaf7dba114496c982cf3bff" data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+      <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Unstar ahmed-saber/Bahrain-Council" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;UNSTAR_BUTTON&quot;,&quot;repository_id&quot;:176034962,&quot;client_id&quot;:&quot;1022042819.1513592619&quot;,&quot;originating_request_id&quot;:&quot;0535:4E12:125555F:1BF5EBE:5CA724D7&quot;,&quot;originating_url&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg&quot;,&quot;referrer&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/tree/master/images&quot;,&quot;user_id&quot;:376670}}" data-hydro-click-hmac="ba0d97aeb13c74897f17f81488405a0d1f2847739ab760cb28bd336340b5d406" data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
         Unstar
 </button>        <a class="social-count js-social-count" href="/ahmed-saber/Bahrain-Council/stargazers"
            aria-label="0 users starred this repository">
           0
         </a>
 </form>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/ahmed-saber/Bahrain-Council/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="kpBTUlPA+aavabKc8z5yKfpyY7mktDff5Ba5whDK6/7ko3z89/TF0RatcOelfzex5FOYvzGMiU9UqmS4IbylnQ==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/ahmed-saber/Bahrain-Council/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Cnqa0otM2qv/qK3k+M3KHP5AIt9W492Yx+cUkGMGo4p8SbV8L3jm3EZsb5+ujI+E4GHZ2cPbYwh3W8nqUnDt6Q==" />
       <input type="hidden" name="context" value="repository"></input>
-      <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Star ahmed-saber/Bahrain-Council" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;STAR_BUTTON&quot;,&quot;repository_id&quot;:176034962,&quot;client_id&quot;:&quot;1022042819.1513592619&quot;,&quot;originating_request_id&quot;:&quot;91A3:251FB:306F881:47C84ED:5C964601&quot;,&quot;originating_url&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg&quot;,&quot;referrer&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/tree/master/images&quot;,&quot;user_id&quot;:376670}}" data-hydro-click-hmac="28c7e5c10539be5610c4389de96ed3d8dffa89a072ebb5ccfe0ff809ac8e326c" data-ga-click="Repository, click star button, action:blob#show; text:Star">        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+      <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Star ahmed-saber/Bahrain-Council" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;STAR_BUTTON&quot;,&quot;repository_id&quot;:176034962,&quot;client_id&quot;:&quot;1022042819.1513592619&quot;,&quot;originating_request_id&quot;:&quot;0535:4E12:125555F:1BF5EBE:5CA724D7&quot;,&quot;originating_url&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg&quot;,&quot;referrer&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/tree/master/images&quot;,&quot;user_id&quot;:376670}}" data-hydro-click-hmac="67611bf7610ab2191f6745bfbe860b5c8070de6b546445bd27f5552e128210a4" data-ga-click="Repository, click star button, action:blob#show; text:Star">        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
         Star
 </button>        <a class="social-count js-social-count" href="/ahmed-saber/Bahrain-Council/stargazers"
            aria-label="0 users starred this repository">
@@ -652,8 +688,8 @@
   </li>
 
   <li>
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="btn-with-count" action="/ahmed-saber/Bahrain-Council/fork" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="J1HzqFmvVlCXmtBaOhUkqbqczRFuOzHKjaXvO3BnkkDUf+IGN3CtazaVnBGhRH3udwmobVlW5xINS0qFWhgzPw==" />
-            <button class="btn btn-sm btn-with-count" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FORK_BUTTON&quot;,&quot;repository_id&quot;:176034962,&quot;client_id&quot;:&quot;1022042819.1513592619&quot;,&quot;originating_request_id&quot;:&quot;91A3:251FB:306F881:47C84ED:5C964601&quot;,&quot;originating_url&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg&quot;,&quot;referrer&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/tree/master/images&quot;,&quot;user_id&quot;:376670}}" data-hydro-click-hmac="5e4ff41d3651d822865ce3d638005ace19020a559cb4e8b42e7f21173c5e8d66" data-ga-click="Repository, show fork modal, action:blob#show; text:Fork" type="submit" title="Fork your own copy of ahmed-saber/Bahrain-Council to your account" aria-label="Fork your own copy of ahmed-saber/Bahrain-Council to your account">              <svg class="octicon octicon-repo-forked v-align-text-bottom" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="btn-with-count" action="/ahmed-saber/Bahrain-Council/fork" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="7fAK9thPlfrhBFHeHgfGEkKqta4lNyzhRXl5/nvVB2Ae3htYtpBuwUALHZWFVp9Vjz/Q0hJa+jnFl9xAUaqmHw==" />
+            <button class="btn btn-sm btn-with-count" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FORK_BUTTON&quot;,&quot;repository_id&quot;:176034962,&quot;client_id&quot;:&quot;1022042819.1513592619&quot;,&quot;originating_request_id&quot;:&quot;0535:4E12:125555F:1BF5EBE:5CA724D7&quot;,&quot;originating_url&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg&quot;,&quot;referrer&quot;:&quot;https://github.com/ahmed-saber/Bahrain-Council/tree/master/images&quot;,&quot;user_id&quot;:376670}}" data-hydro-click-hmac="68be59f86f306dbde83b3e1c57a6d5b0e8b599b88889476279afa5cc0bb566c8" data-ga-click="Repository, show fork modal, action:blob#show; text:Fork" type="submit" title="Fork your own copy of ahmed-saber/Bahrain-Council to your account" aria-label="Fork your own copy of ahmed-saber/Bahrain-Council to your account">              <svg class="octicon octicon-repo-forked v-align-text-bottom" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
               Fork
 </button></form>
     <a href="/ahmed-saber/Bahrain-Council/network/members" class="social-count"
@@ -703,6 +739,7 @@
 </a>  </span>
 
 
+
     <a data-hotkey="g b" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /ahmed-saber/Bahrain-Council/projects" href="/ahmed-saber/Bahrain-Council/projects">
       <svg class="octicon octicon-project" viewBox="0 0 15 16" version="1.1" width="15" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
       Projects
@@ -713,7 +750,7 @@
       <svg class="octicon octicon-book" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg>
       Wiki
 </a>
-    <a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse alerts security people /ahmed-saber/Bahrain-Council/pulse" href="/ahmed-saber/Bahrain-Council/pulse">
+    <a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse people alerts /ahmed-saber/Bahrain-Council/pulse" href="/ahmed-saber/Bahrain-Council/pulse">
       <svg class="octicon octicon-graph" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
       Insights
 </a>
@@ -731,13 +768,13 @@
 
 
   
-    <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/ahmed-saber/Bahrain-Council/blob/ba0017e63ce5a2be44d255a3c57d52e536acf9e4/images/chevron-left-solid.svg">Permalink</a>
+    <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/ahmed-saber/Bahrain-Council/blob/d82d236cce0d2a5be88fddbfc0746f18513c454c/images/chevron-left-solid.svg">Permalink</a>
 
-    <!-- blob contrib key: blob_contributors:v21:e6767e49e8907234d6fa5d36d20baa77 -->
+    <!-- blob contrib key: blob_contributors:v21:e5e9417e14b466b27aa40c3427238e05 -->
 
     
 
-    <div class="d-flex flex-shrink-0 flex-items-center mb-3">
+    <div class="d-flex flex-shrink-0 flex-items-start mb-3">
       
 <details class="details-reset details-overlay select-menu branch-select-menu">
   <summary class="btn btn-sm select-menu-button css-truncate"
@@ -755,17 +792,17 @@
   </details-menu>
 </details>
 
-      <div id="blob-path" class="breadcrumb flex-auto ml-2">
+      <div id="blob-path" class="breadcrumb d-flex flex-wrap flex-auto flex-items-center flex-self-stretch ml-2">
         <span class="js-repo-root text-bold"><span class="js-path-segment"><a data-pjax="true" href="/ahmed-saber/Bahrain-Council"><span>Bahrain-Council</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/ahmed-saber/Bahrain-Council/tree/master/images"><span>images</span></a></span><span class="separator">/</span><strong class="final-path">chevron-left-solid.svg</strong>
       </div>
-      <div class="BtnGroup">
+      <div class="BtnGroup d-flex flex-justify-end col-3">
         <a href="/ahmed-saber/Bahrain-Council/find/master"
               class="js-pjax-capture-input btn btn-sm BtnGroup-item"
               data-pjax
               data-hotkey="t">
           Find file
         </a>
-        <clipboard-copy for="blob-path" class="btn btn-sm BtnGroup-item">
+        <clipboard-copy value="images/chevron-left-solid.svg" class="btn btn-sm BtnGroup-item">
           Copy path
         </clipboard-copy>
       </div>
@@ -780,48 +817,39 @@
           <a rel="author" data-skip-pjax="true" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=139595" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ahmed-saber"><img class="avatar" src="https://avatars1.githubusercontent.com/u/139595?s=40&amp;v=4" width="20" height="20" alt="@ahmed-saber" /></a>
           <a class="text-bold link-gray-dark lh-default v-align-middle" rel="author" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=139595" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ahmed-saber">ahmed-saber</a>
             <span class="lh-default v-align-middle">
-              <a data-pjax="true" title="change the buttons styles and add more space for the grid" class="link-gray" href="/ahmed-saber/Bahrain-Council/commit/c27e070e728c4baa01abcf9dd8da9c1f832de8c1">change the buttons styles and add more space for the grid</a>
+              <a data-pjax="true" title="Dina changes" class="link-gray" href="/ahmed-saber/Bahrain-Council/commit/b7f9417604dd0e248596c334c52dfd9076a87fe5">Dina changes</a>
             </span>
         </span>
         <span class="d-inline-block flex-shrink-0 v-align-bottom f6">
-          <a class="pr-2 text-mono link-gray" href="/ahmed-saber/Bahrain-Council/commit/c27e070e728c4baa01abcf9dd8da9c1f832de8c1" data-pjax>
-            c27e070
-          </a>
-          <relative-time datetime="2019-03-12T15:07:53Z">Mar 12, 2019</relative-time>
+          <a class="pr-2 text-mono link-gray" href="/ahmed-saber/Bahrain-Council/commit/b7f9417604dd0e248596c334c52dfd9076a87fe5" data-pjax>b7f9417</a>
+          <relative-time datetime="2019-04-02T19:18:12Z">Apr 2, 2019</relative-time>
         </span>
       </div>
 
     <div class="Box-body d-flex flex-items-center flex-auto f6 border-bottom-0" >
-      
-<details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark float-left mr-2" id="blob_contributors_box">
-  <summary
-      class="btn-link"
-      aria-haspopup="dialog"
-      
-      
-      >
-    
-    <span><strong>1</strong> contributor</span>
-  </summary>
-  <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast " aria-label="Users who have contributed to this file">
-    <div class="Box-header">
-      <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog>
-        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
-      </button>
-      <h3 class="Box-title">Users who have contributed to this file</h3>
-    </div>
-    
-        <ul class="list-style-none overflow-auto">
-            <li class="Box-row">
-              <a class="link-gray-dark no-underline" href="/ahmed-saber">
-                <img class="avatar mr-1" alt="" src="https://avatars1.githubusercontent.com/u/139595?s=40&amp;v=4" width="20" height="20" />
-                ahmed-saber
-</a>            </li>
-        </ul>
+      <details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark float-left mr-2" id="blob_contributors_box" >
+        <summary class="btn-link" aria-haspopup="dialog">
+          <span><strong>1</strong> contributor</span>
+        </summary>
+        <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast" aria-label="Users who have contributed to this file">
+          <div class="Box-header">
+            <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog>
+              <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+            </button>
+            <h3 class="Box-title">
+              Users who have contributed to this file
+            </h3>
+          </div>
+              <ul class="list-style-none overflow-auto">
+    <li class="Box-row">
+      <a class="link-gray-dark no-underline" href="/ahmed-saber">
+        <img class="avatar mr-1" alt="" src="https://avatars1.githubusercontent.com/u/139595?s=40&amp;v=4" width="20" height="20" />
+        ahmed-saber
+</a>    </li>
+</ul>
 
-  </details-dialog>
-</details>
-      
+        </details-dialog>
+      </details>
     </div>
   </div>
 
@@ -834,15 +862,15 @@
 <div class="Box-header py-2 d-flex flex-justify-between flex-items-center">
 
   <div class="text-mono f6">
-      1 lines (1 sloc)
+      1006 lines (767 sloc)
       <span class="file-info-divider"></span>
-    474 Bytes
+    74 KB
   </div>
 
   <div class="d-flex">
       <div class="BtnGroup">
         <a class="btn btn-sm BtnGroup-item tooltipped tooltipped tooltipped-n source "
-          href="/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg?short_path=6802d42" aria-label="Display the source blob">
+          href="/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg?short_path=ccba9c4" aria-label="Display the source blob">
           <svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
         </a>
         <a class="btn btn-sm BtnGroup-item tooltipped tooltipped-n rendered selected"
@@ -866,13 +894,13 @@
                 <svg class="octicon octicon-device-desktop" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M15 2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 9H1V3h14v8z"/></svg>
             </a>
 
-            <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form js-update-url-with-hash" action="/ahmed-saber/Bahrain-Council/edit/master/images/chevron-left-solid.svg" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="qsfRrJzoc+MYy44dUJToSMF6P6yzeUY7Tn0bEZp+V2d0ZdRP0YLWIoUYgSwtDcTAu87syBy8wZUwdnRj6PIijg==" />
+            <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form js-update-url-with-hash" action="/ahmed-saber/Bahrain-Council/edit/master/images/chevron-left-solid.svg" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="pxmXspNlqPLU3U5d4Y579kK7ATcFbpVH3yaql2Ouo2x5u5JR3g8NM0kOQWycF1d+OA/SU6qrEumhLcXlESLWhQ==" />
               <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
                 aria-label="Fork this project and edit the file" data-hotkey="e" data-disable-with>
                 <svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
               </button>
 </form>
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" action="/ahmed-saber/Bahrain-Council/delete/master/images/chevron-left-solid.svg" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="HLyYO6s7zSAEBBQbjV/zP+kkxuPk6h/cPerxoKe0/MYZR9YQSFYSSVgpLADaAGchheLnBRLBqfDl5Hh1gdfeHw==" />
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" action="/ahmed-saber/Bahrain-Council/delete/master/images/chevron-left-solid.svg" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="WRwgQU0qxYie3die8YgjD/cSRggfWg+OX5ZeEd+bCyJc525qrkca4cLw4IWm17cRm9Rn7ulxuaKHmNfE+fgp+w==" />
             <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
               aria-label="Fork this project and delete the file" data-disable-with>
               <svg class="octicon octicon-trashcan" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
@@ -883,18 +911,18 @@
 
       
 
-  <div itemprop="text" class="Box-body px-0 blob-wrapper data type-svg ">
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-svg ">
       
   <div class="render-wrapper ">
     <div class="render-container is-render-pending js-render-target  "
-      data-identity="dbb55d09-1080-4fc4-8e7e-894f1fa51a9f"
+      data-identity="703da472-568f-47cb-8cce-c65dc49a9025"
       data-host="https://render.githubusercontent.com"
       data-type="svg">
       <img class="octospinner mx-auto" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-128.gif" width="64" height="64" />
       <div class="render-viewer-error">Sorry, something went wrong. <a href="https://github.com/ahmed-saber/Bahrain-Council/blob/master/images/chevron-left-solid.svg">Reload?</a></div>
       <div class="render-viewer-fatal">Sorry, we cannot display this file.</div>
       <div class="render-viewer-invalid">Sorry, this file is invalid so it cannot be displayed.</div>
-      <iframe class="render-viewer " src="https://render.githubusercontent.com/view/svg?commit=ba0017e63ce5a2be44d255a3c57d52e536acf9e4&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f61686d65642d73616265722f4261687261696e2d436f756e63696c2f626130303137653633636535613262653434643235356133633537643532653533366163663965342f696d616765732f63686576726f6e2d6c6566742d736f6c69642e737667&amp;nwo=ahmed-saber%2FBahrain-Council&amp;path=images%2Fchevron-left-solid.svg&amp;repository_id=176034962&amp;repository_type=Repository#dbb55d09-1080-4fc4-8e7e-894f1fa51a9f" sandbox="allow-scripts allow-same-origin allow-top-navigation " title="File display">
+      <iframe class="render-viewer " src="https://render.githubusercontent.com/view/svg?commit=d82d236cce0d2a5be88fddbfc0746f18513c454c&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f61686d65642d73616265722f4261687261696e2d436f756e63696c2f643832643233366363653064326135626538386664646266633037343666313835313363343534632f696d616765732f63686576726f6e2d6c6566742d736f6c69642e737667&amp;nwo=ahmed-saber%2FBahrain-Council&amp;path=images%2Fchevron-left-solid.svg&amp;repository_id=176034962&amp;repository_type=Repository#703da472-568f-47cb-8cce-c65dc49a9025" sandbox="allow-scripts allow-same-origin allow-top-navigation " title="File display">
           Viewer requires iframe.
       </iframe>
     </div>
@@ -931,7 +959,7 @@
 <div class="footer container-lg width-full px-3" role="contentinfo">
   <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
     <ul class="list-style-none d-flex flex-wrap ">
-      <li class="mr-3">&copy; 2019 <span title="0.27961s from unicorn-577f4bc794-rhcvj">GitHub</span>, Inc.</li>
+      <li class="mr-3">&copy; 2019 <span title="0.33680s from unicorn-bb7fdbf87-486f4">GitHub</span>, Inc.</li>
         <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
         <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
         <li class="mr-3"><a data-ga-click="Footer, go to security, text:security" href="https://github.com/security">Security</a></li>
@@ -969,9 +997,9 @@
 
 
     
-    <script crossorigin="anonymous" integrity="sha512-uOcPs/zzmdGiDBzHa5x4JKjeNM8mK5mW6XF33sPksaGUVMnykuZiN420ViZn8BHuAX2t2nplbYFnoG5aMEgoIQ==" type="application/javascript" src="https://github.githubassets.com/assets/frameworks-48768965.js"></script>
+    <script crossorigin="anonymous" integrity="sha512-bphhLbLcXwgzeVnBMcSG8SOa16cgriNbZcgA9uWXAlGEFY58lcBmENXevq9CR1d+61CN6gKopmvT9eMxqQAvdA==" type="application/javascript" src="https://github.githubassets.com/assets/frameworks-bf3c39df.js"></script>
     
-    <script crossorigin="anonymous" async="async" integrity="sha512-vLhNDbynhxalWEKL2eDPJRvssYFbneH2fzEduzKgeGoALFRv3QhC7B/dQPVeAFw2y9m35abcuy8uRmYhkHU39w==" type="application/javascript" src="https://github.githubassets.com/assets/github-bootstrap-b99717b5.js"></script>
+    <script crossorigin="anonymous" async="async" integrity="sha512-XI/rhcvulwKFLPlHbYi81zUJQCq+F1v9dZElmEn84DLxovRUW/NhmTcF/buTFvUC7JhKWBFlTAoFvETEKevBgg==" type="application/javascript" src="https://github.githubassets.com/assets/github-bootstrap-cca2ad18.js"></script>
     
     
     

@@ -129,7 +129,7 @@
                         {
                             string sessionDate = session.Date.Date.ToShortDateString();
                             string sessionDateHijri = session.DateHijri.ToString();
-                            string sessionName = "( " + session.EparlimentID.ToString() + " ) ";
+                            string sessionName = SessionStartFacade.madbatahHeader1.Replace("%type%", session.Type).Replace("%subject%", session.Subject) + " " + SessionStartFacade.madbatahHeader2.Replace("%stageType%", session.StageType).Replace("%stage%", session.Stage) + " " + SessionStartFacade.madbatahHeader3.Replace("%season%", session.Season) ;
                             string sessionStatus = GetLocalizedString("strSessionStatus" + session.Status.ToString());
 
                             int nRejected = 0;
@@ -241,14 +241,15 @@
                                         List<EMadbatahUser> peopleWithDEPower = (from user in usersdb/*revusersdb*/
                                                                                  where user.Role != UserRole.Reviewer
                                                                                  select user).ToList<EMadbatahUser>();
-                                        int counter = 0;
+                                       
                                         foreach (EMadbatahUser user in peopleWithDEPower)
                                         {
-                                            if (counter == 0 && saf.UserID == null)
+										
+                                         
                                                             %><option value="<%=user.ID%>" <%=saf.UserID == user.ID ? "selected=\"selected\"" : ""%>>
                                                                 <%=user.Name%></option>
                                                             <%   
-                                                        counter++;
+                                                       
                                                     } 
                                                             %>
                                                         </select>
@@ -258,25 +259,22 @@
                                                     <td data-currentuserid="<%=currentUserID %>" data-sessionfileid="<%=saf.ID%>">
                                                         <%--FILEREVIEWER--%>
                                                         <select id="selectFileReviewer" class="selectFileReviewer" data-currentuserid="<%=currentUserID %>">
+														<option value="-1" selected="selected">-- إسناد إلى مراجع ملف -- </option>
                                                             <% 
                                                     
                                                     List<EMadbatahUser> peopleWithFRPower = (from user in usersdb/*revusersdb*/
                                                                                              //now the dataentry-reviewr role is using filereviewer privilages instead od session reviewer
                                                                                              where user.Role == UserRole.FileReviewer || user.Role == UserRole.ReviewrDataEntry
                                                                                              select user).ToList<EMadbatahUser>();
-                                                    int counterrfv = 0;
+                                              
                                                     foreach (EMadbatahUser user in peopleWithFRPower)
                                                     {
-                                                        if (counterrfv == 0 && saf.FileReviewrID == null)
-                                                        {
                                                             %>
-                                                            <option value="-1" selected="selected">-- إسناد إلى مراجع ملف -- </option>
-                                                            <%}
-                                                                
-                                                            %><option value="<%=user.ID%>" <%=saf.FileReviewrID == user.ID ? "selected=\"selected\"" : ""%>>
+                                                            
+                                                            <option value="<%=user.ID%>" <%=saf.FileReviewrID == user.ID ? "selected=\"selected\"" : ""%>>
                                                                 <%=user.Name%></option>
                                                             <%   
-                                                                counterrfv++;
+                                                           
                                                             } 
                                                             %>
                                                         </select>
@@ -324,18 +322,17 @@
                                         <div class="padd">
                                             <select id="selectReviewers" class="selectReviewers" data-currentrevid="<%=currentReviewerID %>"
                                                 data-sessionid="<%=session.SessionID %>">
+                                                 <option value="-1" selected="selected">-- إسناد إلى مراجع -- </option>
                                                 <% 
-                                       int counterRev = 0;
+                                      
                                        foreach (EMadbatahUser user in reviewrs)
                                        {
-                                           if (counterRev == 0 && session.ReviewerID == null)
+                                           
                                                 %>
-                                                <option value="-1" selected="selected">-- إسناد إلى مراجع -- </option>
-                                                <%
-                                                %><option value="<%=user.ID%>" <%=session.ReviewerID == user.ID ? "selected=\"selected\"" : ""%>>
+                                              <option value="<%=user.ID%>" <%=session.ReviewerID == user.ID ? "selected=\"selected\"" : ""%>>
                                                     <%=user.Name%></option>
                                                 <%   
-    counterRev++;
+    
 } 
                                                 %>
                                             </select>

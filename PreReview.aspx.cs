@@ -27,7 +27,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
         public SessionDetails sd;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             if (!Page.IsPostBack)
             {
                 //now the dataentry-reviewr role is using filereviewer privilages instead od session reviewer
@@ -70,7 +70,13 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                                                     .Replace("<%itemText%>", "* " + updatedAgendaName + ":");
                             sb.Append(agendaItem);
                         }
-
+                        if (item.AgendaSubItemID != null && item.AgendaSubItemID != 0)
+                        {
+                            AgendaSubItem aSubItem = AgendaHelper.GetAgendaSubItemById((long)item.AgendaSubItemID);
+                            string agendaItem = Application[Constants.HTMLTemplateFileNames.ReviewItemAgendaItem].ToString()
+                                                   .Replace("<%itemText%>", "* " + aSubItem.Name + ":");
+                            sb.Append(agendaItem);
+                        }
                         //if (!item.MergedWithPrevious.Value)
                         currentSpeaker = item.AttendantID;
 
@@ -87,7 +93,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                                 if ((Model.AttendantType)att.Type == Model.AttendantType.President)
                                 {
                                     string speaker = Application[Constants.HTMLTemplateFileNames.ReviewItemSpeaker].ToString()
-                                                   .Replace("<%itemText%>", "السيد الرئيـــــــــــــــــــــــــــس :")
+                                                   .Replace("<%itemText%>", att.JobTitle + " :")
                                                    .Replace("<%speakerJob%>", "")
                                                    .Replace("<%speakerJob2%>", "");
                                     sb.Append(speaker);
@@ -147,7 +153,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                         string reviewItem = Application[Constants.HTMLTemplateFileNames.ReviewItem].ToString()
                                                 .Replace("<%SessionContentItemID%>", item.ID.ToString())
                                                 .Replace("<%itemText%>", item.Text);
-                        
+
                         reviewItem = reviewItem.Replace("<%isLocked%>", "openeditem")
                                 .Replace("<%title%>", "");
 
@@ -188,7 +194,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                                     .Replace("<%FileRevName%>", item.SessionFile.FileReviewer != null ? item.SessionFile.FileReviewer.FName : "لا يوجد")
                                     .Replace("<%FileName%>", Path.GetFileName(item.SessionFile.Name))
                                     .Replace("<%UserName%>", item.User.FName);
-                                  //  .Replace("<%RevName%>", sd.ReviewerName + "\r\n<br/>(للتعديل يمكنك استخدام خيارات تعديل أكثر للمقطع السابق) هذا المقطع تذييل صفحة");
+                            //  .Replace("<%RevName%>", sd.ReviewerName + "\r\n<br/>(للتعديل يمكنك استخدام خيارات تعديل أكثر للمقطع السابق) هذا المقطع تذييل صفحة");
                             sb.Append(reviewFootNote);
                         }
                     }
@@ -203,7 +209,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
 
         public string write_topic_att(long topic_id, SessionContentItem item)
         {
-   
+
             return "";
         }
     }

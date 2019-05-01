@@ -40,8 +40,8 @@
                         AgendaSubItemID: $(".agendaSubItemId").val(),
                         agendaitemtext: '',
                         agendasubitemtext: '',
-                        SessionItemID: false,
-                        SessionSubItemID: false
+                        SessionItemID: '',
+                        SessionSubItemID: ''
 
                     };
                     // clone defaultOptions
@@ -70,7 +70,7 @@
                                     // CHILDS
                                     $list2.html('');
                                     if ($this.hasClass('selected')) {
-                                        paramters.SessionItemID = list.SessionID;
+                                        paramters.SessionItemID = list.ID;
                                         list.SPlannedSubItems.forEach(function (child) {
                                             var addHTML = $('<div class="arrow" />').click(function (e) {
                                                 // get caret position
@@ -82,7 +82,7 @@
                                                 $('li', $list2).not($this).removeClass('selected');
                                                 $this.toggleClass('selected');
                                                 if ($this.hasClass('selected')) {
-                                                    paramters.SessionSubItemID = child.SessionItemID;
+                                                    paramters.SessionSubItemID = child.ID;
                                                 }
                                             }));
                                         });
@@ -96,7 +96,7 @@
                     });
                     // add procuder yes button
                     $(".approve-action", $overlay).click(function (e) {
-                        if (paramters.SessionItemID && paramters.SessionSubItemID) {
+                      
                             // SAVE THE TEXT
                             paramters.agendaitemtext = $editor1.val();
                             paramters.agendasubitemtext = $editor2.val();
@@ -109,15 +109,24 @@
                                 // SET VALUES
                                 $('#sItemId').val(paramters.SessionItemID);
                                 $('#sSubItemId').val(paramters.SessionSubItemID);
-                                $(".agendaItemId").val(values[0]);
+                                $(".agendaItemId").val($(".unAssignedAgendaId").val());
                                 $(".agendaSubItemId").val(values[1]);
+                                $('.agendaItemTxt').html(paramters.agendaitemtext);
+                                if (values[0] != 0) {
+                                    $(".agendaItemId").val(values[0]);
+                                    $(".divAgenda").show();
+                                }
+                                $('.agendaSubItemTxt').html(paramters.agendasubitemtext);
+                                if (values[1] != 0) {
+                                    $(".divSubAgenda").show();
+                                }
                                 // close the popup
                                 $.fancybox.close();
                                 // HIDE LOADING
                                 $.fancybox.hideActivity();
                             });
 
-                        }
+                       
                         e.preventDefault();
                     });
                 }

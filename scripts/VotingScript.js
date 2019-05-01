@@ -8,7 +8,7 @@ $(document).ready(function () {
         $.fancybox(`
         <div id="newVoteOverlay" class="lightbox-content-holder container_24">
             <div class="lightbox-head">
-                <h2><span class="red">*</span> اضافة تصويت برفع الأيدى :</h2>
+                <h2><span class="red">*</span> اضافة تصويت نداء بالاسم :</h2>
             </div>
             <div class="row">
                 <div class="grid_4"><h4>اضافة تصويت جديد :</h4></div>
@@ -60,7 +60,10 @@ $(document).ready(function () {
             <div id="AttendantCont" class="row tex_align_center">
             </div>
             <div class="row">
-                <div class="grid_24 h2">
+                <div class ="grid_24 h2">
+                    <span>الغير موجودين: (</span>
+                    <span class ="nonExistVotesCount blueitem">0</span>
+                    <span>) نائبا.</span>
                     <span>الموافقون: (</span>
                     <span class="agreedVotesCount reditem">0</span>
                     <span>) نائبا.</span>
@@ -68,7 +71,13 @@ $(document).ready(function () {
                     <span class="disAgreedVotesCount greenitem">0</span>
                     <span>) نائبا.</span>
                     <span>الممتنعون: (</span>
-                    <span class="NoVotesCount blueitem">0</span>
+                    <span class="NoVotesCount" style="color:black;">0</span>
+                    <span>) نائبا.</span>
+                    <span>الغائبون: (</span>
+                    <span class ="AbsenceVotesCount"  style="color:olive;">0</span>
+                    <span>) نائبا.</span>
+                     <span>المعتذرون: (</span>
+                    <span class ="ExcuseVotesCount"  style="color:maroon;">0</span>
                     <span>) نائبا.</span>
                 </div>
             </div>
@@ -129,9 +138,12 @@ $(document).ready(function () {
 
                     // TABLE RADIO BUTTONS
                     $(".table_att_voting input:radio", $overlay).live("change", function (e) {
+                        $('.nonExistVotesCount', $overlay).html($("input:radio:checked[value='0']").length);
                         $('.agreedVotesCount', $overlay).html($("input:radio:checked[value='1']").length);
                         $('.disAgreedVotesCount', $overlay).html($("input:radio:checked[value='2']").length);
                         $('.NoVotesCount', $overlay).html($("input:radio:checked[value='3']").length);
+                        $('.AbsenceVotesCount', $overlay).html($("input:radio:checked[value='4']").length);
+                        $('.ExcuseVotesCount', $overlay).html($("input:radio:checked[value='5']").length);
                     });
 
                     // add new vote
@@ -171,15 +183,21 @@ $(document).ready(function () {
                         var disAgreedVote_lst = [];
                         var NoVote_lst = [];
                         var NonExist_lst = [];
+                        var AbsenceVote_lst = [];
+                        var ExcuseVote_lst = [];
                         $('.table_att_voting input:radio:checked', $overlay).each(function () {
-                            if ($(this).val() == 1) {
+                            if ($(this).val() == 0) {
+                                NonExist_lst.push(this.name.replace("options_", ""));
+                            } else if ($(this).val() == 1) {
                                 agreedVote_lst.push(this.name.replace("options_", ""));
                             } else if ($(this).val() == 2) {
                                 disAgreedVote_lst.push(this.name.replace("options_", ""));
                             } else if ($(this).val() == 3) {
                                 NoVote_lst.push(this.name.replace("options_", ""));
-                            } else {
-                                NonExist_lst.push(this.name.replace("options_", ""));
+                            } else if ($(this).val() == 4) {
+                                AbsenceVote_lst.push(this.name.replace("options_", ""));
+                            } else if ($(this).val() == 5) {
+                                ExcuseVote_lst.push(this.name.replace("options_", ""));
                             }
                         });
 
@@ -195,10 +213,12 @@ $(document).ready(function () {
                                     funcname: 'SaveVoteMemVal',
                                     sid: $(".sessionID").val(),
                                     voteid: $ddl_votes.val(),
+                                    nonexist_mem: JSON.stringify(NonExist_lst),
                                     agreed_mem: JSON.stringify(agreedVote_lst),
                                     disagreed_mem: JSON.stringify(disAgreedVote_lst),
                                     novote_mem: JSON.stringify(NoVote_lst),
-                                    nonexist_mem: JSON.stringify(NonExist_lst)
+                                    absencevote_mem: JSON.stringify(AbsenceVote_lst),
+                                    excusevote_mem: JSON.stringify(ExcuseVote_lst)
                                 },
                                 dataType: 'json',
                                 complete: function () {
@@ -271,14 +291,14 @@ $(document).ready(function () {
                     var table1 = $('<table />').addClass("table_att_voting");
                     var grid_2 = grid_1.clone();
                     var table2 = table1.clone();
-                    var vote_types = ["غير موجود", "موافق", "غير موافق", "ممتنع"]
+                    var vote_types = ["غير موجود", "موافق", "غير موافق", "ممتنع", "غائب", "معتذر"]
                     var th_header_container = $('<div/ >');
-                    th_header_container.append($('<span class="blueitem" style="margin: 0 2px;display: inline-block;width: 70px;">').html(vote_types[0])).append($('<span class="greenitem" style="margin: 0 2px;display: inline-block;width: 50px;">').html(vote_types[1])).append($('<span class="reditem" style="margin: 0 2px;display: inline-block;width: 80px;color:red">').html(vote_types[2])).append($('<span class="blueitem" style="margin: 0 2px;display: inline-block">').html(vote_types[3]));
+                    th_header_container.append($('<span class="blueitem" style="margin: 0 2px;display: inline-block;width: 60px;font-size: 85%;">').html(vote_types[0])).append($('<span class="greenitem" style="margin: 0 2px;display: inline-block;width: 40px;font-size: 85%;">').html(vote_types[1])).append($('<span class="reditem" style="margin: 0 2px;display: inline-block;width: 60px;color:red;font-size: 85%;">').html(vote_types[2])).append($('<span class="blueitem" style="margin: 0 2px;display: inline-block;color:black;font-size: 85%;width: 45px;">').html(vote_types[3])).append($('<span class="blueitem" style="margin: 0 2px;display: inline-block;color:olive;font-size: 85%;width: 40px;">').html(vote_types[4])).append($('<span class="blueitem" style="margin: 0 2px;display: inline-block;color:maroon;font-size: 85%">').html(vote_types[5]));
 
                     var row = $('<tr>').attr({});
                     var th1 = $('<th style="width:5%">').attr({}).append($('<span>').html("ID").addClass("displaynone"));
-                    var th2 = $('<th style="width:45%">').attr({}).append($('<span>').html("اسم المتحدث"));
-                    var th3 = $('<th style="width:50%">').attr({}).html(th_header_container);
+                    var th2 = $('<th style="width:35%">').attr({}).append($('<span>').html("اسم المتحدث"));
+                    var th3 = $('<th style="width:60%">').attr({}).html(th_header_container);
                     row = row.append(th1).append(th2).append(th3)
                     table1.append(row.clone());
                     table2.append(row.clone());
@@ -288,8 +308,8 @@ $(document).ready(function () {
                     for (var i = 0; i < response.length; i++) {
                         row = $('<tr>').attr({});
                         td1 = $('<td style="width:5%">').attr({}).html($('<span>').html(response[i].AttendantID).addClass("displaynone"));
-                        td2 = $('<td style="width:45%">').attr({}).html($('<span>').html(response[i].AttendantName));
-                        td3 = $('<td style="width:50%">').attr({}).html(draw_radio_options_table(response[i].AttendantID.toString(), response[i].MemberVoteValue));
+                        td2 = $('<td style="width:40%">').attr({}).html($('<span>').html(response[i].AttendantName));
+                        td3 = $('<td style="width:55%">').attr({}).html(draw_radio_options_table(response[i].AttendantID.toString(), response[i].MemberVoteValue));
                         if (i < first_table_len) {
                             table1.append(row.append(td1).append(td2).append(td3));
                         }
@@ -299,9 +319,13 @@ $(document).ready(function () {
                     }
 
                     $('#AttendantCont', $overlay).html(grid_1.append(table1)).append(grid_2.append(table2));
+                    $('.nonExistVotesCount', $overlay).html($("input:radio:checked[value='0']").length);
                     $('.agreedVotesCount', $overlay).html($("input:radio:checked[value='1']").length);
                     $('.disAgreedVotesCount', $overlay).html($("input:radio:checked[value='2']").length);
                     $('.NoVotesCount', $overlay).html($("input:radio:checked[value='3']").length);
+                    $('.AbsenceVotesCount', $overlay).html($("input:radio:checked[value='4']").length);
+                    $('.ExcuseVotesCount', $overlay).html($("input:radio:checked[value='5']").length);
+
 
                     if ($('.ddl_votes', $overlay).val() == $(".voteId").val()) {
                         $(".chbVote", $overlay).attr("checked", true);
@@ -313,9 +337,12 @@ $(document).ready(function () {
                 }
             });
         } else {
+            $('.nonExistVotesCount', $overlay).html(0);
             $('.agreedVotesCount', $overlay).html(0);
             $('.disAgreedVotesCount', $overlay).html(0);
             $('.NoVotesCount', $overlay).html(0);
+            $('.AbsenceVotesCount', $overlay).html(0);
+            $('.ExcuseVotesCount', $overlay).html(0);
             $('#AttendantCont', $overlay).html("");
             $(".chbVote", $overlay).removeAttr("checked");
         }
@@ -323,7 +350,7 @@ $(document).ready(function () {
     }
 
     function draw_radio_options_table(attendantID, checkedOptionVal) {
-        var vote_types = ["غير موجود", "موافق", "غير موافق", "ممتنع"]
+        var vote_types = ["غير موجود", "موافق", "غير موافق", "ممتنع", "غائب", "معتذر"]
         var table_options = $('<table class="tbl_voting_options">');
         var tr_options = $('<tr>');
         for (var i = 0; i < vote_types.length; i++) {

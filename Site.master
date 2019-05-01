@@ -77,7 +77,7 @@
                     </li>
              
                    <li style="display:none">
-                    <a href="SignOut.aspx?signouttype=2" runat="server" id="hrefSignOut" class="hrefSignOut">خروج</a>
+                    <a href="logout.aspx" runat="server">خروج</a>
                     </li>
                 </ul>    	
             </div>

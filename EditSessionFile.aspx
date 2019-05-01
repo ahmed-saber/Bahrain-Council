@@ -74,14 +74,12 @@
                             class="btn inputBlock mb-5 finish btn_editsession" value="انهاء" />
                          <input name="" runat="server" id="addingNewPlannedSessionItem" type="button" class="btn inputBlock mb-5 addingNewPlannedSessionItem btn_editsession"
                             value="اضافة فهرس من جدول الاعمال" />
-                        <input name="" runat="server" id="btn_addNewAgendaItem" type="button"
-                            class="btn inputBlock mb-5 addingNewAgendaItem btn_editsession"
-                            value="اضافة /  تعديل فهرس" />
+                        <%--<input name="" runat="server" id="btn_addNewAgendaItem" type="button"
+                            class="btn inputBlock mb-5 addingNewAgendaItem btn_editsession displaynone"
+                            value="اضافة /  تعديل فهرس" />--%>
                         <input name="" runat="server" id="btnAddNewDecision" type="button"
-                            class="btn inputBlock mb-5 btnAddNewDecision btn_editsession" value="اضافة اقرار" />
-                        <input name="" runat="server" id="btnPresidentIntro" type="button"
-                            class="btn inputBlock mb-5 btnPresidentIntro btn_editsession"
-                            value="اضافة دباجة بدية المضبطة" />
+                            class="btn inputBlock mb-5 btnAddNewDecision btn_editsession" value="اضافة قرار" />
+                      
                         <input name="" runat="server" id="btnAddAttFullName" type="button"
                             class="btn inputBlock mb-5 btnAddAttFullName btn_editsession"
                             value="اضافة اسم العضو كاملا" />
@@ -139,7 +137,7 @@
                             <tr>
                                 <td>
                                     <div class="h2" style="margin-right: 20px; width: 80px;">
-                                        <span class="red">*</span> البند:
+                                        <span class="red">*</span> البند الرئيسى:
                                     </div>
                                 </td>
                                 <td>
@@ -149,12 +147,35 @@
                                 </td>
                                 <td>
                                     <a href="javascript:void(0)" class="removeAgendaItem h2"
-                                        style="margin-right: 30px;">حذف الفهرس</a>
+                                        style="margin-right: 30px;">حذف </a>
                                 </td>
                                 <td>
                                     <span class="agendaItemIsIndexed" style="display: none">
                                         <%= agendaItemIsIndexed%>
                                     </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                      <div id="divSubAgenda" name="divSubAgenda" runat="server" class="divSubAgenda mb-50 row">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="h2" style="margin-right: 20px; width: 80px;">
+                                        <span class="red">*</span> البند الفرعى:
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="agendaSubItemTxt" style="margin-right: 20px; width: 650px">
+                                        <%= agendaSubItemTxt%>
+                                    </p>
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0)" class="removeAgendSubaItem h2"
+                                        style="margin-right: 30px;">حذف </a>
+                                </td>
+                                <td>
+                               
                                 </td>
                             </tr>
                         </table>
@@ -250,11 +271,10 @@
                                         CssClass="inputBlock ddlOtherTitles">
                                         <asp:ListItem Text="-- أختر --" Value="0"></asp:ListItem>
                                         <asp:ListItem Text="المقرر" Value="2"></asp:ListItem>
-                                        <asp:ListItem Text="عن المقرر" Value="3"></asp:ListItem>
-                                        <asp:ListItem Text="-------------------" Value="4"></asp:ListItem>
-                                        <asp:ListItem Text="رئيس لجنة" Value="5"></asp:ListItem>
-                                        <asp:ListItem Text="عضو لجنة" Value="6"></asp:ListItem>
-                                        <asp:ListItem Text="-------------------" Value="7"></asp:ListItem>
+                                      
+                                        <asp:ListItem Text="رئيس اللجنة" Value="5"></asp:ListItem>
+                                        <asp:ListItem Text="نائب رئيس اللجنة" Value="6"></asp:ListItem>
+                    
                                         <asp:ListItem Text="أخرى" Value="8"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
@@ -293,13 +313,13 @@
                             <div class="row"></div>
                             <div class="row divDecision" id="divDecision" runat="server" name="divDecision">
                                 <div class="grid_2">
-                                    <h2 class="h2"><span class="red">*</span> الاقرار</h2>
+                                    <h2 class="h2"><span class="red">*</span> القرار</h2>
                                 </div>
                                 <div id="divDecisionTitle" runat="server" name="divDecisionTitle"
                                     class="divDecisionTitle grid_11">
                                 </div>
                                 <div class="grid_1">
-                                    <a href="javascript:void(0)" class="removeTopic">حذف</a>
+                                    <a href="javascript:void(0)" class="removeDecision">حذف</a>
                                 </div>
                             </div>
                         </div>

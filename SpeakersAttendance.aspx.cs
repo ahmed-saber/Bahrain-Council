@@ -31,7 +31,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                 ddlSessions.Items.Insert(0, liNew);
                 foreach (Session sessionObj in Sessions)
                 {
-                    liNew = new ListItem("( " + sessionObj.EParliamentID.ToString() + " )", sessionObj.ID.ToString());
+                    liNew = new ListItem("( " + SessionStartFacade.madbatahHeader1.Replace("%type%", sessionObj.Type).Replace("%subject%", sessionObj.Subject) + " " + SessionStartFacade.madbatahHeader2.Replace("%stageType%", sessionObj.StageType).Replace("%stage%", sessionObj.Stage) + " " + SessionStartFacade.madbatahHeader3.Replace("%season%", sessionObj.Season) + " )", sessionObj.ID.ToString());
                     if (SessionID != null)
                     {
                         if (sessionObj.ID == long.Parse(SessionID))

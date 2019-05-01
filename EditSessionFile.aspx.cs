@@ -98,6 +98,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
             return output;
         }
         public string agendaItemTxt = "";
+        public string agendaSubItemTxt = "";
         public string agendaItemIsIndexed = "0";
         private void BindData()
         {
@@ -261,9 +262,25 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                 else
                 {
                     agendaItemId.Value = lastContentItem.AgendaItem.ID.ToString();
-                    btn_addNewAgendaItem.Style.Add("display", "");
+                    //btn_addNewAgendaItem.Style.Add("display", "");
                 }
-
+                if (lastContentItem.AgendaSubItemID != null)
+                {
+                    // btn_addNewAgendaItem.Style.Add("display", "none");
+                    AgendaSubItem agendaSubitemObj = AgendaHelper.GetAgendaSubItemById((long)lastContentItem.AgendaSubItemID);
+                    agendaSubItemTxt = agendaSubitemObj.Name; 
+                    agendaSubItemId.Value = agendaSubitemObj.ID.ToString();
+                    divSubAgenda.Style.Add("display", "");
+                  /*  if (lastContentItem.AgendaSubItem.Name == "غير معرف")
+                        divSubAgenda.Style.Add("display", "none");
+                    else
+                        divSubAgenda.Style.Add("display", "");*/
+                }
+                else
+                {
+                    agendaSubItemId.Value = null;
+                    divSubAgenda.Style.Add("display", "none");
+                }
                 if (lastContentItem.AttachementID != null && lastContentItem.AttachementID != 0)
                 {
                     Attachement attachObj = AttachmentHelper.GetAttachementByID((int)lastContentItem.AttachementID);
@@ -377,6 +394,10 @@ namespace TayaIT.Enterprise.EMadbatah.Web
                 else
                     divAgenda.Style.Add("display", "");
 
+                agendaSubItemId.Value = "0";
+                divSubAgenda.Style.Add("display", "none");
+
+
                 attachId.Value = "0";
                 divAttach.Style.Add("display", "none");
                 spanAttachTitle.InnerHtml = "";
@@ -393,7 +414,7 @@ namespace TayaIT.Enterprise.EMadbatah.Web
 
             // bind labels
             eparId.Value = current_session.EParliamentID.ToString();
-            lblSessionName.Text = current_session.EParliamentID.ToString();
+            lblSessionName.Text = SessionStartFacade.madbatahHeader1.Replace("%type%", current_session.Type).Replace("%subject%", current_session.Subject) + " " + SessionStartFacade.madbatahHeader2.Replace("%stageType%", current_session.StageType).Replace("%stage%", current_session.Stage) + " " + SessionStartFacade.madbatahHeader3.Replace("%season%", current_session.Season); //current_session.EParliamentID.ToString();
             lblSessionDate.Text = current_session.Date.ToShortDateString();
             lblMP3FileName.Text = System.IO.Path.GetFileName(file.Name);
 

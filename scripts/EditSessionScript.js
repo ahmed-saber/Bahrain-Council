@@ -89,50 +89,50 @@ function editorEvents(ed) {
                     if (OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName == 'BR') {
                         OB.markAcPreviousSibling.remove();
                         return true;
-                    } else if (OB.target && OB.previousSibling) {
+            } else if (OB.target && OB.previousSibling) {
                         if (
                             (OB.target.nodeName == 'P' && OB.previousSibling.nodeName == 'SPAN') ||
                             (OB.target.nodeName == 'SPAN' && OB.previousSibling.nodeName == 'P')
                         ) {
                             if (!(OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName) || OB.markAcPreviousSibling.data == '') {
                                 return true;
-                            }
-                        } else if (OB.target.nodeName == 'BODY') {
+            }
+            } else if (OB.target.nodeName == 'BODY') {
                             if (
                                 (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
                                 OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
                             ) {
                                 if (OB.markAcNextSibling.nodeName == '#text' && (OB.markAcPreviousSibling.nodeName == 'P' || OB.markAcPreviousSibling.data == '')) {
                                     return true;
-                                }
-                            }
-                        }
-                    }
-                } else {
+            }
+            }
+            }
+            }
+            } else {
                     if (OB.target && OB.nextSibling) {
 
                         if (OB.markNextSibling && OB.markNextSibling.nodeName == 'BR') {
                             OB.markNextSibling.remove();
                             return true;
-                        } else if (
+            } else if (
                             (OB.target.nodeName == 'P' && OB.nextSibling.nodeName == 'SPAN') ||
                             (OB.target.nodeName == 'SPAN' && OB.nextSibling.nodeName == 'P')
                         ) {
                             if (!(OB.markAcNextSibling && OB.markAcNextSibling.nodeName) || OB.markAcNextSibling.data == '') {
                                 return true;
-                            }
-                        } else if (OB.target.nodeName == 'BODY') {
+            }
+            } else if (OB.target.nodeName == 'BODY') {
                             if (
                                 (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
                                 OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
                             ) {
                                 if (OB.markAcPreviousSibling.nodeName == '#text' && (OB.markAcNextSibling.nodeName == 'P' || OB.markAcNextSibling.data == '')) {
                                     return true;
-                                }
-                            }
-                        }
-                    }
-                }
+            }
+            }
+            }
+            }
+            }
             })) {
                 ed.undoManager.add();
                 e.preventDefault();
@@ -498,17 +498,24 @@ $(document).ready(function () {
             $('#MainContent_txtNewSpeaker').val('');
             $('#divNewSpeaker').hide();
             $('.agendaItemId').val(response.AgendaItemID);
+            $('.agendaSubItemId').val(response.AgendaSubItemID);
             $('.attachId').val(response.AttachID);
             $('.voteId').val(response.VoteID);
             $('.decisionId').val(response.DecisionID);
 
             $('.agendaItemTxt').html(response.AgendaItemText);
+            $('.agendaSubItemTxt').html(response.AgendaSubItemText);
             $('.agendaItemIsIndexed').val(response.AgendaItemIsIndexed);
 
             if (response.AgendaItemText == "غير معرف") {
                 $('.divAgenda').hide();
             } else {
                 $('.divAgenda').show();
+            }
+            if (response.AgendaSubItemID == "0") {
+                $('.divSubAgenda').hide();
+            } else {
+                $('.divSubAgenda').show();
             }
             if (response.AttachID == "0") {
                 $('.divAttach').hide();
@@ -1012,6 +1019,7 @@ $(document).ready(function () {
             // var AgendaItemID = $("#MainContent_ddlAgendaItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaItems > option:selected").attr("value") : "";
             //  var AgendaSubItemID = $("#MainContent_ddlAgendaSubItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaSubItems > option:selected").attr("value") : "";
             var AgendaItemID = $('.agendaItemId').val();
+            var AgendaSubItemID = $('.agendaSubItemId').val();
             var AttachID = $('.attachId').val();
             var VoteID = $('.voteId').val();
             var DecisionID = $('.decisionId').val();
@@ -1054,6 +1062,7 @@ $(document).ready(function () {
                     data: {
                         funcname: 'DoNext',
                         AgendaItemID: AgendaItemID,
+                        AgendaSubItemID: AgendaSubItemID,
                         AttachID: AttachID,
                         VoteID: VoteID,
                         decid: DecisionID,
@@ -1209,11 +1218,12 @@ $(document).ready(function () {
 
     $(".ddlOtherTitles").change(function () {
         var selectID = $(".ddlOtherTitles option:selected").attr("value");
-        if (selectID == "5" || selectID == "6") {
+        $(".ddlCommittee").hide();
+       /* if (selectID == "5" || selectID == "6") {
             $(".ddlCommittee").show().val(0);
         } else {
             $(".ddlCommittee").hide();
-        }
+        }*/
 
         if (selectID != "0" && selectID != "4" && selectID != "7" && selectID != "8") {
             $(".txtSpeakerOtherJob").val($(".ddlOtherTitles option:selected").text());
@@ -1229,17 +1239,18 @@ $(document).ready(function () {
 
     // previous button onclick
     $(".prev").click(function () {
-        //if ($("#editSessionFileForm").valid()) {
+      if ($("#editSessionFileForm").valid()) {
         $(".prev").attr("disabled", "disabled");
         var PrevContentID = $("#MainContent_CurrentItemID").val() != "0" ? $("#MainContent_CurrentItemID").val() : "";
         // var AgendaItemID = $("#MainContent_ddlAgendaItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaItems > option:selected").attr("value") : "";
         //var AgendaSubItemID = $("#MainContent_ddlAgendaSubItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaSubItems > option:selected").attr("value") : "";
         var AgendaItemID = $('.agendaItemId').val();
+        var AgendaSubItemID = $('.agendaSubItemId').val();
         var AttachID = $('.attachId').val();
         var DecisionID = $('.decisionId').val();
         var VoteID = $('.voteId').val();
         var SpeakerID = $("#MainContent_ddlSpeakers").val();
-        SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
+        //SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
         SpeakerID = SpeakerID == 1.5 ? -1 : SpeakerID;
         var SpeakerName = $("#MainContent_txtNewSpeaker").val();
         var IsSessionPresident = $(".isSessionPresident").is(':checked') ? "1" : "0";
@@ -1271,6 +1282,7 @@ $(document).ready(function () {
                 funcname: 'DoPrevious',
                 PrevContentID: PrevContentID,
                 AgendaItemID: AgendaItemID,
+                AgendaSubItemID: AgendaSubItemID,
                 AttachID: AttachID,
                 VoteID: VoteID,
                 decid: DecisionID,
@@ -1312,7 +1324,7 @@ $(document).ready(function () {
                 $(".prev").removeAttr("disabled");
             }
         });
-        //  }
+      }
     });
 
     // save and exit button onclick
@@ -1331,6 +1343,7 @@ $(document).ready(function () {
             //  var AgendaItemID = $("#MainContent_ddlAgendaItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaItems > option:selected").attr("value") : "";
             //  var AgendaSubItemID = $("#MainContent_ddlAgendaSubItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaSubItems > option:selected").attr("value") : "";
             var AgendaItemID = $('.agendaItemId').val();
+            var AgendaSubItemID = $('.agendaSubItemId').val();
             var AttachID = $('.attachId').val();
             var VoteID = $('.voteId').val();
             var DecisionID = $('.decisionId').val();
@@ -1361,6 +1374,7 @@ $(document).ready(function () {
                     data: {
                         funcname: 'SaveAndExit',
                         AgendaItemID: AgendaItemID,
+                        AgendaSubItemID: AgendaSubItemID,
                         AttachID: AttachID,
                         VoteID: VoteID,
                         decid: DecisionID,
@@ -1408,7 +1422,7 @@ $(document).ready(function () {
 
     // save only button onclick
     $(".btnSaveOnly").click(function () {
-        // if ($("#editSessionFileForm").valid()) {
+      if ($("#editSessionFileForm").valid()) {
         var mode = "1";
         var sessionContentItem;
         if ($(".hdPageMode").val().length == 0) {
@@ -1422,12 +1436,13 @@ $(document).ready(function () {
         //  var AgendaItemID = $("#MainContent_ddlAgendaItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaItems > option:selected").attr("value") : "";
         //  var AgendaSubItemID = $("#MainContent_ddlAgendaSubItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaSubItems > option:selected").attr("value") : "";
         var AgendaItemID = $('.agendaItemId').val();
+        var AgendaSubItemID = $('.agendaSubItemId').val();
         var AttachID = $('.attachId').val();
         var VoteID = $('.voteId').val();
         var DecisionID = $('.decisionId').val();
 
         var SpeakerID = $("#MainContent_ddlSpeakers").val();
-        SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
+       // SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
         SpeakerID = SpeakerID == 1.5 ? -1 : SpeakerID;
         // $("#MainContent_ddlSpeakers").val(SpeakerID);
         //$("#select2-MainContent_ddlSpeakers-container").html($('#MainContent_ddlSpeakers :selected').text());
@@ -1460,6 +1475,7 @@ $(document).ready(function () {
                 data: {
                     funcname: 'SaveOnly',
                     AgendaItemID: AgendaItemID,
+                    AgendaSubItemID: AgendaSubItemID,
                     AttachID: AttachID,
                     VoteID: VoteID,
                     decid: DecisionID,
@@ -1534,11 +1550,12 @@ $(document).ready(function () {
                 }
             });
         }
-        //}
+       }
     });
 
     // save only button onclick
     $(".btnPreview").click(function () {
+      if ($("#editSessionFileForm").valid()) {
         var mode = "1";
         var sessionContentItem;
         if ($(".hdPageMode").val().length == 0) {
@@ -1549,12 +1566,13 @@ $(document).ready(function () {
         }
         var sessionID = $(".sessionID").val();
         var AgendaItemID = $('.agendaItemId').val();
+        var AgendaSubItemID = $('.agendaSubItemId').val();
         var AttachID = $('.attachId').val();
         var VoteID = $('.voteId').val();
         var DecisionID = $('.decisionId').val();
 
         var SpeakerID = $("#MainContent_ddlSpeakers").val();
-        SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
+       // SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
         SpeakerID = SpeakerID == 1.5 ? -1 : SpeakerID;
 
         var SpeakerName = $("#MainContent_txtNewSpeaker").val();
@@ -1585,6 +1603,7 @@ $(document).ready(function () {
                 data: {
                     funcname: 'SaveOnly',
                     AgendaItemID: AgendaItemID,
+                    AgendaSubItemID: AgendaSubItemID,
                     AttachID: AttachID,
                     VoteID: VoteID,
                     decid: DecisionID,
@@ -1621,7 +1640,7 @@ $(document).ready(function () {
                 }
             });
         }
-        //}
+      }
     });
 
     // finish: save and exit button onclick
@@ -1638,6 +1657,7 @@ $(document).ready(function () {
             // var AgendaItemID = $("#MainContent_ddlAgendaItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaItems > option:selected").attr("value") : "";
             // var AgendaSubItemID = $("#MainContent_ddlAgendaSubItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaSubItems > option:selected").attr("value") : "";
             var AgendaItemID = $('.agendaItemId').val();
+            var AgendaSubItemID = $('.agendaSubItemId').val();
             var AttachID = $('.attachId').val();
             var VoteID = $('.voteId').val();
             var DecisionID = $('.decisionId').val();
@@ -1669,6 +1689,7 @@ $(document).ready(function () {
                     data: {
                         funcname: 'UpdateSessionFileStatusCompleted',
                         AgendaItemID: AgendaItemID,
+                        AgendaSubItemID: AgendaSubItemID,
                         AttachID: AttachID,
                         VoteID: VoteID,
                         decid: DecisionID,
@@ -2250,7 +2271,7 @@ $(document).ready(function () {
         $.fancybox(
             `<div id="approvalOverlay" class="lightbox-content-holder container_24">
                 <div class="lightbox-head">
-                    <h2><span class="red">*</span> الاقرار :</h2>
+                    <h2><span class="red">*</span> القرار :</h2>
                 </div>
                 <div class ="row">
                     <div class="grid_24">
@@ -2422,6 +2443,20 @@ $(document).ready(function () {
         $('.divAgenda').hide();
         $('.agendaItemTxt').html('');
         $('.agendaItemIsIndexed').html('0');
+        e.preventDefault();
+    });
+
+    $(".removeAgendSubaItem").click(function (e) {
+        $(".agendaSubItemId").val(0);
+        $('.divSubAgenda').hide();
+        $('.agendaSubItemTxt').html('');
+        e.preventDefault();
+    });
+
+    $(".removeDecision").click(function (e) {
+        $(".decisionId").val(0);
+        $('.divDecision').hide();
+        $('.divDecisionTitle').html('');
         e.preventDefault();
     });
 
