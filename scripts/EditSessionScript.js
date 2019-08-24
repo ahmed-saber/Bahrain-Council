@@ -73,10 +73,9 @@ function getCursorPosition(ed, callBack, mv) {
 }
 // function for key press
 function editorEvents(ed) {
+    var color = 'red';
     // on keydown
     ed.onKeyDown.add(function (ed, e) {
-        // undo
-        ed.undoManager.add();
         // to disable the merge of p tag with span tags
         var backSpaceKey = (e.keyCode == 8);
         var deleteKey = (e.keyCode == 46);
@@ -89,50 +88,49 @@ function editorEvents(ed) {
                     if (OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName == 'BR') {
                         OB.markAcPreviousSibling.remove();
                         return true;
-            } else if (OB.target && OB.previousSibling) {
+                    } else if (OB.target && OB.previousSibling) {
                         if (
                             (OB.target.nodeName == 'P' && OB.previousSibling.nodeName == 'SPAN') ||
                             (OB.target.nodeName == 'SPAN' && OB.previousSibling.nodeName == 'P')
                         ) {
                             if (!(OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName) || OB.markAcPreviousSibling.data == '') {
                                 return true;
-            }
-            } else if (OB.target.nodeName == 'BODY') {
+                            }
+                        } else if (OB.target.nodeName == 'BODY') {
                             if (
                                 (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
                                 OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
                             ) {
                                 if (OB.markAcNextSibling.nodeName == '#text' && (OB.markAcPreviousSibling.nodeName == 'P' || OB.markAcPreviousSibling.data == '')) {
                                     return true;
-            }
-            }
-            }
-            }
-            } else {
+                                }
+                            }
+                        }
+                    }
+                } else {
                     if (OB.target && OB.nextSibling) {
-
                         if (OB.markNextSibling && OB.markNextSibling.nodeName == 'BR') {
                             OB.markNextSibling.remove();
                             return true;
-            } else if (
+                        } else if (
                             (OB.target.nodeName == 'P' && OB.nextSibling.nodeName == 'SPAN') ||
                             (OB.target.nodeName == 'SPAN' && OB.nextSibling.nodeName == 'P')
                         ) {
                             if (!(OB.markAcNextSibling && OB.markAcNextSibling.nodeName) || OB.markAcNextSibling.data == '') {
                                 return true;
-            }
-            } else if (OB.target.nodeName == 'BODY') {
+                            }
+                        } else if (OB.target.nodeName == 'BODY') {
                             if (
                                 (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
                                 OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
                             ) {
                                 if (OB.markAcPreviousSibling.nodeName == '#text' && (OB.markAcNextSibling.nodeName == 'P' || OB.markAcNextSibling.data == '')) {
                                     return true;
-            }
-            }
-            }
-            }
-            }
+                                }
+                            }
+                        }
+                    }
+                }
             })) {
                 ed.undoManager.add();
                 e.preventDefault();
@@ -166,13 +164,13 @@ function editorEvents(ed) {
         });
     });
 
-    // click on text tinyMCE editor
+    // onKeyUp on text tinyMCE editor
     ed.onKeyUp.add(function (ed, e) {
         ed.undoManager.add();
+        var selectedTag = ed.selection.getEnd();
         // check if the backspace
         if (e.keyCode == 8 || e.keyCode == 46) {
             // to merge the spans together
-            var selectedTag = ed.selection.getEnd();
             if (selectedTag.nodeName == 'SPAN' && selectedTag.nextSibling && selectedTag.nextSibling.nodeName == 'SPAN') {
                 // VARS
                 var $selectedTag = $(selectedTag);
@@ -195,9 +193,35 @@ function editorEvents(ed) {
                     $this.replaceWith($this.text());
                 });
             }
-        };
-        ed.undoManager.add();
+        }
+        if (typeableChars(e)) {
+            getCursorPosition(ed, function (OB) {
+                if (
+                    OB.target.nodeName == 'P' || OB.target.nodeName == 'SPAN'
+                ) {
+                    OB.target.style.background = color;
+                } else if (OB.nextSibling.nodeName == 'SPAN' || OB.nextSibling.nodeName == 'P') {
+                    OB.nextSibling.style.background = color;
+                }
+            });
+        }
     });
+}
+
+function typeableChars(e) {
+    var keycode = e.keyCode;
+
+    var valid =
+        (keycode > 47 && keycode < 58) || // number keys
+        keycode == 32 || // spacebar
+        (e.keyCode == 8) || // backSpace
+        (e.keyCode == 46) || //delete
+        (keycode > 64 && keycode < 91) || // letter keys
+        (keycode > 95 && keycode < 112) || // numpad keys
+        (keycode > 185 && keycode < 193) || // ;=,-./` (in order)
+        (keycode > 218 && keycode < 223);   // [\]' (in order)
+
+    return valid;
 }
 
 function insertIntoSafeArea(ed, cloneHTML, convert) {
@@ -1219,11 +1243,11 @@ $(document).ready(function () {
     $(".ddlOtherTitles").change(function () {
         var selectID = $(".ddlOtherTitles option:selected").attr("value");
         $(".ddlCommittee").hide();
-       /* if (selectID == "5" || selectID == "6") {
-            $(".ddlCommittee").show().val(0);
-        } else {
-            $(".ddlCommittee").hide();
-        }*/
+        /* if (selectID == "5" || selectID == "6") {
+             $(".ddlCommittee").show().val(0);
+         } else {
+             $(".ddlCommittee").hide();
+         }*/
 
         if (selectID != "0" && selectID != "4" && selectID != "7" && selectID != "8") {
             $(".txtSpeakerOtherJob").val($(".ddlOtherTitles option:selected").text());
@@ -1239,92 +1263,92 @@ $(document).ready(function () {
 
     // previous button onclick
     $(".prev").click(function () {
-      if ($("#editSessionFileForm").valid()) {
-        $(".prev").attr("disabled", "disabled");
-        var PrevContentID = $("#MainContent_CurrentItemID").val() != "0" ? $("#MainContent_CurrentItemID").val() : "";
-        // var AgendaItemID = $("#MainContent_ddlAgendaItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaItems > option:selected").attr("value") : "";
-        //var AgendaSubItemID = $("#MainContent_ddlAgendaSubItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaSubItems > option:selected").attr("value") : "";
-        var AgendaItemID = $('.agendaItemId').val();
-        var AgendaSubItemID = $('.agendaSubItemId').val();
-        var AttachID = $('.attachId').val();
-        var DecisionID = $('.decisionId').val();
-        var VoteID = $('.voteId').val();
-        var SpeakerID = $("#MainContent_ddlSpeakers").val();
-        //SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
-        SpeakerID = SpeakerID == 1.5 ? -1 : SpeakerID;
-        var SpeakerName = $("#MainContent_txtNewSpeaker").val();
-        var IsSessionPresident = $(".isSessionPresident").is(':checked') ? "1" : "0";
-        var SameAsPrevSpeaker = $(".sameAsPrevSpeaker").is(':checked');
-        var MergeWithPrevTopic = $(".chkTopic").is(':checked');
-        var IsGroupSubAgendaItems = $(".chkGroupSubAgendaItems").is(':checked');
-        var Ignored = $(".chkIgnoredSegment").is(':checked');
-        var SpeakerJob = $("#MainContent_txtSpeakerOtherJob").val();
-        // editor value
-        var clone = $('<div>').append($("#MainContent_elm1").attr("value"))
-        clone.find('span').removeClass('highlight editable hover')
-        var Text = encodeURI(clone.html())
-        // comments value
-        var Comments = $("#MainContent_txtComments").val();
-        var Footer = $("#MainContent_txtFooter").val();
-        $(".addingNewAgendaItem").show();
+        if ($("#editSessionFileForm").valid()) {
+            $(".prev").attr("disabled", "disabled");
+            var PrevContentID = $("#MainContent_CurrentItemID").val() != "0" ? $("#MainContent_CurrentItemID").val() : "";
+            // var AgendaItemID = $("#MainContent_ddlAgendaItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaItems > option:selected").attr("value") : "";
+            //var AgendaSubItemID = $("#MainContent_ddlAgendaSubItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaSubItems > option:selected").attr("value") : "";
+            var AgendaItemID = $('.agendaItemId').val();
+            var AgendaSubItemID = $('.agendaSubItemId').val();
+            var AttachID = $('.attachId').val();
+            var DecisionID = $('.decisionId').val();
+            var VoteID = $('.voteId').val();
+            var SpeakerID = $("#MainContent_ddlSpeakers").val();
+            //SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
+            SpeakerID = SpeakerID == 1.5 ? -1 : SpeakerID;
+            var SpeakerName = $("#MainContent_txtNewSpeaker").val();
+            var IsSessionPresident = $(".isSessionPresident").is(':checked') ? "1" : "0";
+            var SameAsPrevSpeaker = $(".sameAsPrevSpeaker").is(':checked');
+            var MergeWithPrevTopic = $(".chkTopic").is(':checked');
+            var IsGroupSubAgendaItems = $(".chkGroupSubAgendaItems").is(':checked');
+            var Ignored = $(".chkIgnoredSegment").is(':checked');
+            var SpeakerJob = $("#MainContent_txtSpeakerOtherJob").val();
+            // editor value
+            var clone = $('<div>').append($("#MainContent_elm1").attr("value"))
+            clone.find('span').removeClass('highlight editable hover')
+            var Text = encodeURI(clone.html())
+            // comments value
+            var Comments = $("#MainContent_txtComments").val();
+            var Footer = $("#MainContent_txtFooter").val();
+            $(".addingNewAgendaItem").show();
 
-        // Show progress
-        var ed = getMainEditor();
-        ed.setProgressState(1);
-        // pause the player
-        $("#jquery_jplayer_1").jPlayer("pause");
-        //
-        jQuery.ajax({
-            cache: false,
-            type: 'post',
-            url: 'EditSessionHandler.ashx',
-            data: {
-                funcname: 'DoPrevious',
-                PrevContentID: PrevContentID,
-                AgendaItemID: AgendaItemID,
-                AgendaSubItemID: AgendaSubItemID,
-                AttachID: AttachID,
-                VoteID: VoteID,
-                decid: DecisionID,
-                // AgendaSubItemID: AgendaSubItemID,
-                SpeakerID: SpeakerID,
-                SpeakerName: SpeakerName,
-                SameAsPrevSpeaker: SameAsPrevSpeaker,
-                MergeWithPrevTopic: MergeWithPrevTopic,
-                IsSessionPresident: IsSessionPresident,
-                IsGroupSubAgendaItems: IsGroupSubAgendaItems,
-                Ignored: Ignored,
-                SpeakerJob: SpeakerJob,
-                Text: Text,
-                Comments: Comments,
-                Footer: Footer,
-                lastItem: 0
-            },
-            dataType: 'json',
-            success: function (response) {
-                prevAgendaItemIndex = response.prevAgendaItemID; // Item.AgendaItemID;
-                //prevAgendaSubItemIndex = response.prevAgendaSubItemID; // Item.AgendaSubItemID;
-                prevSpeakerIndex = response.prevAttendantID; // Item.AttendantID;
-                prevSpeakerTitle = response.prevAttendantJobTitle; // Item.CommentOnAttendant;
-                prevSpeakerImgUrl = response.AttendantAvatar;
-                prevSpeakerJob = response.AttendantJobTitle;
-                BindData(response, 2);
-                //prev clicked and no prev content item exist in db
-                if (response.prevAgendaItemID == null)
-                    $('.sameAsPrevSpeaker').attr('disabled', 'disabled');
-                nextAndprev({
-                    ed: ed,
-                    response: response
-                });
-            },
-            error: function () {
-                alert("لقد حدث خطأ");
+            // Show progress
+            var ed = getMainEditor();
+            ed.setProgressState(1);
+            // pause the player
+            $("#jquery_jplayer_1").jPlayer("pause");
+            //
+            jQuery.ajax({
+                cache: false,
+                type: 'post',
+                url: 'EditSessionHandler.ashx',
+                data: {
+                    funcname: 'DoPrevious',
+                    PrevContentID: PrevContentID,
+                    AgendaItemID: AgendaItemID,
+                    AgendaSubItemID: AgendaSubItemID,
+                    AttachID: AttachID,
+                    VoteID: VoteID,
+                    decid: DecisionID,
+                    // AgendaSubItemID: AgendaSubItemID,
+                    SpeakerID: SpeakerID,
+                    SpeakerName: SpeakerName,
+                    SameAsPrevSpeaker: SameAsPrevSpeaker,
+                    MergeWithPrevTopic: MergeWithPrevTopic,
+                    IsSessionPresident: IsSessionPresident,
+                    IsGroupSubAgendaItems: IsGroupSubAgendaItems,
+                    Ignored: Ignored,
+                    SpeakerJob: SpeakerJob,
+                    Text: Text,
+                    Comments: Comments,
+                    Footer: Footer,
+                    lastItem: 0
+                },
+                dataType: 'json',
+                success: function (response) {
+                    prevAgendaItemIndex = response.prevAgendaItemID; // Item.AgendaItemID;
+                    //prevAgendaSubItemIndex = response.prevAgendaSubItemID; // Item.AgendaSubItemID;
+                    prevSpeakerIndex = response.prevAttendantID; // Item.AttendantID;
+                    prevSpeakerTitle = response.prevAttendantJobTitle; // Item.CommentOnAttendant;
+                    prevSpeakerImgUrl = response.AttendantAvatar;
+                    prevSpeakerJob = response.AttendantJobTitle;
+                    BindData(response, 2);
+                    //prev clicked and no prev content item exist in db
+                    if (response.prevAgendaItemID == null)
+                        $('.sameAsPrevSpeaker').attr('disabled', 'disabled');
+                    nextAndprev({
+                        ed: ed,
+                        response: response
+                    });
+                },
+                error: function () {
+                    alert("لقد حدث خطأ");
 
-                ed.setProgressState(0);
-                $(".prev").removeAttr("disabled");
-            }
-        });
-      }
+                    ed.setProgressState(0);
+                    $(".prev").removeAttr("disabled");
+                }
+            });
+        }
     });
 
     // save and exit button onclick
@@ -1422,225 +1446,225 @@ $(document).ready(function () {
 
     // save only button onclick
     $(".btnSaveOnly").click(function () {
-      if ($("#editSessionFileForm").valid()) {
-        var mode = "1";
-        var sessionContentItem;
-        if ($(".hdPageMode").val().length == 0) {
-            mode = "1";
-        } else {
-            mode = $(".hdPageMode").val();
-            sessionContentItem = $(".hdSessionContentItemID").val();
-        }
-        var sessionID = $(".sessionID").val();
+        if ($("#editSessionFileForm").valid()) {
+            var mode = "1";
+            var sessionContentItem;
+            if ($(".hdPageMode").val().length == 0) {
+                mode = "1";
+            } else {
+                mode = $(".hdPageMode").val();
+                sessionContentItem = $(".hdSessionContentItemID").val();
+            }
+            var sessionID = $(".sessionID").val();
 
-        //  var AgendaItemID = $("#MainContent_ddlAgendaItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaItems > option:selected").attr("value") : "";
-        //  var AgendaSubItemID = $("#MainContent_ddlAgendaSubItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaSubItems > option:selected").attr("value") : "";
-        var AgendaItemID = $('.agendaItemId').val();
-        var AgendaSubItemID = $('.agendaSubItemId').val();
-        var AttachID = $('.attachId').val();
-        var VoteID = $('.voteId').val();
-        var DecisionID = $('.decisionId').val();
+            //  var AgendaItemID = $("#MainContent_ddlAgendaItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaItems > option:selected").attr("value") : "";
+            //  var AgendaSubItemID = $("#MainContent_ddlAgendaSubItems > option:selected").length > 0 ? $("#MainContent_ddlAgendaSubItems > option:selected").attr("value") : "";
+            var AgendaItemID = $('.agendaItemId').val();
+            var AgendaSubItemID = $('.agendaSubItemId').val();
+            var AttachID = $('.attachId').val();
+            var VoteID = $('.voteId').val();
+            var DecisionID = $('.decisionId').val();
 
-        var SpeakerID = $("#MainContent_ddlSpeakers").val();
-       // SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
-        SpeakerID = SpeakerID == 1.5 ? -1 : SpeakerID;
-        // $("#MainContent_ddlSpeakers").val(SpeakerID);
-        //$("#select2-MainContent_ddlSpeakers-container").html($('#MainContent_ddlSpeakers :selected').text());
+            var SpeakerID = $("#MainContent_ddlSpeakers").val();
+            // SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
+            SpeakerID = SpeakerID == 1.5 ? -1 : SpeakerID;
+            // $("#MainContent_ddlSpeakers").val(SpeakerID);
+            //$("#select2-MainContent_ddlSpeakers-container").html($('#MainContent_ddlSpeakers :selected').text());
 
-        var SpeakerName = $("#MainContent_txtNewSpeaker").val();
-        var SameAsPrevSpeaker = $(".sameAsPrevSpeaker").is(':checked');
-        var MergeWithPrevTopic = $(".chkTopic").is(':checked');
-        var IsSessionPresident = $(".isSessionPresident").is(':checked') ? "1" : "0";
-        var IsGroupSubAgendaItems = $(".chkGroupSubAgendaItems").is(':checked');
-        var Ignored = $(".chkIgnoredSegment").is(':checked');
-        var SpeakerJob = $("#MainContent_txtSpeakerOtherJob").val();
-        var Text = encodeURI($("#MainContent_elm1").attr("value"));
-        var Comments = $("#MainContent_txtComments").val();
-        var Footer = $("#MainContent_txtFooter").val();
+            var SpeakerName = $("#MainContent_txtNewSpeaker").val();
+            var SameAsPrevSpeaker = $(".sameAsPrevSpeaker").is(':checked');
+            var MergeWithPrevTopic = $(".chkTopic").is(':checked');
+            var IsSessionPresident = $(".isSessionPresident").is(':checked') ? "1" : "0";
+            var IsGroupSubAgendaItems = $(".chkGroupSubAgendaItems").is(':checked');
+            var Ignored = $(".chkIgnoredSegment").is(':checked');
+            var SpeakerJob = $("#MainContent_txtSpeakerOtherJob").val();
+            var Text = encodeURI($("#MainContent_elm1").attr("value"));
+            var Comments = $("#MainContent_txtComments").val();
+            var Footer = $("#MainContent_txtFooter").val();
 
-        //$("#MainContent_ddlSpeakers option:contains(" + "أخرى" + ")").val() != SpeakerID &&
-        if (SameAsPrevSpeaker == false && !$(".chkIgnoredSegment").is(':checked') && prevSpeakerIndex == SpeakerID) {
-            $(".sameAsPrevSpeaker").attr('checked', 'checked');
-            $("#MainContent_ddlAgendaItems,#MainContent_ddlAgendaSubItems,#MainContent_ddlSpeakers,#MainContent_txtSpeakerJob,#specialBranch").attr('disabled', 'disabled');
-            SameAsPrevSpeaker = true;
-        }
+            //$("#MainContent_ddlSpeakers option:contains(" + "أخرى" + ")").val() != SpeakerID &&
+            if (SameAsPrevSpeaker == false && !$(".chkIgnoredSegment").is(':checked') && prevSpeakerIndex == SpeakerID) {
+                $(".sameAsPrevSpeaker").attr('checked', 'checked');
+                $("#MainContent_ddlAgendaItems,#MainContent_ddlAgendaSubItems,#MainContent_ddlSpeakers,#MainContent_txtSpeakerJob,#specialBranch").attr('disabled', 'disabled');
+                SameAsPrevSpeaker = true;
+            }
 
-        var lastItem = $(".finish").is(":disabled") ? 0 : 1;
-        $(".btnSaveOnly").attr("disabled", "disabled");
-        if (AgendaItemID != 0) {
-            jQuery.ajax({
-                cache: false,
-                type: 'post',
-                url: 'EditSessionHandler.ashx',
-                data: {
-                    funcname: 'SaveOnly',
-                    AgendaItemID: AgendaItemID,
-                    AgendaSubItemID: AgendaSubItemID,
-                    AttachID: AttachID,
-                    VoteID: VoteID,
-                    decid: DecisionID,
-                    SpeakerID: SpeakerID,
-                    SpeakerName: SpeakerName,
-                    SameAsPrevSpeaker: SameAsPrevSpeaker,
-                    MergeWithPrevTopic: MergeWithPrevTopic,
-                    IsSessionPresident: IsSessionPresident,
-                    IsGroupSubAgendaItems: IsGroupSubAgendaItems,
-                    Ignored: Ignored,
-                    SpeakerJob: SpeakerJob,
-                    Text: Text,
-                    Comments: Comments,
-                    Footer: Footer,
-                    editmode: mode,
-                    scid: sessionContentItem,
-                    lastItem: lastItem
-                },
-                dataType: 'json',
-                success: function (response) {
-                    if (response.Message == "success") {
-                        $(".btnSaveOnly").removeAttr("disabled");
-                        var Speakers_SelectedID = $("#MainContent_ddlSpeakers").val();
-                        //alert(Speakers_SelectedID);
-                        if (Speakers_SelectedID == 1.5) {
-                            var if_added_b4 = $("#MainContent_ddlSpeakers > option[value=" + response.SpeakerID + "]");
-                            if (if_added_b4.length == 0) {
-                                //Add New Option
-                                $('#MainContent_ddlSpeakers').append($('<option>', {
-                                    value: response.SpeakerID,
-                                    text: $('.txtNewSpeaker').val()
-                                }));
+            var lastItem = $(".finish").is(":disabled") ? 0 : 1;
+            $(".btnSaveOnly").attr("disabled", "disabled");
+            if (AgendaItemID != 0) {
+                jQuery.ajax({
+                    cache: false,
+                    type: 'post',
+                    url: 'EditSessionHandler.ashx',
+                    data: {
+                        funcname: 'SaveOnly',
+                        AgendaItemID: AgendaItemID,
+                        AgendaSubItemID: AgendaSubItemID,
+                        AttachID: AttachID,
+                        VoteID: VoteID,
+                        decid: DecisionID,
+                        SpeakerID: SpeakerID,
+                        SpeakerName: SpeakerName,
+                        SameAsPrevSpeaker: SameAsPrevSpeaker,
+                        MergeWithPrevTopic: MergeWithPrevTopic,
+                        IsSessionPresident: IsSessionPresident,
+                        IsGroupSubAgendaItems: IsGroupSubAgendaItems,
+                        Ignored: Ignored,
+                        SpeakerJob: SpeakerJob,
+                        Text: Text,
+                        Comments: Comments,
+                        Footer: Footer,
+                        editmode: mode,
+                        scid: sessionContentItem,
+                        lastItem: lastItem
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.Message == "success") {
+                            $(".btnSaveOnly").removeAttr("disabled");
+                            var Speakers_SelectedID = $("#MainContent_ddlSpeakers").val();
+                            //alert(Speakers_SelectedID);
+                            if (Speakers_SelectedID == 1.5) {
+                                var if_added_b4 = $("#MainContent_ddlSpeakers > option[value=" + response.SpeakerID + "]");
+                                if (if_added_b4.length == 0) {
+                                    //Add New Option
+                                    $('#MainContent_ddlSpeakers').append($('<option>', {
+                                        value: response.SpeakerID,
+                                        text: $('.txtNewSpeaker').val()
+                                    }));
+                                }
+
+                                //  $("#MainContent_ddlSpeakers > option:selected").removeAttr("selected");
+                                // $("#MainContent_ddlSpeakers > option[value=" + response.SpeakerID + "]").attr('selected', 'selected');
+                                //  $("#select2-MainContent_ddlSpeakers-container").html($('.txtNewSpeaker').val());
+                            }
+                            $('#MainContent_txtNewSpeaker').val('');
+                            $('#divNewSpeaker').hide();
+
+                            try {
+                                if (response.Item.AttendantID != null && response.Item.AttendantID != 0) {
+                                    $("#MainContent_ddlSpeakers > option:selected").removeAttr("selected");
+                                    $("#MainContent_ddlSpeakers > option[value=" + response.Item.AttendantID + "]").attr('selected', 'selected');
+                                    $("#select2-MainContent_ddlSpeakers-container").html($('#MainContent_ddlSpeakers :selected').text());
+                                } else {
+                                    $("#MainContent_ddlSpeakers > option[value=" + Speakers_SelectedID + "]").attr('selected', 'selected');
+                                    $("#select2-MainContent_ddlSpeakers-container").html($('#MainContent_ddlSpeakers :selected').text());
+                                }
+                            } catch (err) { }
+                            if ($("#MainContent_ddlSpeakers > option:selected").text() == "غير محدد") {
+                                $('#MainContent_ddlOtherTitles').val(0).attr('disabled', 'disabled');
+                                $('#MainContent_ddlCommittee').val(0).hide().attr('disabled', 'disabled');
+                                $('#MainContent_txtSpeakerOtherJob').val("").attr('disabled', 'disabled');
                             }
 
-                            //  $("#MainContent_ddlSpeakers > option:selected").removeAttr("selected");
-                            // $("#MainContent_ddlSpeakers > option[value=" + response.SpeakerID + "]").attr('selected', 'selected');
-                            //  $("#select2-MainContent_ddlSpeakers-container").html($('.txtNewSpeaker').val());
+
+
+
+                            alert("تم الحفظ بنجاح");
+                        } else {
+                            alert("لقد حدث خطأ");
+                            $(".btnSaveOnly").removeAttr("disabled");
+                            allInputs.removeAttr('disabled');
                         }
-                        $('#MainContent_txtNewSpeaker').val('');
-                        $('#divNewSpeaker').hide();
-
-                        try {
-                            if (response.Item.AttendantID != null && response.Item.AttendantID != 0) {
-                                $("#MainContent_ddlSpeakers > option:selected").removeAttr("selected");
-                                $("#MainContent_ddlSpeakers > option[value=" + response.Item.AttendantID + "]").attr('selected', 'selected');
-                                $("#select2-MainContent_ddlSpeakers-container").html($('#MainContent_ddlSpeakers :selected').text());
-                            } else {
-                                $("#MainContent_ddlSpeakers > option[value=" + Speakers_SelectedID + "]").attr('selected', 'selected');
-                                $("#select2-MainContent_ddlSpeakers-container").html($('#MainContent_ddlSpeakers :selected').text());
-                            }
-                        } catch (err) { }
-                        if ($("#MainContent_ddlSpeakers > option:selected").text() == "غير محدد") {
-                            $('#MainContent_ddlOtherTitles').val(0).attr('disabled', 'disabled');
-                            $('#MainContent_ddlCommittee').val(0).hide().attr('disabled', 'disabled');
-                            $('#MainContent_txtSpeakerOtherJob').val("").attr('disabled', 'disabled');
-                        }
-
-
-
-
-                        alert("تم الحفظ بنجاح");
-                    } else {
+                    },
+                    error: function () {
                         alert("لقد حدث خطأ");
                         $(".btnSaveOnly").removeAttr("disabled");
                         allInputs.removeAttr('disabled');
                     }
-                },
-                error: function () {
-                    alert("لقد حدث خطأ");
-                    $(".btnSaveOnly").removeAttr("disabled");
-                    allInputs.removeAttr('disabled');
-                }
-            });
+                });
+            }
         }
-       }
     });
 
     // save only button onclick
     $(".btnPreview").click(function () {
-      if ($("#editSessionFileForm").valid()) {
-        var mode = "1";
-        var sessionContentItem;
-        if ($(".hdPageMode").val().length == 0) {
-            mode = "1";
-        } else {
-            mode = $(".hdPageMode").val();
-            sessionContentItem = $(".hdSessionContentItemID").val();
-        }
-        var sessionID = $(".sessionID").val();
-        var AgendaItemID = $('.agendaItemId').val();
-        var AgendaSubItemID = $('.agendaSubItemId').val();
-        var AttachID = $('.attachId').val();
-        var VoteID = $('.voteId').val();
-        var DecisionID = $('.decisionId').val();
+        if ($("#editSessionFileForm").valid()) {
+            var mode = "1";
+            var sessionContentItem;
+            if ($(".hdPageMode").val().length == 0) {
+                mode = "1";
+            } else {
+                mode = $(".hdPageMode").val();
+                sessionContentItem = $(".hdSessionContentItemID").val();
+            }
+            var sessionID = $(".sessionID").val();
+            var AgendaItemID = $('.agendaItemId').val();
+            var AgendaSubItemID = $('.agendaSubItemId').val();
+            var AttachID = $('.attachId').val();
+            var VoteID = $('.voteId').val();
+            var DecisionID = $('.decisionId').val();
 
-        var SpeakerID = $("#MainContent_ddlSpeakers").val();
-       // SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
-        SpeakerID = SpeakerID == 1.5 ? -1 : SpeakerID;
+            var SpeakerID = $("#MainContent_ddlSpeakers").val();
+            // SpeakerID = SpeakerID == 0 ? $("#MainContent_ddlSpeakers option:contains(" + "غير محدد" + ")").attr('selected', 'selected').val() : SpeakerID;
+            SpeakerID = SpeakerID == 1.5 ? -1 : SpeakerID;
 
-        var SpeakerName = $("#MainContent_txtNewSpeaker").val();
-        var SameAsPrevSpeaker = $(".sameAsPrevSpeaker").is(':checked');
-        var MergeWithPrevTopic = $(".chkTopic").is(':checked');
-        var IsSessionPresident = $(".isSessionPresident").is(':checked') ? "1" : "0";
-        var IsGroupSubAgendaItems = $(".chkGroupSubAgendaItems").is(':checked');
-        var Ignored = $(".chkIgnoredSegment").is(':checked');
-        var SpeakerJob = $("#MainContent_txtSpeakerOtherJob").val();
-        var Text = encodeURI($("#MainContent_elm1").attr("value"));
-        var Comments = $("#MainContent_txtComments").val();
-        var Footer = $("#MainContent_txtFooter").val();
+            var SpeakerName = $("#MainContent_txtNewSpeaker").val();
+            var SameAsPrevSpeaker = $(".sameAsPrevSpeaker").is(':checked');
+            var MergeWithPrevTopic = $(".chkTopic").is(':checked');
+            var IsSessionPresident = $(".isSessionPresident").is(':checked') ? "1" : "0";
+            var IsGroupSubAgendaItems = $(".chkGroupSubAgendaItems").is(':checked');
+            var Ignored = $(".chkIgnoredSegment").is(':checked');
+            var SpeakerJob = $("#MainContent_txtSpeakerOtherJob").val();
+            var Text = encodeURI($("#MainContent_elm1").attr("value"));
+            var Comments = $("#MainContent_txtComments").val();
+            var Footer = $("#MainContent_txtFooter").val();
 
-        //$("#MainContent_ddlSpeakers option:contains(" + "أخرى" + ")").val() != SpeakerID &&
-        if (SameAsPrevSpeaker == false && !$(".chkIgnoredSegment").is(':checked') && prevSpeakerIndex == SpeakerID) {
-            $(".sameAsPrevSpeaker").attr('checked', 'checked');
-            $("#MainContent_ddlAgendaItems,#MainContent_ddlAgendaSubItems,#MainContent_ddlSpeakers,#MainContent_txtSpeakerJob,#specialBranch").attr('disabled', 'disabled');
-            SameAsPrevSpeaker = true;
-        }
+            //$("#MainContent_ddlSpeakers option:contains(" + "أخرى" + ")").val() != SpeakerID &&
+            if (SameAsPrevSpeaker == false && !$(".chkIgnoredSegment").is(':checked') && prevSpeakerIndex == SpeakerID) {
+                $(".sameAsPrevSpeaker").attr('checked', 'checked');
+                $("#MainContent_ddlAgendaItems,#MainContent_ddlAgendaSubItems,#MainContent_ddlSpeakers,#MainContent_txtSpeakerJob,#specialBranch").attr('disabled', 'disabled');
+                SameAsPrevSpeaker = true;
+            }
 
-        var lastItem = $(".finish").is(":disabled") ? 0 : 1;
-        $(".btnPreview").attr("disabled", "disabled");
-        if (AgendaItemID != 0) {
-            jQuery.ajax({
-                cache: false,
-                type: 'post',
-                url: 'EditSessionHandler.ashx',
-                data: {
-                    funcname: 'SaveOnly',
-                    AgendaItemID: AgendaItemID,
-                    AgendaSubItemID: AgendaSubItemID,
-                    AttachID: AttachID,
-                    VoteID: VoteID,
-                    decid: DecisionID,
-                    SpeakerID: SpeakerID,
-                    SpeakerName: SpeakerName,
-                    SameAsPrevSpeaker: SameAsPrevSpeaker,
-                    MergeWithPrevTopic: MergeWithPrevTopic,
-                    IsSessionPresident: IsSessionPresident,
-                    IsGroupSubAgendaItems: IsGroupSubAgendaItems,
-                    Ignored: Ignored,
-                    SpeakerJob: SpeakerJob,
-                    Text: Text,
-                    Comments: Comments,
-                    Footer: Footer,
-                    editmode: mode,
-                    scid: sessionContentItem,
-                    lastItem: lastItem
-                },
-                dataType: 'json',
-                success: function (response) {
-                    if (response.Message == "success") {
-                        $(".btnPreview").removeAttr("disabled");
-                        window.location = "PreReview.aspx?sfid=" + getParameterByName("sfid") + "#scid_" + $(".hdSessionContentItemID").val();
-                    } else {
+            var lastItem = $(".finish").is(":disabled") ? 0 : 1;
+            $(".btnPreview").attr("disabled", "disabled");
+            if (AgendaItemID != 0) {
+                jQuery.ajax({
+                    cache: false,
+                    type: 'post',
+                    url: 'EditSessionHandler.ashx',
+                    data: {
+                        funcname: 'SaveOnly',
+                        AgendaItemID: AgendaItemID,
+                        AgendaSubItemID: AgendaSubItemID,
+                        AttachID: AttachID,
+                        VoteID: VoteID,
+                        decid: DecisionID,
+                        SpeakerID: SpeakerID,
+                        SpeakerName: SpeakerName,
+                        SameAsPrevSpeaker: SameAsPrevSpeaker,
+                        MergeWithPrevTopic: MergeWithPrevTopic,
+                        IsSessionPresident: IsSessionPresident,
+                        IsGroupSubAgendaItems: IsGroupSubAgendaItems,
+                        Ignored: Ignored,
+                        SpeakerJob: SpeakerJob,
+                        Text: Text,
+                        Comments: Comments,
+                        Footer: Footer,
+                        editmode: mode,
+                        scid: sessionContentItem,
+                        lastItem: lastItem
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.Message == "success") {
+                            $(".btnPreview").removeAttr("disabled");
+                            window.location = "PreReview.aspx?sfid=" + getParameterByName("sfid") + "#scid_" + $(".hdSessionContentItemID").val();
+                        } else {
+                            alert("لقد حدث خطأ");
+                            $(".btnSaveOnly").removeAttr("disabled");
+                            allInputs.removeAttr('disabled');
+                        }
+                    },
+                    error: function () {
                         alert("لقد حدث خطأ");
                         $(".btnSaveOnly").removeAttr("disabled");
                         allInputs.removeAttr('disabled');
                     }
-                },
-                error: function () {
-                    alert("لقد حدث خطأ");
-                    $(".btnSaveOnly").removeAttr("disabled");
-                    allInputs.removeAttr('disabled');
-                }
-            });
+                });
+            }
         }
-      }
     });
 
     // finish: save and exit button onclick

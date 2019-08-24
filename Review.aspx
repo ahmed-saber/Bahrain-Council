@@ -218,7 +218,7 @@
                         </div>
                         <div class="graybg relpos">
                             <!--popupdiv start-->
-                            <div class="reviewpopup_cont graybg" style="height: 400px ! important">
+                            <div class="reviewpopup_cont graybg reviewpopup_overlay">
                                 <div class="close_btn">
                                 </div>
                                 <div class="clear">
@@ -267,7 +267,7 @@
                                                 cleanup: true,
                                                 cleanup_on_startup: true,
                                                 width: '100%',
-                                                height: 200,
+                                                height: 330,
                                                 theme_advanced_source_editor_wrap: true,
                                                 // Theme options
                                                 theme_advanced_buttons1: "justifycenter,justifyright,|,undo,redo",
@@ -377,46 +377,16 @@
                                         } catch (e) {
                                             alert(e)
                                         }
-
-
                                     </script>
                                 </div>
                                 <div class="inputcont">
                                     <textarea id="note" placeholder="إضافة ملحوظة"></textarea>
                                 </div>
-                                <div class="poppbtnscont fl">
-                                    <div class="fl">
-                                        <%--<ul>
-                                            <li><a id="approve" href="#">
-                                                <img border="0" src="images/arrow_orange.gif">موافق عليه</a></li>
-                                            <li>
-                                                <img src="images/angle_line.gif"></li>
-                                            <li><a id="reject" href="#">
-                                                <img border="0" src="images/arrow_orange.gif">مرفوض</a></li>
-                                            <li>
-                                                <img src="images/angle_line.gif"></li>
-                                            <li><a id="save" href="#">
-                                                <img border="0" src="images/arrow_orange.gif">حفظ</a></li>
-                                        </ul>--%>
-                                        <div class="fl">
-                                            <input type="button" id="approve" class="def_btn" value="موافق عليه" />
-                                        </div>
-                                        <div class="fl">
-                                            <input type="button" id="reject" class="def_btn" value="مرفوض" />
-                                        </div>
-                                        <div class="fl">
-                                            <input type="button" id="save" class="def_btn" value="حفظ" />
-                                        </div>
-                                        <div class="clear">
-                                        </div>
-                                    </div>
-                                    <div class="fl">
-                                        <a id="lnkMoreEditOptions" href="#">[خيارات تعديل أكثر]</a>
-                                    </div>
-                                    <div class="clear">
-                                    </div>
-                                </div>
-                                <div class="clear">
+                                <div class="poppbtnscont-actions">
+                                    <input type="button" id="approve" value="موافق عليه" />
+                                    <input type="button" id="reject" value="مرفوض" />
+                                    <input type="button" id="save" value="حفظ" />
+                                    <a id="lnkMoreEditOptions" href="#">[خيارات تعديل أكثر]</a>
                                 </div>
                             </div>
                             <!--divcontent start-->
