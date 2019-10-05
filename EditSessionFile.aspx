@@ -79,7 +79,7 @@
                             value="اضافة /  تعديل فهرس" />--%>
                         <input name="" runat="server" id="btnAddNewDecision" type="button"
                             class="btn inputBlock mb-5 btnAddNewDecision btn_editsession" value="اضافة قرار" />
-                      
+                        <input type="button" class="btn inputBlock mb-5 btn_insertTextIn" value="إدراج بند الى النص" />
                         <input name="" runat="server" id="btnAddAttFullName" type="button"
                             class="btn inputBlock mb-5 btnAddAttFullName btn_editsession"
                             value="اضافة اسم العضو كاملا" />

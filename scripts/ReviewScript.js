@@ -1,4 +1,226 @@
-﻿function changeButtonsForSessionStatus() {
+﻿// clean html
+function cleanHTML(value) {
+    var emptyTagsBr = /<[\w]*(?=\s|>)(?!(?:[^>=]|=(['"])(?:(?!\1).)*\1)*?\sdata-mce-type=['"])[^>]*>\s*<\/[\w]*>/g;
+    //var emptyTagsBr = /<[\w]*(?=\s|>)(?!(?:[^>=]|=(['"])(?:(?!\1).)*\1)*?\sdata-mce-type=['"])[^>]*>\s*(<br\s*[\/]?>)?\s*<\/[\w]*>/g;
+    var cleaned = value.replace(emptyTagsBr, '');
+    return value;
+}
+
+function typeableChars(e) {
+    var keycode = e.keyCode;
+
+    var valid =
+        (keycode > 47 && keycode < 58) || // number keys
+        keycode == 32 || // spacebar
+        (e.keyCode == 8) || // backSpace
+        (e.keyCode == 46) || //delete
+        (keycode > 64 && keycode < 91) || // letter keys
+        (keycode > 95 && keycode < 112) || // numpad keys
+        (keycode > 185 && keycode < 193) || // ;=,-./` (in order)
+        (keycode > 218 && keycode < 223);   // [\]' (in order)
+
+    return valid;
+}
+// function for key press
+function editorEvents(ed) {
+    var color = 'red';
+    // on keydown
+    ed.onKeyDown.add(function (ed, e) {
+        // to disable the merge of p tag with span tags
+        var backSpaceKey = (e.keyCode == 8);
+        var deleteKey = (e.keyCode == 46);
+        // backspace
+        if (backSpaceKey || deleteKey) {
+            ed.undoManager.add();
+            // get where the cursor position
+            if (getCursorPosition(ed, function (OB) {
+                if (backSpaceKey) {
+                    if (OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName == 'BR') {
+                        OB.markAcPreviousSibling.remove();
+                        return true;
+                    } else if (OB.target && OB.previousSibling) {
+                        if (
+                            (OB.target.nodeName == 'P' && OB.previousSibling.nodeName == 'SPAN') ||
+                            (OB.target.nodeName == 'SPAN' && OB.previousSibling.nodeName == 'P')
+                        ) {
+                            if (!(OB.markAcPreviousSibling && OB.markAcPreviousSibling.nodeName) || OB.markAcPreviousSibling.data == '') {
+                                return true;
+                            }
+                        } else if (OB.target.nodeName == 'BODY') {
+                            if (
+                                (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
+                                OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
+                            ) {
+                                if (OB.markAcNextSibling.nodeName == '#text' && (OB.markAcPreviousSibling.nodeName == 'P' || OB.markAcPreviousSibling.data == '')) {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    if (OB.target && OB.nextSibling) {
+                        if (OB.markNextSibling && OB.markNextSibling.nodeName == 'BR') {
+                            OB.markNextSibling.remove();
+                            return true;
+                        } else if (
+                            (OB.target.nodeName == 'P' && OB.nextSibling.nodeName == 'SPAN') ||
+                            (OB.target.nodeName == 'SPAN' && OB.nextSibling.nodeName == 'P')
+                        ) {
+                            if (!(OB.markAcNextSibling && OB.markAcNextSibling.nodeName) || OB.markAcNextSibling.data == '') {
+                                return true;
+                            }
+                        } else if (OB.target.nodeName == 'BODY') {
+                            if (
+                                (OB.markNextSibling.nodeName == 'P' && OB.markPreviousSibling.nodeName == 'SPAN') ||
+                                OB.markNextSibling.nodeName == 'SPAN' && OB.markPreviousSibling.nodeName == 'P'
+                            ) {
+                                if (OB.markAcPreviousSibling.nodeName == '#text' && (OB.markAcNextSibling.nodeName == 'P' || OB.markAcNextSibling.data == '')) {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            })) {
+                ed.undoManager.add();
+                e.preventDefault();
+            }
+        }
+        // clean up
+        ed.execCommand('mceCleanup');
+    });
+
+    // check if the user writes on no where
+    ed.onKeyPress.add(function (ed, e) {
+        getCursorPosition(ed, function (OB) {
+            var currentNode = OB.target;
+            if (currentNode.nodeName == 'BODY' && e.charCode != 13) {
+                // select the nearest tag
+                var nextElement = OB.nextSibling;
+                if (nextElement) {
+                    var char = (e.keyCode == 32) ? '&nbsp;' : String.fromCharCode(e.keyCode);
+                    var mark = $('<i>' + char + '</i>');
+                    $(nextElement).prepend(mark);
+                    ed.selection.select(mark[0]);
+                    $(currentNode).find('[data-mce-type]').remove();
+                    ed.execCommand('mceCleanup');
+                    ed.selection.collapse(false);
+                    ed.undoManager.add();
+                    e.preventDefault();
+                }
+            }
+        });
+    });
+
+    // onKeyUp on text tinyMCE editor
+    ed.onKeyUp.add(function (ed, e) {
+        var selectedTag = ed.selection.getEnd();
+        // check if the backspace
+        if (e.keyCode == 8 || e.keyCode == 46) {
+            // to merge the spans together
+            if (selectedTag.nodeName == 'SPAN' && selectedTag.nextSibling && selectedTag.nextSibling.nodeName == 'SPAN') {
+                // VARS
+                var $selectedTag = $(selectedTag);
+                var nextSibling = selectedTag.nextSibling;
+                var $nextSibling = $(nextSibling);
+                // add the text to the selected tag
+                $selectedTag.append($nextSibling.text());
+                // remove the old on
+                $nextSibling.remove();
+                // clean up
+                ed.execCommand('mceCleanup');
+            };
+            // convert all the spans in the p tags
+            var $allChildSpans = $(ed.getBody()).find('p span');
+            if ($allChildSpans.length) {
+                $allChildSpans.each(function () {
+                    // VARS
+                    var $this = $(this);
+                    // REPLACE the spans with text only
+                    $this.replaceWith($this.text());
+                });
+            }
+        }
+        if (typeableChars(e)) {
+            getCursorPosition(ed, function (OB) {
+                if (
+                    OB.target.nodeName == 'P' || OB.target.nodeName == 'SPAN'
+                ) {
+                    OB.target.style.background = color;
+                } else if (OB.nextSibling.nodeName == 'SPAN' || OB.nextSibling.nodeName == 'P') {
+                    OB.nextSibling.style.background = color;
+                }
+            });
+        }
+        ed.undoManager.add();
+    });
+}
+
+// get where the cursor position
+function getCursorPosition(ed, callBack, mv) {
+    // vars
+    var objects = {};
+    // Stores a bookmark of the current selection
+    var bm = ed.selection.getBookmark();
+    // get the mark
+    objects.bm = bm;
+    objects.$mark = $(ed.getBody()).find('#' + bm.id + '_start');
+    objects.mark = objects.$mark[0];
+    if (mv) {
+        objects.markNextSibling = (objects.mark.nextElementSibling) ? $.clone(objects.mark.nextElementSibling) : objects.mark.nextElementSibling;
+        objects.markPreviousSibling = (objects.mark.previousElementSibling) ? $.clone(objects.mark.previousElementSibling) : objects.mark.previousElementSibling;
+        objects.markAcNextSibling = (objects.mark.nextSibling) ? $.clone(objects.mark.nextSibling) : objects.mark.nextSibling;
+        objects.markAcPreviousSibling = (objects.mark.previousSibling) ? $.clone(objects.mark.previousSibling) : objects.mark.previousSibling;
+    } else {
+        objects.markNextSibling = (objects.mark.nextElementSibling);
+        objects.markPreviousSibling = (objects.mark.previousElementSibling);
+        objects.markAcNextSibling = (objects.mark.nextSibling);
+        objects.markAcPreviousSibling = (objects.mark.previousSibling);
+    }
+    // define the real parent target
+    objects.$target = objects.$mark.parentsUntil('body').last();
+    // if there is parent
+    if (objects.$target[0]) {
+        objects.target = objects.$target[0];
+        // get next and prev sibling
+        objects.nextSibling = (objects.target.nextElementSibling) ? objects.target.nextElementSibling : false;
+        objects.previousSibling = (objects.target.previousElementSibling) ? objects.target.previousElementSibling : false;
+    } else {
+        objects.$target = $(ed.getBody());
+        objects.target = ed.getBody();
+        // get next and prev sibling
+        objects.nextSibling = (objects.markNextSibling) ? objects.markNextSibling : false;
+        objects.previousSibling = (objects.markPreviousSibling) ? objects.markPreviousSibling : false;
+    }
+    // get accurate next and prev sibling
+    objects.acNextSibling = (objects.target.nextSibling) ? $.clone(objects.target.nextSibling) : objects.nextSibling;
+    objects.acPreviousSibling = (objects.target.previousSibling) ? $.clone(objects.target.previousSibling) : objects.previousSibling;
+    // add more info
+    objects.collapsed = ed.selection.getRng().collapsed;
+    objects.startOffset = ed.selection.getRng().startOffset;
+    objects.endOffset = ed.selection.getRng().endOffset;
+    // move bookmark
+    if (mv) {
+        // Restore the selection bookmark
+        ed.selection.moveToBookmark(bm);
+    }
+    // check callback
+    if (callBack) {
+        // call the function
+        var callBackData = callBack(objects);
+        // move bookmark
+        if (!mv) {
+            // Restore the selection bookmark
+            ed.selection.moveToBookmark(bm);
+        }
+        // return
+        return callBackData;
+    }
+    // return
+    return objects;
+}
+
+function changeButtonsForSessionStatus() {
     var hdisCurrentUserFileRev = $('.isCurrentUserFileRev');
     if (hdisCurrentUserFileRev && hdisCurrentUserFileRev.val() != null) {
         if (hdisCurrentUserFileRev.val() == "true") {
@@ -243,6 +465,8 @@ $(document).ready(function () {
             //koko2
             $(".datacontainer textarea").val($(this).html());
             $("#note").val(note);
+
+            $(".datacontainer textarea").tinymce().undoManager.clear();
 
             $(".datacontainer textarea").elastic();
             $(".datacontainer textarea").trigger('update');

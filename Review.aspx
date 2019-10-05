@@ -254,12 +254,19 @@
                                         try {
                                             // tinymce
                                             $('textarea.tinymce').tinymce({
-                                                custom_undo_redo: false,
+                                                custom_undo_redo: true,
                                                 // Location of TinyMCE script
                                                 script_url: 'scripts/tiny_mce/tiny_mce.js',
                                                 // General options
                                                 theme: "advanced",
                                                 plugins: "pagebreak,directionality,noneditable",
+                                                paste_preprocess: function (pl, o) {
+                                                    getCursorPosition(this, function (OB) {
+                                                        // Content string containing the HTML from the clipboard
+                                                        var stripedContent = o.content.replace(/&nbsp;/g, ' ').replace(/(<([^>]+)>)/ig, '');
+                                                        o.content = '<span>' + stripedContent + '</span>';
+                                                    });
+                                                },
                                                 language: "ar",
                                                 // direction
                                                 directionality: "rtl",
@@ -283,7 +290,7 @@
                                                 // invalid elements
                                                 invalid_elements: "applet,body,button,caption,fieldset ,font,form,frame,frameset,head,,html,iframe,img,input,link,meta,object,option,param,script,select,style,table,tbody,tr,td,th,tbody,textarea,xmp",
                                                 // valid elements
-                                                valid_elements: "@[class],span[*],p[*],strong,em,blockquote,br",
+                                                valid_elements: "@[class],span[*],p[*],strong,em,blockquote,br,i[!id]",
                                                 force_br_newlines: true,
                                                 force_p_newlines: false,
                                                 forced_root_block: false,
@@ -308,29 +315,8 @@
                                                     ed.onMouseUp.add(function (ed, e) {
                                                         editableSpan(ed, e.target)
                                                     });
-                                                    // check if the user writes on no where
-                                                    ed.onKeyDown.add(function (ed, l) {
-                                                        var dom = ed.dom;
-                                                        var currentNode = ed.selection.getNode();
-                                                        var keycode = l.keyCode;
-                                                        var valid =
-                                                            (keycode > 47 && keycode < 58) || // number keys
-                                                            keycode == 32 || keycode == 13 || // spacebar & return key(s) (if you want to allow carriage returns)
-                                                            (keycode > 64 && keycode < 91) || // letter keys
-                                                            (keycode > 95 && keycode < 112) || // numpad keys
-                                                            (keycode > 185 && keycode < 193) || // ;=,-./` (in order)
-                                                            (keycode > 218 && keycode < 227);   // [\]' (in order)
-                                                        if (currentNode.nodeName == 'BODY' && valid) {
-                                                            // select the nearest tag
-                                                            var nextElement = ed.selection.getRng().startContainer.nextSibling;
-                                                            if (nextElement) {
-                                                                var mark = $('<i>.</i>');
-                                                                $(nextElement).prepend(mark);
-                                                                ed.selection.select(mark[0]);
-                                                                ed.execCommand('mceCleanup');
-                                                            }
-                                                        }
-                                                    });
+                                                    // on keys
+                                                    editorEvents(ed);
                                                     // oninit
                                                     ed.onInit.add(function (ed) {
                                                         var AudioPlayer = $("#jquery_jplayer_1");
@@ -373,7 +359,6 @@
                                                     });
                                                 }
                                             });
-
                                         } catch (e) {
                                             alert(e)
                                         }

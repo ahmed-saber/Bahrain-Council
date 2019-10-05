@@ -1,4 +1,9 @@
 ﻿// global
+function htmlClean(html) {
+    var parent = $('<div/>').html(html);
+    parent.find('span').removeClass('highlight editable hover');
+    return parent.html();
+}
 // clean html
 function cleanHTML(value) {
     var emptyTagsBr = /<[\w]*(?=\s|>)(?!(?:[^>=]|=(['"])(?:(?!\1).)*\1)*?\sdata-mce-type=['"])[^>]*>\s*<\/[\w]*>/g;
@@ -332,6 +337,10 @@ function uncheck() {
     x[0].checked = false
 }
 
+function getMainEditor() {
+    return $('#MainContent_elm1').tinymce();
+}
+
 var prevAgendaItemIndex;
 var prevAgendaSubItemIndex;
 var prevSpeakerIndex;
@@ -343,10 +352,6 @@ var prevSpeakerImgUrl;
 $(document).ready(function () {
     // GLOBAL
     var $request;
-
-    function getMainEditor() {
-        return $('#MainContent_elm1').tinymce();
-    }
 
     function getProcuderDropdownList(callback) {
         // ajax load the dropdown list
@@ -364,12 +369,6 @@ $(document).ready(function () {
 
     function htmlEncode(value) {
         return $('<div/>').text(value).html();
-    }
-
-    function htmlClean(html) {
-        var parent = $('<div/>').html(html);
-        parent.find('span').removeClass('highlight editable hover');
-        return parent.html();
     }
 
     function getParameterByName(name) {
@@ -2276,7 +2275,7 @@ $(document).ready(function () {
                                 // vars
                                 var $this = $(this);
                                 var addingParText = $this.text();
-                                var clone = $('<p/>').append(addingParText).attr('procedure-id', $this.data('value')).css({ "text-align": "right" });
+                                var clone = $('<p/>').append(addingParText).attr('procedure-id', $this.data('value')).css({ "text-align": "center" });
                                 var cloneHTML = clone[0].outerHTML;
                                 // get caret position
                                 insertIntoSafeArea($editor.tinymce(), cloneHTML);
