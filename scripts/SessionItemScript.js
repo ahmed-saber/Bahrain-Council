@@ -213,14 +213,6 @@ $(document).ready(function () {
                     var $editor = $('#lightboxEditor1', $overlay);
                     var $list1 = $('#list1', $overlay);
                     var $list2 = $('#list2', $overlay);
-                    var paramters = {
-                        AgendaItemID: $(".agendaItemId").val(),
-                        AgendaSubItemID: $(".agendaSubItemId").val(),
-                        agendaitemtext: '',
-                        agendasubitemtext: '',
-                        SessionItemID: '',
-                        SessionSubItemID: ''
-                    };
                     // clone defaultOptions
                     var defaultOptionsClone = Object.assign({}, defaultOptions);
                     defaultOptionsClone.height = 620;
@@ -257,7 +249,6 @@ $(document).ready(function () {
                                     // CHILDS
                                     $list2.html('');
                                     if ($this.hasClass('selected')) {
-                                        paramters.SessionItemID = list.ID;
                                         list.SPlannedSubItems.forEach(function (child) {
                                             var arrow = $('<div class="arrow" />').click(function (e) {
                                                 var clone = $('<p/>').append(child.Text).css({
@@ -273,26 +264,11 @@ $(document).ready(function () {
                                                 var $this = $(this);
                                                 $('li', $list2).not($this).removeClass('selected');
                                                 $this.toggleClass('selected');
-                                                if ($this.hasClass('selected')) {
-                                                    paramters.SessionSubItemID = child.ID;
-                                                }
                                             });
                                             $list2.append($subitem);
-                                            // SELECTION
-                                            if (child.ID == SessionSubItemID) {
-                                                $subitem.trigger('click');
-                                                $editor.tinymce().execCommand('mceInsertRawHTML', false, $('.agendaSubItemTxt').html());
-                                            }
                                         });
                                     }
                                 });
-                                // SELECTION
-                                if (SessionItemID || SessionSubItemID) {
-                                    if (list.ID == SessionItemID) {
-                                        $item.trigger('click');
-                                        $editor.tinymce().execCommand('mceInsertRawHTML', false, $('.agendaItemTxt').html());
-                                    }
-                                }
                                 $list1.append($item);
                             });
                         }
@@ -301,35 +277,10 @@ $(document).ready(function () {
                     });
                     // add procuder yes button
                     $(".approve-action", $overlay).click(function (e) {
-                        // SAVE THE TEXT
-                        paramters.agendaitemtext = $editor.val();
-                        paramters.agendasubitemtext = $editor.val();
-                        // SHOW LOADING
-                        $.fancybox.showActivity();
-                        // SAVE
-                        save_temp_item(paramters, function (response) {
-                            // VARS
-                            var values = response.split(',');
-                            // SET VALUES
-                            $('.sItemId').val(paramters.SessionItemID);
-                            $('.sSubItemId').val(paramters.SessionSubItemID);
-                            $(".agendaItemId").val($(".unAssignedAgendaId").val());
-                            $(".agendaSubItemId").val(values[1]);
-                            $('.agendaItemTxt').html(paramters.agendaitemtext);
-                            if (values[0] != 0) {
-                                $(".agendaItemId").val(values[0]);
-                                $(".divAgenda").show();
-                            }
-                            $('.agendaSubItemTxt').html(paramters.agendasubitemtext);
-                            if (values[1] != 0) {
-                                $(".divSubAgenda").show();
-                            }
-                            // close the popup
-                            $.fancybox.close();
-                            // HIDE LOADING
-                            $.fancybox.hideActivity();
-                        });
-
+                        // bind the new value
+                        mainEditor.execCommand('mceSetContent', false, $editor.val());
+                        // close the popup
+                        $.fancybox.close();
                         e.preventDefault();
                     });
                 }
